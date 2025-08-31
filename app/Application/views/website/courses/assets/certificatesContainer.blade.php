@@ -148,7 +148,7 @@ $enrolled = Courses::isEnrolledCourse($course->id); ?>
                         متاح تصديق الشهادات الأمريكية من (وزارة الخارجية الامريكية + كاتب العدل + حاكم الولاية الامريكية )و تصديقها ايضا من السفارات المختلفة برسوم اضافية و تكاليف الإرسال برسوم اضافية
                         ....
                         لتفاصيل اكتر اضغط على
-                            <a href="https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}" class="social_link" style="    position: relative; top: 5px;left: 2%;"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social_link" style="    position: relative; top: 5px;left: 2%;"><i class="fab fa-whatsapp"></i></a>
 
                     </div>
                 </div>

@@ -107,7 +107,7 @@
         @endif
     </main>
 
-    <a href="https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}" target="_blank" class="float-whatsapp contact_whatsapp">
+    <a href="#" target="_blank" class="float-whatsapp contact_whatsapp">
         <i class="fab fa-whatsapp my-float" aria-hidden="true"></i>
     </a>
 

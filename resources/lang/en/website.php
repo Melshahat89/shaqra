@@ -181,7 +181,7 @@
 		'Back to cart'=>'Back to cart',
 		'Please try again'=>'Please try again',
 		'Error Message'=>'Error Message:',
-		'Do you need help?'=>'Do you need help? <a href="https://contactus.igtsservice.com/">Click Here Contact Us</a>',
+		'Do you need help?'=>'Do you need help? <a href="#">Click Here Contact Us</a>',
 		'Thank you! Your request was successfully submitted!'=>'Thank you! Your request was successfully submitted!',
 		'Your order number is'=>'Your order number is',
 		'Your request information will be sent to your e-mail'=>'Your request information will be sent to your e-mail',
@@ -448,7 +448,7 @@
         "Important instructions" => "Important instructions",
         "Important instructions1" => "- Each user has only one attempt and takes the result of the first attempt, even if he decides to spin the wheel, the same result of the first attempt will appear.",
         "Important instructions2" => '- To benefit from the reward, you can take a picture of the wheel and contact customer service through this 
-                        <a href="https://contactus.igtsservice.com/" style="color: red" target="_blank">link </a>
+                        <a href="#" style="color: red" target="_blank">link </a>
                         with your email.',
         "Copy Link" => "Copy Code :",
         "Saudi Address" => "Riyadh - Intersection of King Abdullah Branch Road with Khalid Bin Al Waleed - next to the Public Prosecution",

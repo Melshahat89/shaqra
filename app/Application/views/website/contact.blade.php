@@ -81,10 +81,10 @@
                 {{ trans('website.Contact') }}
             </h1>
 
-                <div class="map">
-                    <!--    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.6021126828646!2d30.925649284550143!3d29.962121429411074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585658dadd554d%3A0xe605c53acb644f23!2z2KfZhNmF2KzZhdmI2LnYqSDYp9mE2K_ZiNmE2YrYqSDZhNiu2K_Zhdin2Kog2KfZhNiq2K_YsdmK2KggSUdUUw!5e0!3m2!1sar!2seg!4v1576696481993!5m2!1sar!2seg&language=en" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>-->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9776.78607576382!2d30.918811347941414!3d29.96172595964548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe605c53acb644f23!2sIGTS!5e0!3m2!1sen!2seg!4v1583146635380!5m2!1sen!2seg" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                </div>
+{{--                <div class="map">--}}
+{{--                    <!--    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.6021126828646!2d30.925649284550143!3d29.962121429411074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585658dadd554d%3A0xe605c53acb644f23!2z2KfZhNmF2KzZhdmI2LnYqSDYp9mE2K_ZiNmE2YrYqSDZhNiu2K_Zhdin2Kog2KfZhNiq2K_YsdmK2KggSUdUUw!5e0!3m2!1sar!2seg!4v1576696481993!5m2!1sar!2seg&language=en" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>-->--}}
+{{--                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9776.78607576382!2d30.918811347941414!3d29.96172595964548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe605c53acb644f23!2sIGTS!5e0!3m2!1sen!2seg!4v1583146635380!5m2!1sen!2seg" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>--}}
+{{--                </div>--}}
 
 
             <div class="row mt-40">
@@ -101,32 +101,32 @@
 
 
                                 <div class="accordion">
-                                    <label>
-                                        <input class="tab-toggle" type="radio" name="my_radio_group" checked/>
-                                        <span class="tab-title">
-                                            <img src="https://cdn.ipwhois.io/flags/ae.svg" style="height: 10px" class="img-rounded">
-                                            {{ trans('website.Head office') }}
-                                        </span>
-                                        <div class="tab">
-                                            <p>{{ trans('website.Address Text') }}</p>
+{{--                                    <label>--}}
+{{--                                        <input class="tab-toggle" type="radio" name="my_radio_group" checked/>--}}
+{{--                                        <span class="tab-title">--}}
+{{--                                            <img src="https://cdn.ipwhois.io/flags/ae.svg" style="height: 10px" class="img-rounded">--}}
+{{--                                            {{ trans('website.Head office') }}--}}
+{{--                                        </span>--}}
+{{--                                        <div class="tab">--}}
+{{--                                            <p>{{ trans('website.Address Text') }}</p>--}}
 {{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9776.78607576382!2d30.918811347941414!3d29.96172595964548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe605c53acb644f23!2sIGTS!5e0!3m2!1sen!2seg!4v1583146635380!5m2!1sen!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.505049482592!2d55.377721199999996!3d25.1186106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6f9f1fbfb607%3A0x4db0a2f5f59532d9!2sIFZA%20Business%20Park!5e0!3m2!1sen!2sus!4v1707910851498!5m2!1sen!2sus"  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                        </div>
-                                    </label>
+{{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.505049482592!2d55.377721199999996!3d25.1186106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6f9f1fbfb607%3A0x4db0a2f5f59532d9!2sIFZA%20Business%20Park!5e0!3m2!1sen!2sus!4v1707910851498!5m2!1sen!2sus"  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
+{{--                                        </div>--}}
+{{--                                    </label>--}}
 
-                                    <label>
-                                        <input class="tab-toggle" type="radio" name="my_radio_group" />
-                                        <span class="tab-title">
+{{--                                    <label>--}}
+{{--                                        <input class="tab-toggle" type="radio" name="my_radio_group" />--}}
+{{--                                        <span class="tab-title">--}}
 {{--                                            <i class="fa fa-map-marker"></i>  --}}
-                                            <img src="https://cdn.ipwhois.io/flags/eg.svg" style="height: 10px" class="img-rounded">
+{{--                                            <img src="https://cdn.ipwhois.io/flags/eg.svg" style="height: 10px" class="img-rounded">--}}
 
-                                            {{ trans('website.EgyptAddressTitle') }}</span>
-                                        <div class="tab">
-                                            <p>{{ trans('website.EgyptAddress Text') }}</p>
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9776.78607576382!2d30.918811347941414!3d29.96172595964548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe605c53acb644f23!2sIGTS!5e0!3m2!1sen!2seg!4v1583146635380!5m2!1sen!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{{--                                            {{ trans('website.EgyptAddressTitle') }}</span>--}}
+{{--                                        <div class="tab">--}}
+{{--                                            <p>{{ trans('website.EgyptAddress Text') }}</p>--}}
+{{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9776.78607576382!2d30.918811347941414!3d29.96172595964548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe605c53acb644f23!2sIGTS!5e0!3m2!1sen!2seg!4v1583146635380!5m2!1sen!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
 
-                                        </div>
-                                    </label>
+{{--                                        </div>--}}
+{{--                                    </label>--}}
 
 {{--                                    <label>--}}
 {{--                                        <input class="tab-toggle" type="radio" name="my_radio_group" />--}}
@@ -249,11 +249,11 @@
                             </div>
                         @endif
 
-                        @if(config('services.recaptcha.key'))
-                            <div class="g-recaptcha"
-                                data-sitekey="{{config('services.recaptcha.key')}}">
-                            </div>
-                        @endif
+{{--                        @if(config('services.recaptcha.key'))--}}
+{{--                            <div class="g-recaptcha"--}}
+{{--                                data-sitekey="{{config('services.recaptcha.key')}}">--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
                         @if ($errors->has('g-recaptcha-response'))
                             <div class="alert alert-danger">
                                 <span class='help-block'>

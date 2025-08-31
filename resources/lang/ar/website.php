@@ -181,7 +181,7 @@
 		'Back to cart'=>'الذهاب الى عربة التسوق',
 		'Please try again'=>'الرجاء المحاولة مرة أخرى',
 		'Error Message'=>'Error Message:',
-		'Do you need help?'=>'هل تحتاج الى مساعدة؟ <a href="https://contactus.igtsservice.com/"> اضغط هنا للتواصل معنا </a>',
+		'Do you need help?'=>'هل تحتاج الى مساعدة؟ <a href="#"> اضغط هنا للتواصل معنا </a>',
 		'Thank you! Your request was successfully submitted!'=>'شكراً لك , لقد تم تنفيذ الطلب بنجاح',
 		'Your order number is'=>'رقم طلبكم هو',
 		'Your request information will be sent to your e-mail'=>'سيتم ارسال بيانات طلبكم على بريدك الإلكتروني',
@@ -444,13 +444,13 @@
         "Special Training for Corporatesto cover market needs" => "تدريب خاص للشركات والمؤسسات لتغطية متطلبات السوق",
         "New Courses in different categories over the hour" => "دورات جديدة في كافة التخصصات على مدار الساعة",
         "Saudi Day" => "خصم 90% بمناسبة اليوم الوطني السعودي",
-        "Subscribe Now Saudi" => "اشترك الحين",
+        "Subscribe Now Saudi" => "اشترك الان",
         "Certified by" => "<span> معتمد </span> من",
         "Important instructions" => "تعليمات هامة",
         "Important instructions1" => " - كل مستخدم له محاولة واحدة فقط ويأخذ بنتيجة اول محاولة , حتى وان قرر لف العجلة فستظهر نفس نتيجة المحاولة الاولي .",
         "Important instructions2" => '
                     - للاستفادة من المكافأة يمكنك اخذ صورة من العجلة والتواصل مع خدمة العملاء من خلال هذا
-                        <a href="https://contactus.igtsservice.com/" style="color: red" target="_blank">الرابط</a>
+                        <a href="#" style="color: red" target="_blank">الرابط</a>
                         مع البريد الالكتروني الخاص بك .',
         "Copy Link" => "أنسخ الكود :",
         "Saudi Address" => "الرياض - تقاطع طريق الملك عبدالله الفرعي مع خالد بن الوليد - بجوار النيابة العامة",
@@ -492,7 +492,7 @@
         "COPYRIGHT © 2024 IGTS. ALL RIGHTS RESERVED."=> "حقوق الطبع والنشر © 2024 IGTS. جميع الحقوق محفوظة.",
         "Try diffrent ways to create your account"=> "جرب طرقًا مختلفة لإنشاء حسابك",
         "Try diffrent ways to signin"=> "جرب طرقًا مختلفة لتسجيل الدخول",
-        "Certified by" => "مزود محتوى عالمي معتمد من  ",
+        "Certified by" => "تحت رعاية  ",
         "Checkout" => "الدفع",
         "Secure Checkout" => "دفع الآمن",
         "Payment Method" => "وسائل الدفع",

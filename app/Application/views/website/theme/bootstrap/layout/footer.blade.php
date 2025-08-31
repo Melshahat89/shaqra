@@ -3,11 +3,11 @@
     <div class="wrapper">
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>
 
                 <div class="social">
-                    <img style="width: 250px" src="{{ asset('website') }}/images/front/nec.webp">
+                    <img style="width: 250px" src="{{ asset('website') }}/images/Scsi.webp">
                 </div>
             </div>
 
@@ -32,18 +32,18 @@
 {{--                    <li>--}}
 {{--                        <a href="{{url('careers')}}">{{trans('careers.careers')}}</a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{url('page/IntegrityPolicy')}}">{{trans('website.IntegrityPolicy')}}</a>
-                    </li>
-                    <li>
-                        <a href="{{url('verifycertificate')}}">{{trans('page.Certificate Verification')}}</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{url('page/IntegrityPolicy')}}">{{trans('website.IntegrityPolicy')}}</a>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a href="{{url('verifycertificate')}}">{{trans('page.Certificate Verification')}}</a>--}}
+{{--                    </li>--}}
 {{--                    <li>--}}
 {{--                        <a href="{{url('partners')}}">{{trans('page.Accreditations')}}</a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{url('business')}}">{{trans('home.IGTS For Business')}}</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{url('business')}}">{{trans('home.IGTS For Business')}}</a>--}}
+{{--                    </li>--}}
                     <li>
                         <a href="{{url('joinAsInstructor')}}">{{trans('home.become an instructor')}}</a>
                     </li>
@@ -53,22 +53,22 @@
                     <li>
                         <a href="{{url('testimonials')}}">{{trans('testimonials.testimonials')}}</a>
                     </li>
-                    <li>
-                        <a href="https://igtsservice.com/blog">{{trans('home.blog')}} </a>
-                    </li>
-                    <li>
-                        <a href="{{url('blog/category/news')}}">{{trans('website.news')}}</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="https://igtsservice.com/blog">{{trans('home.blog')}} </a>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a href="{{url('blog/category/news')}}">{{trans('website.news')}}</a>--}}
+{{--                    </li>--}}
                     <li>
                         <a href="{{url('partners')}}">{{trans('home.accreditations')}} </a>
                     </li>
-                    <li>
-                        <a href="{{url('instructors/All')}}">{{trans('home.instructors')}} </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{url('instructors/All')}}">{{trans('home.instructors')}} </a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h4 class="footer-title">{!! trans('website.Keep Connected')!!}</h4>
 
                 <span>{!! trans('website.Follow Us')!!}</span>
@@ -80,18 +80,18 @@
                     <a href="{{ getSetting('youtube') }}" target="_blank"><i class="youtube"></i></a>
                 </div>
             </div>
-            <div class="col-md-2">
-                <h4 class="footer-title"><a style="color: white" href="{{url('business')}}">{!! trans('website.Mobile App')!!}</a></h4>
+{{--            <div class="col-md-2">--}}
+{{--                <h4 class="footer-title"><a style="color: white" href="{{url('business')}}">{!! trans('website.Mobile App')!!}</a></h4>--}}
 
-                <p>
-                    {{--                        {{trans('website.Our mobile application is coming soon')}}--}}
-                </p>
-                <a href="https://play.google.com/store/apps/details?id=com.igts.igts" target="_blank">
-                    <img src="{{ asset('website') }}/images/front/play-store.svg"></a>
-                {{--                <img src="{{ asset('website') }}/images/front/app-store.svg">--}}
+{{--                <p>--}}
+{{--                    --}}{{--                        {{trans('website.Our mobile application is coming soon')}}--}}
+{{--                </p>--}}
+{{--                <a href="https://play.google.com/store/apps/details?id=com.igts.igts" target="_blank">--}}
+{{--                    <img src="{{ asset('website') }}/images/front/play-store.svg"></a>--}}
+{{--                --}}{{--                <img src="{{ asset('website') }}/images/front/app-store.svg">--}}
 
 
-            </div>
+{{--            </div>--}}
 
 
 
@@ -101,13 +101,19 @@
     <div class="copywrite">
         <div class="wrapper" style="text-align: -webkit-center;">
             <div class="paymentmethods">
-                <img src="{{ asset('website') }}/images/front/payments22.webp" style=" width: 350px;" loading="lazy" alt="Voda Cash">
+{{--                <img src="{{ asset('website') }}/images/front/payments22.webp" style=" width: 350px;" loading="lazy" alt="Voda Cash">--}}
+
+
 {{--                <img src="{{ asset('website') }}/images/front/visalogo.svg" width="100" height="40" loading="lazy" alt="Voda Cash">--}}
 {{--                <img src="{{ asset('website') }}/images/front/mastercardlogo.svg" width="100" height="40" loading="lazy" alt="mastercardlogo Cash">--}}
 {{--                <img src="{{ asset('website') }}/images/front/paypallogo.svg" width="100" height="40" loading="lazy" alt="paypallogo Cash">--}}
 {{--                <img src="{{ asset('website') }}/images/front/voda-cash.png" width="100" height="40" loading="lazy" alt="voda Cash">--}}
             </div>
-            <p>{{trans('business.Copyright')}} © {{currentYear()}} <span>IGTS</span>. {{trans('business.All rights reserved.')}}</p>
+
+            <p>{{trans('business.Copyright')}} © {{currentYear()}} <span>مهني</span>. {{trans('business.All rights reserved.')}}</p>
+            <p>
+                تم التطوير بواسطة <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">IGTS</a>
+            </p>
         </div>
     </div>
 </footer>

@@ -815,16 +815,16 @@
                                         @if($course->type != Courses::TYPE_WEBINAR)
 {{--                                                <span class="contact_whatsapp">--}}
 {{--                                                <h6>--}}
-{{--                                                    <a href="https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}">--}}
+{{--                                                    <a href="#">--}}
 {{--                                                        {{trans('home.contact us on whatsapp')}}--}}
 {{--                                                    </a>--}}
 {{--                                                </h6>--}}
 {{--                                            </span>--}}
-{{--                                                <a href="https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}" class="social_link contact_whatsapp" style="background-color: #4AC959;">--}}
+{{--                                                <a href="#" class="social_link contact_whatsapp" style="background-color: #4AC959;">--}}
 {{--                                                    <i class="fab fa-whatsapp"></i>--}}
 {{--                                                </a>--}}
 
-                                                <button class="whatsapp-coursepage" onclick="window.location.href='https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}'"
+                                                <button class="whatsapp-coursepage" onclick="window.location.href='#'"
                                                         style="background-color: #4AC959; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; display: flex; align-items: center;">
 
                                                     {{trans('home.contact us on whatsapp')}}
@@ -1392,7 +1392,7 @@
             }
         </style>
 
-        <a href="https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}" target="_blank" class="float-whatsapp contact_whatsapp">
+        <a href="#" target="_blank" class="float-whatsapp contact_whatsapp">
             <i class="fab fa-whatsapp my-float" aria-hidden="true"></i>
         </a>
 

@@ -15,8 +15,13 @@ use App\Application\Controllers\Website\UserController;
 use Illuminate\Support\Facades\Route;
 
 ########## HomeController ##########
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/home-courses', [HomeController::class, 'index']);
+
+
+Route::get('/' , 'HomeController@professionalcertificateshome');
+Route::get('/home' , 'HomeController@professionalcertificateshome');
+
 Route::get('joinAsInstructor', [HomeController::class, 'joinAsInstructor']);
 Route::get('/faq', [HomeController::class, 'faq']);
 Route::get('/ourteam', [HomeController::class, 'ourteam']);
@@ -153,7 +158,6 @@ Route::get('training-disclosure', 'HomeController@trainingDisclosure');
 Route::post('trainingdisclosure/item' , 'TrainingDisclosureController@store');
 
 
-Route::get('professional-certificates' , 'HomeController@professionalcertificateshome');
 
 
 

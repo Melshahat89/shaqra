@@ -6,15 +6,7 @@
         <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}" dir="{{ getDir() }}">
 <head>
-    <!-- Google Tag Manager -->
-    <script async>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-KGKDP6C');
-    </script>
-    <!-- End Google Tag Manager -->
+
 
     @if(Auth::check())
         <script defer>
@@ -27,9 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    <meta name="author" content="IGTS">
+    <meta name="author" content="mehany">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="facebook-domain-verification" content="z3li963csbvtfybzbb6kf3unwwj4v9" />
 
     <title> @yield('title') </title>
 
@@ -40,7 +31,7 @@
     @endif
 
     <!-- Bootstrap core CSS ARABIC -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/icon.svg">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('website') }}/css/bootstrap.min.css?v={{$VERSION_NUMBER}}" rel="stylesheet">
@@ -66,40 +57,6 @@
 
 
 
-    @if(request()->route()->getActionName() <> "App\Application\Controllers\Website\HomeController@index")
-
-
-    <!-- TikTok Pixel Code Start -->
-        <script async>
-        !function (w, d, t) {
-            w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-                var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-            ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-
-            ttq.load('CRGKRVBC77UD2MA17590');
-            ttq.page();
-        }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
-
-    <!-- Snap Pixel Code -->
-        <script async type='text/javascript'>
-        (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
-        {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-            a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-            r.src=n;var u=t.getElementsByTagName(s)[0];
-            u.parentNode.insertBefore(r,u);})(window,document,
-            'https://sc-static.net/scevent.min.js');
-
-        snaptr('init', 'befc9e4c-5986-4ab6-8d33-6b723026a277', {});
-
-        snaptr('track', 'PAGE_VIEW');
-    </script>
-    <!-- End Snap Pixel Code -->
-    @endif
-
-
     @stack('schema')
 
 
@@ -108,11 +65,11 @@
 @if(getDir() == 'rtl')
     <body class="text-right" id="p_wrapper">
     <div class="smart_bar">
-        <div class="alert alert-info alert-dismissible fade show" style="background-color: #20a0e1;border-color: #031138">
+        <div class=" fade show" >
             <div class="text_center ptsm pbsm">
-                <h5>
-                    <a style="color: #ffffff" target="_blank" href="https://t.me/InternationalGroupForTrainingSer">انضم الى مجتمع IGTS على التليجرام</a>
-                </h5>
+                <a class="navbar-brand m-0" href="/">
+                    <img src="{{ asset('website') }}/images/Scsi.webp" loading="lazy" alt="" width="200" height="75">
+                </a>
             </div>
         </div>
 {{--        <div class="alert alert-info alert-dismissible fade show" style="background-color: #212529;border-color: #031138">--}}
@@ -158,11 +115,6 @@
         </div>
         @endif
 
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGKDP6C"
-                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
 
 
 
@@ -180,12 +132,12 @@
 
             @if(! ( class_basename(Route::current()->controller) == 'PageController'))
                 <!-- <div class="se-pre-con"></div> -->
-                {{-- <div class="loading flexCenter">
+                 <div class="loading flexCenter">
                     <div class="loader-logo">
                         <div class="loader">Loading...</div>
                          <img src="{{ asset('website') }}/images/logonew.webp" alt="..." >
                     </div>
-                 </div>--}}
+                 </div>
             @endif
         @endif
 
@@ -198,7 +150,7 @@
         @include(layoutContent('website'))
 
 
-        <a href="https://contactus.igtsservice.com/?prevUrl={{ urlencode(url()->full()) }}" target="_blank" class="float">
+        <a href="#" target="_blank" class="float">
             <i class="whatsapp-homepage-icon fab fa-whatsapp my-float" aria-hidden="true"></i>
         </a>
 
@@ -315,9 +267,7 @@ jQuery.event.special.mousewheel = {
 @else
     <script type="text/javascript" src="{{ asset('website') }}/js/custom.owl.js?v={{$VERSION_NUMBER}}"></script>
 @endif
-<!--Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4880007.js"></script>
-<!--End of HubSpot Embed Code -->
+
 <script src="{{ asset('website') }}/js/custom.js?v={{$VERSION_NUMBER}}"></script>
 {{ Html::script('website/js/sweetalert.min.js') }}
 

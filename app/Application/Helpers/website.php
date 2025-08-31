@@ -186,6 +186,8 @@ function userCountryAPI($ip=null){
 
 function getCurrency(){
 
+    return 'SAR';
+
     $userIpAddress = getUserIpAddr();
 
     $wordCount = DB::table('ipcurrency')->count();
