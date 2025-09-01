@@ -7,13 +7,7 @@
 <head>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-KGKDP6C');</script>
-        <!-- End Google Tag Manager -->
+
     @if(Auth::check())
         <script>
             let event_id = "{{ Auth::user()->id }}";
@@ -33,7 +27,7 @@
         <link rel="canonical" href="{{ url()->current() }}">
     @endif
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/favicon-16x16.png">
-    <link rel="stylesheet" href="{{ asset('subscription-new/public') }}/style.css?v={{$VERSION_NUMBER}}" />
+    <link rel="stylesheet" href="{{ asset('public/subscription-new/public') }}/style.css?v={{$VERSION_NUMBER}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet"/>
@@ -45,15 +39,6 @@
 </head>
 <body class="h-full {{ getDir() }} istok-web-regular !bg-green">
 
-<!-- Google Tag Manager (noscript) -->
-{{--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC9GVX98"--}}
-{{--                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>--}}
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGKDP6C"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 @php
     $isWebView = false;
