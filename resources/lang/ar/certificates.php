@@ -2,7 +2,7 @@
 	return [
 		'certificates'=>'الشهادات',
 		'accreditations' => 'اعتمادات الدورة',
-		'description' => 'يحصل الدارس علي شهادة معتمدة من المجموعة الدولية لخدمات التدريب من دون مصاريف اضافيه',
+		'description' => 'يحصل الدارس علي شهادة معتمدة من منصة مهني من دون مصاريف اضافيه',
 		'to request exta accreditations' => 'لطلب اعتمادات اضافية يرجي اختيارها:',
 		'additional accreditations' => 'الشهادات والاعتمادات الاجنبية',
 		'certificate name' => 'الشهادة',

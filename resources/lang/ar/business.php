@@ -152,7 +152,7 @@ return [
     'Editing Services' => 'خدمات التحرير',
     'All the tasks associated with video production that come after shooting the raw video. During this phase, a range of profiles will pool our talents to complete video of tasks, editing, sound design, special effects, and animation.' => 'جميع المهام المرتبطة بإنتاج الفيديو التي تأتي بعد تصوير الفيديو الخام. خلال هذه المرحلة ، ستجمع مجموعة من الملفات الشخصية مواهبنا لإكمال فيديو للمهام والتحرير وتصميم الصوت والمؤثرات الخاصة والرسوم المتحركة',
     'Our Projects' => 'اعمالنا السابقة',
-    'IGTS' => 'المجموعة الدولية لخدمات التدريب IGTS',
+    'IGTS' => 'منصة مهني ',
     'MEDUO' => 'ميديو',
     'IHTIRAF' => 'احتراف',
     'Copyright' => 'حقوق النشر',
