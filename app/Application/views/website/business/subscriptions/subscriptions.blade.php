@@ -27,7 +27,7 @@
         <link rel="canonical" href="{{ url()->current() }}">
     @endif
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/favicon-16x16.png">
-    <link rel="stylesheet" href="{{ asset('public/subscription-new/public') }}/style.css?v={{$VERSION_NUMBER}}" />
+    <link rel="stylesheet" href="{{ asset('subscription-new/public') }}/style.css?v={{$VERSION_NUMBER}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet"/>
@@ -53,7 +53,7 @@
         <!-- Header Section -->
 <header class="flex items-center justify-between px-[30px] md:px-[90px] py-[32px] !bg-transparent">
     <a href="/" class="block relative z-[2]">
-        <img src="{{ asset('subscription-new/src') }}/images/logo-Ai.png" alt="igts" class=" md:h-[63px] h-[50px]"/>
+        <img src="{{ asset('website') }}/images/logonew.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
     </a>
 
     <div class="items-center hidden space-x-8 md:flex relative z-[2]">
@@ -228,9 +228,9 @@
         @endif
 
 
-        <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-green flex items-center justify-center border rounded-full border-green text-green" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">
-            {{trans('website.other lang')}}
-        </a>
+{{--        <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-green flex items-center justify-center border rounded-full border-green text-green" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">--}}
+{{--            {{trans('website.other lang')}}--}}
+{{--        </a>--}}
     </div>
 
     <!-- Mobile Menu -->
@@ -412,9 +412,9 @@
                     @endif
 
 
-                    <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-white flex items-center justify-center border rounded-full border-white text-white" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">
-                        {{trans('website.other lang')}}
-                    </a>
+{{--                    <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-white flex items-center justify-center border rounded-full border-white text-white" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">--}}
+{{--                        {{trans('website.other lang')}}--}}
+{{--                    </a>--}}
 
 
                 </div>
@@ -983,7 +983,7 @@
             {{trans('website.Certified by')}}
         </p>
 
-        <img src="{{ asset('subscription-new/src') }}/images/nec.png" alt="Payments" class="w-[265px] h-full "/>
+        <img src="{{ asset('website') }}/images/shaqra.svg" alt="Payments" class="w-[265px] h-full "/>
     </div>
 
     <!-- Social Media Icons -->
@@ -1023,11 +1023,11 @@
         <!-- Payment Methods -->
         <div class="flex justify-center gap-4 md:py-0 py-[20px]" style="max-height: 100px;">
             <div class="w-[300px]">
-                <img
-                        src="{{ asset('subscription-new/src') }}/images/payments.png"
-                        alt="Payments"
-                        class="w-full h-full"
-                />
+{{--                <img--}}
+{{--                        src="{{ asset('subscription-new/src') }}/images/payments.png"--}}
+{{--                        alt="Payments"--}}
+{{--                        class="w-full h-full"--}}
+{{--                />--}}
             </div>
         </div>
         <!-- Footer Bottom Links -->
