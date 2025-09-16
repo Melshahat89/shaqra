@@ -35,18 +35,18 @@
 {{--                    <li>--}}
 {{--                        <a href="{{url('page/IntegrityPolicy')}}">{{trans('website.IntegrityPolicy')}}</a>--}}
 {{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="{{url('verifycertificate')}}">{{trans('page.Certificate Verification')}}</a>--}}
-{{--                    </li>--}}
+                    <li>
+                        <a href="{{url('verifycertificate')}}">{{trans('page.Certificate Verification')}}</a>
+                    </li>
 {{--                    <li>--}}
 {{--                        <a href="{{url('partners')}}">{{trans('page.Accreditations')}}</a>--}}
 {{--                    </li>--}}
 {{--                    <li>--}}
 {{--                        <a href="{{url('business')}}">{{trans('home.IGTS For Business')}}</a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{url('joinAsInstructor')}}">{{trans('home.become an instructor')}}</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{url('joinAsInstructor')}}">{{trans('home.become an instructor')}}</a>--}}
+{{--                    </li>--}}
 {{--                    <li>--}}
 {{--                        <a href="{{url('consultants/category')}}">{{trans('consultation.consultation')}}</a>--}}
 {{--                    </li>--}}
@@ -110,9 +110,9 @@
 {{--                <img src="{{ asset('website') }}/images/front/voda-cash.png" width="100" height="40" loading="lazy" alt="voda Cash">--}}
             </div>
 
-            <p>{{trans('business.Copyright')}} © {{currentYear()}} <span>مهني</span>. {{trans('business.All rights reserved.')}}</p>
+{{--            <p>{{trans('business.Copyright')}} © {{currentYear()}} <span>مهني</span>. {{trans('business.All rights reserved.')}}</p>--}}
             <p>
-                تم التطوير بواسطة <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">IGTS</a>
+                 <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered by iGTS</a>
             </p>
         </div>
     </div>

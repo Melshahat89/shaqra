@@ -9,5 +9,5 @@
 		'show'=>'عرض',
 		'delete'=>'حذف',
 		'What Our Students Are Saying' => 'ماذا يقول طلابنا',
-		'Check out these reviews from IGTS\'s students' => 'شاهد اراء عملاء IGTS',
+		'Check out these reviews from IGTS\'s students' => 'شاهد اراء عملاء مهني',
 	];

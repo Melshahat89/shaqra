@@ -68,7 +68,7 @@
         <div class=" fade show" >
             <div class="text_center ptsm pbsm">
                 <a class="navbar-brand m-0" href="/">
-                    <img src="{{ asset('website') }}/images/Scsi.webp" loading="lazy" alt="" width="200" height="75">
+                    <img src="{{ asset('website') }}/images/logonew.webp" loading="lazy" alt="" width="150" height="75">
                 </a>
             </div>
         </div>
