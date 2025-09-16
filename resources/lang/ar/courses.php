@@ -154,7 +154,7 @@
 		'ratings'=>'تقييم',
 		'about instructor'=>'معلومات المُحاضر',
 		'about certificate'=>'تفاصيل البرنامج',
-		'learning benefits'=>'مزايا الدراسة في IGTS',
+		'learning benefits'=>'مزايا التدريب فى منصة مهني',
 		'hide lectures'=>'اخفاء المحاضرات',
 		'show lectures'=>'اظهار المحاضرات',
 		'hide files'=>'اخفاء الملفات',

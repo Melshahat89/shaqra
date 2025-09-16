@@ -95,7 +95,7 @@
                                 <div class="card">
                                     <div class="card_header">
                                         <button data-toggle="collapse" data-target="#learning-adv" aria-expanded="true" aria-controls="coll_1" class="d-flex justify-content-between" style="background-color: #244092; color: white;">
-                                            <span class="card_header_title">مزايا الدراسة في IGTS</span>
+                                            <span class="card_header_title">مزايا التدريب فى منصة مهني</span>
                                             <i class="fa mr-10 fa-plus" aria-hidden="true" style="place-self: center;"></i>
                                         </button>
                                     </div>
