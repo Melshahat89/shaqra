@@ -3,7 +3,7 @@
     <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
             <a class="navbar-brand m-0" href="/">
-                <img src="{{ asset('website') }}/images/Scsi.webp" loading="lazy" alt="" width="150" height="75">
+                <img src="{{ asset('website') }}/images/logonew.webp" loading="lazy" alt="" width="150" height="75">
             </a>
             <a href="#" data-toggle="modal" data-target="#searchmodal"><i class="fas fa-search d-none" id="header-search-icon"></i></a>
 
@@ -159,7 +159,7 @@
                     {{-- اللوجو --}}
                     <div class="logo-container">
                         <a class="navbar-brand m-0" href="/">
-                            <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="100" height="50">
+                            <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">
                         </a>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                     <button type="button"  data-dismiss="modal" data-remote="/register" data-toggle="modal" data-target="#registerModal" class="button button_primary text_capitalize regButton m-1">{{trans('home.signup')}}</button>
                     <!--onclick="return gtag_report_signup_conversion(false)"-->
                     <a class="navbar-brand m-0" href="/">
-                        <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="100" height="50">
+                        <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">
                     </a>
                 </div>
             @endif

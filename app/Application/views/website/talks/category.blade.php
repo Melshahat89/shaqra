@@ -244,27 +244,27 @@
                             <a class="nav-link " onclick="redirectCourse()" href="#" > {{ trans('website.Courses') }} </a>
                         </li>
 
-                        @if(count($Bundles) > 0)
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="redirectBundles()"> {{ trans('website.Bundles') }}</a>
-                        </li>
-                        @endif
+{{--                        @if(count($Bundles) > 0)--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#" onclick="redirectBundles()"> {{ trans('website.Bundles') }}</a>--}}
+{{--                        </li>--}}
+{{--                        @endif--}}
 
-                        @if(count($Events) > 0)
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="redirectEvents()"> {{ trans('website.events') }}</a>
-                        </li>
-                        @endif
+{{--                        @if(count($Events) > 0)--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#" onclick="redirectEvents()"> {{ trans('website.events') }}</a>--}}
+{{--                        </li>--}}
+{{--                        @endif--}}
 
-                        <li class="nav-item">
-                            <a class="nav-link active"  href="#"> {{ trans('website.Free Talks') }}</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link active"  href="#"> {{ trans('website.Free Talks') }}</a>--}}
+{{--                        </li>--}}
 
-                        @if(count($Masters) > 0)
-                        <li class="nav-item">
-                            <a class="nav-link " href="#"> {{ trans('website.Masters') }}</a>
-                        </li>
-                        @endif
+{{--                        @if(count($Masters) > 0)--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link " href="#"> {{ trans('website.Masters') }}</a>--}}
+{{--                        </li>--}}
+{{--                        @endif--}}
                     </ul>
 
                 </div>

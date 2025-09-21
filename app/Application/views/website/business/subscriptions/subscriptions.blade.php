@@ -1018,7 +1018,7 @@
         <!-- Copyright Notice -->
         <p class="md:text-[16px] text-[12px] text-black">
 {{--            {{trans('website.COPYRIGHT © 2024 IGTS. ALL RIGHTS RESERVED.')}}--}}
-            <a href="https://www.igtsservice.com" target="_blank">Powered by iGTS</a>
+            <a href="https://www.igtsservice.com" target="_blank">Powered and Content Developed by iGTS</a>
         </p>
 
         <!-- Payment Methods -->
@@ -1316,7 +1316,7 @@
                     <div>
                         <p class="text-babydark text-[14px]">
                             {{trans('account.By completing your registeration, you agree to IGTS')}}
-                            <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered by iGTS</a>
+                            <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered and Content Developed by iGTS</a>
                             <a class="text-green" href="{{url('/page/termsOfUse')}}">
                                 {{trans('account.Terms and Conditions')}}
                             </a>

@@ -3,7 +3,7 @@ use App\Application\Model\Courses;
 $webinarDate = new DateTime($data->start_date);
 
 
-$currentDate = new DateTime("now", new DateTimeZone('Egypt'));
+$currentDate = new DateTime("now", new DateTimeZone('Africa/Cairo'));
 $currentDate = $currentDate->format('Y-m-d h:i a');
 
 $webinarDate = new DateTime($data->start_date);

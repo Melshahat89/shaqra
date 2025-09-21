@@ -716,7 +716,7 @@ function sliders(){
 
 function getEventStatus($data){
 
-    $currentDate = new DateTime("now", new DateTimeZone('Egypt'));
+    $currentDate = new DateTime("now", new DateTimeZone('Africa/Cairo'));
     $currentDate = $currentDate->format('Y-m-d H:i:s');
 
     //$startDate = new DateTime($data->start_date);

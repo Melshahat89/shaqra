@@ -65,13 +65,13 @@
 @if(getDir() == 'rtl')
     <body class="text-right" id="p_wrapper">
     <div class="smart_bar">
-        <div class=" fade show" >
-            <div class="text_center ptsm pbsm">
-                <a class="navbar-brand m-0" href="/">
-                    <img src="{{ asset('website') }}/images/logonew.webp" loading="lazy" alt="" width="150" height="75">
-                </a>
-            </div>
-        </div>
+{{--        <div class=" fade show" >--}}
+{{--            <div class="text_center ptsm pbsm">--}}
+{{--                <a class="navbar-brand m-0" href="/">--}}
+{{--                    <img src="{{ asset('website') }}/images/logonew.webp" loading="lazy" alt="" width="150" height="75">--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 {{--        <div class="alert alert-info alert-dismissible fade show" style="background-color: #212529;border-color: #031138">--}}
 {{--            <div class="text_center ptsm pbsm">--}}
 {{--                <h5>--}}

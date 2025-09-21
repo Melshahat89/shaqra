@@ -1,7 +1,8 @@
 <?php
  namespace App\Application\Model;
  use Carbon\CarbonInterval;
-use Illuminate\Database\Eloquent\Model;
+ use Illuminate\Database\Eloquent\Builder;
+ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
@@ -30,6 +31,15 @@ use Illuminate\Support\Facades\View;
     const TYPE_PROFESSIONAL_CERTIFICATES = 6;
     const FULL_TIME_ACCESS = 1;
     const NOT_FULL_TIME_ACCESS = 0;
+
+
+      protected static function booted()
+      {
+          static::addGlobalScope('typeTwoOnly', function (Builder $builder) {
+              $builder->whereIn('type', [1, 6]);
+          });
+      }
+
     public function masterrequest()
     {
         return $this->hasMany(Masterrequest::class, "courses_id");

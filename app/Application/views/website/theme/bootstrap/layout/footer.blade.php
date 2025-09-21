@@ -4,7 +4,7 @@
         <div class="row">
 
             <div class="col-md-4">
-                <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>
+{{--                <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>--}}
 
                 <div class="social">
                     <img style="width: 250px" src="{{ asset('website') }}/images/Scsi.webp">
@@ -112,7 +112,7 @@
 
 {{--            <p>{{trans('business.Copyright')}} © {{currentYear()}} <span>مهني</span>. {{trans('business.All rights reserved.')}}</p>--}}
             <p>
-                 <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered by iGTS</a>
+                 <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered and Content Developed by iGTS</a>
             </p>
         </div>
     </div>
