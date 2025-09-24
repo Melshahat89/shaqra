@@ -27,7 +27,7 @@ class CoursessDataTable extends DataTable
              /*->addColumn('name', 'admin.courses.buttons.langcol')*/
              ->addColumn('duplicate', 'admin.courses.buttons.duplicate')
              ->addColumn('futurex', 'admin.courses.buttons.futurex')
-             ->rawColumns(['id', 'edit', 'delete', 'view', 'quiz', 'resources','futurex', 'duplicate'])
+             ->rawColumns(['id', 'edit', 'delete', 'view', 'quiz', 'resources','futurex', 'duplicate','instructor_id'])
              ->orderColumn('id', function($query, $order){
                 $query->orderBy('id', $order);
             })
