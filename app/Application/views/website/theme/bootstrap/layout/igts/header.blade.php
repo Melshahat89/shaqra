@@ -3,7 +3,7 @@
     <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
             <a class="navbar-brand m-0" href="/">
-                <img src="{{ asset('website') }}/images/logonew.webp" loading="lazy" alt="" width="150" height="75">
+                <img src="{{ asset('website') }}/images/logonew2.webp" loading="lazy" alt="" width="150" height="75">
             </a>
             <a href="#" data-toggle="modal" data-target="#searchmodal"><i class="fas fa-search d-none" id="header-search-icon"></i></a>
 
