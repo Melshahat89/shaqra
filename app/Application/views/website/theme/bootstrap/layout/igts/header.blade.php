@@ -3,7 +3,7 @@
     <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
             <a class="navbar-brand m-0" href="/">
-                <img src="{{ asset('website') }}/images/logonew2.webp" loading="lazy" alt="" width="150" height="75">
+                <img src="{{ asset('website') }}/images/logonew2.webp" loading="lazy" alt="" width="100" height="">
             </a>
             <a href="#" data-toggle="modal" data-target="#searchmodal"><i class="fas fa-search d-none" id="header-search-icon"></i></a>
 
@@ -157,33 +157,33 @@
                     </div>
 
                     {{-- اللوجو --}}
-                    <div class="logo-container">
-                        <a class="navbar-brand m-0" href="/">
-                            <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">
-                        </a>
-                    </div>
+{{--                    <div class="logo-container">--}}
+{{--                        <a class="navbar-brand m-0" href="/">--}}
+{{--                            <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
                 </div>
 
             @else
                 <div class="pt-2 {{ isMobile() ? 'w-100 d-flex justify-content-between' : ''}}">
 
 {{--                    <div class="d-inline-block desktop-account-info-padding align-self-center">--}}
-{{--                        <a style="border-style: solid;border-color: #244092;color: #244092 !important;padding: 10px;border-radius: 10px;" class="nav-link button_small text_capitalize slider-cta"  href="{{url('guide')}}">{{trans('home.Trainee Guide')}}</a>--}}
+{{--                        <a style="border-style: solid;border-color: #005B8F;color: #005B8F !important;padding: 10px;border-radius: 10px;" class="nav-link button_small text_capitalize slider-cta"  href="{{url('guide')}}">{{trans('home.Trainee Guide')}}</a>--}}
 {{--                    </div>--}}
-{{--                    <div class="button text_capitalize m-1"><a href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}" style="color: #244092;font-weight: bold;"><i class="fas fa-globe"></i> {{trans('website.other lang')}} </a></div>--}}
+{{--                    <div class="button text_capitalize m-1"><a href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}" style="color: #005B8F;font-weight: bold;"><i class="fas fa-globe"></i> {{trans('website.other lang')}} </a></div>--}}
                     <button type="button"  data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal" class="button button_primary text_capitalize m-1">{{trans('home.signin')}}</button>
                     <button type="button"  data-dismiss="modal" data-remote="/register" data-toggle="modal" data-target="#registerModal" class="button button_primary text_capitalize regButton m-1">{{trans('home.signup')}}</button>
                     <!--onclick="return gtag_report_signup_conversion(false)"-->
-                    <a class="navbar-brand m-0" href="/">
-                        <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">
-                    </a>
+{{--                    <a class="navbar-brand m-0" href="/">--}}
+{{--                        <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">--}}
+{{--                    </a>--}}
                 </div>
             @endif
         </nav>
         {{--
         @if(Auth::check())
             <div class="pt-4 mobie-account-info">
-                <div class=""><a href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}" style="color: #244092;font-weight: bold;"><i class="fas fa-globe"></i> {{trans('website.other lang')}} </a></div>
+                <div class=""><a href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}" style="color: #005B8F;font-weight: bold;"><i class="fas fa-globe"></i> {{trans('website.other lang')}} </a></div>
                 <a href="/cart"><div class="head_cart"><span class="floated_count">{{ count(getShoppingCart()) }}</span><a href="/cart" class="head_cart_icon"></a></div></a>
                 <div>
                     <a class="nav-link dropdown-toggle" href="#" id="userMobileMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -215,7 +215,7 @@
             </div>
         @else
             <div class="pt-4 mobie-account-info">
-                <div class="button text_capitalize"><a href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}" style="color: #244092;font-weight: bold;"><i class="fas fa-globe"></i> {{trans('website.other lang')}} </a></div>
+                <div class="button text_capitalize"><a href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}" style="color: #005B8F;font-weight: bold;"><i class="fas fa-globe"></i> {{trans('website.other lang')}} </a></div>
                 <button type="button"  data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal" class="button button_primary_reverse text_capitalize">{{trans('home.signin')}}</button>
                 <button type="button"  data-dismiss="modal" data-remote="/register" data-toggle="modal" data-target="#registerModal" class="button button_primary text_capitalize regButton">{{trans('home.signup')}}</button>                                                                                                                                                       <!--onclick="return gtag_report_signup_conversion(false)"-->
             </div>

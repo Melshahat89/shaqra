@@ -28,7 +28,7 @@
             height: 60px;
             bottom: 0;
             margin-bottom: 16px;
-            background-color: #18B289;
+            background-color: #E6E6E6;
             color: #FFF;
             border-radius: 50px;
             text-align: center;

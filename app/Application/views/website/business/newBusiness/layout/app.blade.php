@@ -2,11 +2,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iGTS - @yield('title')</title>
+    <title>جامعة تبوك - @yield('title')</title>
 
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    <meta name="author" content="IGTS Business">
+    <meta name="author" content="Tabuk">
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('business/newBusiness') }}/src/images/logo.png">
 
@@ -37,7 +37,6 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-
     <style>
         header {
             position: sticky;
@@ -55,7 +54,7 @@
             height: 60px;
             bottom: 0;
             margin-bottom: 16px;
-            background-color: #18B289;
+            background-color: #E6E6E6;
             color: #FFF;
             border-radius: 50px;
             text-align: center;
@@ -64,24 +63,9 @@
         }
 
     </style>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-KGKDP6C');</script>
-    <!-- End Google Tag Manager -->
-
-
-
     @stack('css')
 </head>
 <body class="h-full {{getDir()}} main-theme">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGKDP6C"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Header -->
 <header class="flex sticky top-0 z-[20] border-b border-primary/25 items-center justify-between px-[30px] md:px-[80px] py-[40px] bg-white">
