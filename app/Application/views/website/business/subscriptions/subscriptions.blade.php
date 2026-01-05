@@ -20,7 +20,7 @@
     <meta name="author" content="IGTS">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="facebook-domain-verification" content="z3li963csbvtfybzbb6kf3unwwj4v9" />
-    <title> IGTS Subscriptions</title>
+    <title> Subscriptions</title>
     @if(View::hasSection('canonical'))
         @yield('canonical')
     @else
@@ -941,7 +941,7 @@
     height: 60px;
     bottom: 0;
     margin-bottom: 16px;
-    /*background-color: #18B289;*/
+    /*background-color: #E6E6E6;*/
     color: #FFF;
     border-radius: 50px;
     text-align: center;
@@ -983,7 +983,7 @@
             {{trans('website.Certified by')}}
         </p>
 
-        <img src="{{ asset('website') }}/images/shaqra.svg" alt="Payments" class="w-[265px] h-full "/>
+        <img src="{{ asset('website') }}/images/tabuk.png" alt="Payments" class="w-[265px] h-full "/>
     </div>
 
     <!-- Social Media Icons -->

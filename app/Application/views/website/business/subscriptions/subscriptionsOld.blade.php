@@ -24,7 +24,7 @@
             display: block;
             content: attr(data-awards);
             position: absolute;
-            background: #18B289;
+            background: #E6E6E6;
             color: white;
             width: 100%;
             line-height: 1em;

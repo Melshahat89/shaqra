@@ -154,7 +154,7 @@
 		'ratings'=>'تقييم',
 		'about instructor'=>'معلومات المُحاضر',
 		'about certificate'=>'تفاصيل البرنامج',
-		'learning benefits'=>'مزايا التدريب فى منصة مهني',
+		'learning benefits'=>'مزايا التدريب فى معهد البحوث والاستشارات',
 		'hide lectures'=>'اخفاء المحاضرات',
 		'show lectures'=>'اظهار المحاضرات',
 		'hide files'=>'اخفاء الملفات',

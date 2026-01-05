@@ -1190,7 +1190,7 @@ use Illuminate\Support\Facades\View;
                       'type'=>'rtext',
                       'text'=> Auth::check() ? rand(111,999).Auth::user()->id.rand(111,999) : '',
                       'alpha'=>'0.60',
-                      'color'=>'244092',
+                      'color'=>'005B8F',
                       'size'=>'10',
                       'interval'=>'5000'
                   ]]),

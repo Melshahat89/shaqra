@@ -7,7 +7,7 @@
 {{--                <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>--}}
 
                 <div class="social">
-                    <img style="width: 250px" src="{{ asset('website') }}/images/Scsi.webp">
+                    <img style="width: 250px" src="{{ asset('website') }}/images/tabuk.png">
                 </div>
             </div>
 

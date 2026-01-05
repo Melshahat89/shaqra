@@ -31,7 +31,7 @@
     @endif
 
     <!-- Bootstrap core CSS ARABIC -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/icon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/icon.webp">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('website') }}/css/bootstrap.min.css?v={{$VERSION_NUMBER}}" rel="stylesheet">
