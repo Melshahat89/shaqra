@@ -531,6 +531,52 @@ function visa(data){
     });
 }
 
+function jeel(data){
+
+    data = JSON.parse(data);
+    data['Certificates'] = serializeFormById('direct-pay-cert-container');
+    data['subType'] = subscriptionType;
+    data['numberOfUsers'] = minimumUsers;
+
+
+
+    $('#loading-spinner').show();
+    $.ajax({
+        url: "/pay/jeel",
+        type: 'get',
+        data: data,
+        success: function (data) {
+            if(data.token){
+                var checkoutUrl = data.token.redirect_url ;
+                window.open(checkoutUrl, "_self");
+            }
+            if(data.free){
+                $('#PaymentsMethods').hide();
+                $('#VisaDiv').hide();
+                $('#KioskAmanDiv').hide();
+                $('#KioskMasaryDiv').hide();
+                $('#FawryDiv').hide();
+                $('#mobileWalletDiv').hide();
+                $('#ChangePaymentsDiv').hide();
+                $('#subscriptionModal').hide();
+                swal({
+                    title: "تم الاشتراك بنجاح!",
+                    text: "شكراً لاشتراكك في الخدمة .",
+                    icon: "success",
+                    button: "ممتاز"
+                });
+
+
+                // alert("تم الاشتراك بنجاح");
+                // window.location.href = "/subscriptions"; // صفحة تأكيد الاشتراك المجاني
+                window.location.reload();
+            }
+        }, error: function () {
+            alert("error!!!!");
+        }
+    });
+}
+
 function fawry(data){
 
     data = JSON.parse(data);

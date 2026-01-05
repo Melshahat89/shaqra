@@ -89,6 +89,34 @@ class PayWith {
         return $this->results();
 
     }
+    public function jeel(){
+
+        $this->setupOrderAndAmount(Orders::METHOD_PAYMOB);
+
+        if ($this->order->accept_status) {
+            $this->order = dublicateOrderPositions($this->order->id);
+        }
+
+        $visa = new JeelPaymentsIntegration();
+        $result = $visa->init($this->order,  (int) $this->amount_cents / 100);
+
+
+        if (!$result) {
+            // $data['success'] = false;
+            $this->success = false;
+        }
+
+        // save accept_status in order
+        $this->order->tamara_checkout_id = $result['checkout_id'];
+        $this->order->accept_status = 1;
+        $this->order->save();
+
+        $this->payment_token = $result;
+        $this->amount = (int) $this->amount_cents / 100;
+
+        return $this->results();
+
+    }
 
     public function fawry(){
         

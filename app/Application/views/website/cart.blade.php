@@ -219,6 +219,11 @@ use App\Application\Model\Ordersposition;
                         <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="appleiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     </div>
 
+                    {{-- //jeelpay Div --}}
+                    <div id="JeelDiv" style="display: none;">
+                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="jeeliframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                    </div>
+
                     {{-- //Tamara Div --}}
                     <div id="TamaraDiv" style="display: none;">
                         <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="tamaraiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>

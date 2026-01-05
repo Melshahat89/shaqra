@@ -9,7 +9,7 @@ class Currencies extends Model
 {
 
     public $table = "currencies";
-    CONST DEFUALT_CURRENCY = 'AED';
+    CONST DEFUALT_CURRENCY = 'SAR';
 
 
     protected $fillable = [

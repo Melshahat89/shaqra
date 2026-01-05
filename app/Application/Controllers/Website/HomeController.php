@@ -25,6 +25,7 @@ use App\Application\Model\Eventsdata;
 use App\Application\Model\Eventsenrollment;
 use App\Application\Model\Eventstickets;
 use App\Application\Model\FacebookConversionsAPI;
+use App\Application\Model\JeelPaymentsIntegration;
 use App\Application\Model\Orders;
 use App\Application\Model\Partners;
 use App\Application\Model\Payments;
@@ -1488,6 +1489,50 @@ class HomeController extends Controller
 
     }
 
+    public function ajaxJeelApple($orderID=null){
+        if (!$orderID && count(getShoppingCart()) < 1) {
+            return response()->json(['success'=>false , 'type'=>'apple'], 400);
+        }
+        //User Order
+        $order = getCurrentOrder();
+        if($orderID){
+            $order = Orders::findOrFail($orderID);
+        }
+        if ($order->accept_status) {
+            //new Order
+            $order = $this->dublicateOrderPositions($order->id);
+        }
+        if($orderID){
+            $currency = Currencies::getCurrencyCodeByID($order->payments->currency_id);
+            $amount_cents = $order->payments->amount ;
+        }else{
+            $currency = getCurrency();
+            $amount_cents = ceil(getShoppingCartCost()) ;
+        }
+
+        //Amount Cents After ExchangeRate
+        $amount_cents = Currencies::getAmountcentsByCurrencyID($currency , Currencies::DEFUALT_CURRENCY, $amount_cents);
+
+
+        $visa = new JeelPaymentsIntegration();
+        $result = $visa->init($order, $amount_cents);
+
+
+        if (!isset($result)) {
+            // alert()->info(trans('website.Wrong'), trans('website.Error Message'));
+            return response()->json(['success'=>false , 'type'=>'jeel'], 400);
+        }
+
+        // save accept_status in order
+        $order->tamara_checkout_id = $result['checkout_id'];
+        $order->accept_status = 1;
+        $order->save();
+
+
+        return response()->json(['success'=>true , 'type'=>'jeel' , 'redirect_url'=>$result['redirect_url']], 200);
+
+    }
+
 
     public function ajaxPayTamara($orderID=null){
 
@@ -2034,6 +2079,35 @@ class HomeController extends Controller
         switch($method){
             case 'visa':
                 $result = $pay->visa();
+
+                if($result['amount'] == 0){
+
+                    //save the payement
+                    $payment = new Payments();
+                    $payment->operation = Payments::OPERATION_DEPOSIT;
+                    $payment->amount = 0;
+                    $payment->currency_id = Currencies::DEFUALT_CURRENCY;
+                    $payment->user_id = Auth::user()->id;
+                    $payment->receiver_id = 1;
+                    $payment->orders_id =  $result['order']['id'];
+                    $payment->status = Payments::STATUS_SUCCEEDED;
+
+                    if($payment->save()){
+                        $result['order']->payments_id = $payment->id;
+                        $result['order']->status = Orders::STATUS_SUCCEEDED;
+                        $result['order']->save();
+                    }
+
+                    completeBusinessOrder($result['order'], $payment);
+                    $result['success'] = true;
+                    $result['free'] = true;
+                }
+
+
+                $view = 'cartFinish';
+                break;
+            case 'jeel':
+                $result = $pay->jeel();
 
                 if($result['amount'] == 0){
 

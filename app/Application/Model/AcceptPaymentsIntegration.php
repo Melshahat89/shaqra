@@ -15,22 +15,22 @@ class AcceptPaymentsIntegration extends PaymentIntegrations{
     const ACCEPT_PAYMENT_KEY_URL = self::URL_ACCEPT_UAE ."/api/acceptance/payment_keys";
     const ACCEPT_PAY_URL = self::URL_ACCEPT_UAE ."/api/acceptance/payments/pay";
     
-    const ACCEPT_INTEGRATION_ID = 14469;
+    const ACCEPT_INTEGRATION_ID = '';
     //   card integration_id test = 14012  live = 14469 will be provided upon signing up, test  UAE_Test = 14012
-    const ACCEPT_INTEGRATION_ID_APPLE = '65861';
-    const ACCEPT_INTEGRATION_ID_GOOGLE = '65860';
+    const ACCEPT_INTEGRATION_ID_APPLE = '';
+    const ACCEPT_INTEGRATION_ID_GOOGLE = '';
 
 
-    const SECRET_KEY = "are_sk_live_364fd9cd04d9c38823f8ffd4dd6018e56179013d05bf6e085d00d19854fe940b";
-    //live = are_sk_live_364fd9cd04d9c38823f8ffd4dd6018e56179013d05bf6e085d00d19854fe940b  test = are_sk_test_124a8359b6f8e4e643f2b0803c94e22815437662a10365d8d91c94b265d6e204
+    const SECRET_KEY = "";
+    //live =   test =
 
-    const ACCEPT_Public_key = 'are_pk_live_cg4lEUsvX3vbpJfCalnHJIGYs796IKwq';
-    //live = are_pk_live_cg4lEUsvX3vbpJfCalnHJIGYs796IKwq  test =are_pk_test_LnlrFPQo2GnXRxd3zsIglqHsbARGdYfM
+    const ACCEPT_Public_key = '';
+    //live =   test =
 
-    const ACCEPT_INTEGRATION_ID_KOISK = '19022';   //test = 19022 , live = 15360 , live = 14927
-    const ACCEPT_INTEGRATION_ID_MOBILEWALLET = '129400'; //test = 129400 , live = 132169
-    //UAE //const ACCEPT_API_KEY = 'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnVZVzFsSWpvaWFXNXBkR2xoYkNJc0luQnliMlpwYkdWZmNHc2lPak0zTnpFc0ltTnNZWE56SWpvaVRXVnlZMmhoYm5RaWZRLmZ4ZmZwSmpmbGJTd1FKQXhwT216aHpUcVhrV3ZxNFlINnpkUDFfRmxISlZQLTJiR2ZVX3UtUGJDaWhxQUlPU2RBREhtQTJXZDBqNEJyYjRIaVBfQmV3';
-    const ACCEPT_API_KEY = 'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TVRBek1qSXNJbTVoYldVaU9pSnBibWwwYVdGc0luMC5WUlVESkdVSEsxQW9TX0VqeUhLMDgteFA4V3g3cWd5bDI1d3RLdUtFbmR4ekFLcGE3RGJWSjZHSGxmX2NHWmpzTlgtOW1Talh4Z1dJdk5RVVBtUnI4Zw==';
+    const ACCEPT_INTEGRATION_ID_KOISK = '';   //test = 19022 , live =  , live =
+    const ACCEPT_INTEGRATION_ID_MOBILEWALLET = ''; //test =  , live =
+    //UAE //const ACCEPT_API_KEY = '';
+    const ACCEPT_API_KEY = '==';
 
 
     protected function callAPI($postdata, $URL, $token=null)

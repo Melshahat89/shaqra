@@ -714,6 +714,34 @@ function applepay(){
         }
     });
 }
+function jeelpay(){
+    let orderID = '';
+    let currentURL = window.location.href;
+    if(currentURL.includes("directpay")){
+        orderID = currentURL.substring(currentURL.lastIndexOf("/directpay/") + 11, currentURL.length);
+    }
+    $('#loading-spinner').show();
+
+    $.ajax({
+        url: "/site/ajaxPayJeel/" + orderID,
+        type: 'get',
+        success: function (data) {
+
+            if(data.redirect_url){
+
+                $('#PaymentsMethods').hide();
+                $('#JeelDiv').show();
+                $('#ChangePaymentsDiv').show();
+
+                var checkoutUrl = data.redirect_url ;
+                window.open(checkoutUrl, "_self");
+
+            }
+        }, error: function () {
+            alert("error!!!!");
+        }
+    });
+}
 function tamara(){
     let orderID = '';
     let currentURL = window.location.href;

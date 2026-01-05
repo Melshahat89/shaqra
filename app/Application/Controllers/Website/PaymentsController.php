@@ -7,6 +7,7 @@ use Alert;
 use App\Application\Model\Businessdata;
 use App\Application\Model\Consultationsrequests;
 use App\Application\Model\Currencies;
+use App\Application\Model\JeelPaymentsIntegration;
 use App\Application\Model\Payments;
 use App\Application\Model\Orders;
 use App\Application\Model\Courses;
@@ -23,6 +24,7 @@ use App\Application\Model\Promotionactive;
 use App\Application\Model\Promotions;
 use App\Application\Model\Promotionusers;
 use App\Application\Model\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Application\Requests\Website\Payments\AddRequestPayments;
 use App\Application\Requests\Website\Payments\UpdateRequestPayments;
@@ -40,81 +42,6 @@ class PaymentsController extends AbstractController
      public function index(){
         $items = $this->model;
 
-        if(request()->has('from') && request()->get('from') != ''){
-            $items = $items->whereDate('created_at' , '>=' , request()->get('from'));
-        }
-
-        if(request()->has('to') && request()->get('to') != ''){
-            $items = $items->whereDate('created_at' , '<=' , request()->get('to'));
-        }
-
-			if(request()->has("operation") && request()->get("operation") != ""){
-				$items = $items->where("operation","=", request()->get("operation"));
-			}
-
-			if(request()->has("amount") && request()->get("amount") != ""){
-				$items = $items->where("amount","=", request()->get("amount"));
-			}
-
-			if(request()->has("currency_id") && request()->get("currency_id") != ""){
-				$items = $items->where("currency_id","=", request()->get("currency_id"));
-			}
-
-			if(request()->has("receiver_id") && request()->get("receiver_id") != ""){
-				$items = $items->where("receiver_id","=", request()->get("receiver_id"));
-			}
-
-			if(request()->has("token") && request()->get("token") != ""){
-				$items = $items->where("token","=", request()->get("token"));
-			}
-
-			if(request()->has("token_date") && request()->get("token_date") != ""){
-				$items = $items->where("token_date","=", request()->get("token_date"));
-			}
-
-			if(request()->has("status") && request()->get("status") != ""){
-				$items = $items->where("status","=", request()->get("status"));
-			}
-
-			if(request()->has("accept_source_data_type") && request()->get("accept_source_data_type") != ""){
-				$items = $items->where("accept_source_data_type","=", request()->get("accept_source_data_type"));
-			}
-
-			if(request()->has("accept_id") && request()->get("accept_id") != ""){
-				$items = $items->where("accept_id","=", request()->get("accept_id"));
-			}
-
-			if(request()->has("accept_pending") && request()->get("accept_pending") != ""){
-				$items = $items->where("accept_pending","=", request()->get("accept_pending"));
-			}
-
-			if(request()->has("accept_order") && request()->get("accept_order") != ""){
-				$items = $items->where("accept_order","=", request()->get("accept_order"));
-			}
-
-			if(request()->has("accept_amount_cents") && request()->get("accept_amount_cents") != ""){
-				$items = $items->where("accept_amount_cents","=", request()->get("accept_amount_cents"));
-			}
-
-			if(request()->has("accept_success") && request()->get("accept_success") != ""){
-				$items = $items->where("accept_success","=", request()->get("accept_success"));
-			}
-
-			if(request()->has("accept_data_message") && request()->get("accept_data_message") != ""){
-				$items = $items->where("accept_data_message","=", request()->get("accept_data_message"));
-			}
-
-			if(request()->has("accept_profile_id") && request()->get("accept_profile_id") != ""){
-				$items = $items->where("accept_profile_id","=", request()->get("accept_profile_id"));
-			}
-
-			if(request()->has("accept_source_data_sub_type") && request()->get("accept_source_data_sub_type") != ""){
-				$items = $items->where("accept_source_data_sub_type","=", request()->get("accept_source_data_sub_type"));
-			}
-
-			if(request()->has("accept_hmac") && request()->get("accept_hmac") != ""){
-				$items = $items->where("accept_hmac","=", request()->get("accept_hmac"));
-			}
 
 			if(request()->has("txn_response_code") && request()->get("txn_response_code") != ""){
 				$items = $items->where("txn_response_code","=", request()->get("txn_response_code"));
@@ -402,6 +329,215 @@ class PaymentsController extends AbstractController
     
         return view('website.confirmation', $this->data);
     
+        }
+
+
+        public function jeelConfirmation(Request $request){
+
+
+            $jeelResponse = (new JeelPaymentsIntegration())->getCheckout($request->checkoutId);
+
+            if ($jeelResponse['status'] == 'SUCCEEDED') {
+                $success = 'true';
+            }else{
+                $data_message = $request['errors'] ?  $request['errors'] :'';
+
+                $this->data['data_message'] = $data_message;
+                return view('website.fail_payment', $this->data);
+            }
+
+            $order = Orders::where('tamara_checkout_id',$request->checkoutId)->firstOrFail();
+            $user = User::findOrFail($order->user_id);
+
+
+        if($order->status == Orders::STATUS_SUCCEEDED){
+
+            alert()->error("Order had already been processed", "ERROR");
+            return redirect('/');
+        }
+        $order_status = $order->status;
+
+        //save the payement
+            $payment = new Payments();
+            $payment->operation = Payments::OPERATION_DEPOSIT;
+            $payment->amount = (int)$order->totalOrderAmount ;
+            $payment->currency_id = $order->currency;
+            $payment->user_id = $order['user']->id;
+            $payment->receiver_id = 1;
+            $payment->orders_id = $order->id;
+
+            $order_status = $order->status;
+
+            if ($jeelResponse['status'] == 'SUCCEEDED') {
+                $payment->status = Payments::STATUS_SUCCEEDED;
+            } else {
+                $payment->status = Payments::STATUS_FAILED;
+            }
+
+            //Save the order
+            if($payment->save()){
+                $promoRow = null;
+
+                if($order && $payment->status == Payments::STATUS_SUCCEEDED){
+                    if($order->type != Orders::TYPE_B2B AND $order->type != Orders::TYPE_B2C ){
+                    //Categorize Cart Items (Courses & Events)
+                    $itemsArr = extractOrderItemTypes($order, $user->id);
+                    $promoCode = getCurrentPromoCode($user->id);
+                    if ($promoCode) {
+                        //Check the promo again
+                        $promoRow = $promoCode->promotions;
+                    }
+                    foreach($itemsArr as $key => $values){
+                        switch($key){
+                            case 'courses':
+                                foreach($values as $value){
+                                    enrollCourse($value->courses_id, $user->id, null, null, $order->id);
+                                }
+                                break;
+                            case 'events':
+                                foreach($values as $value){
+                                    enrollEvent($value->events_id, $user->id);
+                                }
+                                break;
+
+                            default:
+                        }
+                    }
+
+
+                    // Make sure the instructors and affiliates get their transactions only once
+                    if ($order_status != Orders::STATUS_SUCCEEDED){
+                        //save the Transaction
+                        foreach ($order->ordersposition as $orderPosition) {
+                            if ($orderPosition->type == Ordersposition::TYPE_Course) {        //Course
+                                $course = $orderPosition->courses;
+                                $course_price = $orderPosition->amount;
+                                $currency = ($orderPosition->currency) ? $orderPosition->currency : getCurrency();
+
+
+
+                                switch(getCurrency()) {
+                                    case('EGP'):
+                                        $exchangeRate = 1;
+                                        break;
+
+                                    case('AED'):
+                                        $exchangeRate = getSetting('AED_EGP');
+                                        break;
+
+                                    case('SAR'):
+                                        $exchangeRate = getSetting('SAR_EGP');
+                                        break;
+
+                                    case('USD'):
+                                        $exchangeRate = getSetting('USD_EGP');
+                                        break;
+
+                                    default:
+                                        $exchangeRate = 1;
+                                }
+
+
+                                $course_price = round($exchangeRate * $course_price);
+
+
+
+                                if($promoRow && $promoRow->affiliate && $promoRow->affiliate_perc && Promotions::instructorAffEligible($promoRow, $course->instructor_id)){
+
+                                    setInstructorAffTransactions2($course, $course_price, $payment,$currency, $promoRow);
+
+                                }else{
+
+                                    setInstructorAffTransactions2($course, $course_price, $payment);
+
+                                }
+
+
+                            }elseif($orderPosition->type == Ordersposition::TYPE_Event){    //Event
+
+
+                                $event = $orderPosition->events;
+                                $event_price = $orderPosition->amount;
+
+
+                                switch(getCurrency()) {
+                                    case('EGP'):
+                                        $exchangeRate = 1;
+                                        break;
+
+                                    case('AED'):
+                                        $exchangeRate = getSetting('AED_EGP');
+                                        break;
+
+                                    case('SAR'):
+                                        $exchangeRate = getSetting('SAR_EGP');
+                                        break;
+
+                                    case('USD'):
+                                        $exchangeRate = getSetting('USD_EGP');
+                                        break;
+
+                                    default:
+                                        $exchangeRate = 1;
+                                }
+                                $event_price = round($exchangeRate * $event_price);
+
+
+                                if($promoRow && $promoRow->affiliate && $promoRow->affiliate_perc && Promotions::instructorAffEligible($promoRow, $event->instructor_id)){
+
+                                    distEventTransactions($event, $event_price, $payment, $promoRow);
+
+                                }else{
+
+                                    distEventTransactions($event, $event_price, $payment);
+
+                                }
+
+                            }
+                        }
+
+                        // Emails::instance()->sendOrderEmail($this->oAuthUser, $payment, $order);
+
+                    }
+                    }else{
+                        // B2B or B2C
+                        completeBusinessOrder($order,$payment);
+                    }
+
+                }
+
+
+                // Link the order with the payement:
+                if($success == "true"){
+                    $response = (new JeelPaymentsIntegration())->getCheckout($order->tamara_checkout_id);
+                    if($jeelResponse['status'] == "SUCCEEDED"){
+                        $order->status =  Orders::STATUS_SUCCEEDED;
+                        $order->payments_id = $payment->id;
+                    }
+                }
+
+                if($order->save()){
+                    //Check if applied promo code and make use of it:
+
+                    if($promoRow){
+
+                        connectPromoWithOrder($promoRow, $order->id, $user->id);
+
+                    }
+                }
+            }
+
+            if ($success == "true") {
+                //Send Order Confirmation Email
+
+            }
+
+
+            // $this->data['test'] = $test;
+            $this->data['orderId'] = $order->id;
+
+            return view('website.success-payment', $this->data);
+
         }
 
      public function aed_acceptConfirmation2(){

@@ -37,6 +37,7 @@ Route::get('/removePromoAjax', [HomeController::class, 'removePromoAjax']);
 Route::get('/site/hasWallet/{id}', [HomeController::class, 'actionHasWallet']);
 Route::get('/site/ajaxPayVisa/{orderID?}', [HomeController::class, 'ajaxPayVisa']);
 Route::get('/site/ajaxPayApple/{orderID?}', [HomeController::class, 'ajaxPayApple']);
+Route::get('/site/ajaxPayJeel/{orderID?}', [HomeController::class, 'ajaxJeelApple']);
 Route::get('/site/ajaxPayTamara/{orderID?}', [HomeController::class, 'ajaxPayTamara']);
 Route::get('/site/ajaxPayTabby/{orderID?}', [HomeController::class, 'ajaxPayTabby']);
 Route::get('/site/ajaxPayVisaConsultation', [HomeController::class, 'ajaxPayVisaConsultation']);
@@ -66,6 +67,7 @@ Route::get('/events/enrollEventNow/{id}', [EventsController::class, 'enrollEvent
 
 ########## PaymentsController ##########
 Route::get('/payments/acceptConfirmation2', [PaymentsController::class, 'acceptConfirmation2']);
+Route::get('/payments/jeelConfirmation', [PaymentsController::class, 'jeelConfirmation']);
 Route::get('/payments/aed-acceptConfirmation2', [PaymentsController::class, 'aed_acceptConfirmation2']);
 
 Route::get('/payments/paypalconfirmation/{id?}', [PaymentsController::class, 'paypalconfirmation']);
