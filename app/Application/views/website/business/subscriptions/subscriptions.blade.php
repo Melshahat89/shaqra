@@ -983,7 +983,7 @@
             {{trans('website.Certified by')}}
         </p>
 
-        <img src="{{ asset('website') }}/images/logonew.webp" alt="Payments" class="w-[265px] h-full "/>
+        <img src="{{ asset('website') }}/images/Scsi.webp" alt="Payments" class="w-[265px] h-full "/>
     </div>
 
     <!-- Social Media Icons -->
