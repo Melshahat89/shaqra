@@ -49,7 +49,7 @@
 <div id="loading" class="loading flexCenter">
     <div class="loader-logo">
         <div class="loader">Loading...</div>
-        <img src="{{ asset('website') }}/images/logonew.webp" alt="..." >
+        <img src="{{ asset('website') }}/images/logonew3.webp" alt="..." >
     </div>
 </div>
 

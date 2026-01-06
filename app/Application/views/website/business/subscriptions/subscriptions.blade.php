@@ -53,7 +53,7 @@
         <!-- Header Section -->
 <header class="flex items-center justify-between px-[30px] md:px-[90px] py-[32px] !bg-transparent">
     <a href="/" class="block relative z-[2]">
-        <img src="{{ asset('website') }}/images/logonew.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
+        <img src="{{ asset('website') }}/images/logonew3.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
     </a>
 
     <div class="items-center hidden space-x-8 md:flex relative z-[2]">

@@ -68,7 +68,7 @@
 {{--        <div class=" fade show" >--}}
 {{--            <div class="text_center ptsm pbsm">--}}
 {{--                <a class="navbar-brand m-0" href="/">--}}
-{{--                    <img src="{{ asset('website') }}/images/logonew.webp" loading="lazy" alt="" width="150" height="75">--}}
+{{--                    <img src="{{ asset('website') }}/images/logonew3.webp" loading="lazy" alt="" width="150" height="75">--}}
 {{--                </a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
@@ -135,7 +135,7 @@
                  <div class="loading flexCenter">
                     <div class="loader-logo">
                         <div class="loader">Loading...</div>
-                         <img src="{{ asset('website') }}/images/logonew.webp" alt="..." >
+                         <img src="{{ asset('website') }}/images/logonew3.webp" alt="..." >
                     </div>
                  </div>
             @endif
