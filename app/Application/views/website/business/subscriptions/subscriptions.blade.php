@@ -53,7 +53,7 @@
         <!-- Header Section -->
 <header class="flex items-center justify-between px-[30px] md:px-[90px] py-[32px] !bg-transparent">
     <a href="/" class="block relative z-[2]">
-        <img src="{{ asset('website') }}/images/logonew2.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
+        <img src="{{ asset('website') }}/images/logonew.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
     </a>
 
     <div class="items-center hidden space-x-8 md:flex relative z-[2]">
@@ -983,7 +983,7 @@
             {{trans('website.Certified by')}}
         </p>
 
-        <img src="{{ asset('website') }}/images/tabuk.png" alt="Payments" class="w-[265px] h-full "/>
+        <img src="{{ asset('website') }}/images/Scsi.webp" alt="Payments" class="w-[265px] h-full "/>
     </div>
 
     <!-- Social Media Icons -->
@@ -1433,9 +1433,9 @@
             </p>
         </div>
 
-        <div class="flex flex-row items-center visa">
-            <a href="javascript: void(0)" onclick="visa('{{json_encode($data)}}')" class="visa bg-coolgrey hover:bg-[#f7f7f7] rounded-[10px] text-center w-full inline-block p-[10px]">
-                <img class="block m-auto visa" src="{{ asset('subscription-new/src') }}/images/new-visa.png" width="200" height="200" />
+        <div class="flex flex-row items-center jeel">
+            <a href="javascript: void(0)" onclick="jeel('{{json_encode($data)}}')" class="jeel bg-coolgrey hover:bg-[#f7f7f7] rounded-[10px] text-center w-full inline-block p-[10px]">
+                <img class="block m-auto jeel" src="https://giraffy.com/storage/images/brands/1Hxs6SpPKbmnenWGpnHRHvr6VhibCG72Q3LWjgS4.png" width="200" height="200" />
             </a>
         </div>
 
