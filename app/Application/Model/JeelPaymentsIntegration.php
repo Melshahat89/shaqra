@@ -42,8 +42,8 @@ class JeelPaymentsIntegration  {
             "students" => [
                 [
                     "national_id"         => Auth::user()->nid  ?? "1104448787",
-                    "entity_id"           => "563e93f0-6359-4118-9834-b633467b3842",
-                    "educational_year_id" => "e71a200f-3d00-4efa-809f-5ea53c1e7d59",
+                    "entity_id"           => env('JEELPAY_entity_id'),
+                    "educational_year_id" => env('JEELPAY_educationalYear_ID'),
                     "reference_id"        => $order['id']  ?? "ref_" . uniqid(),
                     "name"                => Auth::user()->name ?? "NA",
                     "cost"                => $amount_cents,
