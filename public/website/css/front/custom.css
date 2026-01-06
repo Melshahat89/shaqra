@@ -103,7 +103,7 @@ html{
 }
 
 .tag {
-  background: #005B8F;
+  background: #244092;
   border-radius: 3px 0 0 3px;
   color: #fff;
   display: inline-block;
@@ -131,7 +131,7 @@ html{
 .tag::before {
   background: #f7f7f7;
   border-bottom: 13px solid transparent;
-  border-left: 10px solid #005B8F;
+  border-left: 10px solid #244092;
   border-top: 13px solid transparent;
   content: '';
   position: absolute;
@@ -208,7 +208,7 @@ html{
  color: #fff;
 }
 .bread-crumb{
-    background: #005B8F;
+    background: #244092;
     padding: 10px 0;
     color: white;
 
@@ -637,14 +637,14 @@ display: block;
 }
 .form-container form .input-item{
   border-radius: 60px !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
   background-size: 25px !important;
   padding-left: 20px;
   margin-bottom: 20px;
 }
 .form-container form textarea{
   border-radius: 20px !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
   background-size: 25px !important;
   padding-left: 20px;
   margin-bottom: 20px !important;
@@ -725,7 +725,7 @@ color: #2390b9;
   object-fit: cover;
 }
 .about-instructor h1{
-  color: #005B8F;
+  color: #244092;
   font-weight: 700;
 }
 .careers-content{
@@ -1108,9 +1108,9 @@ padding-left: 25px;
   font-size: 10px; margin-left: 15px;
 }
 .custom-rev h1{
-  border-bottom: 1px solid #005B8F;
+  border-bottom: 1px solid #244092;
   padding: 0 20px 30px 20px;
-  color: #005B8F;
+  color: #244092;
   margin-bottom: 22px;
 }
 .custom-rev p{
@@ -1149,7 +1149,7 @@ margin-bottom: 35px;
 }
 .comment-action a{
   font-size: 14px;
-  color: #005B8F;
+  color: #244092;
 }
 .comment-action a:hover{
   color: #000;
@@ -1160,7 +1160,7 @@ margin-bottom: 35px;
 }
 .form-replay{
   border-radius: 20px !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
   background-size: 25px !important;
   padding-left: 20px;
   min-height: 100px !important;
@@ -1170,7 +1170,7 @@ margin-bottom: 35px;
   color: #ddd;
 }
 .back-bg-buy{
-  background: #005B8F;
+  background: #244092;
   color: #fff;
   padding: 15px;
   width: 20%;
@@ -1179,7 +1179,7 @@ margin-bottom: 35px;
 .course-line a.disabled{color: #ddd;}
 .back-bg-buy:hover{
   background: #fff;
-  color: #005B8F;
+  color: #244092;
 }
 .green-btn{
   background-color: green;
@@ -1425,7 +1425,7 @@ display: inline-block;
 .item.promoted:after {
   content: attr(data-awards);
   position: absolute;
-  background: #E6E6E6;
+  background: #18B289;
   color: white;
   width: 100%;
   line-height: 1em;
@@ -1444,7 +1444,7 @@ display: inline-block;
 .item.promoted-course:after {
   content: attr(data-awards);
   position: absolute;
-  background: #E6E6E6;
+  background: #18B289;
   color: white;
   width: 100%;
   line-height: 1em;
@@ -1643,7 +1643,7 @@ display: inline-block;
 }
 
 .modal-lec-title{
-  background: #005B8F;
+  background: #244092;
     text-align: center;
     /* height: 31px; */
     width: 100%;
@@ -1675,7 +1675,7 @@ display: inline-block;
       border-radius: 60px;
   }   
 .nav-pills .nav-link{
-  color: #005B8F;
+  color: #244092;
       background-color: #fff;
       border-radius: 60px;
 }  
@@ -2129,14 +2129,14 @@ display: block;
 }
 .form-container form .input-item{
   border-radius: 60px !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
   background-size: 25px !important;
   padding-right: 20px;
   margin-bottom: 20px;
 }
 .form-container form textarea{
   border-radius: 20px !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
   background-size: 25px !important;
   padding-right: 20px;
   margin-bottom: 20px !important;
@@ -2217,7 +2217,7 @@ color: #2390b9;
   object-fit: cover;
 }
 .about-instructor h1{
-  color: #005B8F;
+  color: #244092;
   font-weight: 700;
 }
 .careers-content{
@@ -2600,9 +2600,9 @@ padding-right: 25px;
   font-size: 10px; margin-right: 15px;
 }
 .custom-rev h1{
-  border-bottom: 1px solid #005B8F;
+  border-bottom: 1px solid #244092;
   padding: 0 20px 30px 20px;
-  color: #005B8F;
+  color: #244092;
   margin-bottom: 22px;
 }
 .custom-rev p{
@@ -2641,7 +2641,7 @@ margin-bottom: 35px;
 }
 .comment-action a{
   font-size: 14px;
-  color: #005B8F;
+  color: #244092;
 }
 .comment-action a:hover{
   color: #000;
@@ -2652,7 +2652,7 @@ margin-bottom: 35px;
 }
 .form-replay{
   border-radius: 20px !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
   background-size: 25px !important;
   padding-right: 20px;
   min-height: 100px !important;
@@ -2662,7 +2662,7 @@ margin-bottom: 35px;
   color: #ddd;
 }
 .back-bg-buy{
-  background: #005B8F;
+  background: #244092;
   color: #fff;
   padding: 15px;
   width: 20%;
@@ -2671,7 +2671,7 @@ margin-bottom: 35px;
 .course-line a.disabled{color: #ddd;}
 .back-bg-buy:hover{
   background: #fff;
-  color: #005B8F;
+  color: #244092;
 }
 .green-btn{
   background-color: green;
@@ -2954,9 +2954,9 @@ input[type=checkbox], input[type=radio] {
   margin: 0 5px;
 }
 .cntrl-btn.active{
-  background: #005B8F;
+  background: #244092;
   color: #fff !important;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
 }
 .partnership_form{
   width: 50%;
@@ -3124,16 +3124,16 @@ padding: 0 15px;
 
 .add-to-cart{
   color: #fff !important;
-  background: #005B8F;
+  background: #244092;
   padding: 0px 20px 0px 20px;
   border-radius: 50px;
   display: inline-block;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
 }
 .add-to-cart:hover{
-  color: #005B8F !important;
+  color: #244092 !important;
   background: #fff;
-  border: 1px solid #005B8F;
+  border: 1px solid #244092;
 }
 
 label{
@@ -3819,7 +3819,7 @@ hr {
   font-weight: bold;
   color: #ffffff;
   border-radius: 50%;
-  background: #E6E6E6;
+  background: #18B289;
   padding: 6px;
 }
 
@@ -3836,7 +3836,7 @@ width:60px;
 height:60px;
 bottom:0;
   margin-bottom: 16px;
-background-color:#E6E6E6;
+background-color:#18B289;
 color:#FFF;
 border-radius:50px;
 text-align:center;
@@ -4200,7 +4200,7 @@ border-radius: 50px;
   position: absolute;
   left: 22px;
   top: 22px;
-  background-color: #005B8F !important;
+  background-color: #244092 !important;
   font-size: 18px;
 }
 
@@ -4472,7 +4472,7 @@ border-radius: 50px;
 .active-date {
   color: #fff; }
   .active-date:before {
-    background: #005B8F; }
+    background: #244092; }
 
 .event-date.active-date {
   background: transparent;
@@ -4691,7 +4691,7 @@ border-radius: 50px;
          }
 
          >a {
-           background: #E6E6E6;
+           background: #519cf8;
            color: #fff;
          }
        }
@@ -4704,7 +4704,7 @@ border-radius: 50px;
        padding: 0;
        position: absolute;
        background: #FCFCFC;
-       border-top: 3px solid #E6E6E6;
+       border-top: 3px solid #519cf8;
        visibility: hidden;
        opacity: 0;
        transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -4763,7 +4763,7 @@ border-radius: 50px;
 
              &:hover {
                a {
-                 background: #E6E6E6;
+                 background: #519cf8;
                  color: white;
                }
              }
@@ -4806,7 +4806,7 @@ border-radius: 50px;
            }
 
            >a {
-             background: #E6E6E6;
+             background: #519cf8;
              color: white;
            }
          }

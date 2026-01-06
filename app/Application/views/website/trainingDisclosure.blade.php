@@ -45,7 +45,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="pt-4 pb-4">
-                <h2 class="text-center" style="color: #005B8F">{{ trans('home.IGTS Innovations') }}</h2>
+                <h2 class="text-center" style="color: #244092">{{ trans('home.IGTS Innovations') }}</h2>
                 <p>{{trans('home.At IGTS, we offer a comprehensive suite')}}</p>
             </div>
         </div>
@@ -83,7 +83,7 @@
 
             <div class="col-md-12">
                 <div class="pt-4 pb-4">
-                    <h2 class="text-center" style="color: #005B8F">{{ trans('home.Services') }}</h2>
+                    <h2 class="text-center" style="color: #244092">{{ trans('home.Services') }}</h2>
                     <p>{{trans('home.At IGTS, we offer integrated solutions')}}</p>
                 </div>
             </div>
@@ -168,7 +168,7 @@
 
     <div class="col-md-12">
         <div class="pt-4 pb-4">
-            <h2 class="text-center" style="color: #005B8F">{{ trans('home.Frequently Asked Questions About the Training Data Disclosure Decision') }}</h2>
+            <h2 class="text-center" style="color: #244092">{{ trans('home.Frequently Asked Questions About the Training Data Disclosure Decision') }}</h2>
             <p>{{trans('home.At IGTS, we offer integrated solutions')}}</p>
         </div>
     </div>

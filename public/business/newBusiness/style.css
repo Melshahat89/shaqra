@@ -2317,7 +2317,7 @@ div {
 }
 
 .subscriptions-page .hamburger span {
-  background-color: #E6E6E6;
+  background-color: #18B289;
 }
 
 .offline-training-page .hamburger span {
@@ -2417,7 +2417,7 @@ div {
 
 .subscriptions-page .inner-features-section .swiper-pagination-bullet-active,
 .subscriptions-page .partners-section__image .swiper-pagination-bullet-active {
-  background-color: #E6E6E6 !important;
+  background-color: #18B289 !important;
 }
 
 .offline-training-page .inner-features-section .swiper-pagination-bullet-active,
@@ -2450,7 +2450,7 @@ div {
 }
 
 .subscriptions-page .inner-features-section .swiper-pagination-bullet-active {
-  background-color: #E6E6E6 !important;
+  background-color: #18B289 !important;
 }
 
 .our-partners-section .swiper-pagination-bullet,
@@ -2526,7 +2526,7 @@ div {
   }
 
   .subscriptions-page .hero-section__image .swiper-pagination-bullet-active {
-    background-color: #E6E6E6 !important;
+    background-color: #18B289 !important;
   }
 
   .main-theme .hero-section__image .swiper-pagination-bullet-active {

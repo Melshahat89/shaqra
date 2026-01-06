@@ -95,7 +95,7 @@ if($currentDate > $webinarDate){
             @elseif($passed)
 
                 <div class="pt-4">
-                    <h5><span class="badge badge-secondary" style="background-color: #E6E6E6;">انتهت</h5>
+                    <h5><span class="badge badge-secondary" style="background-color: #18B289;">انتهت</h5>
                 </div>
 
             @else
@@ -113,7 +113,7 @@ if($currentDate > $webinarDate){
 	            @if($data->discount_egp > 0)
 
                     <div class="pt-4">
-                        <h5><span class="badge badge-secondary" style="background-color: #E6E6E6;"><?php echo round($data->discount_egp) ?>% {{trans('home.discount')}}</span></h5>
+                        <h5><span class="badge badge-secondary" style="background-color: #18B289;"><?php echo round($data->discount_egp) ?>% {{trans('home.discount')}}</span></h5>
                     </div>
 
                 @endif
@@ -123,7 +123,7 @@ if($currentDate > $webinarDate){
                 @if($data->discount_usd > 0) 
 
                     <div class="pt-4">
-                        <h5><span class="badge badge-secondary" style="background-color: #E6E6E6;"><?php echo round($data->discount_usd) ?>% {{trans('home.discount')}}</span></h5>
+                        <h5><span class="badge badge-secondary" style="background-color: #18B289;"><?php echo round($data->discount_usd) ?>% {{trans('home.discount')}}</span></h5>
                     </div>
 
                 @endif

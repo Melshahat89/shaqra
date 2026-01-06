@@ -3,7 +3,7 @@
 @if(userCountry()['code'] == "EG")
     @if($data->discount_egp > 0)
         @php $discountApplied = 1; @endphp
-		<div class="course_card item promoted-course" style="--colorcode: {{isset($data->categories->color_code) ? $data->categories->color_code : '#E6E6E6'}}" data-awards="{{$data->discount_egp}}% {{trans('home.discount')}}">
+		<div class="course_card item promoted-course" style="--colorcode: {{isset($data->categories->color_code) ? $data->categories->color_code : '#18B289'}}" data-awards="{{$data->discount_egp}}% {{trans('home.discount')}}">
 	@else
 		<div class="course_card">
     @endif
@@ -12,7 +12,7 @@
 
     @if($data->discount_usd > 0)
         @php $discountApplied = 1; @endphp
-        <div class="course_card item promoted-course" style="--colorcode: {{isset($data->categories->color_code) ? $data->categories->color_code : '#E6E6E6'}}" data-awards="{{$data->discount_usd}}% {{trans('home.discount')}}">
+        <div class="course_card item promoted-course" style="--colorcode: {{isset($data->categories->color_code) ? $data->categories->color_code : '#18B289'}}" data-awards="{{$data->discount_usd}}% {{trans('home.discount')}}">
     @else	
         <div class="course_card">
 

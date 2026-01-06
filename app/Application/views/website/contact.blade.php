@@ -78,7 +78,7 @@
     <section class="contact-content">
         <div class="container">
             <h1>
-                {{ trans('website.Contact Us') }}
+                {{ trans('website.Contact') }}
             </h1>
 
 {{--                <div class="map">--}}
@@ -96,11 +96,11 @@
 
                     <div class="contact-info mt-20">
 
-{{--                        <div class="container">--}}
-{{--                            <div class="contact_wrapper is-arabic">--}}
+                        <div class="container">
+                            <div class="contact_wrapper is-arabic">
 
 
-{{--                                <div class="accordion">--}}
+                                <div class="accordion">
 {{--                                    <label>--}}
 {{--                                        <input class="tab-toggle" type="radio" name="my_radio_group" checked/>--}}
 {{--                                        <span class="tab-title">--}}
@@ -140,24 +140,24 @@
 {{--                                        </div>--}}
 {{--                                    </label>--}}
 
-{{--                                    <label>--}}
-{{--                                        <input class="tab-toggle" type="radio" name="my_radio_group" />--}}
-{{--                                        <span class="tab-title">--}}
-{{--                                            <img src="https://cdn.ipwhois.io/flags/sa.svg" style="height: 10px" class="img-rounded">--}}
-{{--                                            {{ trans('website.Saudi Address Title') }}</span>--}}
-{{--                                        <div class="tab">--}}
-{{--                                            <p>{{ trans('website.Saudi Address') }}</p>--}}
+                                    <label>
+                                        <input class="tab-toggle" type="radio" name="my_radio_group" />
+                                        <span class="tab-title">
+                                            <img src="https://cdn.ipwhois.io/flags/sa.svg" style="height: 10px" class="img-rounded">
+                                            {{ trans('website.Saudi Address Title') }}</span>
+                                        <div class="tab">
+                                            <p>{{ trans('website.Saudi Address') }}</p>
 {{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9776.78607576382!2d30.918811347941414!3d29.96172595964548!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe605c53acb644f23!2sIGTS!5e0!3m2!1sen!2seg!4v1583146635380!5m2!1sen!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
 {{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d600.9422283178359!2d46.758812!3d24.7645921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01150b515909%3A0xa43e377813d7377e!2zSUdUUyDYtNix2YPZhyDYp9mK2KzYqtizINmE2YTYqtiv2LHZitio!5e1!3m2!1sar!2seg!4v1733147676521!5m2!1sar!2seg"  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
 {{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d600.9422283178359!2d46.758812!3d24.7645921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01150b515909%3A0xa43e377813d7377e!2zSUdUUyDYtNix2YPZhyDYp9mK2KzYqtizINmE2YTYqtiv2LHZitio!5e1!3m2!1sar!2seg!4v1733147676521!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
-{{--                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d515.6901824808658!2d46.758812!3d24.7645921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01150b515909%3A0xa43e377813d7377e!2zSUdUUyDYtNix2YPZhyDYp9mK2KzYqtizINmE2YTYqtiv2LHZitio!5e0!3m2!1sar!2seg!4v1733147818006!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
-{{--                                        </div>--}}
-{{--                                    </label>--}}
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d515.6901824808658!2d46.758812!3d24.7645921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01150b515909%3A0xa43e377813d7377e!2zSUdUUyDYtNix2YPZhyDYp9mK2KzYqtizINmE2YTYqtiv2LHZitio!5e0!3m2!1sar!2seg!4v1733147818006!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                    </label>
 
 
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                                </div>
+                            </div>
+                        </div>
 
 {{--                        <p><strong> <i class="fa fa-envelope"></i>  </strong> info@igtsservice.com</p>--}}
 

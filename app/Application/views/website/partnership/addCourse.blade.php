@@ -19,7 +19,7 @@
         }
 
         .nav-link {
-            color: #005B8F;
+            color: #244092;
         }
 
 
