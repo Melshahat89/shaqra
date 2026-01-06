@@ -33,13 +33,20 @@ class CreateNewUser implements CreatesNewUsers
             'name' => 'required|max:255',
             'mobile' => 'required|max:15',
             'country_id' => 'required',
+            'nid'        => [
+                'required',
+                'string',
+                'size:10', // لازم يكون 10 خانات بالضبط
+                'regex:/^[12][0-9]{9}$/', // يبدأ بـ 1 أو 2 ويتكون من 10 أرقام
+                'unique:users',
+            ],
             'categories' => 'required',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             // 'g-recaptcha-response' => 'required|recaptcha',
 
         ]);
-        
+
         if($validator->fails()){
             Session::put('signupError', true);
         }
@@ -97,6 +104,7 @@ class CreateNewUser implements CreatesNewUsers
         $user = new User();
         $user->name = $input['name'];
         $user->email = $input['email'];
+        $user->nid = $input['nid'];
         $user->mobile = $country->country_phone_code . ltrim(str_replace($country->country_phone_code, "", $input['mobile']),"0");
         $user->password = bcrypt($input['password']);
         $user->categories = $input['categories'];

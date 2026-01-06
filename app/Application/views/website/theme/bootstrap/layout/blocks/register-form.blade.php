@@ -1,4 +1,4 @@
-@foreach (['name', 'email', 'country_id', 'mobile', 'categories', 'password', 'password_confirmation', 'g-recaptcha-response'] as $field)
+@foreach (['name', 'email', 'country_id','nid', 'mobile', 'categories', 'password', 'password_confirmation', 'g-recaptcha-response'] as $field)
     @if (isset($errors) && $errors->has($field))
         <div class="alert alert-danger mb-2" role="alert">{{ $errors->first($field) }}</div>
 @endif
@@ -34,7 +34,7 @@
 
 
 
-    <div class="form_row">
+    <div class="form_row ">
         <div class="input-group" id="drop-down-parent">
             <select class="form-control" id="country-register" name="country_id" required="required">
                 <option value="">{{trans('account.Select Country')}}</option>
@@ -60,6 +60,9 @@
         </div>
     </div>
 
+
+
+
     <!-- Phone -->
     <div class="form_row" id="mobile-container" style="display: none;">
         <div class="d-flex align-items-center">
@@ -68,17 +71,31 @@
         </div>
     </div>
 
-    <div class="form_row">
+    <div class="d-flex">
 
-        <div class="input-group">
+    <div class="form_row w-50">
+
+{{--        <div class="input-group">--}}
             <select class="form-control input-item user-login-ico" id="categories" name="categories" required="required">
                 <option value="">{{trans('account.Select specialization')}}</option>
                 @foreach(categoriesList() as $key => $category)
                 <option value="{{$key}}" {{ ((isset($item->categories) && $item->categories == $key) || (old('categories') && old('categories') == $key)) ? 'selected' : '' }}> {{$category}} </option>
                 @endforeach
             </select>
+{{--        </div>--}}
+    </div>
+
+    <div class="form_row w-50">
+        <div class="input_with_icon">
+            <i class="far fa-image"></i>
+            <input id="nid-register" type="number" class='form-control input-item user-login-ico'  {{ isset($userObject->nid) ? 'readonly' : '' }} name="nid"
+                   value="{{ isset($userObject->nid) ? $userObject->nid : old('nid') }}"
+                   label='nid' placeholder='{{trans('account.nid')}}' required>
+
         </div>
     </div>
+    </div>
+
 
 
 

@@ -112,4 +112,5 @@
 		'more minutes to reach your weekly goal' => 'دقيقة اخرى للوصول الى هدفك الأسبوعي',
 		'Edit Goal' => 'تعديل الهدف',
 		'Subscription Expire in' => 'الاشتراك سينتهي في',
+		'nid' => 'رقم الهوية',
 	];

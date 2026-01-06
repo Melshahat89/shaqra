@@ -112,4 +112,5 @@
 		'more minutes to reach your weekly goal' => 'more minutes to reach your weekly goal',
 		'Edit Goal' => 'Edit Goal',
 		'Subscription Expire in' => 'Subscription Expire in',
+		'nid' => 'National ID',
 	];
