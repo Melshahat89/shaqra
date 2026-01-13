@@ -157,7 +157,7 @@
                            <br>
                            <p>Or click in the link below in order to automatically reset your password</p>
                            <br>
-                           <a href="https://mehany.su.edu.sa/password/reset/{{$token}}">https://training.futurework.com.sa/password/reset/{{$token}}</a>
+                           <a href="https://mehany.su.edu.sa/password/reset/{{$token}}">https://mehany.su.edu.sa/password/reset/{{$token}}</a>
                            </td>
                            
                            </tr>
