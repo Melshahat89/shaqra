@@ -33,7 +33,7 @@ class ResetPasswordEmail extends Mailable
 
         //webmaster@meduo.net
         
-        return $this->from('webmaster@meduo.net', 'IGTS Password Reset')->view('website.resetPasswordEmail')->with([
+        return $this->from('webmaster@meduo.net', 'Mehany Password Reset')->view('website.resetPasswordEmail')->with([
             'user' => $this->user,
             'token' => $this->token,
         ]);

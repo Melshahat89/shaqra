@@ -124,7 +124,7 @@
                         <tr align="center" valign="center" style="border: 1px solid #ddd; border-top: 0; background: #fff;">
                               <td style="background-color: #fff">
                                  <a href="#" target="_blank" style="display: block; width: 100%; padding-bottom: 40px; padding-top: 40px;">
-                                    <img src="https://training.futurework.com.sa/website/images/logonew.webp" alt="IGTS" style="width: 170px;">
+                                    <img src="https://mehany.su.edu.sa/website/images/logonew3.webp" alt="'Mehany'" style="width: 170px;">
                                  </a>
                               </td>
                            </tr>
@@ -157,7 +157,7 @@
                            <br>
                            <p>Or click in the link below in order to automatically reset your password</p>
                            <br>
-                           <a href="https://training.futurework.com.sa/password/reset/{{$token}}">https://training.futurework.com.sa/password/reset/{{$token}}</a>
+                           <a href="https://mehany.su.edu.sa/password/reset/{{$token}}">https://training.futurework.com.sa/password/reset/{{$token}}</a>
                            </td>
                            
                            </tr>
@@ -177,9 +177,9 @@
                                  <p style=" margin: 0; padding-top: 10px; padding-bottom: 20px; color: #BEBEBE;">
                                  If you believe this has been sent to you in error, please safely <a href="#" style="text-decoration: underline; ">unsubscribe</a>.
                               <br>
-                              For more information, please see our <a href="https://training.futurework.com.sa/page/privacyPolicy" style="text-decoration: underline;">privacy policy.</a>
+                              For more information, please see our <a href="https://mehany.su.edu.sa/page/privacyPolicy" style="text-decoration: underline;">privacy policy.</a>
                               <br>
-                              © 2022 <a href="https://training.futurework.com.sa" style="text-decoration: underline;">IGTS</a>. All rights reserved.                                  </p>
+                              © 2022 <a href="https://mehany.su.edu.sa" style="text-decoration: underline;">IGTS</a>. All rights reserved.                                  </p>
                               </td>
                            </tr>
                            <tr style="height: 15px;">
