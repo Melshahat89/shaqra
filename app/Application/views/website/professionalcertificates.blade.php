@@ -47,11 +47,11 @@
                 <div class="carousel-item active" style="height: 100%;background: url({{asset('website/images/').'/certificateslider.webp'}}) no-repeat center center;background-size: cover;">
                     <div class="d-flex align-items-center text-center h-100" style="place-content: center;">
                         <div>
-                            <h2 class="mbmd" style="color: #FFF;font-weight: bold;">{{trans('professionalcertificates.professionalcertificates')}}</h2>
+{{--                            <h2 class="mbmd" style="color: #FFF;font-weight: bold;">{{trans('professionalcertificates.professionalcertificates')}}</h2>--}}
 {{--                            <h3 class="mbmd" style="color: #FFF; font-size: 18px;">{{trans('professionalcertificates.professionalcertificates')}}</h3>--}}
-                                <a href="#" class="button home-slider-button button_small text_capitalize mt-4 slider-cta" type="button" role="button">
-                                    {{trans('account.Enroll Now')}}
-                                </a>
+{{--                                <a href="#" class="button home-slider-button button_small text_capitalize mt-4 slider-cta" type="button" role="button">--}}
+{{--                                    {{trans('account.Enroll Now')}}--}}
+{{--                                </a>--}}
                         </div>
                     </div>
                 </div>

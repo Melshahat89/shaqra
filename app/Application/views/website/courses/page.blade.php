@@ -89,10 +89,10 @@
                         @if($course->type != Courses::TYPE_BUNDLES && $course->type != Courses::TYPE_MASTERS)
                             {{-- <div class="user_name">
 
-                                @if($course->instructor->image)
-                                    <img src="{{ large1($course->instructor->image) }}" style="height: 40px;">
+                                @if(optional($course->instructor)->image)
+                                    <img src="{{ large1(optional($course->instructor)->image) }}" style="height: 40px;">
                                 @endif
-                                &nbsp;  {{$course->instructor->Fullname_lang}}
+                                &nbsp;  {{optional($course->instructor)->Fullname_lang}}
                             </div> --}}
                         @endif
                         <div class="course_detail_title mbsm"><h1>{{ $course->title_lang }}</h1>
@@ -574,14 +574,14 @@
                                             {!! $course->PriceText !!}
                                         </div>
                                     </h3>
-                                    <div class="share_course text_center bt pbsm">
-                                        <div class="socials" style="height: 50px;">
-                                            <span><small>{{trans('courses.share on')}}</small></span>
-                                            <!-- ShareThis BEGIN -->
-                                            <div class="sharethis-inline-share-buttons" style="z-index: 0;"></div>
-                                            <!-- ShareThis END -->
-                                        </div>
-                                    </div>
+{{--                                    <div class="share_course text_center bt pbsm">--}}
+{{--                                        <div class="socials" style="height: 50px;">--}}
+{{--                                            <span><small>{{trans('courses.share on')}}</small></span>--}}
+{{--                                            <!-- ShareThis BEGIN -->--}}
+{{--                                            <div class="sharethis-inline-share-buttons" style="z-index: 0;"></div>--}}
+{{--                                            <!-- ShareThis END -->--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                             @endif
 
@@ -660,18 +660,18 @@
                                             <h3 class="text_primary mblg text_capitalize">{{trans('courses.about instructor')}}</h3>
 
                                             <figure class="mbsm">
-                                                <a href="/instructors/view/{{$course->instructor->slug}}">
+                                                <a href="/instructors/view/{{ optional($course->instructor)->slug }}">
 
-                                                    @if($course->instructor->image)
-                                                        <img src="{{large1($course->instructor->image)}}" style="width: 100px;">
+                                                    @if(optional($course->instructor)->image)
+                                                        <img src="{{large1(optional($course->instructor)->image)}}" style="width: 100px;">
                                                     @endif
                                                 </a>
                                             </figure>
                                             <div class="auther_name mbmd">
-                                                <h5 class="mbxs"><a href="/instructors/view/{{$course->instructor->slug}}">{{$course->instructor->Fullname_lang}}</a></h5>
-                                                <span class="auther_title">{{$course->instructor->title_lang}}</span>
+                                                <h5 class="mbxs"><a href="/instructors/view/{{optional($course->instructor)->slug}}">{{optional($course->instructor)->Fullname_lang}}</a></h5>
+                                                <span class="auther_title">{{optional($course->instructor)->title_lang}}</span>
                                             </div>
-                                            <div>{!!$course->instructor->about_lang!!}</div>
+                                            <div>{!!optional($course->instructor)->about_lang!!}</div>
                                         @endif
 
                                     @endif
@@ -804,13 +804,13 @@
 
                             <section class="sec">
                                 <div class="mtlg">
-                                    @if($course->created_at)
-                                        {{trans('courses.created at')}} {{ $course->created_at }}
-                                    @endif
-                                    <br>
-                                    @if($course->updated_at)
-                                        {{trans('courses.updated at')}} {{ $course->updated_at }}
-                                    @endif
+{{--                                    @if($course->created_at)--}}
+{{--                                        {{trans('courses.created at')}} {{ $course->created_at }}--}}
+{{--                                    @endif--}}
+{{--                                    <br>--}}
+{{--                                    @if($course->updated_at)--}}
+{{--                                        {{trans('courses.updated at')}} {{ $course->updated_at }}--}}
+{{--                                    @endif--}}
                                     <div class="socials contact_whatsapp">
                                         @if($course->type != Courses::TYPE_WEBINAR)
 {{--                                                <span class="contact_whatsapp">--}}
@@ -845,7 +845,7 @@
                                         <h2 class="text_primary text_capitalize">{{trans('home.instructors')}}</h2>
                                     </div>
                                     <div class="row text-center">
-                                        @include('website.courses.assets.instructors', ['instructor' => $course->instructor])
+                                        @include('website.courses.assets.instructors', ['instructor' => optional($course->instructor)])
                                         @foreach(getInstructors($course) as $instructor)
                                             @include('website.courses.assets.instructors', ['instructor' => $instructor])
                                         @endforeach
@@ -912,12 +912,12 @@
                                                 <div class="card p-3">
                                                     {{trans('courses.benefits-4')}}
                                                 </div>
-                                                <div class="card p-3">
-                                                    {{trans('courses.benefits-5')}}
-                                                </div>
-                                                <div class="card p-3">
-                                                    {{trans('courses.benefits-6')}}
-                                                </div>
+{{--                                                <div class="card p-3">--}}
+{{--                                                    {{trans('courses.benefits-5')}}--}}
+{{--                                                </div>--}}
+{{--                                                <div class="card p-3">--}}
+{{--                                                    {{trans('courses.benefits-6')}}--}}
+{{--                                                </div>--}}
                                                 <div class="card p-3">
                                                     {{trans('courses.benefits-7')}}
                                                 </div>
@@ -927,9 +927,9 @@
                                                 <div class="card p-3">
                                                     {{trans('courses.benefits-9')}}
                                                 </div>
-                                                <div class="card p-3">
-                                                    {{trans('courses.benefits-10')}}
-                                                </div>
+{{--                                                <div class="card p-3">--}}
+{{--                                                    {{trans('courses.benefits-10')}}--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -940,16 +940,16 @@
                                 <!--Mobile course_column_info -->
                                 <div class="course_column_info">
                                     @if($course->type != Courses::TYPE_WEBINAR)
-                                        <div class="b_all">
-                                            <div class="share_course text_center bt pbsm">
-                                                <div class="socials" style="height: 50px;">
-                                                    <span><small>{{trans('courses.share on')}}</small></span>
-                                                    <!-- ShareThis BEGIN -->
-                                                    <div class="sharethis-inline-share-buttons" style="z-index: 0;"></div>
-                                                    <!-- ShareThis END -->
-                                                </div>
-                                            </div>
-                                        </div>
+{{--                                        <div class="b_all">--}}
+{{--                                            <div class="share_course text_center bt pbsm">--}}
+{{--                                                <div class="socials" style="height: 50px;">--}}
+{{--                                                    <span><small>{{trans('courses.share on')}}</small></span>--}}
+{{--                                                    <!-- ShareThis BEGIN -->--}}
+{{--                                                    <div class="sharethis-inline-share-buttons" style="z-index: 0;"></div>--}}
+{{--                                                    <!-- ShareThis END -->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     @endif
 
                                     <div class="course_column_info_inner mtxs b_all">
@@ -1018,17 +1018,17 @@
                                                 @else
                                                     <h3 class="text_primary mblg text_capitalize">{{trans('courses.about instructor')}}</h3>
                                                     <figure class="mbsm">
-                                                        <a href="/instructors/view/{{$course->instructor->slug}}">
-                                                            @if($course->instructor->image)
-                                                                <img src="{{large1($course->instructor->image)}}" style="width: 100px;">
+                                                        <a href="/instructors/view/{{optional($course->instructor)->slug}}">
+                                                            @if(optional($course->instructor)->image)
+                                                                <img src="{{large1(optional($course->instructor)->image)}}" style="width: 100px;">
                                                             @endif
                                                         </a>
                                                     </figure>
                                                     <div class="auther_name mbmd">
-                                                        <h5 class="mbxs"><a href="/instructors/view/{{$course->instructor->slug}}">{{$course->instructor->Fullname_lang}}</a></h5>
-                                                        <span class="auther_title">{{$course->instructor->title_lang}}</span>
+                                                        <h5 class="mbxs"><a href="/instructors/view/{{optional($course->instructor)->slug}}">{{optional($course->instructor)->Fullname_lang}}</a></h5>
+                                                        <span class="auther_title">{{optional($course->instructor)->title_lang}}</span>
                                                     </div>
-                                                    <div>{!!$course->instructor->about_lang!!}</div>
+                                                    <div>{!!optional($course->instructor)->about_lang!!}</div>
                                                 @endif
 
 

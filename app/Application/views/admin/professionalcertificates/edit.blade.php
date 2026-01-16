@@ -1,6 +1,6 @@
 @extends(layoutExtend())
  @section('title')
-    {{ trans('professionalcertificates.professionalcertificates') }} {{  isset($item) ? trans('home.edit')  : trans('home.add')  }}
+   ` {{ trans('professionalcertificates.professionalcertificates') }} `{{  isset($item) ? trans('home.edit')  : trans('home.add')  }}
 @endsection
  @section('content')
     @component(layoutForm() , ['title' => trans('professionalcertificates.professionalcertificates') , 'model' => 'professionalcertificates' , 'action' => isset($item) ? trans('home.edit')  : trans('home.add')  ])

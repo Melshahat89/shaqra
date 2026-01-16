@@ -60,13 +60,13 @@ if($currentDate > $webinarDate){
                 {{ strip_tags(charLimit($data->description_ar, 500)) }}
             @endif
         </p>
-        @if(isset($data->created_at))
-            {{trans('courses.created at')}} {{ $data->created_at->format('Y-m-d') }}
-        @endif
-        <br>
-        @if(isset($data->updated_at))
-            {{trans('courses.updated at')}} {{ $data->updated_at->format('Y-m-d') }}
-        @endif
+{{--        @if(isset($data->created_at))--}}
+{{--            {{trans('courses.created at')}} {{ $data->created_at->format('Y-m-d') }}--}}
+{{--        @endif--}}
+{{--        <br>--}}
+{{--        @if(isset($data->updated_at))--}}
+{{--            {{trans('courses.updated at')}} {{ $data->updated_at->format('Y-m-d') }}--}}
+{{--        @endif--}}
         <div class="course_card_price"> <i class="fas fa-eye"></i> <span>{{$data->visits}}</span> </div>
     </div>
     

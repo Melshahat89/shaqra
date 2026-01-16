@@ -114,9 +114,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <a class="switcher" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">{{trans('website.other lang')}} </a>
-                    <a class="instructor-btn" href="{{ url('/joinAsInstructor') }}">
-                      {{trans('website.Become an Instructor')}}
-                    </a>
+{{--                    <a class="instructor-btn" href="{{ url('/joinAsInstructor') }}">--}}
+{{--                      {{trans('website.Become an Instructor')}}--}}
+{{--                    </a>--}}
                     <a class="" style="margin: 10px;     font-weight: bold;" href="{{ url('/talks/category?key=covid19') }}">
                         {{ trans('website.COVID-19') }} 
                       </a>

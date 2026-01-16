@@ -50,18 +50,18 @@
 {{--                    <li>--}}
 {{--                        <a href="{{url('consultants/category')}}">{{trans('consultation.consultation')}}</a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{url('testimonials')}}">{{trans('testimonials.testimonials')}}</a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{url('testimonials')}}">{{trans('testimonials.testimonials')}}</a>--}}
+{{--                    </li>--}}
 {{--                    <li>--}}
 {{--                        <a href="https://igtsservice.com/blog">{{trans('home.blog')}} </a>--}}
 {{--                    </li>--}}
 {{--                    <li>--}}
 {{--                        <a href="{{url('blog/category/news')}}">{{trans('website.news')}}</a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{url('partners')}}">{{trans('home.accreditations')}} </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{url('partners')}}">{{trans('home.accreditations')}} </a>--}}
+{{--                    </li>--}}
 {{--                    <li>--}}
 {{--                        <a href="{{url('instructors/All')}}">{{trans('home.instructors')}} </a>--}}
 {{--                    </li>--}}

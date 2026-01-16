@@ -17,9 +17,9 @@
                     <div class="navigation-primary">
                         <ul class="collapse navbar-collapse pr-2 pl-2 navbar-nav " id="navbarSupportedContent" style="margin: revert;">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/">{{trans('home.home')}} <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/"> {{ trans('professionalcertificates.professionalcertificates') }}  <span class="sr-only">(current)</span></a>
                             </li>
-                            <li><a class="nav-link dropdown-toggle">{{trans('home.specialities')}}</a>
+                            <li><a class="nav-link dropdown-toggle" href="{{url('/home-courses')}}"> {{trans('website.courses')}}</a>
                                 <ul class="sub-menu">
                                     @foreach(menuCategories() as $cat)
                                         @if(!$cat->childs->isEmpty())
@@ -48,15 +48,15 @@
 
 
                             <li class="nav-item active">
-                                <a class="nav-link button home-slider-button button_small text_capitalize slider-cta" href="{{url('/subscriptions')}}">{{trans('b2b.subscriptions')}} <span class="sr-only"></span></a>
+                                <a class="nav-link button  button_small text_capitalize slider-cta" href="{{url('/subscriptions')}}">{{trans('b2b.subscriptions')}} <span class="sr-only"></span></a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/home-courses')}}">
-                                    {{trans('website.courses')}}
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{url('/home-courses')}}">--}}
+{{--                                    {{trans('website.courses')}}--}}
+{{--                                    <span class="sr-only">(current)</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
                         </ul>
                     </div>

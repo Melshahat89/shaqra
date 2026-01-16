@@ -361,18 +361,18 @@ use Illuminate\Support\Facades\Session as Session;
               </div>
           </div>
       </div>
-      <div class="card">
-          <div class="card-header" id="faqhead6">
-              <a href="#" class="btn-header-link collapsed" data-toggle="collapse" data-target="#faq6"
-              aria-expanded="true" aria-controls="faq6">{{trans('b2b.Q6')}}</a>
-          </div>
+{{--      <div class="card">--}}
+{{--          <div class="card-header" id="faqhead6">--}}
+{{--              <a href="#" class="btn-header-link collapsed" data-toggle="collapse" data-target="#faq6"--}}
+{{--              aria-expanded="true" aria-controls="faq6">{{trans('b2b.Q6')}}</a>--}}
+{{--          </div>--}}
 
-          <div id="faq6" class="collapse" aria-labelledby="faqhead6" data-parent="#faq-accordion">
-              <div class="card-body">
-                  {!!trans('b2b.Q6 Answer')!!}
-              </div>
-          </div>
-      </div>
+{{--          <div id="faq6" class="collapse" aria-labelledby="faqhead6" data-parent="#faq-accordion">--}}
+{{--              <div class="card-body">--}}
+{{--                  {!!trans('b2b.Q6 Answer')!!}--}}
+{{--              </div>--}}
+{{--          </div>--}}
+{{--      </div>--}}
       <div class="card">
           <div class="card-header" id="faqhead8">
               <a href="#" class="btn-header-link collapsed" data-toggle="collapse" data-target="#faq8"
