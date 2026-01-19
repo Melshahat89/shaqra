@@ -6,14 +6,10 @@
             <div class="col-md-4">
 {{--                <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>--}}
 
-                <div class="social">
 
-                    <img style="width: 150px" src="{{ asset('website') }}/images/shaqra.svg">
+                <img src="{{ asset('website') }}/images/2030.svg" style=" width: 250px;" loading="lazy" alt="2030">
 
-                </div>
-                <div class="social">
-                    <img style="width: 250px" src="{{ asset('website') }}/images/Scsi.webp">
-                </div>
+
             </div>
 
             <div class="col-md-4">
@@ -103,12 +99,14 @@
 
         </div>
     </div>
-    <div class="copywrite">
+    <div class="copywrite" style="background-color: white">
         <div class="wrapper" style="text-align: -webkit-center;">
             <div>
-                <img src="{{ asset('website') }}/images/2030.svg" style=" width: 150px;" loading="lazy" alt="2030">
+                <div>
+                    <img style="width: 250px" src="{{ asset('website') }}/images/Scsi.webp">
+                    <img style="width: 150px" src="{{ asset('website') }}/images/shaqra.svg">
 
-
+                </div>
 {{--                <img src="{{ asset('website') }}/images/front/visalogo.svg" width="100" height="40" loading="lazy" alt="Voda Cash">--}}
 {{--                <img src="{{ asset('website') }}/images/front/mastercardlogo.svg" width="100" height="40" loading="lazy" alt="mastercardlogo Cash">--}}
 {{--                <img src="{{ asset('website') }}/images/front/paypallogo.svg" width="100" height="40" loading="lazy" alt="paypallogo Cash">--}}
@@ -117,7 +115,10 @@
 
             <p></p>
             <p>
-                 <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered and Content Developed by iGTS</a>
+                 <a href="https://www.igtsservice.com" target="_blank" style="color: black">Powered and Content Developed by
+                    <br>
+                     <img src="https://training.raed.com.sa/website/images/logonew2.webp" alt="igts" class="w-6 h-6" style="width: 50px; display: inline;">
+                 </a>
             </p>
         </div>
     </div>
