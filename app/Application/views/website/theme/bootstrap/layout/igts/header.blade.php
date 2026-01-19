@@ -3,7 +3,7 @@
     <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
             <a class="navbar-brand m-0" href="/">
-                <img src="{{ asset('website') }}/images/logonew3.webp" loading="lazy" alt="" width="100" height="">
+                <img src="{{ asset('website') }}/images/logonew2.webp" loading="lazy" alt="" width="200" height="">
             </a>
             <a href="#" data-toggle="modal" data-target="#searchmodal"><i class="fas fa-search d-none" id="header-search-icon"></i></a>
 
@@ -77,7 +77,15 @@
 
                     </div>
                 </form>
+                <div class="logo-container" style="padding-right: 10%">
+                    <p class="font-bold text-white text-[18px] md:text-[18px] pb-[3px] mt-[17px] transition ease-in-out bg-red
+    hover:bg-blue w-[265px] h-[55px] flex items-center justify-center rounded-full" style="background-color: red;">
+                        نسخة تجريبية
+                    </p>
+                </div>
             </div>
+
+
             @if(Auth::check())
                 <div class="pt-2 d-flex align-items-center justify-content-between ">
                     {{-- سلة المشتريات --}}
@@ -157,11 +165,7 @@
                     </div>
 
                     {{-- اللوجو --}}
-{{--                    <div class="logo-container">--}}
-{{--                        <a class="navbar-brand m-0" href="/">--}}
-{{--                            <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="150" height="75">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
+
                 </div>
 
             @else

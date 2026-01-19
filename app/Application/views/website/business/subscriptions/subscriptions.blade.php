@@ -53,7 +53,7 @@
         <!-- Header Section -->
 <header class="flex items-center justify-between px-[30px] md:px-[90px] py-[32px] !bg-transparent">
     <a href="/" class="block relative z-[2]">
-        <img src="{{ asset('website') }}/images/logonew3.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
+        <img src="{{ asset('website') }}/images/logonew2.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
     </a>
 
     <div class="items-center hidden space-x-8 md:flex relative z-[2]">
@@ -108,6 +108,9 @@
         </form>
 
     </div>
+
+
+
 
     <div class="text-[16px] md:flex items-center space-x-4 hidden relative z-[2]">
         <!-- This is for the user drop-down menu  -->
@@ -776,35 +779,35 @@
 
 
 <!-- Our Partners Section -->
-<section class="our-partners-section bg-white md:mt-[100px] mt-[50px] md:px-[90px] px-[30px] pb-[50px]">
-    <div class="flex flex-col items-center justify-center text-center">
-        <h3 class="text-black text-[25px] lg:text-[40px] font-bold">
-            {{trans('website.Partners')}}
-        </h3>
-        <p class="text-babydark text-[18px] mt-[14px]">
-            {{trans('website.Partners p')}}
-        </p>
-    </div>
+{{--<section class="our-partners-section bg-white md:mt-[100px] mt-[50px] md:px-[90px] px-[30px] pb-[50px]">--}}
+{{--    <div class="flex flex-col items-center justify-center text-center">--}}
+{{--        <h3 class="text-black text-[25px] lg:text-[40px] font-bold">--}}
+{{--            {{trans('website.Partners')}}--}}
+{{--        </h3>--}}
+{{--        <p class="text-babydark text-[18px] mt-[14px]">--}}
+{{--            {{trans('website.Partners p')}}--}}
+{{--        </p>--}}
+{{--    </div>--}}
 
-    <div class="partners-section__image relative mt-[60px]">
-        <div class="swiper h-[250px]">
-            <div class="swiper-wrapper pb-[50px]">
+{{--    <div class="partners-section__image relative mt-[60px]">--}}
+{{--        <div class="swiper h-[250px]">--}}
+{{--            <div class="swiper-wrapper pb-[50px]">--}}
 
 
-                @foreach ($Partners as $partner)
-                    <div class="swiper-slide">
-                        <div class="flex p-[50px] items-center justify-center bg-coolgrey md:rounded-full rounded-[10px] md:w-[150px] md:h-[150px] w-full h-full">
-                            <img src="{{large1($partner->logo)}}"
-                                 alt="{{$partner->title_lang}}"
-                                 class="h-[145px] w-[265px]"/>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="-bottom-[20px] swiper-pagination"></div>
-        </div>
-    </div>
-</section>
+{{--                @foreach ($Partners as $partner)--}}
+{{--                    <div class="swiper-slide">--}}
+{{--                        <div class="flex p-[50px] items-center justify-center bg-coolgrey md:rounded-full rounded-[10px] md:w-[150px] md:h-[150px] w-full h-full">--}}
+{{--                            <img src="{{large1($partner->logo)}}"--}}
+{{--                                 alt="{{$partner->title_lang}}"--}}
+{{--                                 class="h-[145px] w-[265px]"/>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--            <div class="-bottom-[20px] swiper-pagination"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 
 <!-- Specialities Section -->
 <section class="specialities-section relative mt-[50px] md:px-[90px] px-[30px] md:py-[60px] py-[30px] bg-coolgrey reverse-cols-md grid md:grid-cols-2 grid-cols-1 items-center">
@@ -977,14 +980,17 @@
         </a>
     </div>
 
-    <div class="flex justify-center gap-4 mt-6 text-gray-800  flex-col w-full fw-400 flex items-center">
-
+    <div class="flex flex-col items-center justify-center gap-4 mt-6 text-gray-800 w-full fw-400">
         <p class="text-babydark mt-[14px] text-[18px]">
-            {{trans('website.Certified by')}}
+            {{ trans('website.Certified by') }}
         </p>
 
-        <img src="{{ asset('website') }}/images/Scsi.webp" alt="Payments" class="w-[265px] h-full "/>
+        <div class="flex flex-row justify-center gap-4 mt-2">
+            <img src="{{ asset('website') }}/images/Scsi.webp" alt="Payments" class="w-[265px] h-full"/>
+            <img src="{{ asset('website') }}/images/shaqra.svg" alt="Payments" class="w-[145px] h-full"/>
+        </div>
     </div>
+
 
     <!-- Social Media Icons -->
     <div class="flex justify-center gap-6 my-[50px]">
@@ -1023,12 +1029,16 @@
 
         <!-- Payment Methods -->
         <div class="flex justify-center gap-4 md:py-0 py-[20px]" style="max-height: 100px;">
-            <div class="w-[300px]">
-{{--                <img--}}
-{{--                        src="{{ asset('subscription-new/src') }}/images/payments.png"--}}
-{{--                        alt="Payments"--}}
-{{--                        class="w-full h-full"--}}
-{{--                />--}}
+            <div class="md:text-[20px] w-[300px] text-right">
+                <center>
+                    <p>
+                        المحتوى معتمد من
+
+                        <img src="{{ asset('website/images') }}/FutureX.webp" alt="Instagram"
+                             class=" w-6 h-6"  style="height: 80%;width: 60%;" />
+                    </p>
+
+                </center>
             </div>
         </div>
         <!-- Footer Bottom Links -->

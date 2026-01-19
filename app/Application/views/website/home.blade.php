@@ -93,15 +93,7 @@
                     </div> -->
                 </section>
 
-                <div id="specialities">
-                    <div class="owl-carousel owl-theme specialities">
 
-                        @foreach ($categories as $category)
-                            @include(sectionSpecialities('website'), ['data' => $category])
-                        @endforeach
-
-                    </div>
-                </div>
             </div>
         </section>
         @if($featuredAll && count($featuredAll) > 0)

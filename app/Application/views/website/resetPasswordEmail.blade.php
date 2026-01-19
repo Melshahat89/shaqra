@@ -124,7 +124,7 @@
                         <tr align="center" valign="center" style="border: 1px solid #ddd; border-top: 0; background: #fff;">
                               <td style="background-color: #fff">
                                  <a href="#" target="_blank" style="display: block; width: 100%; padding-bottom: 40px; padding-top: 40px;">
-                                    <img src="https://mehany.su.edu.sa/website/images/logonew3.webp" alt="'Mehany'" style="width: 170px;">
+                                    <img src="https://mehany.su.edu.sa/website/images/logonew2.webp" alt="'Mehany'" style="width: 170px;">
                                  </a>
                               </td>
                            </tr>

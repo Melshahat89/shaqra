@@ -7,6 +7,11 @@
 {{--                <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>--}}
 
                 <div class="social">
+
+                    <img style="width: 150px" src="{{ asset('website') }}/images/shaqra.svg">
+
+                </div>
+                <div class="social">
                     <img style="width: 250px" src="{{ asset('website') }}/images/Scsi.webp">
                 </div>
             </div>
@@ -100,8 +105,8 @@
     </div>
     <div class="copywrite">
         <div class="wrapper" style="text-align: -webkit-center;">
-            <div class="paymentmethods">
-{{--                <img src="{{ asset('website') }}/images/front/payments22.webp" style=" width: 350px;" loading="lazy" alt="Voda Cash">--}}
+            <div>
+                <img src="{{ asset('website') }}/images/2030.svg" style=" width: 150px;" loading="lazy" alt="2030">
 
 
 {{--                <img src="{{ asset('website') }}/images/front/visalogo.svg" width="100" height="40" loading="lazy" alt="Voda Cash">--}}
@@ -110,7 +115,7 @@
 {{--                <img src="{{ asset('website') }}/images/front/voda-cash.png" width="100" height="40" loading="lazy" alt="voda Cash">--}}
             </div>
 
-{{--            <p>{{trans('business.Copyright')}} © {{currentYear()}} <span>مهني</span>. {{trans('business.All rights reserved.')}}</p>--}}
+            <p></p>
             <p>
                  <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered and Content Developed by iGTS</a>
             </p>

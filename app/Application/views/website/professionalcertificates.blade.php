@@ -69,15 +69,7 @@
                     </div> -->
                 </section>
 
-                <div id="specialities">
-                    <div class="owl-carousel owl-theme specialities">
 
-                        @foreach ($categories as $category)
-                            @include(sectionSpecialities('website'), ['data' => $category])
-                        @endforeach
-
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -85,7 +77,7 @@
             <section class="sec sec_pad_top sec_pad_bottom bg_lightgray ">
                 <div class="wrapper">
                     <section class="title mblg">
-                        <h2 class="text_primary text_capitalize">{{trans('home.courses')}}</h2>
+                        <h2 class="text_primary text_capitalize">{{trans('professionalcertificates.professionalcertificates')}}</h2>
                         <div class="actions">
                             <a href="{{url('professional-certificates/category')}}" class="button button_primary button_small text_capitalize" type="button" role="button">{{trans('home.view all')}}</a>
                         </div>
