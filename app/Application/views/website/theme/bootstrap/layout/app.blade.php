@@ -91,13 +91,13 @@
     @else
         <body class="text-left" id="p_wrapper">
         <div class="smart_bar">
-            <div class="alert alert-info alert-dismissible fade show" style="background-color: #20a0e1;border-color: #031138">
-                <div class="text_center ptsm pbsm">
-                    <h5>
-                        <a style="color: #ffffff" target="_blank" href="https://t.me/InternationalGroupForTrainingSer"> Join the IGTS community on Telegram </a>
-                    </h5>
-                </div>
-            </div>
+{{--            <div class="alert alert-info alert-dismissible fade show" style="background-color: #20a0e1;border-color: #031138">--}}
+{{--                <div class="text_center ptsm pbsm">--}}
+{{--                    <h5>--}}
+{{--                        <a style="color: #ffffff" target="_blank" href="https://t.me/InternationalGroupForTrainingSer"> Join the IGTS community on Telegram </a>--}}
+{{--                    </h5>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 {{--            <div class="alert alert-info alert-dismissible fade show" style="background-color: #212529;border-color: #031138">--}}
 {{--                <div class="text_center ptsm pbsm">--}}
 {{--                    <h5>--}}
