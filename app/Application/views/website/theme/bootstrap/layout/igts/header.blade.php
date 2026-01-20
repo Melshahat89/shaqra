@@ -64,7 +64,7 @@
 
             <!-- اللوجو يمين -->
             <a class="navbar-brand m-0" href="/">
-                <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="Logo" width="250">
+                <img src="{{ asset('website') }}/images/shaqracs.svg" loading="lazy" alt="Logo" width="250">
             </a>
 
             <!-- المنيو + البحث في الوسط -->
@@ -203,129 +203,6 @@
     </div>
 </header>
 
-
-
-
-
-{{--<header class="p-3">--}}
-{{--    <div class="wrapper">--}}
-{{--        <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">--}}
-{{--            <a class="navbar-brand m-0" href="/">--}}
-{{--                <img src="{{ asset('website') }}/images/shaqra.svg" loading="lazy" alt="" width="250" height="">--}}
-{{--                <img src="{{ asset('website') }}/images/Scsi.webp" loading="lazy" alt="" width="200" height="">--}}
-{{--            </a>--}}
-{{--            <a href="#" data-toggle="modal" data-target="#searchmodal"><i class="fas fa-search d-none" id="header-search-icon"></i></a>--}}
-
-{{--            <div class="dropdown">--}}
-
-{{--                <button class="dropbtn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--                    <span class="navbar-toggler-icon" ></span>--}}
-{{--                </button>--}}
-
-{{--                <div class="dropdown-content">--}}
-{{--                    <div class="navigation-primary">--}}
-{{--                        <ul class="collapse navbar-collapse pr-2 pl-2 navbar-nav " id="navbarSupportedContent" style="margin: revert;">--}}
-{{--                            <li class="nav-item active">--}}
-{{--                                <a class="nav-link" href="/"> {{ trans('professionalcertificates.professionalcertificates') }}  <span class="sr-only">(current)</span></a>--}}
-{{--                            </li>--}}
-{{--                            <li><a class="nav-link dropdown-toggle" href="{{url('/home-courses')}}"> {{trans('website.courses')}}</a>--}}
-{{--                                <ul class="sub-menu">--}}
-{{--                                    @foreach(menuCategories() as $cat)--}}
-{{--                                        @if(!$cat->childs->isEmpty())--}}
-{{--                                            <li><a>  {{$cat->name_lang}}  <i class="fas fa-angle-down"></i> </a>--}}
-{{--                                                <ul class="sub-menu">--}}
-{{--                                                    @foreach($cat->childs as $child)--}}
-{{--                                                        @if($child->show_menu)--}}
-{{--                                                            <li><a href="/allcourses/category/{{$child->slug}}">{{$child->name_lang}}</a></li>--}}
-{{--                                                        @endif--}}
-{{--                                                    @endforeach--}}
-{{--                                                </ul>--}}
-{{--                                            </li>--}}
-{{--                                        @else--}}
-{{--                                            @if(!$cat->parent_id)--}}
-{{--                                                <li><a class="dropdown-item" href="/allcourses/category/{{$cat->slug}}">{{$cat->name_lang}}</a></li>--}}
-{{--                                            @endif--}}
-
-{{--                                        @endif--}}
-{{--                                    @endforeach--}}
-{{--                                </ul>--}}
-{{--                            </li>--}}
-
-{{--                            <li class="nav-item active">--}}
-{{--                                <a class="nav-link button  button_small text_capitalize slider-cta" href="{{url('/subscriptions')}}">{{trans('b2b.subscriptions')}} <span class="sr-only"></span></a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-
-
-
-{{--            <div class="collapse navbar-collapse pr-2 pl-2" id="navbarSupportedContent">--}}
-{{--                <form class="pr-2 pl-2 search-bar desktop-search" style="width: 40%" action="/allcourses/category" method="GET">--}}
-{{--                    <div class="search-input">--}}
-{{--                        <a href="" target="_blank" hidden></a>--}}
-{{--                        <label for="key" class="search-bar-label mr-3 ml-3"><i class="fas fa-search"></i></label>--}}
-{{--                        <input class="pr-5 pl-5 pt-4 pb-4 search-input-input" type="text" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off">--}}
-{{--                        <div class="autocom-box" style="position: absolute;width: 100%;background: #fff;border-radius: 5px;box-shadow: 0px 1px 5px rgba(0,0,0,0.1);margin-top: 8px; font-size: 15px; z-index: 3;"></div>--}}
-
-{{--                    </div>--}}
-{{--                </form>--}}
-{{--                <div class="logo-container" style="padding-right: 10%">--}}
-{{--                    <p class="font-bold text-white text-[18px] md:text-[18px] pb-[3px] mt-[17px] transition ease-in-out bg-red--}}
-{{--    hover:bg-blue w-[265px] h-[55px] flex items-center justify-center rounded-full" style="background-color: red;">--}}
-{{--                        نسخة تجريبية--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
-{{--            @if(Auth::check())--}}
-{{--                <div class="pt-2 d-flex align-items-center justify-content-between ">--}}
-{{--                    --}}{{-- سلة المشتريات --}}
-{{--                    <div class="head_cart d-flex align-items-center">--}}
-{{--                        <a href="/cart" class="position-relative">--}}
-{{--                            <span class="floated_count">{{ count(getShoppingCart()) }}</span>--}}
-{{--                            <span class="head_cart_icon"></span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-
-{{--                    --}}{{-- معلومات المستخدم --}}
-{{--                    <div class="desktop-account-info-padding d-flex align-items-center">--}}
-{{--                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                            <img class="rounded-circle me-2" src="{{ large1(Auth::user()->image) }}" width="38">--}}
-{{--                            <span class="avatar_name">{{ charlimit(Auth::user()->name, 10) }}</span>--}}
-{{--                        </a>--}}
-{{--                        --}}{{-- القائمة المنسدلة --}}
-{{--                        <div class="nav-item dropdown">--}}
-
-{{--                                <div class="dropdown-menu" aria-labelledby="userMenuDropdown">--}}
-{{--                                  هنا القائمة المنسدلة //--}}
-{{--                                </div>--}}
-
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    --}}{{-- اللوجو --}}
-
-{{--                </div>--}}
-{{--            @else--}}
-{{--                <div class="pt-2 {{ isMobile() ? 'w-100 d-flex justify-content-between' : ''}}">--}}
-{{--   <button type="button"  data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal" class="button button_primary text_capitalize m-1">{{trans('home.signin')}}</button>--}}
-{{--                    <button type="button"  data-dismiss="modal" data-remote="/register" data-toggle="modal" data-target="#registerModal" class="button button_primary text_capitalize regButton m-1">{{trans('home.signup')}}</button>--}}
-{{--                    <a class="navbar-brand m-0" href="/">--}}
-{{--                        <img src="{{ asset('website') }}/images/mehany2030.png" loading="lazy" alt="" width="200" >--}}
-{{--                        <img src="{{ asset('website') }}/images/2030b.png" loading="lazy" alt="" width="150" height="75">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            @endif--}}
-{{--        </nav>--}}
-
-
-{{--    </div>--}}
-{{--</header>--}}
 
 <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
