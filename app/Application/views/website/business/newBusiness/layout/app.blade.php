@@ -417,7 +417,7 @@
     </div>
 </footer>
 
-<a href="https://wa.me/966590784935" target="_blank" class="float">
+<a href="https://wa.me/966539680702" target="_blank" class="float">
     <img src="{{ asset('business/newBusiness/src/images/whatsapp.webp') }}" alt="Business" class="whatsappBusiness my-float md:w-[115px] md:h-[56px] w-[110px]" />
 </a>
 

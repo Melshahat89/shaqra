@@ -1392,7 +1392,7 @@
             }
         </style>
 
-        <a href="#" target="_blank" class="float-whatsapp contact_whatsapp">
+        <a href="https://wa.me/966539680702" target="_blank" class="float-whatsapp contact_whatsapp">
             <i class="fab fa-whatsapp my-float" aria-hidden="true"></i>
         </a>
 
