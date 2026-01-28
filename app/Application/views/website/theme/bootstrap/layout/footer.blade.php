@@ -7,14 +7,14 @@
 {{--                <h4 class="footer-title">{!! trans('website.Certified by') !!}</h4>--}}
 
 
-                <img src="https://jeel.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwhite_logo.a15128d3.png&w=3840&q=75" style=" width: 250px;" loading="lazy" alt="2030">
+                <img src="https://jeel.co/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwhite_logo.a15128d3.png&w=3840&q=75" style=" width: 200px;" loading="lazy" alt="2030">
 
                 <br>
                 <br>
 
 
                 <p>
-    بسط مدفوعاتك التعليمية مع ١٢ دفعة ميسرة.
+                    قسط مدفوعاتك على 12 دفعة ميسرة.
 </p>
 
             </div>
@@ -106,7 +106,7 @@
 
         </div>
     </div>
-    <div class="copywrite">
+    <div class="copywrite" style="background-color: white;">
         <div class="wrapper" style="text-align: -webkit-center;">
             <div>
 {{--                <div>--}}
@@ -122,7 +122,7 @@
 
             <p></p>
             <p>
-                 <a href="https://www.igtsservice.com" target="_blank" style="color: white">Powered and Content Developed by
+                 <a href="https://www.igtsservice.com" target="_blank" style="color: black" >Powered and Content Developed by
                     <br>
                      <img src="https://training.raed.com.sa/website/images/logonew2.webp" alt="igts" class="w-6 h-6" style="width: 50px; display: inline;">
                  </a>
