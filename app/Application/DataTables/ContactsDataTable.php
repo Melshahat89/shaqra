@@ -81,6 +81,11 @@ class ContactsDataTable extends DataTable
                 'title' => trans('contact.name'),
             ],
             [
+                'name' => "phone",
+                'data' => 'phone',
+                'title' => trans('contact.phone'),
+            ],
+            [
                 'name' => "email",
                 'data' => 'email',
                 'title' => trans('contact.email'),
