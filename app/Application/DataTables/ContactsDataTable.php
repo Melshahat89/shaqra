@@ -21,7 +21,7 @@ class ContactsDataTable extends DataTable
             ->addColumn('delete', 'admin.contact.buttons.delete')
             ->addColumn('view', 'admin.contact.buttons.view')
             ->addColumn('user_id', 'admin.contact.buttons.langcol')
-            ->rawColumns(['id', 'edit', 'delete', 'view'])
+            ->rawColumns(['id', 'edit', 'delete', 'view','user_id'])
             ->make(true);
     }
 
