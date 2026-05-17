@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i 's/^error_reporting = E_ALL/error_reporting = E_ALL \\\\& ~E_DEPRECATED \\\\& ~E_NOTICE/' /c/laragon/bin/php/php-8.2.26/php.ini)",
+      "Bash(curl -s \"http://127.0.0.1:8000/ar\")",
+      "Bash(python3 -c ' *)"
+    ],
+    "additionalDirectories": [
+      "C:\\laragon\\bin\\php\\php-8.2.26"
+    ]
+  }
+}

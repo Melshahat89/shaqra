@@ -24,7 +24,7 @@
 
        @foreach($data['allChoices'] as $choice)
        @php $i++; @endphp
-       {!! extractTextFiledAutoIncrement($choice, "choice", '' , $choice->choice, null, $i) !!}
+       {!! extractTextFiledAutoIncrement("choice", $choice->choice, $i, $choice, '', null) !!}
        @endforeach
       @endif
       <hr>

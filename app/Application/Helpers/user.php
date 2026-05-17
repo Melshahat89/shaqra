@@ -234,7 +234,7 @@ Function ip_in_range($ip, $range) {
   }
 
 
-  function distCourseTransactions($course, $course_price, $payment, $promoRow = null, $actualCourse, $date=null){
+  function distCourseTransactions($course, $course_price, $payment, $actualCourse, $promoRow = null, $date = null){
 
     $course_price = round($course_price);
 
@@ -704,16 +704,16 @@ function setInstructorAffTransactions($course, $course_price, $payment, $currenc
                     $includedCoursePrice = round(($includedCourse->includedCourse->EgpOriginalPrice * $includedCoursesPercentage) / 100);
                 }
 
-                distCourseTransactions($course, $includedCoursePrice, $payment, $promoRow, $includedCourse->includedCourse);
+                distCourseTransactions($course, $includedCoursePrice, $payment, $includedCourse->includedCourse, $promoRow);
             }
-            
+
         }else{
 
-            /**The sum of the included courses price is less than the main course price itself 
+            /**The sum of the included courses price is less than the main course price itself
             Such as masters - WILL calculate cost for lectures**/
 
             $lecturesPrice = $course_price - $includedCoursesOriginalPricesSum;
-            distCourseTransactions($course, $lecturesPrice, $payment, $promoRow, $course);
+            distCourseTransactions($course, $lecturesPrice, $payment, $course, $promoRow);
 
             foreach($course->courseincludes as $includedCourse){
 
@@ -722,18 +722,18 @@ function setInstructorAffTransactions($course, $course_price, $payment, $currenc
                 }else{
                     $includedCoursePrice = ($includedCourse->includedCourse->EgpOriginalPrice);
                 }
-                
-                distCourseTransactions($course, $includedCoursePrice, $payment, $promoRow, $includedCourse->includedCourse);
+
+                distCourseTransactions($course, $includedCoursePrice, $payment, $includedCourse->includedCourse, $promoRow);
 
             }
 
         }
-        
+
     }else{
 
         //The course doesn't have included courses
 
-        distCourseTransactions($course, $course_price, $payment, $promoRow, $course);
+        distCourseTransactions($course, $course_price, $payment, $course, $promoRow);
 
     }
 }
@@ -745,16 +745,16 @@ function setInstructorAffTransactions2($course, $course_price, $payment, $curren
         foreach($course->courseincludes as $includedCourse){
             $costForCourse = ($includedCourse->includedCourse->BaseCourseLength) * $costPerSecond;
             $course_price = $course_price - $costForCourse;
-            distCourseTransactions($course, $costForCourse, $payment, $promoRow, $includedCourse->includedCourse, $date);
+            distCourseTransactions($course, $costForCourse, $payment, $includedCourse->includedCourse, $promoRow, $date);
         }
 
         if($course_price > 0 && $course->instructor_per){
 
-            distCourseTransactions($course, $course_price, $payment, $promoRow, $course, $date);
+            distCourseTransactions($course, $course_price, $payment, $course, $promoRow, $date);
         }
     }else{
         //The course doesn't have included courses
-        distCourseTransactions($course, $course_price, $payment, $promoRow, $course, $date);
+        distCourseTransactions($course, $course_price, $payment, $course, $promoRow, $date);
     }
 }
 

@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:design.dga.gov.sa)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:oss.dga.gov.sa)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:www.figma.com)",
+      "WebFetch(domain:dga.iuxing.com)",
+      "Bash(php -l app/Application/views/website/home.blade.php)",
+      "Bash(php artisan *)",
+      "Bash(php -r \"echo php_sapi_name\\(\\);\")",
+      "Bash(php --version)",
+      "Bash(php -l \"c:/laragon/www/shaqra/app/Application/views/website/theme/bootstrap/home-dga.blade.php\")",
+      "Bash(Test-Path \"c:/laragon/www/shaqra/.env\")",
+      "PowerShell(Copy-Item \"c:/laragon/www/shaqra/.env.example\" \"c:/laragon/www/shaqra/.env\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:/laragon/www/shaqra/storage/framework/views\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:/laragon/www/shaqra/storage/framework/cache/data\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:/laragon/www/shaqra/storage/framework/sessions\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:/laragon/www/shaqra/storage/logs\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:/laragon/www/shaqra/bootstrap/cache\")",
+      "Read(//c/laragon/etc/apache2/sites-enabled/**)",
+      "Read(//c/Windows/System32/drivers/etc/**)",
+      "Read(//c/laragon/etc/apache2/**)",
+      "Read(//c/laragon/etc/**)",
+      "Read(//c/laragon/**)",
+      "Read(//c//**)",
+      "Bash(ls /c/ 2>/dev/null | head -20)",
+      "Bash(ls /d/ 2>/dev/null | head -20; ls /e/ 2>/dev/null | head -5; ls /f/ 2>/dev/null | head -5)",
+      "Read(//d//**)",
+      "Read(//e//**)",
+      "Read(//f//**)",
+      "Bash(ls /d/ 2>/dev/null | grep -i laragon)",
+      "Bash(curl -s http://127.0.0.1:8000/ar)"
+    ]
+  }
+}

@@ -63,7 +63,7 @@ class TransactionsController extends AbstractController
                         $order->payments_id = $payment->id;
                         $order->save();
 
-                        distCourseTransactions($course, $amount, $payment, null, $course);
+                        distCourseTransactions($course, $amount, $payment, $course, null);
                     }
                 });
 

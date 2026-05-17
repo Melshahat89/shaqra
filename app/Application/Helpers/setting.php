@@ -1,5 +1,6 @@
 <?php
 
 function getSetting($name){
-    return \App\Application\Model\Setting::where('name' , $name)->first()->body_setting;
+    $setting = \App\Application\Model\Setting::where('name' , $name)->first();
+    return $setting ? $setting->body_setting : null;
 }

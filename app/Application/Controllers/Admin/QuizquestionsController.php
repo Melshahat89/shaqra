@@ -76,7 +76,7 @@ $explode_id = array_map('intval', explode(',', $request->id[0]));
     public function addInput($counter) {
 
         
-        return extractTextFiledAutoIncrement(null, "choice", '' , '', null, $counter);
+        return extractTextFiledAutoIncrement("choice", '', $counter, null, '', null);
     }
 
 }

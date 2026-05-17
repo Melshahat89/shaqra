@@ -30,10 +30,10 @@ function extractFiled($item = null , $name = 'name', $value = null, $type = 'tex
       $lang  = getAvLang();
       if($type == 'text')
       {
-            return extractTextFiled($item , $lang, $name, $class, $value, $transeFile);
+            return extractTextFiled($lang, $name, $value, $item, $class, $transeFile);
       } elseif($type == 'textarea') {
 
-            return extractTexArea($item , $lang, $name, $rows, $class, $value, $transeFile, $dynamic);
+            return extractTexArea($lang, $name, $value, $item, $rows, $class, $transeFile);
       }
 }
 
@@ -54,7 +54,7 @@ function getDefaultValueKey($value)
     return null;
 }
 
-function extractTextFiled ($item = null , $lang, $name,  $class = '', $value, $transeFile = null)
+function extractTextFiled ($lang, $name, $value, $item = null, $class = '', $transeFile = null)
 {
 
       $title  = $transeFile != null ? adminTrans($transeFile , $name)  : $name;
@@ -116,7 +116,7 @@ function extractTextFiled ($item = null , $lang, $name,  $class = '', $value, $t
       return $out;
 }
 
-function extractTextFiledAutoIncrement ($item = null , $name,  $class = '', $value, $transeFile = null, $counter)
+function extractTextFiledAutoIncrement ($name, $value, $counter, $item = null, $class = '', $transeFile = null)
 {
 
       $lang = getAvLang();
@@ -254,7 +254,7 @@ function checkValueBeforeSet($value , $key){
     }
 }
 
-function extractTexArea($item = null , $lang, $name, $rows=8, $class = '', $value,  $transeFile = null)
+function extractTexArea($lang, $name, $value, $item = null, $rows = 8, $class = '', $transeFile = null)
 {
       $title  = $transeFile != null ? adminTrans($transeFile , $name)  : $name;
       $out = '<ul class="nav nav-tabs tab-nav-right" role="tablist">';
