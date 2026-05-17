@@ -57,7 +57,6 @@
 </style>
 
 
-<div class="top-bar d-flex justify-content-center align-items-center"> <span class="top-bar-text"> ⚡ نسخة تجريبية </span> </div>
 <header class="p-3">
     <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 d-flex justify-content-between align-items-center">
