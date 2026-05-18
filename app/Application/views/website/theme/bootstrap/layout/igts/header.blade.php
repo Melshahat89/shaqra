@@ -1,60 +1,96 @@
 <style>
-    .top-bar {
-        background: linear-gradient(90deg, #ff4d4d, #ff1a75); /* تدرج لوني جذاب */
-        color: #fff;
-        font-weight: bold;
-        font-size: 16px;
-        height: 35px;
-        letter-spacing: 1px;
+    /* ── Gov trust top bar (SU-style) ─────────────────── */
+    .dga-topbar {
+        background: #00261E;
+        color: rgba(255,255,255,0.85);
+        font-size: 12.5px;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(193,153,108,0.20);
+        direction: rtl;
     }
-
-    .top-bar-text {
-        white-space: nowrap; /* يمنع الكسر على سطرين */
-    }
-    .nav-link, .logo-container p {
-        white-space: nowrap;   /* يمنع الكسر */
-    }
-    .nav-link {
-        /*font-size: 14px; !* أو أي حجم أصغر *!*/
-    }
-    .logo-container p {
-        /*font-size: 16px;*/
-        /*padding: 10px 20px;*/
-    }
-    .navbar-nav {
+    .dga-topbar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 24px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
     }
-    .logo-container {
-        display: flex;
+    .dga-topbar-trust {
+        display: inline-flex;
         align-items: center;
+        gap: 6px;
+        color: rgba(255,255,255,0.78);
+        font-weight: 500;
+    }
+    .dga-topbar-trust svg { color: #D9B589; flex-shrink: 0; }
+    .dga-topbar-links {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .dga-topbar-links a {
+        color: rgba(255,255,255,0.75);
+        text-decoration: none;
+        font-size: 12.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: color 0.2s;
+    }
+    .dga-topbar-links a:hover { color: #D9B589; }
+    .dga-topbar-sep {
+        width: 1px;
+        height: 14px;
+        background: rgba(255,255,255,0.15);
+    }
+    @media (max-width: 640px) {
+        .dga-topbar { font-size: 11.5px; }
+        .dga-topbar-inner { padding: 0 12px; gap: 6px; }
+        .dga-topbar-links { gap: 10px; }
     }
 
-    /* تغيير اللون عند الوقوف */
+    .nav-link, .logo-container p { white-space: nowrap; }
+    .navbar-nav { display: flex; align-items: center; }
+    .logo-container { display: flex; align-items: center; }
+
     .navbar-nav .nav-link:hover,
     .dropdown-menu .dropdown-item:hover {
-        background-color: #f8f9fa; /* لون فاتح */
-        color: #007bff; /* أزرق */
+        background-color: #E6F1EE;
+        color: #005C4B;
     }
 
-    /* دعم الـ submenu */
-    .dropdown-submenu {
-        position: relative;
-    }
-
+    .dropdown-submenu { position: relative; }
     .dropdown-submenu > .dropdown-menu {
         top: 0;
         left: 100%;
         margin-top: -1px;
     }
-
-    /* فتح القائمة الفرعية تلقائيًا عند الوقوف */
-    .dropdown-submenu:hover > .dropdown-menu {
-        display: block;
-    }
-
-
+    .dropdown-submenu:hover > .dropdown-menu { display: block; }
 </style>
+
+{{-- ── Government trust top bar (Shaqra University style) ── --}}
+<div class="dga-topbar">
+    <div class="dga-topbar-inner">
+        <span class="dga-topbar-trust">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            منصة معتمدة من جامعة شقراء — معهد الدراسات والخدمات الاستشارية
+        </span>
+        <span class="dga-topbar-links">
+            <a href="https://www.su.edu.sa" target="_blank" rel="noopener">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                الموقع الرسمي
+            </a>
+            <span class="dga-topbar-sep"></span>
+            <a href="{{ url('contact') }}">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                الدعم
+            </a>
+        </span>
+    </div>
+</div>
 
 
 <header class="p-3">

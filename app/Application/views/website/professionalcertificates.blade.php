@@ -5,7 +5,7 @@
 @section('keywords'){{ trans('home.HomeKeywords') }}@endsection
 
 @push('css')
-<link href="{{ asset('website') }}/css/front/dga-design-system.css?v=5.0" rel="stylesheet">
+<link href="{{ asset('website') }}/css/front/dga-design-system.css?v=6.0" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">

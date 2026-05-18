@@ -1,19 +1,29 @@
-﻿<footer class="dga-footer" dir="rtl" lang="ar">
+<footer class="dga-footer" dir="rtl" lang="ar">
 
-    {{-- Top accent bar --}}
+    {{-- ══ Top accent bar with brand + Vision 2030 alignment ══ --}}
     <div class="dga-footer-accent">
         <div class="dga-footer-accent-inner">
             <div class="dga-footer-accent-brand">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                <span>منصة الشهادات الاحترافية</span>
+                <span>منصة الشهادات الاحترافية · جامعة شقراء</span>
             </div>
-            <p class="dga-footer-accent-text">منصة تعليمية معتمدة · شهادات احترافية · مدربون خبراء</p>
+            <div class="dga-footer-accent-badges">
+                <span class="dga-accent-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    رؤية 2030
+                </span>
+                <span class="dga-accent-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    معتمد رقمياً
+                </span>
+            </div>
         </div>
     </div>
 
+    {{-- ══ Main 5-column grid ══ --}}
     <div class="dga-footer-main">
 
-        {{-- ── Brand + Social ── --}}
+        {{-- 1. Brand + Social --}}
         <div class="dga-footer-brand">
             <a href="{{ url('/') }}" class="dga-footer-logo">
                 <div class="dga-footer-logo-mark">
@@ -75,19 +85,29 @@
             </div>
         </div>
 
-        {{-- ── الروابط السريعة ── --}}
+        {{-- 2. عن المنصة --}}
         <div class="dga-footer-col">
-            <h3 class="dga-footer-col-title">الروابط السريعة</h3>
+            <h3 class="dga-footer-col-title">عن المنصة</h3>
             <ul class="dga-footer-links">
-                <li><a href="{{ url('professional-certificates/category') }}">الشهادات الاحترافية</a></li>
                 <li><a href="{{ url('page/about') }}">من نحن</a></li>
+                <li><a href="{{ url('professional-certificates/category') }}">الشهادات الاحترافية</a></li>
                 <li><a href="{{ url('verifycertificate') }}">التحقق من الشهادة</a></li>
                 <li><a href="{{ url('faq') }}">الأسئلة الشائعة</a></li>
-                <li><a href="{{ url('contact') }}">تواصل معنا</a></li>
             </ul>
         </div>
 
-        {{-- ── الشروط والسياسات ── --}}
+        {{-- 3. روابط مفيدة (Vision 2030 style) --}}
+        <div class="dga-footer-col">
+            <h3 class="dga-footer-col-title">روابط مفيدة</h3>
+            <ul class="dga-footer-links">
+                <li><a href="https://www.su.edu.sa" target="_blank" rel="noopener">جامعة شقراء</a></li>
+                <li><a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener">رؤية المملكة 2030</a></li>
+                <li><a href="https://moe.gov.sa" target="_blank" rel="noopener">وزارة التعليم</a></li>
+                <li><a href="https://www.my.gov.sa" target="_blank" rel="noopener">البوابة الوطنية</a></li>
+            </ul>
+        </div>
+
+        {{-- 4. الشروط والسياسات --}}
         <div class="dga-footer-col">
             <h3 class="dga-footer-col-title">الشروط والسياسات</h3>
             <ul class="dga-footer-links">
@@ -98,7 +118,7 @@
             </ul>
         </div>
 
-        {{-- ── تواصل معنا ── --}}
+        {{-- 5. تواصل معنا --}}
         <div class="dga-footer-col">
             <h3 class="dga-footer-col-title">تواصل معنا</h3>
             <div class="dga-footer-contact">
@@ -153,27 +173,30 @@
 
     <hr class="dga-footer-divider">
 
+    {{-- ══ Bottom bar: copyright + last update + trust badges ══ --}}
     <div class="dga-footer-bottom">
         <p class="dga-footer-copy">
-            &copy; {{ date('Y') }} منصة الشهادات الاحترافية. جميع الحقوق محفوظة.
+            &copy; {{ date('Y') }} جميع الحقوق محفوظة — منصة الشهادات الاحترافية، جامعة شقراء
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a>
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/termsOfUse') }}">الشروط والأحكام</a>
         </p>
-        <div class="dga-footer-badges">
-            <span class="dga-footer-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                اتصال آمن
+        <div class="dga-footer-meta">
+            <span class="dga-footer-updated">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                آخر تحديث: {{ date('Y/m/d') }}
             </span>
-            <span class="dga-footer-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                متاح 24/7
-            </span>
-            <span class="dga-footer-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                محتوى معتمد
-            </span>
+            <div class="dga-footer-badges">
+                <span class="dga-footer-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    اتصال آمن
+                </span>
+                <span class="dga-footer-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    محتوى معتمد
+                </span>
+            </div>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 /*
  * DGA Design System (كود المنصات) – Shaqra Implementation v3.0
  * Saudi Government Digital Agency — design.dga.gov.sa
- * Primary: Saudi Green #1A6B3A  |  Secondary: Gold #C9A227
+ * Brand: Shaqra University — Primary #005C4B (green), Secondary #C1996C (gold)
  * Font: IBM Plex Sans Arabic
  */
 
@@ -9,18 +9,18 @@
    1. DESIGN TOKENS
    ===================================================== */
 :root {
-    /* Brand Colors */
-    --dga-primary:        #1A6B3A;
-    --dga-primary-dark:   #114A28;
-    --dga-primary-mid:    #1E7E44;
-    --dga-primary-light:  #28A757;
-    --dga-primary-50:     #E8F5EE;
-    --dga-primary-100:    #C3E6D1;
+    /* Brand Colors — Shaqra University official palette */
+    --dga-primary:        #005C4B;   /* official Shaqra green (logo .s0) */
+    --dga-primary-dark:   #003D31;   /* darker for hover / footer base */
+    --dga-primary-mid:    #00735E;   /* mid-tone for gradients */
+    --dga-primary-light:  #1FA37F;   /* lighter accent */
+    --dga-primary-50:     #E6F1EE;   /* tinted bg */
+    --dga-primary-100:    #B8D9CF;   /* tinted border / icon bg */
 
-    --dga-secondary:      #C9A227;
-    --dga-secondary-dark: #A8871E;
-    --dga-secondary-light:#F0C842;
-    --dga-secondary-50:   #FDF8E7;
+    --dga-secondary:      #C1996C;   /* official Shaqra gold/tan (logo .s1) */
+    --dga-secondary-dark: #A07A4F;   /* darker gold for hover */
+    --dga-secondary-light:#D9B589;   /* lighter accent */
+    --dga-secondary-50:   #F8F1E8;   /* tinted bg */
 
     /* Neutrals */
     --dga-gray-900: #111827;
@@ -64,8 +64,8 @@
     --dga-sh:    0 4px 16px rgba(0,0,0,0.10);
     --dga-sh-lg: 0 10px 30px rgba(0,0,0,0.12);
     --dga-sh-xl: 0 20px 50px rgba(0,0,0,0.14);
-    --dga-sh-green: 0 8px 24px rgba(26,107,58,0.30);
-    --dga-sh-gold:  0 8px 24px rgba(201,162,39,0.35);
+    --dga-sh-green: 0 8px 24px rgba(0,92,75,0.30);
+    --dga-sh-gold:  0 8px 24px rgba(193,153,108,0.35);
 
     /* Transitions */
     --dga-ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -195,7 +195,7 @@
     border-color: var(--dga-secondary-dark);
     color: var(--dga-white);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(201,162,39,0.45);
+    box-shadow: 0 12px 30px rgba(193,153,108,0.45);
 }
 
 .dga-btn-outline-white {
@@ -265,7 +265,7 @@
             transparent 1px,
             transparent 60px
         ),
-        linear-gradient(135deg, #0d3320 0%, #1A6B3A 50%, #0d3320 100%);
+        linear-gradient(135deg, #00261E 0%, #005C4B 50%, #00261E 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,7 +289,7 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(193,153,108,0.12) 0%, transparent 60%);
     top: -150px;
     left: -100px;
     pointer-events: none;
@@ -328,7 +328,7 @@
     letter-spacing: 0.05em;
     padding: 6px 16px;
     border-radius: var(--dga-r-full);
-    border: 1px solid rgba(201,162,39,0.30);
+    border: 1px solid rgba(193,153,108,0.30);
     margin-bottom: var(--dga-s5);
     backdrop-filter: blur(8px);
 }
@@ -799,7 +799,7 @@
 .dga-cta-orb1 {
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(201,162,39,0.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(193,153,108,0.18) 0%, transparent 65%);
     top: -120px;
     right: -80px;
 }
@@ -816,9 +816,9 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(201,162,39,0.18);
+    background: rgba(193,153,108,0.18);
     color: var(--dga-secondary-light);
-    border: 1px solid rgba(201,162,39,0.35);
+    border: 1px solid rgba(193,153,108,0.35);
     font-size: 0.8rem;
     font-weight: 600;
     padding: 5px 14px;
@@ -884,17 +884,27 @@
    13. DGA FOOTER
    ===================================================== */
 .dga-footer {
-    background: var(--dga-gray-900);
+    background: linear-gradient(180deg, #003D31 0%, #00261E 100%);
     color: rgba(255,255,255,0.80);
     font-family: var(--dga-font);
     direction: rtl;
+    position: relative;
+}
+.dga-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--dga-primary-light) 0%, var(--dga-secondary) 50%, var(--dga-primary-light) 100%);
 }
 
-/* Top green accent strip */
+/* Top accent strip — a brighter green sits on the deep-green footer */
 .dga-footer-accent {
-    background: linear-gradient(135deg, var(--dga-primary-dark), var(--dga-primary));
+    background: linear-gradient(135deg, var(--dga-primary) 0%, var(--dga-primary-mid) 100%);
     padding: var(--dga-s4) 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 .dga-footer-accent-inner {
     max-width: 1260px;
@@ -922,14 +932,34 @@
     margin: 0;
 }
 
-/* Main grid */
+/* Accent badges (Vision 2030 etc.) */
+.dga-footer-accent-badges {
+    display: flex;
+    gap: var(--dga-s2);
+    flex-wrap: wrap;
+}
+.dga-accent-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.92);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--dga-r-full);
+    border: 1px solid rgba(255,255,255,0.18);
+}
+.dga-accent-badge svg { color: var(--dga-secondary-light); }
+
+/* Main grid — 5 columns (SU-style) */
 .dga-footer-main {
     max-width: 1260px;
     margin: 0 auto;
     padding: var(--dga-s12) var(--dga-s8) var(--dga-s10);
     display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
-    gap: var(--dga-s10);
+    grid-template-columns: 1.7fr 1fr 1fr 1fr 1.2fr;
+    gap: var(--dga-s8);
     align-items: start;
 }
 
@@ -1088,7 +1118,7 @@
 .dga-footer-contact-icon {
     width: 34px;
     height: 34px;
-    background: rgba(26,107,58,0.25);
+    background: rgba(0,92,75,0.25);
     border-radius: var(--dga-r);
     display: flex;
     align-items: center;
@@ -1149,10 +1179,30 @@
 }
 .dga-footer-copy a:hover { color: var(--dga-white); }
 
-.dga-footer-badges {
+/* Bottom-bar meta wrapper */
+.dga-footer-meta {
     display: flex;
     align-items: center;
     gap: var(--dga-s4);
+    flex-wrap: wrap;
+}
+.dga-footer-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.42);
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--dga-r-sm);
+}
+.dga-footer-updated svg { color: var(--dga-secondary); }
+
+.dga-footer-badges {
+    display: flex;
+    align-items: center;
+    gap: var(--dga-s2);
 }
 .dga-footer-badge {
     display: flex;
@@ -1203,7 +1253,11 @@
 @media (max-width: 1100px) {
     .dga-grid-4 { grid-template-columns: repeat(3, 1fr); }
     .dga-why-grid { grid-template-columns: repeat(2, 1fr); }
-    .dga-footer-main { grid-template-columns: 1fr 1fr; gap: var(--dga-s8); }
+    .dga-footer-main {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: var(--dga-s8) var(--dga-s6);
+    }
+    .dga-footer-brand { grid-column: 1 / -1; }
 }
 
 @media (max-width: 900px) {
@@ -1239,7 +1293,9 @@
         gap: var(--dga-s8);
         padding: var(--dga-s10) var(--dga-s5) var(--dga-s8);
     }
+    .dga-footer-brand { grid-column: auto; }
     .dga-footer-accent-inner { padding: 0 var(--dga-s5); }
+    .dga-footer-meta { justify-content: center; }
     .dga-footer-bottom {
         flex-direction: column;
         text-align: center;
