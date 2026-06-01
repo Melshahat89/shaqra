@@ -72,6 +72,7 @@
 
 @if(getDir() == 'rtl')
     <body class="text-right" id="p_wrapper">
+    <a href="#main-content" class="dga-skip-link">تجاوز إلى المحتوى الرئيسي</a>
     <div class="smart_bar">
 {{--        <div class=" fade show" >--}}
 {{--            <div class="text_center ptsm pbsm">--}}
@@ -98,6 +99,7 @@
     </div>
     @else
         <body class="text-left" id="p_wrapper">
+        <a href="#main-content" class="dga-skip-link">Skip to main content</a>
         <div class="smart_bar">
 {{--            <div class="alert alert-info alert-dismissible fade show" style="background-color: #20a0e1;border-color: #031138">--}}
 {{--                <div class="text_center ptsm pbsm">--}}
@@ -143,7 +145,7 @@
                  <div class="loading flexCenter">
                     <div class="loader-logo">
                         <div class="loader">Loading...</div>
-                         <img src="{{ asset('website') }}/images/logonew2.webp" alt="..." >
+                         <img src="{{ asset('website') }}/images/logonew2.webp" alt="{{ config('app.name', 'منصة الشهادات الاحترافية') }}">
                     </div>
                  </div>
             @endif
@@ -158,9 +160,11 @@
         @include(layoutContent('website'))
 
 
-        <a href="#" target="_blank" class="float">
+        @if(getSetting('whatsapp'))
+        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', getSetting('whatsapp')) }}" target="_blank" rel="noopener" class="float" aria-label="{{ getDir() == 'rtl' ? 'تواصل عبر واتساب' : 'Chat on WhatsApp' }}">
             <i class="whatsapp-homepage-icon fab fa-whatsapp my-float" aria-hidden="true"></i>
         </a>
+        @endif
 
         <input type='hidden' id='user_id' value='{{(auth()->check())?Auth::user()->id:''}}'>
         <input type='hidden' id='path' value='{{ url('/') }}'>
@@ -223,9 +227,7 @@
 
 
         @livewireScripts
-        </body>
-</html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js?v={{$VERSION_NUMBER}}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js?v={{$VERSION_NUMBER}}"></script>
 
 {{--@if(Auth::check())--}}
 
@@ -267,7 +269,7 @@ jQuery.event.special.mousewheel = {
 
 </script> -->
 <script src="{{ asset('website') }}/js/bootstrap.min.js?v={{$VERSION_NUMBER}}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js?v={{$VERSION_NUMBER}}" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js?v={{$VERSION_NUMBER}}" async defer></script>
 <script type="text/javascript" src="{{ asset('website') }}/js/app.min.js?v={{$VERSION_NUMBER}}"></script>
 <script type="text/javascript" src="{{ asset('website') }}/js/owl.carousel.min.js?v={{$VERSION_NUMBER}}"></script>
 @if(getDir() == "rtl")
@@ -361,3 +363,5 @@ $(document).ready(function () {
 {{--        display: none !important;--}}
 {{--    }--}}
 {{--</style>--}}
+        </body>
+</html>

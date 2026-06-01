@@ -146,10 +146,10 @@
 
 
                     <!-- البحث -->
-                <form class="search-bar desktop-search ml-3" style="width: 40%" action="/allcourses/category" method="GET">
+                <form class="search-bar desktop-search ml-3" style="width: 40%" action="/allcourses/category" method="GET" role="search">
                     <div class="search-input">
-{{--                        <label for="key" class="search-bar-label mr-3 ml-3"><i class="fas fa-search"></i></label>--}}
-                        <input class="search-input-input" type="text" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off">
+                        <label for="desktop-search-key" class="sr-only">{{ trans('home.search placeholder') }}</label>
+                        <input id="desktop-search-key" class="search-input-input" type="search" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" aria-label="{{ trans('home.search placeholder') }}">
                         <div class="autocom-box" style="position: absolute;width: 100%;background: #fff;border-radius: 5px;box-shadow: 0px 1px 5px rgba(0,0,0,0.1);margin-top: 8px; font-size: 15px; z-index: 3;"></div>
 
                     </div>
@@ -159,6 +159,13 @@
 
             <!-- الجزء الشمال (تسجيل دخول/خروج أو بيانات المستخدم + اللوجو الثاني) -->
             <div class="d-flex align-items-center">
+                <!-- Language switcher -->
+                <a href="{{ LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar' : 'en') }}"
+                   class="button button_outline m-1"
+                   aria-label="{{ config('app.locale') == 'ar' ? 'Switch to English' : 'التبديل إلى العربية' }}"
+                   lang="{{ config('app.locale') == 'ar' ? 'en' : 'ar' }}">
+                    {{ config('app.locale') == 'ar' ? 'EN' : 'عربى' }}
+                </a>
                 @if(Auth::check())
                     <!-- بيانات المستخدم -->
                     <div class="desktop-account-info-padding d-flex align-items-center">
