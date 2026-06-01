@@ -13,20 +13,19 @@
 
     <!-- Email -->
     <div class="form_row">
+        <label for="email-login" class="sr-only">{{ trans('account.email') }}</label>
         <div class="input_with_icon">
-            <i class="far fa-envelope"></i>
-            <input id="email-login" type="email" class="form-control input-item email-login-ico" name="email" value="{{ old('email') }}" class='form-control input-item user-login-ico' label='Username' placeholder='{{trans('account.email')}}'>
-
+            <i class="far fa-envelope" aria-hidden="true"></i>
+            <input id="email-login" type="email" class="form-control input-item email-login-ico" name="email" value="{{ old('email') }}" autocomplete="email" placeholder='{{trans('account.email')}}' aria-required="true">
         </div>
     </div>
 
-
     <!-- Password -->
     <div class="form_row">
+        <label for="password-login" class="sr-only">{{ trans('account.password') }}</label>
         <div class="input_with_icon">
-            <i class="fas fa-lock"></i>
-            <input id="password-login" type="password" autocomplete class="form-control input-item password-login-ico" name="password" value="{{ old('password') }}" class='form-control input-item user-login-ico' label='Username' placeholder='{{trans('account.password')}}'>
-
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <input id="password-login" type="password" class="form-control input-item password-login-ico" name="password" autocomplete="current-password" placeholder='{{trans('account.password')}}' aria-required="true">
         </div>
     </div>
 

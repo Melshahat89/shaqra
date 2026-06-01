@@ -76,11 +76,11 @@
                     <div class="dga-contact-social">
                         <span class="dga-contact-label">تابعنا على</span>
                         <div class="dga-social" style="margin-top: 10px;">
-                            @if(getSetting('twitter'))<a href="{{ getSetting('twitter') }}" target="_blank" rel="noopener" class="dga-social-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25z"/></svg></a>@endif
-                            @if(getSetting('linkedin'))<a href="{{ getSetting('linkedin') }}" target="_blank" rel="noopener" class="dga-social-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>@endif
-                            @if(getSetting('facebook'))<a href="{{ getSetting('facebook') }}" target="_blank" rel="noopener" class="dga-social-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>@endif
-                            @if(getSetting('instagram'))<a href="{{ getSetting('instagram') }}" target="_blank" rel="noopener" class="dga-social-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>@endif
-                            @if(getSetting('youtube'))<a href="{{ getSetting('youtube') }}" target="_blank" rel="noopener" class="dga-social-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>@endif
+                            @if(getSetting('twitter'))<a href="{{ getSetting('twitter') }}" target="_blank" rel="noopener" class="dga-social-link" aria-label="تويتر"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25z"/></svg></a>@endif
+                            @if(getSetting('linkedin'))<a href="{{ getSetting('linkedin') }}" target="_blank" rel="noopener" class="dga-social-link" aria-label="لينكد إن"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>@endif
+                            @if(getSetting('facebook'))<a href="{{ getSetting('facebook') }}" target="_blank" rel="noopener" class="dga-social-link" aria-label="فيسبوك"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>@endif
+                            @if(getSetting('instagram'))<a href="{{ getSetting('instagram') }}" target="_blank" rel="noopener" class="dga-social-link" aria-label="إنستغرام"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>@endif
+                            @if(getSetting('youtube'))<a href="{{ getSetting('youtube') }}" target="_blank" rel="noopener" class="dga-social-link" aria-label="يوتيوب"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>@endif
                         </div>
                     </div>
                 </div>
@@ -95,38 +95,38 @@
 
                         <div class="dga-form-row">
                             <div class="dga-form-group">
-                                <label>الاسم</label>
-                                <input type="text" name="name" required
+                                <label for="contact-name">الاسم</label>
+                                <input id="contact-name" type="text" name="name" required
                                        placeholder="اكتب اسمك"
                                        value="{{ auth()->check() ? auth()->user()->fullname_lang : old('name') }}">
-                                @error('name')<span class="dga-form-err">{{ $message }}</span>@enderror
+                                @error('name')<span class="dga-form-err" role="alert">{{ $message }}</span>@enderror
                             </div>
                             <div class="dga-form-group">
-                                <label>البريد الإلكتروني</label>
-                                <input type="email" name="email" required
+                                <label for="contact-email">البريد الإلكتروني</label>
+                                <input id="contact-email" type="email" name="email" required
                                        placeholder="example@email.com"
                                        value="{{ auth()->check() ? auth()->user()->email : old('email') }}">
-                                @error('email')<span class="dga-form-err">{{ $message }}</span>@enderror
+                                @error('email')<span class="dga-form-err" role="alert">{{ $message }}</span>@enderror
                             </div>
                         </div>
 
                         <div class="dga-form-row">
                             <div class="dga-form-group">
-                                <label>الهاتف</label>
-                                <input type="tel" name="phone" placeholder="+966 5x xxx xxxx" value="{{ old('phone') }}">
-                                @error('phone')<span class="dga-form-err">{{ $message }}</span>@enderror
+                                <label for="contact-phone">الهاتف</label>
+                                <input id="contact-phone" type="tel" name="phone" placeholder="+966 5x xxx xxxx" value="{{ old('phone') }}">
+                                @error('phone')<span class="dga-form-err" role="alert">{{ $message }}</span>@enderror
                             </div>
                             <div class="dga-form-group">
-                                <label>الموضوع</label>
-                                <input type="text" name="subject" required placeholder="موضوع الرسالة" value="{{ old('subject') }}">
-                                @error('subject')<span class="dga-form-err">{{ $message }}</span>@enderror
+                                <label for="contact-subject">الموضوع</label>
+                                <input id="contact-subject" type="text" name="subject" required placeholder="موضوع الرسالة" value="{{ old('subject') }}">
+                                @error('subject')<span class="dga-form-err" role="alert">{{ $message }}</span>@enderror
                             </div>
                         </div>
 
                         <div class="dga-form-group">
-                            <label>الرسالة</label>
-                            <textarea name="message" required rows="6" placeholder="اكتب رسالتك هنا...">{{ old('message') }}</textarea>
-                            @error('message')<span class="dga-form-err">{{ $message }}</span>@enderror
+                            <label for="contact-message">الرسالة</label>
+                            <textarea id="contact-message" name="message" required rows="6" placeholder="اكتب رسالتك هنا...">{{ old('message') }}</textarea>
+                            @error('message')<span class="dga-form-err" role="alert">{{ $message }}</span>@enderror
                         </div>
 
                         <button type="submit" class="dga-btn dga-btn-green">
@@ -141,5 +141,4 @@
     </section>
 
 </div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection

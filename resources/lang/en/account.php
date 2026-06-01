@@ -59,7 +59,7 @@
 		'My Interests'=>'My Interests',
 		'speciality' => 'Your Speciality',
 		'otp'=>'OTP',
-		'By completing your registeration, you agree to IGTS' => 'By completing your registeration, you agree to Meduo\'s',
+		'By completing your registeration, you agree to IGTS' => 'By completing your registration, you agree to Shaqra Academy\'s',
 		'Terms and Conditions' => 'Terms & Conditions',
 		'Privacy Policy' => 'Privacy Policy',
 		'and' => 'and',

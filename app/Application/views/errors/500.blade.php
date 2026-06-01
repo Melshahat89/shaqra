@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}" dir="{{ getDir() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ getDir() == 'rtl' ? 'الصفحة غير موجودة (404)' : 'Page Not Found (404)' }} | {{ config('app.name') }}</title>
+    <title>{{ getDir() == 'rtl' ? 'خطأ في الخادم (500)' : 'Server Error (500)' }} | {{ config('app.name') }}</title>
 
     <link href="{{ asset('website') }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('website') }}/css/front/dga-design-system.css" rel="stylesheet">
@@ -19,7 +18,7 @@
         .error-nav a { color:#fff; text-decoration:none; }
         .error-nav img { height:40px; }
         .error-body { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:calc(100vh - 60px); text-align:center; padding:40px 20px; }
-        .error-code { font-size:120px; font-weight:800; color:#00261E; line-height:1; }
+        .error-code { font-size:120px; font-weight:800; color:#dc2626; line-height:1; }
         .error-title { font-size:24px; font-weight:700; color:#1a1a2e; margin:12px 0 8px; }
         .error-desc { color:#6b7280; max-width:420px; margin:0 auto 28px; }
     </style>
@@ -37,18 +36,23 @@
 </nav>
 
 <main class="error-body" id="main-content">
-    <div class="error-code" aria-hidden="true">404</div>
+    <div class="error-code" aria-hidden="true">500</div>
     <h1 class="error-title">
-        {{ getDir() == 'rtl' ? 'الصفحة غير موجودة' : 'Page Not Found' }}
+        {{ getDir() == 'rtl' ? 'خطأ في الخادم' : 'Server Error' }}
     </h1>
     <p class="error-desc">
         {{ getDir() == 'rtl'
-            ? 'عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.'
-            : 'Sorry, the page you are looking for does not exist or has been moved.' }}
+            ? 'عذراً، حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى أو التواصل مع الدعم الفني.'
+            : 'Sorry, an unexpected error occurred. Please try again or contact support.' }}
     </p>
-    <a href="/" class="dga-btn dga-btn-green">
-        {{ getDir() == 'rtl' ? 'العودة للرئيسية' : 'Back to Home' }}
-    </a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+        <a href="/" class="dga-btn dga-btn-green">
+            {{ getDir() == 'rtl' ? 'العودة للرئيسية' : 'Back to Home' }}
+        </a>
+        <a href="{{ url('contact') }}" class="dga-btn" style="background:transparent;border:1px solid #00261E;color:#00261E;">
+            {{ getDir() == 'rtl' ? 'تواصل مع الدعم' : 'Contact Support' }}
+        </a>
+    </div>
 </main>
 
 </body>

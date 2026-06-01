@@ -1,6 +1,6 @@
 @extends(layoutExtend('website'))
 @section('title')
-    {{  trans('home.HomeTitle') }}
+    {{ trans('home.signin') }} | {{ trans('home.HomeTitle') }}
 @endsection
 @section('description')
     {{ trans('website.Footer IGTS') }}

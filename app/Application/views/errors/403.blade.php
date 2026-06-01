@@ -1,201 +1,58 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html lang="{{ config('app.locale') }}" dir="{{ getDir() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ getDir() == 'rtl' ? 'غير مصرح (403)' : 'Forbidden (403)' }} | {{ config('app.name') }}</title>
 
-    <title>403</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
+    <link href="{{ asset('website') }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-design-system.css" rel="stylesheet">
+    @if(getDir() == 'rtl')
+        <link href="{{ asset('website') }}/css/front/custom-rtl.css" rel="stylesheet">
+    @else
+        <link href="{{ asset('website') }}/css/front/custom.css" rel="stylesheet">
+    @endif
     <style>
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .error-page {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 100%;
-            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-        }
-        .error-page h1 {
-            font-size: 30vh;
-            font-weight: bold;
-            position: relative;
-            margin: -8vh 0 0;
-            padding: 0;
-        }
-        .error-page h1:after {
-            content: attr(data-h1);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            color: transparent;
-            /* webkit only for graceful degradation to IE */
-            background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #b98acc, #ee8176, #b98acc, #69a6ce, #9b59b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 400%;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
-            animation: animateTextBackground 10s ease-in-out infinite;
-        }
-        .error-page h1 + p {
-            color: #d6d6d6;
-            font-size: 8vh;
-            font-weight: bold;
-            line-height: 10vh;
-            max-width: 600px;
-            position: relative;
-        }
-        .error-page h1 + p:after {
-            content: attr(data-p);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            color: transparent;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-        }
-
-        #particles-js {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
-        @keyframes animateTextBackground {
-            0% {
-                background-position: 0 0;
-            }
-            25% {
-                background-position: 100% 0;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-            75% {
-                background-position: 0 100%;
-            }
-            100% {
-                background-position: 0 0;
-            }
-        }
-        @media (max-width: 767px) {
-            .error-page h1 {
-                font-size: 32vw;
-            }
-            .error-page h1 + p {
-                font-size: 8vw;
-                line-height: 10vw;
-                max-width: 70vw;
-            }
-        }
-
+        .error-nav { background:#00261E; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
+        .error-nav a { color:#fff; text-decoration:none; }
+        .error-nav img { height:40px; }
+        .error-body { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:calc(100vh - 60px); text-align:center; padding:40px 20px; }
+        .error-code { font-size:120px; font-weight:800; color:#7c3aed; line-height:1; }
+        .error-title { font-size:24px; font-weight:700; color:#1a1a2e; margin:12px 0 8px; }
+        .error-desc { color:#6b7280; max-width:420px; margin:0 auto 28px; }
     </style>
-    <script>
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 5,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#fcfcfc"
-                },
-                shape: {
-                    type: "circle"
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.2,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 140,
-                    random: false,
-                    anim: {
-                        enable: true,
-                        speed: 10,
-                        size_min: 40,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: false
-                },
-                move: {
-                    enable: true,
-                    speed: 8,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: false
-                    },
-                    onclick: {
-                        enable: false
-                    },
-                    resize: true
-                }
-            },
-            retina_detect: true
-        });
-
-    </script>
 </head>
 <body>
 
-<div class="error-page">
-    <div>
-        <!--h1(data-h1='400') 400-->
-        <!--p(data-p='BAD REQUEST') BAD REQUEST-->
-        <!--h1(data-h1='401') 401-->
-        <!--p(data-p='UNAUTHORIZED') UNAUTHORIZED-->
-        {{--  <h1(data-h1='403') 403
-        <p data-p='FORBIDDEN'> FORBIDDEN </p>  --}}
-
-        <h1 data-h1="403">403</h1>
-        <p data-p="FORBIDDEN"> {{ $exception->getMessage() }}</p>
-
-        {{--  <h1 data-h1="404">404</h1>
-        <p data-p="NOT FOUND">NOT FOUND</p>  --}}
-        <!--h1(data-h1='500') 500-->
-        <!--p(data-p='SERVER ERROR') SERVER ERROR-->
+<nav class="error-nav" aria-label="{{ getDir() == 'rtl' ? 'التنقل الرئيسي' : 'Main navigation' }}">
+    <a href="/">
+        <img src="{{ asset('website') }}/images/shaqracs.svg" alt="{{ config('app.name') }}">
+    </a>
+    <div style="display:flex;gap:16px;">
+        <a href="/">{{ getDir() == 'rtl' ? 'الرئيسية' : 'Home' }}</a>
+        <a href="{{ url('contact') }}">{{ getDir() == 'rtl' ? 'الدعم' : 'Support' }}</a>
     </div>
-</div>
-<div id="particles-js"></div>
+</nav>
+
+<main class="error-body" id="main-content">
+    <div class="error-code" aria-hidden="true">403</div>
+    <h1 class="error-title">
+        {{ getDir() == 'rtl' ? 'غير مصرح بالوصول' : 'Access Forbidden' }}
+    </h1>
+    <p class="error-desc">
+        @if(isset($exception) && $exception->getMessage())
+            {{ $exception->getMessage() }}
+        @else
+            {{ getDir() == 'rtl'
+                ? 'ليس لديك صلاحية للوصول إلى هذه الصفحة.'
+                : 'You do not have permission to access this page.' }}
+        @endif
+    </p>
+    <a href="/" class="dga-btn dga-btn-green">
+        {{ getDir() == 'rtl' ? 'العودة للرئيسية' : 'Back to Home' }}
+    </a>
+</main>
+
 </body>
 </html>

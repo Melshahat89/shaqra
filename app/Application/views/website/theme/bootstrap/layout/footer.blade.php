@@ -113,6 +113,7 @@
             <ul class="dga-footer-links">
                 <li><a href="{{ url('page/termsOfUse') }}">الشروط والأحكام</a></li>
                 <li><a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a></li>
+                <li><a href="{{ url('page/accessibility') }}">بيان إمكانية الوصول</a></li>
                 <li><a href="{{ url('subscriptions') }}">خطط الاشتراك</a></li>
                 <li><a href="{{ url('contact') }}">الدعم الفني</a></li>
             </ul>
@@ -181,6 +182,8 @@
             <a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a>
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/termsOfUse') }}">الشروط والأحكام</a>
+            <span class="dga-footer-sep">·</span>
+            <a href="{{ url('page/accessibility') }}">إمكانية الوصول</a>
         </p>
         <div class="dga-footer-meta">
             <span class="dga-footer-updated">
@@ -201,6 +204,50 @@
     </div>
 
 </footer>
+
+{{-- ══ Cookie Consent Banner (DGA requirement) ══ --}}
+<div id="dga-cookie-banner" class="dga-cookie-banner" role="alertdialog" aria-labelledby="dga-cookie-title" aria-describedby="dga-cookie-desc" dir="rtl" lang="ar" style="display:none;">
+    <div class="dga-cookie-inner">
+        <div class="dga-cookie-text">
+            <strong id="dga-cookie-title">🍪 نستخدم ملفات تعريف الارتباط</strong>
+            <span id="dga-cookie-desc">نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل الاستخدام. بمتابعة تصفح الموقع فأنت توافق على
+                <a href="{{ url('page/privacyPolicy') }}" style="color:#D9B589;">سياسة الخصوصية</a>.</span>
+        </div>
+        <div class="dga-cookie-actions">
+            <button id="dga-cookie-accept" class="dga-btn dga-btn-green" style="font-size:13px;padding:8px 18px;">قبول الكل</button>
+            <button id="dga-cookie-reject" class="dga-btn" style="font-size:13px;padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;">رفض الاختياري</button>
+        </div>
+    </div>
+</div>
+<style>
+.dga-cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: #00261E; color: #fff; border-top: 2px solid #C1996C;
+    padding: 14px 24px; font-size: 14px;
+}
+.dga-cookie-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+}
+.dga-cookie-text { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 4px; }
+.dga-cookie-actions { display: flex; gap: 8px; flex-shrink: 0; }
+</style>
+<script>
+(function() {
+    if (!localStorage.getItem('dga_cookie_consent')) {
+        document.getElementById('dga-cookie-banner').style.display = 'block';
+    }
+    document.getElementById('dga-cookie-accept').addEventListener('click', function() {
+        localStorage.setItem('dga_cookie_consent', 'accepted');
+        document.getElementById('dga-cookie-banner').style.display = 'none';
+    });
+    document.getElementById('dga-cookie-reject').addEventListener('click', function() {
+        localStorage.setItem('dga_cookie_consent', 'rejected');
+        document.getElementById('dga-cookie-banner').style.display = 'none';
+    });
+})();
+</script>
 
 @if(!Auth::check() && Illuminate\Support\Facades\Route::currentRouteName() != 'post')
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
