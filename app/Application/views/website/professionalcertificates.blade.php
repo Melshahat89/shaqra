@@ -5,7 +5,7 @@
 @section('keywords'){{ trans('home.HomeKeywords') }}@endsection
 
 @push('css')
-<link href="{{ asset('website') }}/css/front/dga-design-system.css?v=6.0" rel="stylesheet">
+<link href="{{ asset('website') }}/css/front/dga-design-system.css?v=7.3" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -78,6 +78,70 @@
 </section>
 
 <main id="main-content">
+
+{{-- ══════════════════════════════════════
+     من نحن (ABOUT)
+══════════════════════════════════════ --}}
+<section class="dga-sec dga-about">
+    <div class="dga-wrap">
+        <div class="dga-about-grid">
+            <div class="dga-about-text">
+                <div class="dga-line"></div>
+                <h2>من <span class="dga-green">نحن</span></h2>
+                <p class="dga-about-lead">منصة الشهادات الاحترافية التابعة لمعهد الدراسات والخدمات الاستشارية بجامعة شقراء، تقدّم برامج تدريبية مهنية معتمدة بهدف تأهيل الكوادر الوطنية ودعم رؤية المملكة 2030.</p>
+                <p>نسعى لبناء مستقبل أكثر احترافاً عبر شراكات استراتيجية مع نخبة من المدربين والخبراء، ومحتوى تدريبي متطور يواكب احتياجات سوق العمل المحلي والإقليمي.</p>
+                <div class="dga-about-features">
+                    <div class="dga-about-feature">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>برامج معتمدة من جامعة شقراء</span>
+                    </div>
+                    <div class="dga-about-feature">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>متوافقة مع رؤية المملكة 2030</span>
+                    </div>
+                    <div class="dga-about-feature">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>محتوى تفاعلي بأعلى المعايير</span>
+                    </div>
+                </div>
+                <a href="{{ url('page/about') }}" class="dga-btn dga-btn-outline">
+                    اقرأ المزيد
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </a>
+            </div>
+            <div class="dga-about-visual">
+                <div class="dga-about-stat-card">
+                    <div class="dga-about-stat-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <strong>15+</strong>
+                    <span>سنة من التميز</span>
+                </div>
+                <div class="dga-about-stat-card dga-about-stat-card--gold">
+                    <div class="dga-about-stat-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <strong>+200</strong>
+                    <span>برنامج معتمد</span>
+                </div>
+                <div class="dga-about-stat-card">
+                    <div class="dga-about-stat-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    </div>
+                    <strong>+50K</strong>
+                    <span>متعلم</span>
+                </div>
+                <div class="dga-about-stat-card dga-about-stat-card--gold">
+                    <div class="dga-about-stat-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <strong>98%</strong>
+                    <span>رضا المتعلمين</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {{-- ══════════════════════════════════════
      CATEGORIES
@@ -185,6 +249,73 @@
 @endif
 
 {{-- ══════════════════════════════════════
+     RECENT COURSES (أحدث الدورات)
+══════════════════════════════════════ --}}
+@if(isset($recentCourses) && $recentCourses->count())
+<section class="dga-sec dga-sec-gray">
+    <div class="dga-wrap">
+        <div class="dga-sec-head between">
+            <div>
+                <div class="dga-line"></div>
+                <h2>أحدث <span class="dga-green">الدورات</span></h2>
+                <p>أضيفت مؤخراً إلى المنصة — اكتشف أحدث محتوى تعليمي معتمد</p>
+            </div>
+            <a href="{{ url('/allcourses/category') }}" class="dga-btn dga-btn-outline">
+                عرض الكل
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+        </div>
+        <div class="dga-grid-4">
+            @foreach($recentCourses as $course)
+            @php
+                $disc = (userCountry()['code'] === 'EG') ? $course->discount_egp : $course->discount_usd;
+                $imgSrc = medium($course->image);
+                $isPlaceholder = (strpos($imgSrc, 'placeholder') !== false);
+            @endphp
+            <article class="dga-card">
+                <a href="{{ url('/courses/view/'.$course->slug) }}" class="dga-card-img{{ $isPlaceholder ? ' dga-card-img-placeholder' : '' }}">
+                    @if($isPlaceholder)
+                    <div class="dga-card-placeholder">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        <span>{{ isset($course->categories) && $course->categories ? $course->categories->name_lang : 'دورة تدريبية' }}</span>
+                    </div>
+                    @else
+                    <img src="{{ $imgSrc }}" alt="{{ $course->title_lang }}" loading="lazy">
+                    @endif
+                    <span class="dga-tag dga-tag-new">جديد</span>
+                </a>
+                <div class="dga-card-body">
+                    @if(isset($course->categories) && $course->categories)
+                        <span class="dga-card-cat">{{ $course->categories->name_lang }}</span>
+                    @endif
+                    <a href="{{ url('/courses/view/'.$course->slug) }}" class="dga-card-title">{{ $course->title_lang }}</a>
+                    <div class="dga-card-meta">
+                        @if($course->courselectures->count())
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                            {{ $course->courselectures->count() }} {{ trans('courses.lectures') }}
+                        </span>
+                        @endif
+                        @if($course->created_at)
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+                            {{ $course->created_at->diffForHumans() }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="dga-card-foot">
+                    <div class="dga-card-price">{!! $course->PriceText !!}</div>
+                    <a href="{{ url('/courses/view/'.$course->slug) }}" class="dga-btn dga-btn-sm dga-btn-green">التفاصيل</a>
+                </div>
+            </article>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
+{{-- ══════════════════════════════════════
      WHY US
 ══════════════════════════════════════ --}}
 <section class="dga-sec dga-sec-gray">
@@ -228,6 +359,87 @@
 </section>
 
 {{-- ══════════════════════════════════════
+     الاشتراكات (SUBSCRIPTIONS — like reference)
+══════════════════════════════════════ --}}
+<section class="dga-sec dga-sec-gray dga-subs">
+    <div class="dga-wrap">
+        <div class="dga-sec-head between">
+            <div>
+                <div class="dga-line"></div>
+                <h2>الاشتراكات</h2>
+                <p>يمكنك الاستفادة بأكثر من 600 دورة تدريبية في كافة التخصصات والتمتع بمزايا الاشتراك لك ولجميع أفراد فريقك</p>
+            </div>
+            <a href="{{ url('/subscriptions') }}" class="dga-btn dga-btn-outline">
+                عرض الكل
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+        </div>
+
+        @php
+            $monthly      = $subscription_monthly        ?? 99;
+            $yearlyAfter  = $subscription_yearly_after   ?? 999;
+            $yearlyBefore = $subscription_yearly_before  ?? 1188;
+            $currency     = function_exists('getCurrency') ? getCurrency() : 'SAR';
+        @endphp
+
+        <div class="dga-subs-grid">
+            {{-- شهري --}}
+            <div class="dga-sub-card">
+                <div class="dga-sub-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                </div>
+
+                <h3 class="dga-sub-title">شهري</h3>
+
+                <div class="dga-sub-price">
+                    <span class="dga-sub-num">{{ $monthly }}</span>
+                    <span class="dga-sub-cur">{{ $currency }}</span>
+                    <span class="dga-sub-period">/ شهر</span>
+                </div>
+
+                <a href="{{ url('/subscriptions#pricing') }}" class="dga-sub-cta">
+                    اشترك الآن
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </a>
+            </div>
+
+            {{-- سنوي --}}
+            <div class="dga-sub-card">
+                <div class="dga-sub-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                </div>
+
+                <h3 class="dga-sub-title">سنوي</h3>
+
+                <div class="dga-sub-price">
+                    <span class="dga-sub-num">{{ $yearlyAfter }}</span>
+                    <span class="dga-sub-cur">{{ $currency }}</span>
+                    <span class="dga-sub-period">/ سنة</span>
+                </div>
+
+                @if($yearlyBefore > $yearlyAfter)
+                <span class="dga-sub-was">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    بدلاً من <span class="dga-sub-was-strike">{{ $yearlyBefore }} {{ $currency }}</span>
+                </span>
+                @endif
+
+                <a href="{{ url('/subscriptions#pricing') }}" class="dga-sub-cta">
+                    اشترك الآن
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- ══════════════════════════════════════
      CTA
 ══════════════════════════════════════ --}}
 <section class="dga-sec">
@@ -253,6 +465,122 @@
         </div>
     </div>
 </section>
+
+{{-- ══════════════════════════════════════
+     PARTNERS (شركاؤنا — like reference cards)
+══════════════════════════════════════ --}}
+@if(isset($partners) && $partners->count())
+<section class="dga-sec">
+    <div class="dga-wrap">
+        <div class="dga-sec-head between">
+            <div>
+                <div class="dga-line"></div>
+                <h2>شركاؤنا</h2>
+                <p>نفتخر بشراكاتنا مع نخبة من المؤسسات والجهات المعتمدة</p>
+            </div>
+            <a href="{{ url('partners') }}" class="dga-btn dga-btn-outline">
+                عرض الكل
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+        </div>
+        @if($partners->count() > 4)
+        <div class="dga-scroll-btns">
+            <button type="button" class="dga-scroll-btn" id="dgaPartnersPrev" aria-label="السابق">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <button type="button" class="dga-scroll-btn" id="dgaPartnersNext" aria-label="التالي">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+        </div>
+        @endif
+
+        <div class="dga-partners-scroll">
+            <div class="dga-partners-track" id="dgaPartnersTrack">
+                @foreach($partners as $partner)
+                <div class="dga-partner-card">
+                    <div class="dga-sub-check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="9 12 11 14 15 10"/>
+                        </svg>
+                    </div>
+                    <div class="dga-partner-logo-wrap">
+                        @if($partner->logo)
+                            <img src="{{ medium($partner->logo) }}" alt="{{ $partner->title_lang }}" loading="lazy">
+                        @else
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+                        @endif
+                    </div>
+                    <div class="dga-partner-name">{{ $partner->title_lang }}</div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+{{-- ══════════════════════════════════════
+     BLOG & NEWS (المدونة والأخبار)
+══════════════════════════════════════ --}}
+@if(isset($blogposts) && $blogposts->count())
+<section class="dga-sec">
+    <div class="dga-wrap">
+        <div class="dga-sec-head between">
+            <div>
+                <div class="dga-line"></div>
+                <h2>آخر <span class="dga-green">الأخبار</span></h2>
+                <p>تابع آخر المستجدات والمقالات التعليمية</p>
+            </div>
+            <a href="{{ url('blog') }}" class="dga-btn dga-btn-outline">
+                جميع المقالات
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+        </div>
+        <div class="dga-blog-grid">
+            @foreach($blogposts as $post)
+            @php
+                $postImg = $post->image ? medium($post->image) : null;
+                $isPostPlaceholder = !$postImg || (strpos($postImg, 'placeholder') !== false);
+            @endphp
+            <article class="dga-blog-card">
+                <a href="{{ url('blog/'.$post->slug) }}" class="dga-blog-img{{ $isPostPlaceholder ? ' dga-blog-img--placeholder' : '' }}">
+                    @if($isPostPlaceholder)
+                    <div class="dga-blog-placeholder">
+                        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    @else
+                    <img src="{{ $postImg }}" alt="{{ $post->title_lang }}" loading="lazy">
+                    @endif
+                </a>
+                <div class="dga-blog-body">
+                    <div class="dga-blog-meta">
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            {{ $post->created_at ? $post->created_at->format('Y/m/d') : '' }}
+                        </span>
+                        @if($post->visits)
+                        <span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            {{ $post->visits }}
+                        </span>
+                        @endif
+                    </div>
+                    <a href="{{ url('blog/'.$post->slug) }}" class="dga-blog-title">{{ $post->title_lang }}</a>
+                    @if($post->description_lang)
+                    <p class="dga-blog-excerpt">{{ \Illuminate\Support\Str::limit(strip_tags($post->description_lang), 110) }}</p>
+                    @endif
+                    <a href="{{ url('blog/'.$post->slug) }}" class="dga-blog-link">
+                        اقرأ المزيد
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                    </a>
+                </div>
+            </article>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
 
 </main>
 </div>
@@ -282,6 +610,25 @@
     }
     window.dgaToggleCats = dgaToggleCats;
     document.querySelectorAll('.dga-cat-hidden').forEach(function (el) { el.style.display = 'none'; });
+
+    // ── Partners scroll buttons ────────────────────────
+    var track = document.getElementById('dgaPartnersTrack');
+    var prevB = document.getElementById('dgaPartnersPrev');
+    var nextB = document.getElementById('dgaPartnersNext');
+    if (track && prevB && nextB) {
+        var step = function () {
+            var card = track.querySelector('.dga-partner-card');
+            return card ? card.offsetWidth + 16 : 240;
+        };
+        // RTL: next moves content to the LEFT (negative scrollLeft direction)
+        // In RTL pages scrollLeft is negative or inverted depending on browser; use a safe delta.
+        var scrollBy = function (dir) {
+            // dir: 1 = next (right→left visually), -1 = prev
+            track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+        };
+        nextB.addEventListener('click', function () { scrollBy(-1); });
+        prevB.addEventListener('click', function () { scrollBy(1); });
+    }
 }());
 </script>
 @endpush

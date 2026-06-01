@@ -134,8 +134,21 @@ class HomeController extends Controller
     {
         $this->data['featuredCourses'] = Courses::where('published', 1)->where('type', Courses::TYPE_PROFESSIONAL_CERTIFICATES)
             ->skip(0)->take(16)->orderBy('sort', 'asc')->get(); //Best Learning
+        $this->data['recentCourses'] = Courses::where('published', 1)
+            ->where('type', '!=', Courses::TYPE_BUNDLES)
+            ->orderBy('created_at', 'desc')->take(8)->get();
         $this->data['sliders'] = Slider::where('status', 1)->get();
         $this->data['categories'] = Categories::where('show_menu', 1)->orderBy('sort', 'asc')->get();
+        $this->data['partners'] = Partners::orderBy('id', 'desc')->take(12)->get();
+        $this->data['blogposts'] = \App\Application\Model\Blogposts::where('status', 1)->orderBy('id', 'desc')->take(3)->get();
+
+        // Subscription prices (mirrors Home::index())
+        $homeSettings = Homesettings::where('id', 1)->first();
+        if ($homeSettings) {
+            $this->data['subscription_monthly']        = round($homeSettings->MonthlyB2cSubscriptionPrice);
+            $this->data['subscription_yearly_after']   = round($homeSettings->YearlyB2cSubscriptionPrice);
+            $this->data['subscription_yearly_before']  = round($homeSettings->MonthlyB2cSubscriptionPrice * 12);
+        }
 
         return view('website.professionalcertificates', $this->data);
     }
