@@ -583,7 +583,8 @@ function addCertToCart(){
     var $sticky = $('#test1');
     var $stickyrStopper = $('.sticky-stopper');
     var bottomStopper = $('.main-footer');
-    if (!!$sticky.offset()) { // make sure ".sticky" element exists
+    // Guard: every selector must resolve before we run the sticky math
+    if (!!$sticky.offset() && $stickyrStopper.length && bottomStopper.length) {
 
       var generalSidebarHeight = $sticky.innerHeight();
 

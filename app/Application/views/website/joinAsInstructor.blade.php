@@ -1,192 +1,98 @@
 @extends(layoutExtend('website'))
-@section('title')
-    {{ trans('website.joinAsInstructor') }}
-@endsection
-@section('description')
-    {{ trans('home.MeduoHomeDescription') }}
-@endsection
-@section('keywords')
-    {{ trans('home.MeduoHomeKeywords') }}
-@endsection
-@push('css')
-    <style>
-        .loading {
-            display: none !important;
-        }
-    </style>
-@endpush
+
+@section('title'){{ trans('website.joinAsInstructor') }}@endsection
+@section('description'){{ trans('home.MeduoHomeDescription') }}@endsection
+@section('keywords'){{ trans('home.MeduoHomeKeywords') }}@endsection
 
 @section('content')
+<div class="dga-home" dir="rtl" lang="ar">
 
-<section>
-    <div class="bg_gradient joininstructor-bg">
-        <div class=" parallax-section">
-            <div class="parallax-image" data-parallax="parallax" data-parallax-bg-image="/images/front/parallax/join-us-hero.png" data-parallax-speed="0.6" data-parallax-direction="up"></div>
-            <div class="parallax-content parallax-xpad">
-                <div class="wrapper" style="padding-top: 80px;">
-                    <div class="col-md-8 float-left">
-                        <div class="card joininstructor-card ">
-                            <div class="card-body ">
-                                <p class="card-text joininstructor-card-text">{{ trans('website.Medical training and rehabilitation') }}</p>
-                                <div class="actions text-center pt-4">
-                                    <a href="#applynow" style="font-size: 18px;" class="button button_primary button_small text_capitalize" type="button" role="button">{{ trans('Join Us Now') }}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    {{-- HERO --}}
+    <section class="dga-page-hero" style="min-height:340px;">
+        <div class="dga-hero-overlay"></div>
+        <div class="dga-page-hero-inner">
+            <nav class="dga-breadcrumb" aria-label="مسار التنقل">
+                <a href="{{ url('/') }}">الرئيسية</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>{{ trans('home.become an instructor') }}</span>
+            </nav>
+            <h1 class="dga-page-title">{{ trans('home.become an instructor') }}</h1>
+            <p class="dga-page-sub">{{ trans('website.Medical training and rehabilitation') }}</p>
+            <div style="margin-top:24px;">
+                <a href="#applynow" class="dga-btn dga-btn-gold">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                    {{ trans('Join Us Now') }}
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {{-- WHY CHOOSE US + VIDEO --}}
+    <section class="dga-sec dga-sec-gray">
+        <div class="dga-wrap">
+            <div class="dga-sec-head center">
+                <div class="dga-line"></div>
+                <h2>{{ trans('website.Why Choose IGTS') }}</h2>
+            </div>
+            <div style="display:flex;justify-content:center;">
+                <div style="width:100%;max-width:720px;aspect-ratio:16/9;border-radius:var(--dga-r-lg);overflow:hidden;box-shadow:var(--dga-sh-lg);">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BrAXHkfqqxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-
-<section class="pb-4 wrapper">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-12">
-            <div class="pt-4 pb-4">
-                <h2 class="text-center" style="color: #244092">{{ trans('website.Why Choose IGTS') }}</h2>
+    {{-- BENEFITS --}}
+    <section class="dga-sec">
+        <div class="dga-wrap">
+            <div class="dga-sec-head center">
+                <div class="dga-line"></div>
+                <h2>{{ trans('website.The benefits of E-Learning on IGTS') }}</h2>
+            </div>
+            <div class="dga-why-grid" style="grid-template-columns: repeat(3, 1fr);">
+                @php
+                    $benefits = [
+                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>', 't'=>'A great addition to your C.V', 'd'=>'HR managers are always looking for energetic employees who do different jobs to serve their communities'],
+                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', 't'=>'Self-confidence', 'd'=>'When you see the positive interaction of the trainees with your distinguished courses, this will increase your self-confidence and thus increase your functional and social skills.'],
+                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>', 't'=>'Experience', 'd'=>'By offering online courses, you prove your distinguished expertise in your field, and this is what human resource managers are looking for.'],
+                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>', 't'=>'Improve your performance', 'd'=>'When you see yourself in the educational videos in your online courses, your style as a professional trainer in communicating information improves automatically.'],
+                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>', 't'=>'Featured Tools', 'd'=>'IGTS provides the tools needed to create courses and we will help you at every step of the way to create professional courses.'],
+                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>', 't'=>'Special Support', 'd'=>'We offer you special support as a coach to help you become a professional coach through the IGTS website, so we are always in touch to provide the best for the trainees'],
+                    ];
+                @endphp
+                @foreach($benefits as $b)
+                <div class="dga-why-card">
+                    <div class="dga-why-icon">{!! $b['icon'] !!}</div>
+                    <h3>{{ trans('website.'.$b['t']) }}</h3>
+                    <p>{{ trans('website.'.$b['d']) }}</p>
+                </div>
+                @endforeach
             </div>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/BrAXHkfqqxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</section>
-<hr style="width: 50%;">
+    </section>
 
-<section class="wrapper pt-4">
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="pt-4 pb-4">
-                <h2 class="text-center" style="color: #244092">{{ trans('website.The benefits of E-Learning on IGTS') }}</h2>
+    {{-- APPLY NOW --}}
+    <section id="applynow" class="dga-sec dga-sec-gray">
+        <div class="dga-wrap dga-wrap--narrow">
+            <div class="dga-sec-head center">
+                <div class="dga-line"></div>
+                <h2>{{ trans('website.Apply Now To Become an Instructor') }}</h2>
             </div>
-        </div>
-        <div class="col-md-6">
-            <ul class="list-group list-group-flush pb-4 {{ getDir() == 'ltr' ?  'text-right' : 'text-left' }}">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <h3>{{ trans('website.A great addition to your C.V') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-
-                        <i class="fas fa-certificate"></i>
-                        <p>{{ trans('website.HR managers are always looking for energetic employees who do different jobs to serve their communities') }}</p>
-                </li>
-                <li class="list-group-item">
-                    
-                        <h3>{{ trans('website.Self-confidence') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-                        <i class="fas fa-trophy"></i>
-                        <p>{{ trans('website.When you see the positive interaction of the trainees with your distinguished courses, this will increase your self-confidence and thus increase your functional and social skills.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    
-                        <h3>{{ trans('website.Experience') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <p>{{ trans('website.By offering online courses, you prove your distinguished expertise in your field, and this is what human resource managers are looking for.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    
-                        <h3>{{ trans('website.Improve your performance') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-                        <i class="fas fa-spinner"></i>
-                        <p>{{ trans('website.When you see yourself in the educational videos in your online courses, your style as a professional trainer in communicating information improves automatically.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    
-                        <h3>{{ trans('website.Personal Fame') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-                        <i class="fas fa-bullhorn"></i>
-                        <p>{{ trans('website.Everyone who follows your online premium courses will always try to keep track of your news and additional skills.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    
-                        <h3>{{ trans('website.Inspiring the trainees') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-                        <i class="fas fa-users"></i>
-                        <p>{{ trans('website.Help the trainees hone their scientific and practical skills during your training courses, which will secure them a better life and thus be an effective element in your community.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    
-                        <h3>{{ trans('website.Increase income') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> 
-                        <i class="fas fa-dollar-sign"></i>
-                        <p>{{ trans('website.Online courses are a great way to earn money... Premium courses bring in returns of thousands of dollars per month.') }}</p>
-                </li>
-                </ul>
-            </ul>
-        </div>
-
-        <div class="col-md-6 pb-4">
-            <ul class="list-group list-group-flush {{ getDir() == 'ltr' ? 'text-left' : 'text-right' }}">
-                <ul class="list-group">
-                <li class="list-group-item">
-                    <i class="fas fa-laptop"></i>
-                    <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('website.Featured Tools') }}</h3>
-                    <p>{{ trans('website.IGTS provides the tools needed to create courses and we will help you at every step of the way to create professional courses.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    <i class="fas fa-align-justify"></i>
-                    <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('website.Multiple Course Types') }}</h3>
-                    <p>{{ trans('website.IGTS offers multiple options for training courses such as crash courses, diplomas, masters and bundles.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    <i class="far fa-life-ring"></i>
-                    <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('website.Special Support') }}</h3>
-                    <p>{{ trans('website.We offer you special support as a coach to help you become a professional coach through the IGTS website, so we are always in touch to provide the best for the trainees') }}</p>
-                </li>
-                <li class="list-group-item">
-                    <i class="fas fa-chalkboard"></i>
-                    <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('website.New Experience') }}</h3>
-                    <p>{{ trans('website.Courses on IGTS offer you an exciting and distinct experience that is different from your previous experiences.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    <i class="fas fa-hashtag"></i>
-                    <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('website.Social Publishing') }}</h3>
-                    <p>{{ trans('website.IGTS provides you with tools to publish your courses through social media to increase the spread of your courses and thus increase the number of trainees.') }}</p>
-                </li>
-                <li class="list-group-item">
-                    <i class="far fa-edit"></i>
-                    <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('website.Learning Environment') }}</h3>
-                    <p>{{ trans('website.IGTS provides trainers with an effective and flexible work environment to create training courses and exams quickly and simply.') }}</p>
-                
-                </ul>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<hr style="width: 50%;">
-
-<section id="applynow" style="background-color: white;" class="pb-4">
-    <div class="">
-        <div class="col-md-12">
-            <div class="pt-4 pb-4">
-                <h2 class="text-center" style="color: #244092">{{ trans('website.Apply Now To Become an Instructor') }}</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
+            <div class="dga-contact-form-wrap">
                 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
                 <script>
                     hbspt.forms.create({
-                    portalId: "7171341",
-                    formId: "d8c9a560-f9f5-4c43-870e-ba1fbcb201ba"
-                });
+                        portalId: "7171341",
+                        formId: "d8c9a560-f9f5-4c43-870e-ba1fbcb201ba"
+                    });
                 </script>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
+</div>
 @endsection
+
 @push('script')
-        <!-- Start of HubSpot Embed Code -->
-        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7171341.js"></script>
-        <!-- End of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7171341.js"></script>
 @endpush

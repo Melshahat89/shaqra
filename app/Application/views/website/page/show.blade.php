@@ -1,38 +1,31 @@
 @extends(layoutExtend('website'))
-@section('title')
-    {{ getDefaultValueKey(nl2br($item->title)) }}
-@endsection
-@section('description')
-    {{ trans('home.HomeDescription') }}
-@endsection
-@section('keywords')
-    {{ trans('home.HomeKeywords') }}
-@endsection
+
+@section('title'){{ getDefaultValueKey(nl2br($item->title)) }}@endsection
+@section('description'){{ trans('home.HomeDescription') }}@endsection
+@section('keywords'){{ trans('home.HomeKeywords') }}@endsection
+
 @section('content')
+<div class="dga-home" dir="rtl" lang="ar">
 
+    <section class="dga-page-hero">
+        <div class="dga-hero-overlay"></div>
+        <div class="dga-page-hero-inner">
+            <nav class="dga-breadcrumb" aria-label="مسار التنقل">
+                <a href="{{ url('/') }}">الرئيسية</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>{{ getDefaultValueKey($item->title) }}</span>
+            </nav>
+            <h1 class="dga-page-title">{{ getDefaultValueKey($item->title) }}</h1>
+        </div>
+    </section>
 
-<main class="main_content">
+    <main class="dga-sec">
+        <div class="dga-wrap dga-wrap--narrow">
+            <article class="dga-prose">
+                {!! getDefaultValueKey(nl2br($item->body)) !!}
+            </article>
+        </div>
+    </main>
 
-    <!-- parallax -->
-    <!-- parallax -->
-	<!-- <div class="bg_gradient">
-		<div class="parallax parallax-section">
-			<div class="parallax-image" data-parallax="parallax" data-parallax-bg-image="/images/front/parallax/join-us-hero.png" data-parallax-speed="0.6" data-parallax-direction="up"></div>
-			<div class="parallax-content parallax-xpad">
-				<div class="wrapper">
-					<section class="title mblg">
-						<h2 class="text_white text_capitalize">{{ getDefaultValueKey(nl2br($item->title)) }}</h2>
-					</section>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	@include('website.theme.bootstrap.layout.igts.shared.innerPagesHead', ['title' => getDefaultValueKey(nl2br($item->title))]) 
-
-
-    {!! getDefaultValueKey(nl2br($item->body))  !!}
-
-<!--////////////////////////////////////////////-->
-</main>
-
+</div>
 @endsection

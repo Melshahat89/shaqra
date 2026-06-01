@@ -5,21 +5,23 @@
 @endsection
  
 @section('content')
-<div class="bread-crumb">
-    <div class="container">
-        <a href="{{url('/')}}">Home</a> > <span>{{ trans('page.ourteam') }}</span>
+<div class="dga-home" dir="rtl" lang="ar">
+
+<section class="dga-page-hero">
+    <div class="dga-hero-overlay"></div>
+    <div class="dga-page-hero-inner">
+        <nav class="dga-breadcrumb" aria-label="مسار التنقل">
+            <a href="{{ url('/') }}">الرئيسية</a>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>{{ trans('page.ourteam') }}</span>
+        </nav>
+        <h1 class="dga-page-title">{{ trans('page.ourteam') }}</h1>
+        <p class="dga-page-sub">تعرّف على الفريق الذي يقف خلف نجاح المنصة</p>
     </div>
-</div>
+</section>
 
-<div class="page-title general-gred">
-    <div class="container">
-        <h1>{{ trans('page.ourteam') }}</h1>
-
-
-    </div>
-</div>
-
-<div class="container">
+<div class="dga-sec">
+<div class="dga-wrap">
     <section class="about-content">
         
         <!-- Team #9 Start -->
@@ -413,10 +415,9 @@
 
     </section>
 </div>
- 
- 
- 
- 
- 
+
+
+</div>{{-- /dga-wrap --}}
+</div>{{-- /dga-sec --}}
+</div>{{-- /dga-home --}}
 @endsection
- 

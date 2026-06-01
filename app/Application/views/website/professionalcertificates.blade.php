@@ -5,10 +5,7 @@
 @section('keywords'){{ trans('home.HomeKeywords') }}@endsection
 
 @push('css')
-<link href="{{ asset('website') }}/css/front/dga-design-system.css?v=7.3" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+{{-- DGA design system is now loaded site-wide in app.blade.php; only page-specific overrides here --}}
 <style>body > br, body > b { display: none !important; }</style>
 @endpush
 

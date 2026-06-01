@@ -1,0 +1,390 @@
+/*
+ * DGA / Shaqra Unified Overrides
+ * ------------------------------
+ * Loaded site-wide AFTER style.css to retint the existing components
+ * (buttons, links, cards, footer-old, etc.) to the Shaqra palette
+ * WITHOUT changing layouts. Safe to drop on any page.
+ *
+ * Brand: #005C4B (green)  ·  #C1996C (gold)
+ */
+
+/* =====================================================
+   1. GLOBAL: base typography + link color
+   ===================================================== */
+body,
+.text-right,
+.text-left,
+#p_wrapper {
+    font-family: 'IBM Plex Sans Arabic', 'DIN Next LT Arabic', 'Tajawal', system-ui, sans-serif;
+}
+
+/* Site-wide link tint (only where the page didn't override it) */
+a {
+    color: #005C4B;
+}
+a:hover {
+    color: #003D31;
+}
+
+/* Retint anything still using the old navy / teal */
+[style*="#244092"],
+[style*="#18b289"],
+[style*="#18B289"] {
+    /* inline styles can't be killed here, but we leave a comment marker */
+}
+
+/* =====================================================
+   2. LEGACY BUTTONS
+   ===================================================== */
+
+/* Primary CTA buttons used across the site */
+.button_primary,
+.button.button_primary,
+.btn-primary,
+.btn.btn-primary,
+button.button_primary {
+    background: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.button_primary:hover,
+.button.button_primary:hover,
+.btn-primary:hover,
+.btn.btn-primary:hover,
+button.button_primary:hover {
+    background: #003D31 !important;
+    border-color: #003D31 !important;
+    color: #fff !important;
+}
+
+.btn-success,
+.btn.btn-success {
+    background: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.btn-success:hover {
+    background: #003D31 !important;
+    border-color: #003D31 !important;
+}
+
+/* Gold / secondary CTA */
+.button.button_gold,
+.btn-warning,
+.btn.btn-warning {
+    background: #C1996C !important;
+    border-color: #C1996C !important;
+    color: #fff !important;
+}
+.button.button_gold:hover,
+.btn-warning:hover {
+    background: #A07A4F !important;
+    border-color: #A07A4F !important;
+}
+
+/* Outline / secondary */
+.button.button_secondary,
+.btn-outline-primary {
+    color: #005C4B !important;
+    border-color: #005C4B !important;
+    background: transparent !important;
+}
+.button.button_secondary:hover,
+.btn-outline-primary:hover {
+    background: #005C4B !important;
+    color: #fff !important;
+}
+
+/* =====================================================
+   3. LEGACY HEADER / NAVBAR
+   ===================================================== */
+
+/* Old hover/active link color */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover,
+header a.active,
+.menu li a.active,
+.menu li a:hover {
+    color: #005C4B !important;
+}
+
+/* Old gradient top bars on the dashboard (#244092 → #18b289) */
+.top-bar,
+.dashboard-header,
+.user-banner,
+.gradient-bar {
+    background: linear-gradient(90deg, #003D31 0%, #005C4B 50%, #00735E 100%) !important;
+}
+
+/* =====================================================
+   4. LEGACY FOOTER (the old `.main-footer` from `igts/footer`)
+   Retint to deep Shaqra green so it matches the unified footer
+   when the page still includes the old footer markup.
+   ===================================================== */
+.main-footer,
+.main-footer footer,
+.main-footer .copywrite {
+    background: linear-gradient(180deg, #003D31 0%, #00261E 100%) !important;
+    color: rgba(255,255,255,0.8) !important;
+}
+.main-footer h4,
+.main-footer .footer-title {
+    color: #fff !important;
+}
+.main-footer a {
+    color: rgba(255,255,255,0.7) !important;
+}
+.main-footer a:hover {
+    color: #C1996C !important;
+}
+.main-footer .copywrite {
+    background: rgba(0,0,0,0.25) !important;
+}
+
+/* =====================================================
+   5. COURSE CARDS — legacy `.coursecard`
+   ===================================================== */
+.coursecard,
+.course-card,
+.card.coursecard {
+    border-radius: 12px !important;
+    border: 1px solid #E5E7EB !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.coursecard:hover,
+.course-card:hover {
+    transform: translateY(-3px);
+    border-color: #B8D9CF !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10) !important;
+}
+
+/* Card price/badge */
+.course_card_detail .price,
+.coursecard .price,
+.card-price {
+    color: #005C4B !important;
+    font-weight: 700 !important;
+}
+
+.badge-success,
+.badge.badge-success {
+    background: #005C4B !important;
+}
+.badge-warning,
+.badge.badge-warning {
+    background: #C1996C !important;
+    color: #fff !important;
+}
+
+/* =====================================================
+   6. PAGE TITLE BANNERS (about / contact / faq / instructors)
+   ===================================================== */
+.page-title,
+.page-header,
+.inner-banner,
+.breadcrumb-area {
+    background: linear-gradient(135deg, #003D31 0%, #005C4B 50%, #00735E 100%) !important;
+    color: #fff !important;
+}
+.page-title h1,
+.page-header h1,
+.inner-banner h1,
+.breadcrumb-area h1 {
+    color: #fff !important;
+}
+.breadcrumb-item.active,
+.breadcrumb a {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+/* =====================================================
+   7. FORMS — input focus tint
+   ===================================================== */
+.form-control:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #005C4B !important;
+    box-shadow: 0 0 0 3px rgba(0,92,75,0.12) !important;
+    outline: none !important;
+}
+
+/* =====================================================
+   8. PAGINATION / TABS
+   ===================================================== */
+.page-item.active .page-link,
+.pagination .active a {
+    background-color: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.page-link {
+    color: #005C4B !important;
+}
+
+.nav-tabs .nav-link.active,
+.nav-pills .nav-link.active {
+    background-color: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+
+/* =====================================================
+   9. ALERTS / TOASTS / PROGRESS
+   ===================================================== */
+.alert-success {
+    background: #E6F1EE !important;
+    color: #003D31 !important;
+    border-color: #B8D9CF !important;
+}
+.alert-warning {
+    background: #F8F1E8 !important;
+    color: #A07A4F !important;
+    border-color: #D9B589 !important;
+}
+.progress-bar,
+.progress-bar-success {
+    background-color: #005C4B !important;
+}
+
+/* =====================================================
+   10. CHECKBOX / RADIO / SWITCH ACCENT
+   ===================================================== */
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    accent-color: #005C4B;
+}
+
+/* =====================================================
+   11. WHATSAPP FLOATING BUTTON
+   ===================================================== */
+.float .my-float,
+.whatsapp-homepage-icon {
+    color: #25D366;
+}
+
+/* =====================================================
+   12. SCROLLBAR (subtle Shaqra tint)
+   ===================================================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #F3F4F6;
+}
+::-webkit-scrollbar-thumb {
+    background: #B8D9CF;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #005C4B;
+}
+
+/* =====================================================
+   13. SELECTION
+   ===================================================== */
+::selection {
+    background: #005C4B;
+    color: #fff;
+}
+::-moz-selection {
+    background: #005C4B;
+    color: #fff;
+}
+
+/* =====================================================
+   14. LISTING PAGES — gentle retint only
+        Keep Bootstrap layout intact. Only colors, borders,
+        radius, focus rings — NEVER touch display/grid/flex.
+   ===================================================== */
+
+/* Sidebar filter card — visual retint, keep layout */
+.dga-listing .b_all {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.dga-listing .filters h6 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #374151;
+}
+.dga-listing .filters h6::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 13px;
+    background: #C1996C;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* Filter inputs — focus ring tinted, no layout changes */
+.dga-listing .filters input[type="text"],
+.dga-listing .filters select.form-control {
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    background: #F9FAFB;
+}
+.dga-listing .filters input[type="text"]:focus,
+.dga-listing .filters select.form-control:focus {
+    border-color: #005C4B;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0,92,75,0.12);
+    outline: none;
+}
+
+/* Stars in rating filter */
+.dga-listing .star-rating.checked { color: #F0C842; }
+
+/* Course cards — visual retint only */
+.dga-listing .coursecard,
+.dga-listing .course_card_outter,
+.dga-listing .course_card {
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.dga-listing .coursecard:hover,
+.dga-listing .course_card_outter:hover {
+    transform: translateY(-3px);
+    border-color: #B8D9CF;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+}
+.dga-listing .price,
+.dga-listing .card-price {
+    color: #005C4B;
+    font-weight: 700;
+}
+
+/* Pagination — Shaqra green, gentle override */
+.dga-listing .pagination,
+.global-pagenation .pagination {
+    gap: 6px;
+}
+.dga-listing .page-link,
+.global-pagenation .page-link {
+    border-radius: 8px;
+    border: 1.5px solid #E5E7EB;
+    color: #374151;
+    background: #fff;
+    font-weight: 600;
+    min-width: 36px;
+    text-align: center;
+}
+.dga-listing .page-item:hover .page-link,
+.global-pagenation .page-item:hover .page-link {
+    border-color: #005C4B;
+    color: #005C4B;
+}
+.dga-listing .page-item.active .page-link,
+.global-pagenation .page-item.active .page-link {
+    background: #005C4B;
+    border-color: #005C4B;
+    color: #fff;
+}

@@ -1,4 +1,4 @@
-<footer class="dga-footer" dir="rtl" lang="ar">
+<footer class="dga-footer main-footer" dir="rtl" lang="ar">
 
     {{-- ══ Top accent bar with brand + Vision 2030 alignment ══ --}}
     <div class="dga-footer-accent">

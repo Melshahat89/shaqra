@@ -1,6 +1,7 @@
 @extends(layoutExtend('website'))
+
 @section('title')
-    {{  ($homesettings->seo_title_lang) ? $homesettings->seo_title_lang : trans('home.HomeTitle') }}
+    {{ ($homesettings->seo_title_lang) ? $homesettings->seo_title_lang : trans('home.HomeTitle') }}
 @endsection
 @section('description')
     {{ ($homesettings->seo_desc_lang) ? $homesettings->seo_desc_lang : trans('website.Footer IGTS') }}
@@ -12,45 +13,52 @@
 @push('js')
 <script src="{{ asset('old') }}/js/front/social.js"></script>
 @endpush
-  @section('content')
-  <div class="bread-crumb">
-    <div class="wrapper">
-        <a href="/">{{trans('home.home')}}</a> > <span><?=  ($category) ? $category->name_lang : '' ?> </span>
+
+@section('content')
+<div class="dga-home" dir="rtl" lang="ar">
+
+    <section class="dga-page-hero">
+        <div class="dga-hero-overlay"></div>
+        <div class="dga-page-hero-inner">
+            <nav class="dga-breadcrumb" aria-label="مسار التنقل">
+                <a href="{{ url('/') }}">الرئيسية</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>{{ $category ? $category->name_lang : trans('home.courses') }}</span>
+            </nav>
+            <h1 class="dga-page-title">{{ $category ? $category->name_lang : trans('home.courses') }}</h1>
+            <p class="dga-page-sub">دورات تدريبية متنوعة في مختلف المجالات بإشراف نخبة من المدربين</p>
+        </div>
+    </section>
+
+    <div class="dga-tabs-bar">
+        @include('website.categories.assets.tabs-container', ['active' => 'courses', 'tabsWidth' => $tabsWidth, 'key' => $key])
     </div>
-</div>
 
-    @include('website.categories.assets.tabs-container', ['active' => 'courses', 'tabsWidth' => $tabsWidth, 'key' => $key])
-
-
-  <main class="main_content">
-    <?php if ($mostViewedPerCategory && !($key)) { ?>
-        <section class="sec sec_pad_top sec_pad_bottom d-none">
-            <div class="wrapper">
-
+    <main class="main_content dga-sec">
+        <div class="dga-wrap">
+            @if($mostViewedPerCategory && !($key))
+            <section class="sec sec_pad_bottom d-none">
                 <section class="title mblg">
-                    <h2 class="text_primary text_capitalize">{{trans('categories.most viewed')}}</h2>
+                    <h2 class="text_primary text_capitalize">{{ trans('categories.most viewed') }}</h2>
                 </section>
-
                 <div id="mostViewed">
                     <div class="courses_cards owl-carousel owl-theme mostViewed">
-                        <?php foreach ($mostViewedPerCategory as $data) { ?>
+                        @foreach($mostViewedPerCategory as $data)
                             @include('website.courses.assets.mostViewedItem', ['data' => $data])
-                        <?php } ?>
-
+                        @endforeach
                     </div>
                 </div>
-            </div>
-        </section>
-    <?php } ?>
+            </section>
+            @endif
 
+            @include('website.courses.assets.coursesPerCategory', [
+                'headTitle' => trans('home.courses'),
+                'type'      => $type,
+                'key'       => $key,
+                'slug'      => $slug
+            ])
+        </div>
+    </main>
 
-
-
-
-    @include('website.courses.assets.coursesPerCategory', ['headTitle' => trans('home.courses'), 'type' => $type, 'key' => $key, 'slug' => $slug])
-
-
-</main>
-
-
+</div>
 @endsection

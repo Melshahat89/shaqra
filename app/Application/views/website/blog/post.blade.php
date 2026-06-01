@@ -61,11 +61,19 @@
 @section('content')
 
 
-    <div class="bread-crumb">
-        <div class="wrapper">
-            <a href="/blog/category/<?= $item->categories->first()->category->slug ?>"><?=  $item->categories->first()->category->title_lang ?> </a> > <span><?= $item->title_lang ?></span>
+    <section class="dga-page-hero" style="min-height:200px;">
+        <div class="dga-hero-overlay"></div>
+        <div class="dga-page-hero-inner">
+            <nav class="dga-breadcrumb" aria-label="مسار التنقل">
+                <a href="{{ url('/') }}">الرئيسية</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <a href="{{ url('blog/category/'.$item->categories->first()->category->slug) }}">{{ $item->categories->first()->category->title_lang }}</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <span>{{ \Illuminate\Support\Str::limit($item->title_lang, 50) }}</span>
+            </nav>
+            <h1 class="dga-page-title" style="font-size:clamp(1.5rem, 3vw, 2rem);">{{ $item->title_lang }}</h1>
         </div>
-    </div>
+    </section>
 
     <main class="main_content">
         <div class="course_detail" id="course_detail">
