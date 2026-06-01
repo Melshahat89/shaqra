@@ -295,10 +295,509 @@ input[type="radio"]:checked {
 }
 
 /* =====================================================
-   14. LISTING PAGES — gentle retint only
-        Keep Bootstrap layout intact. Only colors, borders,
-        radius, focus rings — NEVER touch display/grid/flex.
+   14. LISTING PAGES — full filter UI + cards retint
+        (keeps Bootstrap layout intact; sidebar in col-md-3,
+        results in col-md-9)
    ===================================================== */
+
+/* Outer row spacing */
+.dga-filter-wrap { margin: 0; }
+.dga-filter-side { padding-left: 12px; padding-right: 12px; }
+.dga-results-col { padding-left: 12px; padding-right: 12px; }
+
+/* ── SIDEBAR CARD ── */
+.dga-filter-card {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 100px;
+    width: 100% !important;
+}
+
+/* Header */
+.dga-filter-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%);
+    color: #fff;
+    border-bottom: 1px solid #E5E7EB;
+}
+.dga-filter-head h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dga-filter-head svg { color: #D9B589; }
+.dga-filter-toggle {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.20);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.dga-filter-toggle:hover {
+    background: rgba(255,255,255,0.25);
+}
+.dga-filter-toggle[aria-expanded="false"] svg { transform: rotate(-90deg); }
+
+/* Active filter banner */
+.dga-filter-active {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #FDF8E7;
+    border-bottom: 1px solid #F0E5C8;
+}
+.dga-filter-active-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #A07A4F;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.dga-filter-active-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #C1996C;
+    border-radius: 50%;
+}
+.dga-filter-clear {
+    background: transparent;
+    border: none;
+    color: #A07A4F;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.dga-filter-clear:hover {
+    background: rgba(193,153,108,0.15);
+    color: #005C4B;
+}
+
+/* Body */
+.dga-filter-body { padding: 18px 20px; }
+
+/* Filter groups */
+.dga-filter-group {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #F3F4F6;
+}
+.dga-filter-group:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.dga-filter-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 10px;
+}
+.dga-filter-label svg { color: #005C4B; flex-shrink: 0; }
+
+/* Input wrap (with clear button) */
+.dga-filter-input-wrap {
+    position: relative;
+}
+.dga-filter-input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    font-family: inherit;
+    background: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    color: #111827;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    direction: rtl;
+}
+.dga-filter-input:focus {
+    border-color: #005C4B;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0,92,75,0.12);
+    outline: none;
+}
+.dga-filter-input::placeholder { color: #9CA3AF; }
+.dga-filter-input-clear {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #E5E7EB;
+    border: none;
+    color: #6B7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+.dga-filter-input-clear:hover {
+    background: #DC3545;
+    color: #fff;
+}
+
+/* Select wrap (custom arrow) */
+.dga-filter-select-wrap {
+    position: relative;
+}
+.dga-filter-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 12px;
+    padding-left: 36px;
+    font-size: 0.88rem;
+    font-family: inherit;
+    background: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    color: #111827;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    direction: rtl;
+}
+.dga-filter-select:focus {
+    border-color: #005C4B;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0,92,75,0.12);
+    outline: none;
+}
+.dga-filter-select-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #6B7280;
+    pointer-events: none;
+}
+
+/* Small variant for top-bar quick sort */
+.dga-filter-select--sm {
+    padding: 7px 10px;
+    padding-left: 30px;
+    font-size: 0.82rem;
+    border-radius: 6px;
+    min-width: 160px;
+}
+
+/* Visually hide native inputs */
+.dga-vis-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+    padding: 0;
+    margin: -1px;
+}
+
+/* Ratings */
+.dga-filter-stars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.dga-filter-star-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin: 0;
+}
+.dga-filter-star-row:hover {
+    background: #F9FAFB;
+}
+.dga-filter-star-row.is-checked {
+    background: #E6F1EE;
+}
+.dga-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+}
+.dga-star-on  { color: #C1996C; }
+.dga-star-off { color: #E5E7EB; }
+.dga-filter-star-text {
+    font-size: 0.8rem;
+    color: #6B7280;
+    font-weight: 500;
+}
+.dga-filter-star-row.is-checked .dga-filter-star-text {
+    color: #005C4B;
+    font-weight: 700;
+}
+
+/* Duration pills */
+.dga-filter-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+.dga-filter-pill {
+    margin: 0;
+    cursor: pointer;
+    display: block;
+}
+.dga-filter-pill span {
+    display: block;
+    text-align: center;
+    padding: 9px 10px;
+    background: #F9FAFB;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    transition: all 0.2s;
+}
+.dga-filter-pill:hover span {
+    border-color: #B8D9CF;
+    background: #fff;
+}
+.dga-filter-pill.is-checked span {
+    background: #005C4B;
+    border-color: #005C4B;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,92,75,0.20);
+}
+
+/* Reset button */
+.dga-filter-reset-btn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1.5px solid #E5E7EB;
+    color: #6B7280;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+.dga-filter-reset-btn:hover {
+    border-color: #DC3545;
+    color: #DC3545;
+    background: #FEF2F2;
+}
+
+/* ── RESULTS COLUMN ── */
+.dga-results-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.dga-results-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #6B7280;
+    font-size: 0.92rem;
+}
+.dga-results-count strong {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #005C4B;
+}
+.dga-results-query {
+    background: #E6F1EE;
+    color: #005C4B;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-right: 8px;
+}
+.dga-results-sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.dga-results-sort label {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #6B7280;
+    font-weight: 600;
+}
+
+/* Empty state */
+.dga-empty {
+    background: #fff;
+    border: 1.5px dashed #E5E7EB;
+    border-radius: 16px;
+    padding: 56px 24px;
+    text-align: center;
+    color: #6B7280;
+}
+.dga-empty-icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #E6F1EE;
+    color: #005C4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dga-empty h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 8px;
+}
+.dga-empty p {
+    margin: 0 0 20px;
+    color: #6B7280;
+}
+.dga-empty .dga-btn {
+    display: inline-flex;
+}
+
+/* Loading state */
+.dga-results-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 60px 20px;
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+.dga-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #E5E7EB;
+    border-top-color: #005C4B;
+    border-radius: 50%;
+    animation: dgaSpin 0.7s linear infinite;
+}
+@keyframes dgaSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Tighten the legacy course_card_link a bit on listing */
+.dga-results-col .course_card_link {
+    display: block;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    margin-bottom: 16px;
+    text-decoration: none;
+}
+.dga-results-col .course_card_link:hover {
+    transform: translateY(-3px);
+    border-color: #B8D9CF;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+.dga-results-col .course_card_link hr { display: none; }
+
+/* Pagination */
+.dga-pagination {
+    justify-content: center !important;
+    margin-top: 24px;
+}
+.dga-pagination .pagination,
+.global-pagenation .pagination {
+    display: inline-flex;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dga-pagination .page-link,
+.global-pagenation .page-link {
+    min-width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1.5px solid #E5E7EB;
+    color: #374151;
+    background: #fff;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+.dga-pagination .page-item:hover .page-link {
+    border-color: #005C4B;
+    color: #005C4B;
+}
+.dga-pagination .page-item.active .page-link {
+    background: #005C4B;
+    border-color: #005C4B;
+    color: #fff;
+}
+
+/* Mobile: stack sidebar on top */
+@media (max-width: 900px) {
+    .dga-filter-card {
+        position: static;
+        margin-bottom: 16px;
+    }
+    .dga-filter-side,
+    .dga-results-col {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .dga-results-head { flex-direction: column; align-items: flex-start; }
+    .dga-filter-pills { grid-template-columns: 1fr 1fr; }
+}
+
+/* OLD listing override block kept below for any legacy includes */
 
 /* Sidebar filter card — visual retint, keep layout */
 .dga-listing .b_all {
