@@ -171,7 +171,7 @@
     position: relative;
     min-height: 580px;
     background:
-        linear-gradient(135deg, rgba(0,38,30,0.82) 0%, rgba(0,61,49,0.75) 50%, rgba(0,38,30,0.85) 100%),
+        linear-gradient(135deg, rgba(0,38,30,0.70) 0%, rgba(0,61,49,0.58) 50%, rgba(0,38,30,0.72) 100%),
         url('/website/images/front/heroBanner.jpeg') center center / cover no-repeat;
     color: var(--h-white);
     display: flex;

@@ -10,7 +10,7 @@
 <style>
     .dga-hero {
         background:
-            linear-gradient(135deg, rgba(0,38,30,0.80) 0%, rgba(0,61,49,0.72) 50%, rgba(0,38,30,0.83) 100%),
+            linear-gradient(135deg, rgba(0,38,30,0.70) 0%, rgba(0,61,49,0.58) 50%, rgba(0,38,30,0.72) 100%),
             url('{{ asset('website/images/front/heroBanner.jpeg') }}') center center / cover no-repeat !important;
     }
 </style>
