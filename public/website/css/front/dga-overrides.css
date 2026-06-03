@@ -1058,9 +1058,9 @@ small,
     color: #fff !important;
 }
 
-/* Course detail header dark background → deep green */
+/* Course detail header background → original grey (#e8e8e8 from style.css) */
 .course_detail_header {
-    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%) !important;
+    background: #e8e8e8 !important;
 }
 .course_detail_header h1,
 .course_detail_header h2,
@@ -1097,9 +1097,9 @@ small,
     color: #fff !important;
 }
 
-/* course detail header background (dark panel) */
+/* course detail header background (dark panel) → original transparent (shows grey header) */
 .course_detail_header .video_wrapper {
-    background: linear-gradient(135deg, #00261E 0%, #003D31 100%) !important;
+    background: transparent !important;
 }
 
 /* cntrl-btn tabs (content sections) active state */

@@ -122,11 +122,11 @@
                                                 @if(Auth::check())
                                                     @if($course->type == Courses::TYPE_WEBINAR)
                                                         @if(getEventStatus($course) == "passed")
-                                                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                                                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #6B7280; cursor: default;">
                                                                 {{ trans('courses.This Webinar Has Ended') }}
                                                             </a>
                                                         @else
-                                                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                                                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #C1996C; color: #003D31;">
                                                                 {{ trans('courses.Watch This Webinar') }}
                                                             </a>
                                                         @endif
@@ -150,7 +150,7 @@
                                                 @else
                                                     @if($course->type == Courses::TYPE_WEBINAR)
                                                         @if(getEventStatus($course) == "passed")
-                                                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                                                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #6B7280; cursor: default;">
                                                                 {{ trans('courses.This Webinar Has Ended') }}
                                                             </a>
                                                         @else
@@ -198,11 +198,11 @@
 
                                         @if($course->type == Courses::TYPE_WEBINAR)
                                             @if(getEventStatus($course) == "passed")
-                                                <a href="javascript:void(0)" class="button button_primary button_large add_cart" style="background-color: #cf2626;">
+                                                <a href="javascript:void(0)" class="button button_primary button_large add_cart" style="background-color: #6B7280; cursor: default;">
                                                     {{ trans('courses.This Webinar Has Ended') }}
                                                 </a>
                                             @else
-                                                <a href="/site/enrollWebinar/{{$course->id}}" class="button button_primary button_large add_cart">
+                                                <a href="/site/enrollWebinar/{{$course->id}}" class="button button_primary button_large add_cart" style="background-color: #C1996C; color: #003D31;">
                                                     {{ trans('courses.Watch This Webinar') }}
                                                 </a>
                                             @endif
@@ -235,7 +235,7 @@
 
                                         @if($course->type == Courses::TYPE_WEBINAR)
                                             @if(getEventStatus($course) == "passed")
-                                                <a href="javascript:void(0)" class="button button_primary button_large add_cart" style="background-color: #cf2626;">
+                                                <a href="javascript:void(0)" class="button button_primary button_large add_cart" style="background-color: #6B7280; cursor: default;">
                                                     {{ trans('courses.This Webinar Has Ended') }}
                                                 </a>
                                             @else
@@ -256,11 +256,11 @@
                                 @if($enrolled && $course->type == Courses::TYPE_WEBINAR)
 
                                     @if(getEventStatus($course) == "passed")
-                                        <a href="javascript:void(0)" class="button button_primary button_large add_cart" style="background-color: #cf2626;">
+                                        <a href="javascript:void(0)" class="button button_primary button_large add_cart" style="background-color: #6B7280; cursor: default;">
                                             {{ trans('courses.This Webinar Has Ended') }}
                                         </a>
                                     @else
-                                        <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="button button_primary button_large add_cart">
+                                        <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="button button_primary button_large add_cart" style="background-color: #C1996C; color: #003D31;">
                                             {{ trans('courses.Watch This Webinar') }}
                                         </a>
                                     @endif
@@ -291,14 +291,6 @@
                             </div>
                         </div>
 
-                        <!-- <div class="" style="background-color: #0e385e; color: white;margin-top: 20px;border-radius: 4px;">
-                            <div>
-                                <img alt="time" src="https://unihance.com/images/CoursePage/A3.png?v=1" class="CoursePage-MuiAvatar-img">
-                            </div>
-                            <div>
-                                TEST Title
-                            </div>
-                        </div> -->
 
                         <div class="imagesBoxes CoursePage-MuiPaper-elevation3 hide-mobile">
                             <div>
@@ -1144,11 +1136,11 @@
                 @if(Auth::check())
                     @if($course->type == Courses::TYPE_WEBINAR)
                         @if(getEventStatus($course) == "passed")
-                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #6B7280; cursor: default;">
                                 {{ trans('courses.This Webinar Has Ended') }}
                             </a>
                         @else
-                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #C1996C; color: #003D31;">
                                 {{ trans('courses.Watch This Webinar') }}
                             </a>
                         @endif
@@ -1172,7 +1164,7 @@
                 @else
                     @if($course->type == Courses::TYPE_WEBINAR)
                         @if(getEventStatus($course) == "passed")
-                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                            <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #6B7280; cursor: default;">
                                 {{ trans('courses.This Webinar Has Ended') }}
                             </a>
                         @else
@@ -1190,11 +1182,11 @@
 
             @if($enrolled && $course->type == Courses::TYPE_WEBINAR)
                 @if(getEventStatus($course) == "passed")
-                    <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #cf2626;">
+                    <a href="javascript:void(0)" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #6B7280; cursor: default;">
                         {{ trans('courses.This Webinar Has Ended') }}
                     </a>
                 @else
-                    <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="more_button button_primary w-50 text-center mb-10 p-3">
+                    <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #C1996C; color: #003D31;">
                         {{ trans('courses.Watch This Webinar') }}
                     </a>
                 @endif
