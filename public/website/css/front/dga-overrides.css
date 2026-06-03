@@ -33,6 +33,19 @@
     outline-offset: 2px;
 }
 
+/* Visually-hidden label (screen-reader only) — for form fields with no visible label */
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* =====================================================
    1. GLOBAL: base typography + link color
    ===================================================== */
@@ -1277,4 +1290,44 @@ h4.text_primary, h5.text_primary, h6.text_primary {
 .bg_primary,
 .badge-primary {
     background-color: #005C4B !important;
+}
+
+/* =====================================================
+   SUBSCRIPTIONS PAGE (Tailwind build /subscription-new)
+   Retints the page's own palette to the Shaqra brand
+   WITHOUT changing layout. The page ships its own compiled
+   Tailwind where:  green = #18B289 (teal) , blue = #244092 (navy).
+   We remap both to the Shaqra green / gold identity.
+   ===================================================== */
+
+/* Solid backgrounds: teal-green + navy-blue → Shaqra green */
+.bg-green,
+.hover\:bg-green:hover,
+.group:hover .group-hover\:bg-green,
+.bg-blue {
+    background-color: #005C4B !important;
+}
+
+/* Blue hover state → slightly darker Shaqra green for affordance */
+.hover\:bg-blue:hover {
+    background-color: #003D31 !important;
+}
+
+/* Text colors: teal-green + navy-blue → Shaqra green */
+.text-green,
+.hover\:text-green:hover,
+.text-blue {
+    color: #005C4B !important;
+}
+
+/* Borders using the brand green */
+.border-green {
+    border-color: #005C4B !important;
+}
+
+/* Annual-plan card gradient (was navy gradient) → Shaqra green → gold */
+.gradient-blue {
+    background: #005C4B !important;
+    background: linear-gradient(343deg, #00261E 0%, #005C4B 54%, #0A7A63 100%) !important;
+    filter: none !important;
 }

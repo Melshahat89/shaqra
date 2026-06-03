@@ -17,10 +17,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    <meta name="author" content="IGTS">
+    <meta name="author" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="facebook-domain-verification" content="z3li963csbvtfybzbb6kf3unwwj4v9" />
-    <title> Subscriptions</title>
+    <title>{{ trans('website.Subscriptions') }} | {{ config('app.name') }}</title>
     @if(View::hasSection('canonical'))
         @yield('canonical')
     @else
@@ -28,6 +28,8 @@
     @endif
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/favicon-16x16.png">
     <link rel="stylesheet" href="{{ asset('subscription-new/public') }}/style.css?v={{$VERSION_NUMBER}}" />
+    {{-- DGA / Shaqra identity overrides — retints components to brand palette + provides skip-link styles, no layout change --}}
+    <link rel="stylesheet" href="{{ asset('website') }}/css/front/dga-overrides.css?v=8.6" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet"/>
@@ -39,6 +41,10 @@
 </head>
 <body class="h-full {{ getDir() }} istok-web-regular !bg-green">
 
+{{-- DGA accessibility: skip to main content (hidden until focused) --}}
+<a href="#main-content" class="dga-skip-link">
+    @if(getDir() == 'rtl') تجاوز إلى المحتوى الرئيسي @else Skip to main content @endif
+</a>
 
 @php
     $isWebView = false;
@@ -52,8 +58,8 @@
 
         <!-- Header Section -->
 <header class="flex items-center justify-between px-[30px] md:px-[90px] py-[32px] !bg-transparent">
-    <a href="/" class="block relative z-[2]">
-        <img src="{{ asset('website') }}/images/logonew2.webp" alt="igts" class=" md:h-[63px] h-[50px]"/>
+    <a href="/" class="block relative z-[2]" aria-label="{{ config('app.name') }}">
+        <img src="{{ asset('website') }}/images/logonew2.webp" alt="{{ config('app.name') }}" class=" md:h-[63px] h-[50px]"/>
     </a>
 
     <div class="items-center hidden space-x-8 md:flex relative z-[2]">
@@ -102,8 +108,9 @@
 {{--            </li>--}}
 {{--        </ul>--}}
 
-        <form class="pl-2 pr-2 search-bar desktop-search" action="/allcourses/category" method="GET">
-            <input type="text" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" class="outline-none text-darkgrey h-[45px] py-[16px] px-[32px] rounded-full bg-coolgrey border border-darkgrey"/>
+        <form class="pl-2 pr-2 search-bar desktop-search" action="/allcourses/category" method="GET" role="search">
+            <label for="subscriptions-search-desktop" class="sr-only">{{trans('home.search placeholder')}}</label>
+            <input id="subscriptions-search-desktop" type="search" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" aria-label="{{trans('home.search placeholder')}}" class="outline-none text-darkgrey h-[45px] py-[16px] px-[32px] rounded-full bg-coolgrey border border-darkgrey"/>
             <div class="autocom-box" style="position: absolute;width: 100%;background: #fff;border-radius: 5px;box-shadow: 0px 1px 5px rgba(0,0,0,0.1);margin-top: 8px; font-size: 15px; z-index: 3;"></div>
         </form>
 
@@ -231,9 +238,12 @@
         @endif
 
 
-{{--        <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-green flex items-center justify-center border rounded-full border-green text-green" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">--}}
-{{--            {{trans('website.other lang')}}--}}
-{{--        </a>--}}
+        {{-- DGA bilingual requirement: language switcher (AR ↔ EN) --}}
+        <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-green flex items-center justify-center border rounded-full border-green text-green"
+           href="{{ LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar' : 'en') }}"
+           aria-label="{{ (config('app.locale') == 'en') ? 'التبديل إلى العربية' : 'Switch to English' }}">
+            {{trans('website.other lang')}}
+        </a>
     </div>
 
     <!-- Mobile Menu -->
@@ -291,8 +301,9 @@
 {{--            </ul>--}}
 
             <div class="text-[16px] flex flex-col items-center w-full mt-6 px-[30px]">
-                <form class="pl-2 pr-2 search-bar desktop-search" action="/allcourses/category" method="GET">
-                    <input type="text" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" class="outline-none w-full text-darkgrey h-[45px] py-[16px] px-[32px] rounded-full bg-coolgrey border border-darkgrey"/>
+                <form class="pl-2 pr-2 search-bar desktop-search" action="/allcourses/category" method="GET" role="search">
+                    <label for="subscriptions-search-mobile" class="sr-only">{{trans('home.search placeholder')}}</label>
+                    <input id="subscriptions-search-mobile" type="search" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" aria-label="{{trans('home.search placeholder')}}" class="outline-none w-full text-darkgrey h-[45px] py-[16px] px-[32px] rounded-full bg-coolgrey border border-darkgrey"/>
                     <div class="autocom-box" style="position: absolute;width: 100%;background: #fff;border-radius: 5px;box-shadow: 0px 1px 5px rgba(0,0,0,0.1);margin-top: 8px; font-size: 15px; z-index: 3;"></div>
                 </form>
                 <div class="flex items-center justify-center w-full gap-4 py-[20px]">
@@ -425,6 +436,8 @@
         </nav>
     </div>
 </header>
+
+<main id="main-content">
 
 <!-- Hero Section -->
 <section class="hero-section px-[30px] md:px-[90px] pt-[40px] md:pt-[80px]">
@@ -936,8 +949,9 @@
     </div>
 </section>
 
+</main>
 
-<a href="https://wa.me/966539680702" style="    position: fixed;
+<a href="{{ getSetting('whatsapp') ?: 'https://wa.me/966539680702' }}" aria-label="{{ trans('website.Contact') }} WhatsApp" style="    position: fixed;
     left: 0;
     margin-left: 24px;
     width: 60px;
@@ -951,7 +965,7 @@
     /*box-shadow: 2px 2px 3px #999;*/
     z-index: 2;" target="_blank" class="whatsapp_btn float">
     <i class="fab fa-whatsapp my-float" aria-hidden="true"></i>
-    <svg style="
+    <svg aria-hidden="true" focusable="false" style="
          margin-top: 10px;
          font-size: 40px;
     " xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 256 258"><defs><linearGradient id="logosWhatsappIcon0" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1faf38"/><stop offset="100%" stop-color="#60d669"/></linearGradient><linearGradient id="logosWhatsappIcon1" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#f9f9f9"/><stop offset="100%" stop-color="#fff"/></linearGradient></defs>
@@ -994,28 +1008,32 @@
 
     <!-- Social Media Icons -->
     <div class="flex justify-center gap-6 my-[50px]">
-        <a href="{{ getSetting('facebook') }}">
+        <a href="{{ getSetting('facebook') }}" aria-label="Facebook" target="_blank" rel="noopener">
             <img
                     src="{{ asset('subscription-new/src') }}/images/facebook-brands-solid.svg"
                     alt="Facebook"
+                    aria-hidden="true"
                     class="w-6 h-6"/>
         </a>
-        <a href="{{ getSetting('instagram') }}">
+        <a href="{{ getSetting('instagram') }}" aria-label="Instagram" target="_blank" rel="noopener">
             <img
                     src="{{ asset('subscription-new/src') }}/images/square-instagram-brands-solid.svg"
                     alt="Instagram"
+                    aria-hidden="true"
                     class="w-6 h-6"/>
         </a>
-        <a href="{{ getSetting('youtube') }}">
+        <a href="{{ getSetting('youtube') }}" aria-label="YouTube" target="_blank" rel="noopener">
             <img
                     src="{{ asset('subscription-new/src') }}/images/square-youtube-brands-solid.svg"
                     alt="YouTube"
+                    aria-hidden="true"
                     class="w-6 h-6"/>
         </a>
-        <a href="{{ getSetting('twitter') }}"
+        <a href="{{ getSetting('twitter') }}" aria-label="X (Twitter)" target="_blank" rel="noopener"
         ><img
                     src="{{ asset('subscription-new/src') }}/images/square-x-twitter-brands-solid.svg"
                     alt="Twitter"
+                    aria-hidden="true"
                     class="w-6 h-6"
             /></a>
     </div>
