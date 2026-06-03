@@ -1193,3 +1193,34 @@ small,
     color: #003D31 !important;
     font-size: 0.875rem !important;
 }
+
+/* Leftover legacy purple (#244092) on course detail → identity deep green
+   Covers the section header bars (lecture list, resources) and the
+   learning-benefits accordion button, plus any purple text/links. */
+.course_detail .course_list_header {
+    background-color: #005C4B !important;
+    color: #fff !important;
+}
+.course_detail .course_list_header .title,
+.course_detail .course_list_header a {
+    color: #fff !important;
+}
+.course_detail #learning-adv-section .card_header > button {
+    background-color: #005C4B !important;
+    color: #fff !important;
+}
+/* Any inline/legacy purple text on the course detail → deep green */
+.course_detail [style*="#244092"],
+.course_detail [style*="#244092" i] {
+    color: #005C4B !important;
+}
+
+/* Course header info-boxes panel (duration / language / level …) → deep green */
+.course_detail .imagesBoxes {
+    background: #005C4B !important;
+    color: #fff !important;
+}
+.course_detail .imagesBoxes .imageDesciption,
+.course_detail .imagesBoxes p {
+    color: #fff !important;
+}

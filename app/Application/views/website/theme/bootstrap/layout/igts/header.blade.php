@@ -144,6 +144,10 @@ body.dga-zoom-out   { zoom: 0.88; }
 .navbar-nav { display: flex; align-items: center; }
 .logo-container { display: flex; align-items: center; }
 
+.navbar-nav .nav-link,
+.dropdown-menu .dropdown-item {
+    color: #003D31;
+}
 .navbar-nav .nav-link:hover,
 .dropdown-menu .dropdown-item:hover {
     background-color: #E6F1EE;
@@ -368,7 +372,10 @@ body.dga-zoom-out   { zoom: 0.88; }
             </a>
 
             <!-- زر الهامبرغر للجوال -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            {{-- NOTE: no data-toggle="collapse" — the drawer is driven entirely by the
+                 custom script in app.blade.php. Letting Bootstrap's collapse plugin also
+                 bind here caused a race that left the drawer frozen mid-transition. --}}
+            <button class="navbar-toggler" type="button"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="فتح/إغلاق القائمة">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -533,81 +540,49 @@ body.dga-zoom-out   { zoom: 0.88; }
 @include('website.theme.bootstrap.layout.igts.shared.search-box-scripts')
 
 {{-- ══════════════════════════════════════════════════════════════
-     MOBILE DRAWER MENU — wiring (overlay, close on outside click,
-     close on link tap, ESC, accordion sub-menus)
+     MOBILE DRAWER MENU — sub-menu accordions + close-affordance.
+
+     The drawer open/close/overlay/ESC/link-close wiring lives in ONE
+     place: the script at the bottom of app.blade.php. This block only
+     adds the pieces that script doesn't: scroll-lock on open, the top
+     "✕ إغلاق" tap area, and accordion behaviour for the dropdowns.
+     We do NOT touch Bootstrap's collapse plugin here — doing so is what
+     left the drawer frozen mid-transition.
 ══════════════════════════════════════════════════════════════ --}}
 <script>
 (function () {
-    var navEl  = document.getElementById('navbarSupportedContent');
-    var toggle = document.querySelector('header .navbar-toggler');
-    if (!navEl || !toggle) return;
+    var navEl = document.getElementById('navbarSupportedContent');
+    if (!navEl) return;
 
-    // Observe Bootstrap's `.show` toggling on the drawer to sync body class
-    function syncBody() {
-        var isOpen = navEl.classList.contains('show');
-        document.body.classList.toggle('dga-drawer-open', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        // Lock background scroll while drawer is open
+    // Lock background scroll while the drawer is open (app.blade.php toggles
+    // `dga-drawer-open` on <body>; mirror that to the scroll lock).
+    var mo = new MutationObserver(function () {
+        var isOpen = document.body.classList.contains('dga-drawer-open');
         document.documentElement.style.overflow = isOpen ? 'hidden' : '';
-    }
-    var mo = new MutationObserver(syncBody);
-    mo.observe(navEl, { attributes: true, attributeFilter: ['class'] });
-
-    function closeDrawer() {
-        if (navEl.classList.contains('show')) {
-            // Bootstrap 4 collapse API
-            if (window.jQuery) {
-                window.jQuery(navEl).collapse('hide');
-            } else {
-                navEl.classList.remove('show');
-                syncBody();
-            }
-        }
-    }
-
-    // Close when tapping the dark overlay (body::before sits behind the drawer)
-    document.addEventListener('click', function (e) {
-        if (!document.body.classList.contains('dga-drawer-open')) return;
-        // Inside drawer or hamburger? do nothing
-        if (navEl.contains(e.target) || toggle.contains(e.target)) return;
-        closeDrawer();
     });
+    mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
-    // Close when picking a real link inside the drawer (but not dropdown togglers)
-    navEl.addEventListener('click', function (e) {
-        var link = e.target.closest('a');
-        if (!link) return;
-        if (link.classList.contains('dropdown-toggle')) return;
-        if (link.getAttribute('href') === '#' || link.getAttribute('href') === 'javascript:void(0)') return;
-        closeDrawer();
-    });
-
-    // Click in the ::before close-affordance area (top-left of the drawer)
+    // Tap the top "✕ إغلاق" affordance (the ::before pseudo-element) to close.
     navEl.addEventListener('click', function (e) {
         if (window.innerWidth > 960) return;
+        if (e.target !== navEl) return;            // only the bare drawer surface, i.e. the ::before strip
         var rect = navEl.getBoundingClientRect();
-        // Top 50px of the drawer = the "✕ إغلاق" pseudo-element area
         if (e.clientY - rect.top < 50) {
-            closeDrawer();
+            navEl.classList.remove('show');
+            document.body.classList.remove('dga-drawer-open');
         }
     });
 
-    // ESC closes
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeDrawer();
-    });
-
-    // Mobile: dropdown toggles act as accordions inside the drawer
+    // Mobile: dropdown toggles act as accordions inside the drawer.
     navEl.addEventListener('click', function (e) {
         var dt = e.target.closest('.dropdown-toggle');
         if (!dt) return;
-        // Only on mobile width
-        if (window.innerWidth > 960) return;
+        if (window.innerWidth > 960) return;       // desktop keeps Bootstrap hover dropdowns
         e.preventDefault();
         var parent = dt.parentElement;
         var menu   = parent ? parent.querySelector('.dropdown-menu') : null;
         if (!menu) return;
-        // Close siblings first
+        // Close sibling sub-menus first
         parent.parentElement.querySelectorAll(':scope > .nav-item.dropdown .dropdown-menu.show').forEach(function (m) {
             if (m !== menu) m.classList.remove('show');
         });

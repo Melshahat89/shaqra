@@ -385,10 +385,15 @@ jQuery.event.special.mousewheel = {
         }
     });
 
-    /* Close drawer when a nav link is tapped */
+    /* Close drawer when a real nav link is tapped — but NOT when tapping a
+       dropdown toggle (that expands the accordion) or a placeholder link. */
     collapse.querySelectorAll('.nav-link, .dropdown-item').forEach(function (link) {
         link.addEventListener('click', function () {
-            if (window.innerWidth <= 960) closeDrawer();
+            if (window.innerWidth > 960) return;
+            if (link.classList.contains('dropdown-toggle')) return;
+            var href = link.getAttribute('href');
+            if (href === '#' || href === 'javascript:void(0)') return;
+            closeDrawer();
         });
     });
 
