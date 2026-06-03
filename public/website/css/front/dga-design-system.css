@@ -13,7 +13,7 @@
     --dga-primary:        #005C4B;   /* official Shaqra green (logo .s0) */
     --dga-primary-dark:   #003D31;   /* darker for hover / footer base */
     --dga-primary-mid:    #00735E;   /* mid-tone for gradients */
-    --dga-primary-light:  #1FA37F;   /* lighter accent */
+    --dga-primary-light:  #1FA37F;   /* DECORATIVE/large-text only — fails WCAG AA at normal size */
     --dga-primary-50:     #E6F1EE;   /* tinted bg */
     --dga-primary-100:    #B8D9CF;   /* tinted border / icon bg */
 
@@ -21,6 +21,8 @@
     --dga-secondary-dark: #A07A4F;   /* darker gold for hover */
     --dga-secondary-light:#D9B589;   /* lighter accent */
     --dga-secondary-50:   #F8F1E8;   /* tinted bg */
+    /* Gold text on white fails WCAG AA (2.9:1). Use dark text on gold instead. */
+    --dga-gold-text:      #003D31;   /* dark green on gold = 4.5:1 PASS */
 
     /* Neutrals */
     --dga-gray-900: #111827;
@@ -171,7 +173,9 @@
     align-items: center;
     justify-content: center;
     gap: var(--dga-s2);
-    padding: 0.6rem 1.4rem;
+    /* 0.75rem top+bottom → ~44px total height at 16px base — meets DGA/WCAG 2.5.5 touch target */
+    padding: 0.75rem 1.4rem;
+    min-height: 44px;
     border-radius: var(--dga-r);
     font-family: var(--dga-font);
     font-size: 0.95rem;
@@ -186,14 +190,15 @@
 
 .dga-btn-gold {
     background: var(--dga-secondary);
-    color: var(--dga-white);
+    /* Dark green text on gold: #003D31 on #C1996C = ~4.5:1 WCAG AA PASS */
+    color: var(--dga-gold-text);
     border-color: var(--dga-secondary);
     box-shadow: var(--dga-sh-gold);
 }
 .dga-btn-gold:hover {
     background: var(--dga-secondary-dark);
     border-color: var(--dga-secondary-dark);
-    color: var(--dga-white);
+    color: var(--dga-gold-text);
     transform: translateY(-2px);
     box-shadow: 0 12px 30px rgba(193,153,108,0.45);
 }
@@ -233,8 +238,9 @@
 }
 
 .dga-btn-sm {
-    padding: 0.4rem 1rem;
-    font-size: 0.82rem;
+    padding: 0.5rem 1rem;
+    min-height: 36px; /* smaller variant — decorative/secondary use only */
+    font-size: 0.875rem; /* 14px — DGA floor */
     border-radius: var(--dga-r-sm);
 }
 .dga-btn-green {
@@ -2385,4 +2391,166 @@
 
 @media (max-width: 400px) {
     .dga-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* =====================================================
+   WCAG / DGA COMPLIANCE PATCHES  (v3.1)
+   Applied after full accessibility audit:
+   — Focus rings, touch targets, minimum text sizes,
+     gold contrast, filter active state, nav indicators
+   ===================================================== */
+
+/* ── P1-A: Global focus ring (WCAG 1.4.11 Non-text Contrast)
+   Replaces the near-invisible rgba box-shadow with a solid outline.
+   #005C4B on white = 8:1 contrast — well above the 3:1 minimum.    ── */
+*:focus-visible {
+    outline: 3px solid #005C4B !important;
+    outline-offset: 3px !important;
+    box-shadow: none !important;
+}
+/* Form inputs: keep border tint but override the invisible shadow */
+.form-control:focus,
+.dga-filter-input:focus,
+.dga-filter-select:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #005C4B !important;
+    outline: 3px solid #005C4B !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+}
+
+/* ── P1-B: Gold button text — dark green on gold passes WCAG AA (4.5:1)
+   Overrides any legacy `.btn-warning` or `.button_gold` still using white.   ── */
+.button_gold,
+.btn-warning,
+.btn.btn-warning,
+.button.button_gold {
+    color: #003D31 !important;
+}
+.button_gold:hover,
+.btn-warning:hover {
+    color: #003D31 !important;
+}
+
+/* ── P1-C: #1FA37F restricted — never use as normal-weight body text
+   Override any accidental body-text usage back to primary.              ── */
+a:hover {
+    color: #003D31; /* primary-dark — 14.5:1 on white, always passes */
+}
+.dga-home a:hover {
+    color: var(--dga-primary-dark);
+}
+
+/* ── P2-A: DGA minimum text size = 14px (0.875rem)
+   Raise all sub-14px text in components to the floor.                  ── */
+
+/* Card category label: 0.72rem → 0.875rem */
+.dga-card-cat {
+    font-size: 0.875rem !important;
+    letter-spacing: 0.02em !important; /* reduce uppercase tracking at larger size */
+}
+
+/* Card meta info (duration, students count): 0.75rem → 0.875rem */
+.dga-card-meta span {
+    font-size: 0.875rem !important;
+}
+
+/* Card price original/strikethrough: 0.78rem → 0.875rem */
+.dga-card-price .price-original {
+    font-size: 0.875rem !important;
+}
+
+/* Card image badge/tag: 0.72rem → 0.875rem */
+.dga-tag {
+    font-size: 0.875rem !important;
+}
+
+/* Hero stats bar caption labels */
+.dga-hero-stat span {
+    font-size: 0.875rem !important;
+}
+
+/* Stats bar standalone labels */
+.dga-sbar-l {
+    font-size: 0.875rem !important;
+}
+
+/* Footer "last updated" timestamp and footer badges */
+.dga-footer-updated,
+.dga-footer-badge {
+    font-size: 0.875rem !important;
+}
+
+/* Footer copyright copy */
+.dga-footer-copy {
+    font-size: 0.875rem !important;
+    color: rgba(255,255,255,0.65) !important; /* raised from 0.40 — better contrast */
+}
+.dga-footer-copy a {
+    color: rgba(255,255,255,0.80) !important; /* raised from 0.55 */
+}
+
+/* Footer contact label (small "البريد الإلكتروني" label above value) */
+.dga-contact-label {
+    font-size: 0.875rem !important;
+    color: rgba(255,255,255,0.65) !important; /* raised from 0.42 */
+}
+
+/* Accessibility bar label */
+.dga-a11y-label {
+    font-size: 0.875rem !important;
+}
+.dga-a11y-btn {
+    font-size: 0.875rem !important;
+}
+
+/* ── P2-B: Filter active label — darken text for contrast
+   #6B4B28 on #FDF8E7 = ~6.5:1 — solid WCAG AA pass.                  ── */
+.dga-filter-active-label {
+    color: #6B4B28 !important;
+}
+.dga-filter-active-label::before {
+    background: #6B4B28 !important;
+}
+.dga-filter-clear {
+    color: #6B4B28 !important;
+}
+.dga-filter-clear:hover {
+    color: #003D31 !important;
+}
+
+/* ── P3: Non-color state indicators for nav active links
+   Adds an underline + bottom border so active state is not color-only. ── */
+.navbar-nav .nav-link.active,
+header .nav-link.active,
+.menu li a.active {
+    text-decoration: underline !important;
+    text-underline-offset: 4px !important;
+    font-weight: 700 !important;
+}
+
+/* Selected filter pills — add a checkmark-style left border, not color only */
+.dga-filter-pill.is-checked span {
+    border-right: 4px solid #003D31 !important; /* RTL — visual indicator on right edge */
+}
+
+/* Active filter star row — add bold weight as secondary indicator */
+.dga-filter-star-row.is-checked .dga-filter-star-text {
+    font-weight: 800 !important;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ── Accessibility bar buttons — min touch target on mobile ── */
+.dga-a11y-btn {
+    min-height: 36px;
+    min-width: 36px;
+}
+
+/* ── Scroll-to-top focus ring ── */
+.dga-scroll-top:focus-visible {
+    outline: 3px solid #C1996C !important;
+    outline-offset: 3px !important;
 }

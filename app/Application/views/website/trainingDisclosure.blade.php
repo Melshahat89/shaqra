@@ -1,10 +1,10 @@
 @extends(layoutExtend('website'))
  
-@section('title')
-    {{ trans('home.training-disclosure') }}
-@endsection
+@section('title'){{ trans('home.training-disclosure') }} | {{ trans('home.HomeTitle') }}@endsection
+@section('description'){{ trans('home.HomeDescription') }}@endsection
  
 @section('content')
+<div dir="rtl" lang="ar">
 
 
 @include('website.theme.bootstrap.layout.igts.shared.innerPagesHead', ['title' => trans('home.training-disclosure')])
@@ -91,10 +91,9 @@
 
         <div class="col-md-6">
             <ul class="list-group list-group-flush pb-4 {{ getDir() == 'ltr' ?  'text-right' : 'text-left' }}">
-                <ul class="list-group">
                     <li class="list-group-item">
                         <h3>{{trans('home.Training Needs Analysis (TNA)')}}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a>
+
 
                         <i class="fas fa-certificate"></i>
                         <p>{{trans('home.We help you accurately identify your employees')}} </p>
@@ -103,21 +102,21 @@
                     <li class="list-group-item">
 
                         <h3>{{ trans('home.Develop training policies') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a>
+
                         <i class="fas fa-trophy"></i>
                         <p>{{ trans('home.We formulate training policies that align with') }}</p>
                     </li>
                     <li class="list-group-item">
 
                         <h3>{{ trans('home.Managing training budgets') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a>
+
                         <i class="fas fa-chalkboard-teacher"></i>
                         <p>{{ trans('home.We provide specialized tools for preparing') }}</p>
                     </li>
                     <li class="list-group-item">
 
                         <h3>{{ trans('home.Designing Individual Development Plans (IDPs)') }}</h3>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a>
+
                         <i class="fas fa-spinner"></i>
                         <p>{{ trans('home.Convert array to traditional syntax') }}</p>
                     </li>
@@ -128,25 +127,24 @@
 
         <div class="col-md-6 pb-4">
             <ul class="list-group list-group-flush {{ getDir() == 'ltr' ? 'text-left' : 'text-right' }}">
-                <ul class="list-group">
                     <li class="list-group-item">
                         <i class="fas fa-laptop"></i>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('home.Integrated training programs') }}</h3>
+<h3>{{ trans('home.Integrated training programs') }}</h3>
                         <p>{{ trans('home.We offer training programs covering various fields') }}</p>
                     </li>
                     <li class="list-group-item">
                         <i class="fas fa-align-justify"></i>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('home.Documentation and performance reporting') }}</h3>
+<h3>{{ trans('home.Documentation and performance reporting') }}</h3>
                         <p>{{ trans('home.We prepare accurate reports documenting employee') }}</p>
                     </li>
                     <li class="list-group-item">
                         <i class="far fa-life-ring"></i>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('home.Integrated Training Management System') }}</h3>
+<h3>{{ trans('home.Integrated Training Management System') }}</h3>
                         <p>{{ trans('home.We offer a comprehensive system for managing and documenting') }}</p>
                     </li>
                     <li class="list-group-item">
                         <i class="fas fa-chalkboard"></i>
-                        <a class="text-white btn-floating btn-fb btn-sm"></a> <h3>{{ trans('home.Continuous support and assistance') }}</h3>
+<h3>{{ trans('home.Continuous support and assistance') }}</h3>
                         <p>{{ trans('home.Our team is always available to provide') }}</p>
                     </li>
 
@@ -253,10 +251,7 @@
 </section>
  
 </div>
- 
- 
- 
- 
- 
+
+</div>{{-- dir="rtl" --}}
 @endsection
  

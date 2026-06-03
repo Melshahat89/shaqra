@@ -1,6 +1,6 @@
 @extends(layoutExtend('website'))
 
-@section('title'){{ trans('home.HomeTitle') }}@endsection
+@section('title'){{ trans('professionalcertificates.professionalcertificates') }} | {{ trans('home.HomeTitle') }}@endsection
 @section('description'){{ trans('home.HomeDescription') }}@endsection
 @section('keywords'){{ trans('home.HomeKeywords') }}@endsection
 
@@ -30,9 +30,10 @@
         <p>شهادات مهنية معتمدة تُعزز مسارك الوظيفي — تعلّم في أي وقت ومن أي مكان مع نخبة من أفضل المدربين والخبراء.</p>
 
         {{-- search bar --}}
-        <form action="{{ url('/allcourses/category') }}" method="GET" class="dga-hero-searchbar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" name="key" placeholder="ابحث عن دورة أو شهادة..." autocomplete="off">
+        <form action="{{ url('/allcourses/category') }}" method="GET" class="dga-hero-searchbar" role="search" aria-label="البحث في الشهادات">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <label for="pc-search-key" class="sr-only">ابحث عن دورة أو شهادة</label>
+            <input id="pc-search-key" type="search" name="key" placeholder="ابحث عن دورة أو شهادة..." autocomplete="off" aria-label="ابحث عن دورة أو شهادة">
             <button type="submit">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 بحث

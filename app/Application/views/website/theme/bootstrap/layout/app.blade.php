@@ -22,6 +22,18 @@
     <meta name="author" content="mehany">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    {{-- Open Graph (DGA digital standards — social sharing + search enrichment) --}}
+    <meta property="og:type"        content="website">
+    <meta property="og:locale"      content="{{ config('app.locale') == 'ar' ? 'ar_SA' : 'en_US' }}">
+    <meta property="og:site_name"   content="{{ trans('home.HomeTitle') }}">
+    <meta property="og:title"       content="@yield('title')">
+    <meta property="og:description" content="@yield('description')">
+    <meta property="og:url"         content="{{ url()->current() }}">
+    <meta property="og:image"       content="{{ asset('website') }}/images/shaqracs.svg">
+    <meta name="twitter:card"       content="summary_large_image">
+    <meta name="twitter:title"      content="@yield('title')">
+    <meta name="twitter:description" content="@yield('description')">
+
     <title> @yield('title') </title>
 
     @if(View::hasSection('canonical'))

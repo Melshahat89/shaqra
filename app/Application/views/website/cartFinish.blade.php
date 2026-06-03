@@ -1,19 +1,20 @@
 @extends(layoutExtend('website'))
-@section('title')
-    {{  trans('home.HomeTitle') }} - {{ trans('website.My Cart') }}
-@endsection
-@section('description')
-    {{ trans('website.Footer IGTS') }}
-@endsection
+@section('title'){{ trans('website.Payments') }} | {{ trans('home.HomeTitle') }}@endsection
+@section('description'){{ trans('home.HomeDescription') }}@endsection
 @section('keywords')
     
 @endsection
 @section('content')
 
-<section class="sec sec_pad_top sec_pad_bottom bg_gradient" id="">
+<section class="sec sec_pad_top sec_pad_bottom bg_gradient" id="" dir="rtl" lang="ar">
     <div class="wrapper">
+        <nav class="dga-breadcrumb mb-2" aria-label="مسار التنقل" style="font-size:13px;opacity:0.85;">
+            <a href="{{ url('/') }}" style="color:rgba(255,255,255,0.75);text-decoration:none;">{{ trans('website.home') }}</a>
+            <span aria-hidden="true" style="color:rgba(255,255,255,0.5);margin:0 6px;">/</span>
+            <span style="color:#fff;">{{ trans('website.Payments') }}</span>
+        </nav>
         <section class="title mblg">
-            <h2 class="text_white text_capitalize">{{ trans('website.My Cart') }}</h2>
+            <h1 class="text_white text_capitalize">{{ trans('website.Payments') }}</h1>
         </section>
     </div>
 </section>
@@ -48,9 +49,9 @@
             <div class="row">
                 <div class="col-md-12" style="height: 600px">
                     @if(getDir() == 'rtl')
-                        <iframe name="iframe1" id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 120%;" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="https://uae.paymob.com/api/acceptance/iframes/10064?payment_token=<?= $payment_token ?>" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                        <iframe name="iframe1" id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 120%;" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="https://uae.paymob.com/api/acceptance/iframes/10064?payment_token=<?= $payment_token ?>" title="{{ trans('website.secure checkout') }}" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     @else
-                        <iframe name="iframe1" id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 120%;" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="https://uae.paymob.com/api/acceptance/iframes/10064?payment_token=<?= $payment_token ?>" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                        <iframe name="iframe1" id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 120%;" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="https://uae.paymob.com/api/acceptance/iframes/10064?payment_token=<?= $payment_token ?>" title="{{ trans('website.secure checkout') }}" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     @endif
                 </div>
                 <div class="col-md-12">

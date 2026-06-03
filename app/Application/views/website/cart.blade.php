@@ -1,10 +1,6 @@
 @extends(layoutExtend('website'))
-@section('title')
-    {{  trans('home.HomeTitle') }} - {{ trans('website.My Cart') }}
-@endsection
-@section('description')
-    {{ trans('website.Footer IGTS') }}
-@endsection
+@section('title'){{ trans('website.My Cart') }} | {{ trans('home.HomeTitle') }}@endsection
+@section('description'){{ trans('home.HomeDescription') }}@endsection
 @section('keywords')
     
 @endsection
@@ -69,7 +65,7 @@ use App\Application\Model\Ordersposition;
                 </aside>
                 <div class="component_main bg_lightergray">
                     <div class="component_main_header flex flex-content-sb flex-items-cneter">
-                        <h3>{{trans('courses.cart')}}</h3>
+                        <h1>{{trans('courses.cart')}}</h1>
                         <?php if(count(getShoppingCart())){?>
                             <div class="actions">
                                 <a href="/courses/clearCart" class="add_to_cart button_white button_small text_capitalize" type="button" role="button">{{trans('courses.remove all from cart')}}</a>
@@ -212,21 +208,21 @@ use App\Application\Model\Ordersposition;
                     </div>
                     {{-- //Visa Div --}}
                     <div id="VisaDiv" style="display: none;">
-                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="visaiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="visaiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="{{ trans('website.secure checkout') }} — Visa" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     </div>
                     {{-- //Apply PAy Div --}}
                     <div id="AppleDiv" style="display: none;">
-                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="appleiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="appleiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="{{ trans('website.secure checkout') }} — Apple Pay" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     </div>
 
                     {{-- //jeelpay Div --}}
                     <div id="JeelDiv" style="display: none;">
-                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="jeeliframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="jeeliframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="{{ trans('website.secure checkout') }} — Jeel" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     </div>
 
                     {{-- //Tamara Div --}}
                     <div id="TamaraDiv" style="display: none;">
-                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="tamaraiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="0" byline="0" portrait="0" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
+                        <iframe style="height: 585px; width:-webkit-fill-available;" name="iframe1" id="tamaraiframe" webkitAllowFullScreen mozallowfullscreen allowfullscreen src="" title="{{ trans('website.secure checkout') }} — Tamara" width="640" height="360" frameborder="0" allow="autoplay" oncontextmenu="return false"></iframe>
                     </div>
                     {{-- //Tabby Div --}}
                     <div id="TabbyDiv" style="display: none;">

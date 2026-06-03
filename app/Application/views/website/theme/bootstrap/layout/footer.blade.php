@@ -174,7 +174,57 @@
 
     <hr class="dga-footer-divider">
 
-    {{-- ══ Bottom bar: copyright + last update + trust badges ══ --}}
+    {{-- ══ Official logos row (like su.edu.sa footer) ══ --}}
+    <div class="dga-footer-logos" dir="rtl" aria-label="شعارات المؤسسات الشريكة">
+        <style>
+        .dga-footer-logos {
+            display: flex; align-items: center; justify-content: center;
+            gap: 32px; flex-wrap: wrap;
+            padding: 18px 24px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .dga-footer-logos a { display: inline-flex; align-items: center; opacity: 0.88; transition: opacity 0.2s; }
+        .dga-footer-logos a:hover { opacity: 1; }
+        .dga-footer-logos img { height: 44px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+        .dga-footer-dga-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px; padding: 7px 14px;
+            color: rgba(255,255,255,0.85); font-size: 11.5px; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .dga-footer-dga-badge:hover { background: rgba(255,255,255,0.14); color: #fff; text-decoration: none; }
+        .dga-footer-dga-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
+        </style>
+
+        {{-- جامعة شقراء --}}
+        <a href="https://www.su.edu.sa" target="_blank" rel="noopener" aria-label="جامعة شقراء — الموقع الرسمي">
+            <img src="{{ asset('website') }}/images/shaqracs.svg" alt="جامعة شقراء">
+        </a>
+
+        {{-- رؤية 2030 --}}
+        <a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener" aria-label="رؤية المملكة 2030">
+            <img src="{{ asset('website') }}/images/2030.svg" alt="رؤية المملكة 2030">
+        </a>
+
+        {{-- هيئة الحكومة الرقمية DGA badge --}}
+        <a href="https://raqmi.dga.gov.sa/platforms/platformslist" target="_blank" rel="noopener" class="dga-footer-dga-badge" aria-label="رقم التسجيل لدى هيئة الحكومة الرقمية — انقر للتحقق">
+            <span class="dga-footer-dga-badge-dot"></span>
+            <span style="line-height:1.4;">
+                <span style="display:block; font-weight:600; font-size:10px; opacity:0.7;">هيئة الحكومة الرقمية</span>
+                مسجل برقم: <strong>PLACEHOLDER</strong>
+            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </a>
+
+        {{-- SDAIA / هيئة البيانات والذكاء الاصطناعي --}}
+        <a href="https://sdaia.gov.sa" target="_blank" rel="noopener" aria-label="هيئة البيانات والذكاء الاصطناعي SDAIA" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.85);font-size:11px;text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0 1 0 20A10 10 0 0 1 12 2"/><path d="M12 8a4 4 0 0 1 0 8"/><path d="M12 5a7 7 0 0 1 0 14"/></svg>
+            SDAIA
+        </a>
+    </div>
+
+    {{-- ══ Bottom bar: copyright + links ══ --}}
     <div class="dga-footer-bottom">
         <p class="dga-footer-copy">
             &copy; {{ date('Y') }} جميع الحقوق محفوظة — منصة الشهادات الاحترافية، جامعة شقراء
@@ -184,19 +234,21 @@
             <a href="{{ url('page/termsOfUse') }}">الشروط والأحكام</a>
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/accessibility') }}">إمكانية الوصول</a>
+            <span class="dga-footer-sep">·</span>
+            <a href="{{ url('page/sitemap') }}">خريطة الموقع</a>
         </p>
         <div class="dga-footer-meta">
             <span class="dga-footer-updated">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 آخر تحديث: {{ date('Y/m/d') }}
             </span>
             <div class="dga-footer-badges">
                 <span class="dga-footer-badge">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    اتصال آمن
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    اتصال آمن HTTPS
                 </span>
                 <span class="dga-footer-badge">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                     محتوى معتمد
                 </span>
             </div>

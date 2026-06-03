@@ -1,6 +1,7 @@
 @extends(layoutExtend('website'))
 
-@section('title'){{ trans('faq.faq') }}@endsection
+@section('title'){{ trans('faq.faq') }} | {{ trans('home.HomeTitle') }}@endsection
+@section('description'){{ trans('faq.faq') }} — {{ trans('home.HomeDescription') }}@endsection
 
 @section('content')
 <div class="dga-home" dir="rtl" lang="ar">

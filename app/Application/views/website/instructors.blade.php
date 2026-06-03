@@ -1,7 +1,7 @@
 @extends(layoutExtend('website'))
 
-@section('title'){{ trans('home.HomeTitle') }} - {{ trans('home.instructors') }}@endsection
-@section('description'){{ trans('website.Footer IGTS') }}@endsection
+@section('title'){{ trans('home.instructors') }} | {{ trans('home.HomeTitle') }}@endsection
+@section('description'){{ trans('home.HomeDescription') }}@endsection
 @section('keywords')@endsection
 
 @section('content')

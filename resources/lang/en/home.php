@@ -53,7 +53,7 @@
 		'File Manager'=>'File Manager',
 		'Admin Panel'=>'Admin Panel',
 		'Theme'=>'Theme',
-		'HomeTitle'=>'International Group For Training Services IGTS',
+		'HomeTitle'=>'Mehany Platform | Shaqra University',
 		'HomeDescription'=>'Our goal is to provide a distinct educational experience that is more interactive with the needs of learners and more equivalent to the requirements of the labor market and the most up to date with continuous development',
 		'HomeKeywords'=>'',
 		'UserType1'=>'Admin',

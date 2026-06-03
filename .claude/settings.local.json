@@ -9,7 +9,9 @@
       "Bash(grep -E \"\\\\+[0-9]{3,}|visits\" \"C:\\\\Users\\\\hp\\\\.claude\\\\projects\\\\c--laragon-www-shaqra\\\\71429fb0-137b-472b-87e4-6cbedffa54a5\\\\tool-results\\\\bgxzxcfn1.txt\")",
       "Bash(curl -s \"https://mehany.su.edu.sa/website/css/front/style.css?v=15.4\")",
       "WebFetch(domain:www.su.edu.sa)",
-      "Bash(xargs -n1 basename)"
+      "Bash(xargs -n1 basename)",
+      "WebFetch(domain:dga.gov.sa)",
+      "Bash(git checkout *)"
     ],
     "additionalDirectories": [
       "C:\\laragon\\bin\\php\\php-8.2.26"

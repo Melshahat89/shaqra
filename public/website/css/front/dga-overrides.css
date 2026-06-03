@@ -9,6 +9,31 @@
  */
 
 /* =====================================================
+   0. SKIP NAVIGATION LINK (DGA accessibility — hidden until focused)
+   ===================================================== */
+.dga-skip-link {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    display: block;
+    padding: 12px 24px;
+    background: #00261E;
+    color: #fff !important;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.15s ease;
+}
+.dga-skip-link:focus {
+    top: 0;
+    outline: 3px solid #C1996C;
+    outline-offset: 2px;
+}
+
+/* =====================================================
    1. GLOBAL: base typography + link color
    ===================================================== */
 body,
@@ -68,18 +93,20 @@ button.button_primary:hover {
     border-color: #003D31 !important;
 }
 
-/* Gold / secondary CTA */
+/* Gold / secondary CTA
+   White on gold = 2.9:1 FAIL. Dark green on gold = 4.5:1 PASS.       */
 .button.button_gold,
 .btn-warning,
 .btn.btn-warning {
     background: #C1996C !important;
     border-color: #C1996C !important;
-    color: #fff !important;
+    color: #003D31 !important; /* dark green — WCAG AA PASS */
 }
 .button.button_gold:hover,
 .btn-warning:hover {
     background: #A07A4F !important;
     border-color: #A07A4F !important;
+    color: #003D31 !important;
 }
 
 /* Outline / secondary */
@@ -199,15 +226,17 @@ header a.active,
 }
 
 /* =====================================================
-   7. FORMS — input focus tint
+   7. FORMS — input focus ring (WCAG 1.4.11 — 3:1 minimum for non-text contrast)
+   #005C4B on white = 8:1 — solid outline replaces invisible opacity shadow.
    ===================================================== */
 .form-control:focus,
 input:focus,
 textarea:focus,
 select:focus {
     border-color: #005C4B !important;
-    box-shadow: 0 0 0 3px rgba(0,92,75,0.12) !important;
-    outline: none !important;
+    outline: 3px solid #005C4B !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
 }
 
 /* =====================================================
