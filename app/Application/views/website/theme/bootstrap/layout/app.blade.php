@@ -69,8 +69,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=8.4" rel="stylesheet">
-    <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=8.4" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=8.5" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=8.5" rel="stylesheet">
 
     @stack('css')
     {{ Html::style('website/css/sweetalert.css') }}

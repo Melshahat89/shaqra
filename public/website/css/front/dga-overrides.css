@@ -1224,3 +1224,57 @@ small,
 .course_detail .imagesBoxes p {
     color: #fff !important;
 }
+
+/* =====================================================
+   SITE-WIDE: kill legacy purple #244092 everywhere
+   Old brand primary (navy-purple) → DGA identity green.
+   Loaded last + global, so it wins over style.css.
+   ===================================================== */
+
+/* Default links inherit global `a { color:#244092 }` → identity green */
+a {
+    color: #005C4B;
+}
+a:hover {
+    color: #003D31;
+}
+
+/* Main navigation menu links (resting state) → dark identity green */
+.navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link,
+.dropdown-menu .dropdown-item,
+.menu li a {
+    color: #003D31 !important;
+}
+
+/* Purple text utility (.text_primary etc.) → identity green, site-wide */
+.text_primary,
+h1.text_primary, h2.text_primary, h3.text_primary,
+h4.text_primary, h5.text_primary, h6.text_primary {
+    color: #005C4B !important;
+}
+
+/* Section-header bars (lecture list, resources) wherever they appear */
+.course_list_header {
+    background-color: #005C4B !important;
+    color: #fff !important;
+}
+.course_list_header .title,
+.course_list_header a {
+    color: #fff !important;
+}
+
+/* Course title / promo heading text (the purple English title) → green */
+.course_detail_title h1,
+.course_detail .text,
+.course_detail .text h1,
+.course_detail .text h2,
+.course_detail .text h3 {
+    color: #005C4B !important;
+}
+
+/* Purple backgrounds via legacy utility class → identity green */
+.bg_primary,
+.badge-primary {
+    background-color: #005C4B !important;
+}
