@@ -6,7 +6,14 @@
 
 @push('css')
 {{-- home-dga.css: Shaqra palette (green + gold, no blue), DGA-compliant sizes --}}
-<link href="{{ asset('website') }}/css/front/home-dga.css?v=1.0" rel="stylesheet">
+<link href="{{ asset('website') }}/css/front/home-dga.css?v=1.2" rel="stylesheet">
+<style>
+    .dga-hero {
+        background:
+            linear-gradient(135deg, rgba(0,38,30,0.80) 0%, rgba(0,61,49,0.72) 50%, rgba(0,38,30,0.83) 100%),
+            url('{{ asset('website/images/front/heroBanner.jpeg') }}') center center / cover no-repeat !important;
+    }
+</style>
 @endpush
 
 @section('content')
