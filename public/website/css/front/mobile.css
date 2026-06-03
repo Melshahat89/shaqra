@@ -180,6 +180,39 @@ body {
         background: rgba(0,0,0,0.50);
         z-index: 1999;
         backdrop-filter: blur(2px);
+        cursor: pointer;
+    }
+
+    /* Make sure drawer clears the bottom tab bar */
+    header .navbar-collapse {
+        padding-bottom: 110px !important;
+    }
+
+    /* Drawer close affordance — replace cosmetic ::before with a real header */
+    header .navbar-collapse::before {
+        content: '✕  إغلاق';
+        display: block;
+        text-align: left;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #6B7280;
+        margin-bottom: 12px;
+        padding: 6px 10px 12px;
+        border-bottom: 1px solid #F3F4F6;
+        cursor: pointer;
+    }
+
+    /* When a dropdown is open inside the drawer, indicate it */
+    header .nav-item.dropdown .dropdown-toggle::after {
+        margin-right: auto;
+        transition: transform 0.2s;
+    }
+    header .nav-item.dropdown .dropdown-menu.show {
+        animation: dgaDrawerSub 0.22s ease both;
+    }
+    @keyframes dgaDrawerSub {
+        from { opacity: 0; transform: translateY(-4px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 }
 

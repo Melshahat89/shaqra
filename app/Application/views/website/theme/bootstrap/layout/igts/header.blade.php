@@ -531,3 +531,87 @@ body.dga-zoom-out   { zoom: 0.88; }
 </div>
 
 @include('website.theme.bootstrap.layout.igts.shared.search-box-scripts')
+
+{{-- ══════════════════════════════════════════════════════════════
+     MOBILE DRAWER MENU — wiring (overlay, close on outside click,
+     close on link tap, ESC, accordion sub-menus)
+══════════════════════════════════════════════════════════════ --}}
+<script>
+(function () {
+    var navEl  = document.getElementById('navbarSupportedContent');
+    var toggle = document.querySelector('header .navbar-toggler');
+    if (!navEl || !toggle) return;
+
+    // Observe Bootstrap's `.show` toggling on the drawer to sync body class
+    function syncBody() {
+        var isOpen = navEl.classList.contains('show');
+        document.body.classList.toggle('dga-drawer-open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        // Lock background scroll while drawer is open
+        document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    }
+    var mo = new MutationObserver(syncBody);
+    mo.observe(navEl, { attributes: true, attributeFilter: ['class'] });
+
+    function closeDrawer() {
+        if (navEl.classList.contains('show')) {
+            // Bootstrap 4 collapse API
+            if (window.jQuery) {
+                window.jQuery(navEl).collapse('hide');
+            } else {
+                navEl.classList.remove('show');
+                syncBody();
+            }
+        }
+    }
+
+    // Close when tapping the dark overlay (body::before sits behind the drawer)
+    document.addEventListener('click', function (e) {
+        if (!document.body.classList.contains('dga-drawer-open')) return;
+        // Inside drawer or hamburger? do nothing
+        if (navEl.contains(e.target) || toggle.contains(e.target)) return;
+        closeDrawer();
+    });
+
+    // Close when picking a real link inside the drawer (but not dropdown togglers)
+    navEl.addEventListener('click', function (e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        if (link.classList.contains('dropdown-toggle')) return;
+        if (link.getAttribute('href') === '#' || link.getAttribute('href') === 'javascript:void(0)') return;
+        closeDrawer();
+    });
+
+    // Click in the ::before close-affordance area (top-left of the drawer)
+    navEl.addEventListener('click', function (e) {
+        if (window.innerWidth > 960) return;
+        var rect = navEl.getBoundingClientRect();
+        // Top 50px of the drawer = the "✕ إغلاق" pseudo-element area
+        if (e.clientY - rect.top < 50) {
+            closeDrawer();
+        }
+    });
+
+    // ESC closes
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDrawer();
+    });
+
+    // Mobile: dropdown toggles act as accordions inside the drawer
+    navEl.addEventListener('click', function (e) {
+        var dt = e.target.closest('.dropdown-toggle');
+        if (!dt) return;
+        // Only on mobile width
+        if (window.innerWidth > 960) return;
+        e.preventDefault();
+        var parent = dt.parentElement;
+        var menu   = parent ? parent.querySelector('.dropdown-menu') : null;
+        if (!menu) return;
+        // Close siblings first
+        parent.parentElement.querySelectorAll(':scope > .nav-item.dropdown .dropdown-menu.show').forEach(function (m) {
+            if (m !== menu) m.classList.remove('show');
+        });
+        menu.classList.toggle('show');
+    });
+}());
+</script>

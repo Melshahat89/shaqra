@@ -1113,8 +1113,65 @@ small,
     border-color: #005C4B !important;
 }
 
-/* Course title / page title color in header */
-.course_detail_title h1 {
+/* ══════════════════════════════════════════════════════════
+   Course detail HEADER — font colors aligned with index hero
+   (index uses: white headline + gold accent + soft-white body)
+══════════════════════════════════════════════════════════ */
+
+/* Breadcrumb above the title — match index .dga-breadcrumb */
+.bread-crumb,
+.bread-crumb .wrapper,
+.bread-crumb > .wrapper > * {
+    color: rgba(255,255,255,0.85) !important;
+}
+.bread-crumb a {
+    color: #D9B589 !important;          /* Shaqra gold — same as index breadcrumb link */
+    text-decoration: none !important;
+}
+.bread-crumb a:hover {
+    color: #fff !important;
+}
+.bread-crumb span {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* Course title — match index .dga-page-title (pure white, weight 800) */
+.course_detail_title h1,
+.course_detail_header h1 {
+    color: #fff !important;
+    font-weight: 800 !important;
+}
+
+/* Instructor / sub-info under the title — match index .dga-page-sub */
+.course_detail_header .user_name,
+.course_detail_header .user_name a,
+.course_detail_header .course_detail_sub_info,
+.course_detail_header .course_detail_sub_info * {
+    color: rgba(255,255,255,0.82) !important;
+}
+
+/* Rating line + meta inside the dark header — soft white */
+.course_detail_header .course_detail_rating,
+.course_detail_header .course_detail_rating * {
+    color: rgba(255,255,255,0.85) !important;
+}
+.course_detail_header .text_muted {
+    color: rgba(255,255,255,0.65) !important;
+}
+
+/* Price inside the dark header → gold (matches index hero gold accent) */
+.course_detail_header .price,
+.course_detail_header h3.price,
+.course_detail_header .course_detail_price {
+    color: #D9B589 !important;
+}
+
+/* Any link inside the dark header → gold + white on hover */
+.course_detail_header a {
+    color: #D9B589 !important;
+}
+.course_detail_header a:hover {
     color: #fff !important;
 }
 
