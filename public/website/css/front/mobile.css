@@ -34,157 +34,160 @@ body {
 ═══════════════════════════════════════════════ */
 @media (max-width: 960px) {
 
-    /* Make the entire header stack sticky */
-    .dga-gov-bar,
-    .dga-a11y-bar,
-    .dga-topbar {
-        position: static;
-    }
-
+    /* ── Sticky clean header ── */
     header.p-3 {
         position: sticky !important;
         top: 0;
         z-index: 1050;
         background: #fff !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-        padding: 10px 16px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        padding: 8px 14px !important;
     }
+    header .wrapper { max-width: 100%; padding: 0 !important; }
+    header .navbar  { padding: 0 !important; flex-wrap: nowrap !important; gap: 8px; }
 
-    /* Compact navbar */
-    header .wrapper { max-width: 100%; padding: 0; }
+    /* Logo — smaller on mobile */
+    header .navbar-brand:first-of-type img { width: 130px !important; height: auto !important; }
 
-    header .navbar {
-        padding: 0 !important;
-        flex-wrap: nowrap;
-    }
+    /* Hide: second logo (Vision 2030), search bar, account name text */
+    header .navbar-brand:last-of-type      { display: none !important; }
+    header .search-bar.desktop-search      { display: none !important; }
+    header .avatar_name                    { display: none !important; }
+    header .desktop-account-info-padding .nav-link { padding: 4px !important; }
 
-    /* Logo sizing on mobile */
-    header .navbar-brand img { width: 160px !important; }
-
-    /* Right logo (Vision 2030) — hide on mobile to save space */
-    header .navbar-brand:last-child { display: none !important; }
-
-    /* Hamburger button — visible and properly sized */
+    /* ── Hamburger ── */
     header .navbar-toggler {
-        border: none;
-        padding: 8px;
-        min-width: 44px;
-        min-height: 44px;
-        display: flex;
+        border: none !important;
+        padding: 8px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        display: flex !important;
         align-items: center;
         justify-content: center;
-        border-radius: 8px;
-        background: #E6F1EE;
-        order: -1;                /* put hamburger on left in RTL */
+        border-radius: 10px;
+        background: #E6F1EE !important;
+        order: -1;   /* RTL: left side */
+        flex-shrink: 0;
     }
-    header .navbar-toggler:focus { outline: 3px solid #005C4B; }
+    header .navbar-toggler:focus-visible { outline: 3px solid #005C4B; }
     header .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23005C4B' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        width: 22px; height: 22px;
     }
 
-    /* Collapsed nav — full-width drawer style */
+    /* ── Slide-in drawer (right side for RTL) ── */
     header .navbar-collapse {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: min(320px, 85vw);
-        height: 100vh;
-        background: #fff;
-        z-index: 2000;
-        box-shadow: -4px 0 24px rgba(0,0,0,0.15);
-        padding: 24px 20px;
-        overflow-y: auto;
-        transform: translateX(100%);
-        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-        /* override Bootstrap's show/hide */
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        width: min(300px, 82vw) !important;
+        height: 100vh !important;
+        background: #fff !important;
+        z-index: 2000 !important;
+        box-shadow: -6px 0 28px rgba(0,0,0,0.18) !important;
+        padding: 20px 18px 80px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        transform: translateX(110%) !important;
+        transition: transform 0.28s cubic-bezier(0.4,0,0.2,1) !important;
         display: block !important;
-        visibility: hidden;
+        visibility: hidden !important;
+        flex-basis: auto !important;
     }
     header .navbar-collapse.show {
-        transform: translateX(0);
-        visibility: visible;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+    }
+
+    /* Drawer close button at top */
+    header .navbar-collapse::before {
+        content: '✕';
+        display: block;
+        text-align: left;
+        font-size: 1.1rem;
+        color: #6B7280;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #F3F4F6;
     }
 
     /* Drawer nav links */
     header .navbar-nav {
         flex-direction: column !important;
-        gap: 4px;
+        gap: 2px !important;
         margin: 0 !important;
-        padding-top: 16px;
+        width: 100% !important;
     }
     header .navbar-nav .nav-item { width: 100%; }
     header .navbar-nav .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 14px 16px !important;
-        min-height: 52px;
-        border-radius: 10px;
-        font-size: 1rem;
-        font-weight: 600;
+        display: flex !important;
+        align-items: center !important;
+        padding: 13px 14px !important;
+        min-height: 50px !important;
+        border-radius: 10px !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
         color: #374151 !important;
+        white-space: normal !important;
         transition: background 0.15s;
     }
     header .navbar-nav .nav-link:hover,
     header .navbar-nav .nav-link.active {
-        background: #E6F1EE;
+        background: #E6F1EE !important;
         color: #005C4B !important;
     }
 
     /* Dropdown inside drawer */
     header .dropdown-menu {
         position: static !important;
+        float: none !important;
         box-shadow: none !important;
-        border: none;
-        background: #F9FAFB;
-        border-radius: 8px;
-        padding: 4px 0;
-        margin: 4px 0 4px 16px;
+        border: none !important;
+        background: #F9FAFB !important;
+        border-radius: 8px !important;
+        padding: 4px 0 !important;
+        margin: 4px 0 4px 12px !important;
+        display: none;
     }
+    header .dropdown-menu.show { display: block !important; }
     header .dropdown-item {
-        padding: 12px 16px;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        font-size: 0.95rem;
-        border-radius: 8px;
+        padding: 11px 14px !important;
+        min-height: 46px !important;
+        display: flex !important;
+        align-items: center !important;
+        font-size: 0.9rem !important;
+        border-radius: 8px !important;
+        white-space: normal !important;
     }
 
-    /* Search bar — full width on mobile */
-    header .search-bar.desktop-search {
-        display: none !important;   /* hide desktop inline search */
+    /* Auth buttons in drawer — stack vertically */
+    header .d-flex.align-items-center {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+    header .d-flex.align-items-center > .button {
+        min-height: 42px !important;
+        font-size: 0.85rem !important;
+        padding: 8px 14px !important;
     }
 
-    /* Login/signup buttons in drawer */
-    header .d-flex.align-items-center .button {
-        min-height: 44px;
-        font-size: 0.9rem;
-        padding: 10px 16px;
-    }
-
-    /* Overlay behind open drawer */
+    /* Dark overlay when drawer is open */
     body.dga-drawer-open::before {
         content: '';
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.45);
+        background: rgba(0,0,0,0.50);
         z-index: 1999;
+        backdrop-filter: blur(2px);
     }
 }
 
-/* Government bar — compact on mobile */
-@media (max-width: 640px) {
-    .dga-gov-bar { padding: 5px 0; }
-    .dga-gov-verify-text strong { font-size: 11px; }
-    .dga-gov-verify-text small { display: none; }
-    .dga-gov-right { display: none; } /* hide DGA badge on very small screens */
-
-    /* Accessibility toolbar — scrollable row */
-    .dga-a11y-bar { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .dga-a11y-inner { flex-wrap: nowrap; padding-bottom: 4px; }
-    .dga-a11y-btn { flex-shrink: 0; min-height: 36px; font-size: 0.8rem; padding: 4px 10px; }
-
-    /* Topbar — single line */
-    .dga-topbar-trust span:first-child { display: none; } /* hide long text */
+/* On mobile: hide ALL top bars — only show the main nav header */
+@media (max-width: 960px) {
+    .dga-gov-bar  { display: none !important; }
+    .dga-a11y-bar { display: none !important; }
+    .dga-topbar   { display: none !important; }
 }
 
 /* ═══════════════════════════════════════════════
@@ -697,19 +700,204 @@ body {
    15. PROFESSIONAL CERTIFICATES PAGE — MOBILE
 ═══════════════════════════════════════════════ */
 @media (max-width: 640px) {
-    /* Certificate cards */
     .dga-cert-grid,
-    .dga-grid-4 {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
+    .dga-grid-4 { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .dga-hero-searchbar { flex-direction: row !important; padding: 6px !important; }
+    .dga-hero-searchbar button { padding: 10px 14px !important; font-size: 0.85rem !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   16. INSTRUCTORS PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    /* Instructor cards grid */
+    .instructors-grid,
+    .instructor_card_container { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .instructor_card { border-radius: 12px !important; }
+    .instructor_card img { height: 140px !important; object-fit: cover !important; }
+}
+@media (max-width: 400px) {
+    .instructors-grid,
+    .instructor_card_container { grid-template-columns: 1fr !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   17. LECTURE / PLAYER PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 960px) {
+    /* Video area full width */
+    .lecture_main_area { flex-direction: column !important; }
+    .lecture_sidebar {
+        width: 100% !important;
+        max-height: 360px;
+        overflow-y: auto;
+        border-top: 1px solid #E5E7EB;
     }
-    /* Hero search */
-    .dga-hero-searchbar {
-        flex-direction: row !important;
-        padding: 6px !important;
+    /* Video controls */
+    .lecture_controls { padding: 10px 12px !important; font-size: 0.85rem !important; }
+
+    /* Bottom padding for player above bottom nav */
+    .main_content.lecture { padding-bottom: 80px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   18. ACCOUNT PAGES (My Courses, Profile) — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    /* Account sidebar → hidden on mobile, tabs instead */
+    .account_sidebar { display: none !important; }
+    .account_main { width: 100% !important; padding: 16px !important; }
+
+    /* My courses cards */
+    .mycourses_grid,
+    .course_card_outter { width: 100% !important; margin-bottom: 12px !important; }
+    .course_card { border-radius: 12px !important; }
+
+    /* Profile edit form */
+    .profile_form .form-group { margin-bottom: 16px !important; }
+    .profile_form .btn { width: 100% !important; min-height: 48px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   19. SUCCESS / FAIL PAYMENT PAGES — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .mycart-container { padding: 24px 16px !important; }
+    .Summary { text-align: center; padding: 20px !important; }
+    .Summary h2, .Summary h4 { font-size: 1.1rem !important; }
+    .next-step { text-align: center !important; }
+    .next-step .view-more-section { display: inline-flex; min-height: 48px; align-items: center; }
+}
+
+/* ═══════════════════════════════════════════════
+   20. COURSE EXAM / QUIZ PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .exam_container { padding: 16px !important; }
+    .quiz_question { font-size: 1rem !important; line-height: 1.6 !important; }
+    .quiz_answer_item {
+        min-height: 52px !important;
+        padding: 12px 14px !important;
+        border-radius: 10px !important;
+        margin-bottom: 8px !important;
     }
-    .dga-hero-searchbar button {
-        padding: 10px 14px !important;
-        font-size: 0.85rem !important;
+    .exam_navigation { flex-direction: column !important; gap: 10px !important; }
+    .exam_navigation .btn { width: 100% !important; min-height: 48px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   21. VERIFY CERTIFICATE PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .dga-verify-form { padding: 20px 16px !important; }
+    .dga-table { font-size: 0.85rem !important; }
+    .dga-table th, .dga-table td { padding: 10px 8px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   22. BLOG / NEWS CARDS — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .dga-blog-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .dga-blog-card { border-radius: 12px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   23. SUBSCRIPTIONS PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    /* Force plan cards to stack */
+    .subscriptions_grid,
+    .plans_grid { grid-template-columns: 1fr !important; max-width: 380px; margin: 0 auto; }
+
+    /* Subscription feature list */
+    .plan_features li {
+        padding: 10px 0 !important;
+        font-size: 0.9rem !important;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
+    /* Subscribe CTA */
+    .plan_cta { width: 100% !important; min-height: 52px !important; border-radius: 12px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   24. TRAINING DISCLOSURE PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .joininstructor-bg { min-height: 200px !important; }
+    .parallax-content { padding: 20px 16px !important; }
+    /* Service cards */
+    .section_about { flex-direction: column !important; gap: 16px !important; }
+    .list-group-item { padding: 14px 12px !important; border-radius: 10px !important; }
+    .list-group-item h3 { font-size: 1rem !important; }
+    /* FAQ accordion */
+    .course-accordion .card-header { padding: 0 !important; }
+    .course-accordion .btn-link { padding: 14px 16px !important; font-size: 0.9rem !important; min-height: 52px; }
+}
+
+/* ═══════════════════════════════════════════════
+   25. CAREERS PAGE — MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .careers-content .card { border-radius: 12px !important; margin-bottom: 12px !important; }
+    .careers-content .card-header { padding: 0 !important; }
+    .careers-content .btn-link {
+        padding: 14px 16px !important;
+        font-size: 0.95rem !important;
+        min-height: 52px !important;
+        display: flex !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    .careers-content .card-body { padding: 16px !important; }
+    .careers-content img { border-radius: 8px !important; height: auto !important; max-height: 200px; object-fit: cover; }
+}
+
+/* ═══════════════════════════════════════════════
+   26. MOBILE UTILITY — prevent content jump from
+       sticky header and bottom nav
+═══════════════════════════════════════════════ */
+@media (max-width: 960px) {
+    /* All pages: content must clear sticky header (~60px) + bottom nav (64px) */
+    .main_content,
+    main,
+    #main-content {
+        padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    /* WhatsApp FAB — above bottom nav */
+    a.float {
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+        left: 16px !important;
+        right: auto !important;
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    /* Scroll to top — above WhatsApp */
+    .dga-scroll-top,
+    .scroll-to-target {
+        bottom: calc(144px + env(safe-area-inset-bottom, 0px)) !important;
+        left: 16px !important;
+        right: auto !important;
+    }
+
+    /* No horizontal scroll anywhere */
+    .row { margin-left: 0 !important; margin-right: 0 !important; }
+    .container-fluid { padding-left: 12px !important; padding-right: 12px !important; }
+
+    /* Legacy wrapper padding */
+    .wrapper { padding-left: 14px !important; padding-right: 14px !important; }
+}
+
+/* ═══════════════════════════════════════════════
+   27. IPAD / TABLET (961px–1200px) — refinements
+═══════════════════════════════════════════════ */
+@media (min-width: 961px) and (max-width: 1200px) {
+    header .navbar-brand:first-of-type img { width: 180px !important; }
+    .dga-courses-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .dga-hero-content { gap: 32px !important; }
+    .dga-footer-main { grid-template-columns: repeat(3, 1fr) !important; }
 }

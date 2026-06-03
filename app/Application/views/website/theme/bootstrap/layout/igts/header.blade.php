@@ -144,12 +144,6 @@ body.dga-zoom-out   { zoom: 0.88; }
 .navbar-nav { display: flex; align-items: center; }
 .logo-container { display: flex; align-items: center; }
 
-/* Menu links use the logo green (#005C4B) instead of the default link blue (#0000ff) */
-.navbar-nav .nav-link,
-.dropdown-menu .dropdown-item {
-    color: #005C4B;
-}
-
 .navbar-nav .nav-link:hover,
 .dropdown-menu .dropdown-item:hover {
     background-color: #E6F1EE;
