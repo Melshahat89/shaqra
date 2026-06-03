@@ -65,6 +65,7 @@
     <link href="{{ url('website') }}/css/selectize.css?v={{$VERSION_NUMBER}}" rel="stylesheet">
 
     {{-- ══ DGA / Shaqra Unified Design System (site-wide) ══ --}}
+    <link href="{{ asset('website') }}/css/front/mobile.css?v=1.0" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -182,6 +183,37 @@
         <input type='hidden' id='path' value='{{ url('/') }}'>
 
         @include(layoutFooter('website'))
+
+        {{-- ══ Mobile Bottom Navigation Bar (app feel) ══ --}}
+        <nav class="dga-mobile-nav" aria-label="التنقل السريع" dir="rtl">
+            <a href="{{ url('/') }}" class="{{ request()->is('/') || request()->is('ar') ? 'active' : '' }}" aria-label="الرئيسية">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                الرئيسية
+            </a>
+            <a href="{{ url('/allcourses/category') }}" class="{{ request()->is('allcourses*') ? 'active' : '' }}" aria-label="الدورات">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                الدورات
+            </a>
+            <a href="{{ url('/subscriptions') }}" class="dga-nav-cta {{ request()->is('subscriptions*') ? 'active' : '' }}" aria-label="اشترك الآن">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                اشترك
+            </a>
+            <a href="{{ url('/faq') }}" class="{{ request()->is('faq*') ? 'active' : '' }}" aria-label="الأسئلة الشائعة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                مساعدة
+            </a>
+            @if(Auth::check())
+            <a href="{{ url('/account/myCourses') }}" class="{{ request()->is('account*') ? 'active' : '' }}" aria-label="حسابي">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                حسابي
+            </a>
+            @else
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal" aria-label="تسجيل الدخول">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                دخول
+            </a>
+            @endif
+        </nav>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -310,6 +342,66 @@ jQuery.event.special.mousewheel = {
 {{--@endif--}}
 
 @include('sweet::alert')
+
+<script>
+/* ── Mobile drawer navigation ── */
+(function () {
+    var toggler  = document.querySelector('header .navbar-toggler');
+    var collapse = document.querySelector('header .navbar-collapse');
+    var body     = document.body;
+
+    if (!toggler || !collapse) return;
+
+    function openDrawer() {
+        collapse.classList.add('show');
+        body.classList.add('dga-drawer-open');
+        toggler.setAttribute('aria-expanded', 'true');
+    }
+    function closeDrawer() {
+        collapse.classList.remove('show');
+        body.classList.remove('dga-drawer-open');
+        toggler.setAttribute('aria-expanded', 'false');
+    }
+
+    /* Toggle on hamburger click (override Bootstrap) */
+    toggler.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapse.classList.contains('show') ? closeDrawer() : openDrawer();
+    });
+
+    /* Close on overlay click */
+    body.addEventListener('click', function (e) {
+        if (body.classList.contains('dga-drawer-open') && !collapse.contains(e.target) && e.target !== toggler) {
+            closeDrawer();
+        }
+    });
+
+    /* Close on Escape */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && body.classList.contains('dga-drawer-open')) {
+            closeDrawer();
+            toggler.focus();
+        }
+    });
+
+    /* Close drawer when a nav link is tapped */
+    collapse.querySelectorAll('.nav-link, .dropdown-item').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 960) closeDrawer();
+        });
+    });
+
+    /* Highlight active bottom nav item */
+    var currentPath = window.location.pathname;
+    document.querySelectorAll('.dga-mobile-nav a').forEach(function (a) {
+        var href = a.getAttribute('href');
+        if (href && href !== 'javascript:void(0)' && currentPath === href) {
+            a.classList.add('active');
+        }
+    });
+})();
+</script>
 
 <!-- <script type="text/javascript">
 $(document).ready(function () {
