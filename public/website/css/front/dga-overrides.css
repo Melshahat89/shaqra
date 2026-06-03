@@ -916,3 +916,223 @@ input[type="radio"]:checked {
     border-color: #005C4B;
     color: #fff;
 }
+
+/* =====================================================
+   GLOBAL: Eliminate old navy blue #244092 from all pages
+   Replace with Shaqra green #005C4B or gold #C1996C
+   ===================================================== */
+
+/* Backgrounds that were blue → green */
+.bg_primary,
+.bg_gradient,
+.back-bg-buy,
+.modal-lec-title,
+.cntrl-btn.active,
+.active-date::before {
+    background: #005C4B !important;
+    background-image: none !important;
+    border-color: #005C4B !important;
+}
+.bg_gradient {
+    background: linear-gradient(135deg, #003D31 0%, #005C4B 60%, #00735E 100%) !important;
+}
+
+/* Text that was blue → green */
+.nav-pills .nav-link,
+.about-instructor h1,
+.custom-rev h1,
+.add-to-cart:hover {
+    color: #005C4B !important;
+    border-color: #005C4B !important;
+}
+
+/* Borders that were blue → green */
+.avatar_border,
+[class*="border-primary"] {
+    border-color: #005C4B !important;
+}
+
+/* Breadcrumb bar was blue → green */
+.bread-crumb {
+    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%) !important;
+}
+
+/* Tags (pill tags) were blue → gold */
+.tag {
+    background: #C1996C !important;
+    border-color: #C1996C !important;
+}
+
+/* Add-to-cart button was blue → green */
+.add-to-cart {
+    background: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.add-to-cart:hover {
+    background: #fff !important;
+    color: #005C4B !important;
+    border-color: #005C4B !important;
+}
+
+/* Page title banners were blue → green */
+.general-gred,
+.page-title {
+    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%) !important;
+}
+
+/* Nav pills active → green */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background: #005C4B !important;
+    color: #fff !important;
+    border-color: #005C4B !important;
+}
+
+/* custom-rev heading border → gold */
+.custom-rev h1 {
+    border-bottom-color: #C1996C !important;
+    color: #005C4B !important;
+}
+
+/* Font size — all pages: enforce DGA 14px floor on small text */
+.dga-stat-label,
+.dga-card-category,
+small,
+.small,
+.text-muted {
+    font-size: 0.875rem !important;   /* 14px */
+}
+
+/* =====================================================
+   COURSE PAGE: eliminate blue #244092 on all course elements
+   ===================================================== */
+
+/* text_primary was blue (#244092) → Shaqra green */
+.text_primary {
+    color: #005C4B !important;
+}
+
+/* button_primary / more_button → green */
+.button_primary,
+.button.button_primary,
+.more_button.button_primary,
+.more_button {
+    background: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.button_primary:hover,
+.button.button_primary:hover,
+.more_button:hover {
+    background: #003D31 !important;
+    border-color: #003D31 !important;
+    color: #fff !important;
+}
+
+/* button_primary2 (wishlist/heart) → gold outline */
+.button_primary2,
+.button.button_primary2 {
+    background: transparent !important;
+    border: 2px solid #C1996C !important;
+    color: #C1996C !important;
+}
+.button_primary2:hover,
+.button.button_primary2:hover,
+.button_primary2.active,
+.button.button_primary2.active {
+    background: #C1996C !important;
+    color: #003D31 !important;
+}
+
+/* badge-primary → green */
+.badge-primary,
+.badge.badge-primary {
+    background: #005C4B !important;
+    color: #fff !important;
+}
+
+/* views badge on course image */
+.views-badge {
+    background: rgba(0, 92, 75, 0.85) !important;
+    color: #fff !important;
+}
+
+/* Course detail header dark background → deep green */
+.course_detail_header {
+    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%) !important;
+}
+.course_detail_header h1,
+.course_detail_header h2,
+.course_detail_header h3 {
+    color: #fff !important;
+}
+
+/* go_to_cart / enrolled start button → gold (CTA) */
+.go_to_cart {
+    background: #C1996C !important;
+    border-color: #C1996C !important;
+    color: #003D31 !important;
+}
+.go_to_cart:hover {
+    background: #A07A4F !important;
+    border-color: #A07A4F !important;
+    color: #003D31 !important;
+}
+
+/* Course section headings (about igts, about instructor, tags etc) */
+.course_detail .text_primary {
+    color: #005C4B !important;
+}
+
+/* bt btn-primary inside course page (Bootstrap 5 terms modal button) */
+.btn-primary {
+    background: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background: #003D31 !important;
+    border-color: #003D31 !important;
+    color: #fff !important;
+}
+
+/* course detail header background (dark panel) */
+.course_detail_header .video_wrapper {
+    background: linear-gradient(135deg, #00261E 0%, #003D31 100%) !important;
+}
+
+/* cntrl-btn tabs (content sections) active state */
+.cntrl-btn.active {
+    background: #005C4B !important;
+    border-color: #005C4B !important;
+    color: #fff !important;
+}
+.cntrl-btn {
+    color: #005C4B !important;
+    border-color: #005C4B !important;
+}
+
+/* Course title / page title color in header */
+.course_detail_title h1 {
+    color: #fff !important;
+}
+
+/* Course price text → green */
+.course_detail h3,
+.course_detail .price {
+    color: #005C4B !important;
+}
+
+/* about igts / about instructor section heading → gold */
+.course_detail h3.text_primary {
+    color: #C1996C !important;
+    font-weight: 700;
+}
+
+/* tags/spans badges → gold */
+.course_detail .badge-primary {
+    background: #C1996C !important;
+    color: #003D31 !important;
+    font-size: 0.875rem !important;
+}

@@ -5,10 +5,8 @@
 @section('keywords'){{ trans('home.HomeKeywords') }}@endsection
 
 @push('css')
-<link href="{{ asset('website') }}/css/front/dga-design-system.css?v=1.0" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{{-- home-dga.css: Shaqra palette (green + gold, no blue), DGA-compliant sizes --}}
+<link href="{{ asset('website') }}/css/front/home-dga.css?v=1.0" rel="stylesheet">
 @endpush
 
 @section('content')

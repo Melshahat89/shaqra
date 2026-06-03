@@ -428,13 +428,14 @@ body.dga-zoom-out   { zoom: 0.88; }
 
             <!-- الجزء الشمال (لغة + تسجيل دخول + لوجو ثاني) -->
             <div class="d-flex align-items-center">
-                <!-- Language switcher -->
+                {{-- Language switcher — commented out until bilingual content is ready
                 <a href="{{ LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar' : 'en') }}"
                    class="button button_outline m-1"
                    aria-label="{{ config('app.locale') == 'ar' ? 'Switch to English' : 'التبديل إلى العربية' }}"
                    lang="{{ config('app.locale') == 'ar' ? 'en' : 'ar' }}">
                     {{ config('app.locale') == 'ar' ? 'EN' : 'عربى' }}
                 </a>
+                --}}
 
                 @if(Auth::check())
                     <!-- بيانات المستخدم -->

@@ -6,9 +6,9 @@
 
 @extends(layoutExtend('website'))
 @section('title')
-    {{ $course->metatitle_lang ?? $course->title_lang .'-'.   trans('home.IGTS') }}
+    {{ $course->metatitle_lang ?? $course->title_lang .' | '. trans('home.HomeTitle') }}
 @endsection
-@section('canonical')<link rel="canonical" href="https://igtsservice.com/courses/view/{{$course->slug}}">@endsection
+@section('canonical')<link rel="canonical" href="{{ url('courses/view/'.$course->slug) }}">@endsection
 @section('description')
     {{  $course->metadescription_lang ?? (($course->seo_desc) ? $course->seo_desc_lang : $course->description_lang)  }}
 @endsection

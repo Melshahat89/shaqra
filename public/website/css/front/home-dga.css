@@ -1,0 +1,631 @@
+/*
+ * Home Page — DGA Compliant Styles
+ * Shaqra University / Mehany Platform
+ * Palette: Green #005C4B · Gold #C1996C · No blue
+ * Font: IBM Plex Sans Arabic
+ * All text ≥ 14px (DGA minimum)
+ */
+
+/* ── TOKENS ── */
+:root {
+    --h-green:        #005C4B;
+    --h-green-dark:   #003D31;
+    --h-green-light:  #E6F1EE;
+    --h-gold:         #C1996C;
+    --h-gold-dark:    #A07A4F;
+    --h-gold-text:    #003D31;   /* dark text on gold — WCAG AA */
+    --h-white:        #ffffff;
+    --h-gray-50:      #F9FAFB;
+    --h-gray-100:     #F3F4F6;
+    --h-gray-200:     #E5E7EB;
+    --h-gray-400:     #9CA3AF;
+    --h-gray-500:     #6B7280;
+    --h-gray-700:     #374151;
+    --h-gray-900:     #111827;
+    --h-font:         'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif;
+    --h-radius:       12px;
+    --h-radius-sm:    8px;
+    --h-radius-lg:    16px;
+    --h-radius-full:  9999px;
+    --h-shadow:       0 2px 12px rgba(0,0,0,0.08);
+    --h-shadow-lg:    0 8px 32px rgba(0,0,0,0.12);
+    --h-ease:         cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── BASE ── */
+#dga-home-page {
+    font-family: var(--h-font);
+    font-size: 1rem;       /* 16px base */
+    line-height: 1.7;
+    color: var(--h-gray-700);
+    direction: rtl;
+}
+#dga-home-page *, #dga-home-page *::before, #dga-home-page *::after {
+    box-sizing: border-box;
+}
+#dga-home-page a { text-decoration: none; color: var(--h-green); }
+#dga-home-page a:hover { color: var(--h-green-dark); }
+#dga-home-page img { display: block; max-width: 100%; }
+
+/* ── TYPOGRAPHY — headings in gold (like logo) ── */
+#dga-home-page h1,
+#dga-home-page h2,
+#dga-home-page h3,
+#dga-home-page h4 {
+    font-family: var(--h-font);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--h-gray-900);
+}
+.dga-accent {
+    color: var(--h-gold);       /* gold accent — "like the logo" */
+    font-weight: 800;
+}
+.dga-text-green { color: var(--h-green); }
+.dga-text-gold  { color: var(--h-gold); }
+
+/* ── BUTTONS ── */
+.dga-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.75rem 1.5rem;
+    min-height: 44px;           /* DGA touch target */
+    border-radius: var(--h-radius);
+    font-family: var(--h-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: all 0.2s var(--h-ease);
+    line-height: 1;
+}
+/* Primary = green */
+.dga-btn-primary {
+    background: var(--h-green);
+    color: var(--h-white) !important;
+    border-color: var(--h-green);
+}
+.dga-btn-primary:hover {
+    background: var(--h-green-dark);
+    border-color: var(--h-green-dark);
+    color: var(--h-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,92,75,0.30);
+}
+/* Gold CTA */
+.dga-btn-gold {
+    background: var(--h-gold);
+    color: var(--h-gold-text) !important;   /* dark — WCAG AA 4.5:1 */
+    border-color: var(--h-gold);
+    box-shadow: 0 4px 16px rgba(193,153,108,0.35);
+}
+.dga-btn-gold:hover {
+    background: var(--h-gold-dark);
+    border-color: var(--h-gold-dark);
+    color: var(--h-gold-text) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(193,153,108,0.45);
+}
+/* Secondary = outlined green */
+.dga-btn-secondary {
+    background: transparent;
+    color: var(--h-green) !important;
+    border-color: var(--h-green);
+}
+.dga-btn-secondary:hover {
+    background: var(--h-green);
+    color: var(--h-white) !important;
+    transform: translateY(-2px);
+}
+/* Sizes */
+.dga-btn-lg  { padding: 0.875rem 2rem; font-size: 1rem; }
+.dga-btn-sm  { padding: 0.5rem 1rem; font-size: 0.875rem; min-height: 36px; }
+
+/* ── LAYOUT ── */
+.dga-container {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.dga-section {
+    padding: 64px 0;
+}
+.dga-section-alt {
+    background: var(--h-gray-50);
+}
+.dga-section-header {
+    margin-bottom: 40px;
+}
+.dga-section-header.text-center { text-align: center; }
+.dga-section-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--h-gray-900);
+    margin: 8px 0 6px;
+}
+.dga-section-header p {
+    font-size: 1rem;
+    color: var(--h-gray-500);
+}
+.dga-section-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+/* Gold divider accent line above headings */
+.dga-section-divider {
+    width: 48px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--h-gold), var(--h-gold-dark));
+    border-radius: var(--h-radius-full);
+    margin-bottom: 12px;
+}
+
+/* ── HERO ── */
+.dga-hero {
+    position: relative;
+    min-height: 580px;
+    background: linear-gradient(135deg, var(--h-green-dark) 0%, var(--h-green) 50%, #00735E 100%);
+    color: var(--h-white);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    direction: rtl;
+}
+.dga-hero::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(193,153,108,0.15) 0%, transparent 65%);
+    top: -120px; left: -80px;
+    pointer-events: none;
+}
+.dga-hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 65%);
+    bottom: -80px; right: -60px;
+    pointer-events: none;
+}
+.dga-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 64px 24px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+}
+.dga-hero-text h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--h-white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.dga-hero-text p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 520px;
+}
+.dga-hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+/* Stats inside hero */
+.dga-hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+.dga-hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+/* Hero visual card */
+.dga-hero-visual { position: relative; z-index: 2; }
+.dga-hero-card-preview {
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: var(--h-radius-lg);
+    padding: 24px;
+}
+.dga-hero-search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--h-white);
+    border-radius: var(--h-radius-full);
+    padding: 6px 8px 6px 6px;
+    gap: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+}
+.dga-hero-search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: var(--h-font);
+    font-size: 0.95rem;
+    color: var(--h-gray-700);
+    background: transparent;
+    min-width: 0;
+}
+.dga-hero-search-bar input::placeholder { color: var(--h-gray-400); }
+.dga-hero-search-bar button {
+    background: var(--h-green);
+    color: var(--h-white);
+    border: none;
+    border-radius: var(--h-radius-full);
+    padding: 10px 20px;
+    font-family: var(--h-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    min-height: 40px;
+    transition: background 0.2s;
+}
+.dga-hero-search-bar button:hover { background: var(--h-green-dark); }
+.dga-hero-popular-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.dga-popular-tag {
+    background: rgba(255,255,255,0.15);
+    color: var(--h-white) !important;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--h-radius-full);
+    padding: 5px 14px;
+    font-size: 0.875rem;
+    transition: background 0.2s;
+}
+.dga-popular-tag:hover {
+    background: var(--h-gold);
+    border-color: var(--h-gold);
+    color: var(--h-gold-text) !important;
+}
+
+/* ── STATS STRIP ── */
+.dga-stats-strip {
+    background: var(--h-white);
+    border-bottom: 1px solid var(--h-gray-200);
+    padding: 24px 0;
+}
+.dga-stats-grid {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    direction: rtl;
+}
+.dga-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+}
+/* Gold numbers — "like the logo" */
+.dga-stat-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--h-gold);
+    line-height: 1;
+}
+.dga-stat-label {
+    font-size: 0.875rem;   /* 14px — DGA floor */
+    color: var(--h-gray-500);
+    font-weight: 500;
+}
+
+/* ── CATEGORY PILLS ── */
+.dga-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    direction: rtl;
+}
+.dga-category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    min-height: 44px;
+    background: var(--h-white);
+    border: 1.5px solid var(--h-gray-200);
+    border-radius: var(--h-radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--h-gray-700) !important;
+    transition: all 0.2s var(--h-ease);
+}
+.dga-category-pill:hover {
+    border-color: var(--h-green);
+    background: var(--h-green-light);
+    color: var(--h-green) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--h-shadow);
+}
+
+/* ── COURSE CARDS GRID ── */
+.dga-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    direction: rtl;
+}
+.dga-course-card {
+    background: var(--h-white);
+    border-radius: var(--h-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--h-gray-200);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s var(--h-ease), box-shadow 0.25s var(--h-ease), border-color 0.25s;
+    box-shadow: var(--h-shadow);
+}
+.dga-course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--h-shadow-lg);
+    border-color: #B8D9CF;
+}
+.dga-course-card-img {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--h-gray-100);
+}
+.dga-course-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s var(--h-ease);
+}
+.dga-course-card:hover .dga-course-card-img img { transform: scale(1.04); }
+.dga-course-card-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--h-green);
+    color: var(--h-white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--h-radius-full);
+}
+.dga-course-card-discount { background: #DC3545; }
+.dga-course-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+    text-align: right;
+}
+.dga-course-card-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--h-gold);       /* gold — "like the logo" */
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.dga-course-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--h-gray-900) !important;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.dga-course-card-title:hover { color: var(--h-green) !important; }
+.dga-course-card-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.dga-course-card-meta span {
+    font-size: 0.875rem;   /* 14px — DGA floor */
+    color: var(--h-gray-500);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.dga-course-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--h-gray-200);
+    margin-top: auto;
+}
+.dga-course-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--h-green);
+}
+
+/* ── FEATURES / WHY US ── */
+.dga-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    direction: rtl;
+}
+.dga-feature-card {
+    background: var(--h-white);
+    border: 1px solid var(--h-gray-200);
+    border-radius: var(--h-radius-lg);
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.25s var(--h-ease);
+    box-shadow: var(--h-shadow);
+    position: relative;
+    overflow: hidden;
+}
+.dga-feature-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--h-gold), var(--h-green));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s var(--h-ease);
+}
+.dga-feature-card:hover::before { transform: scaleX(1); }
+.dga-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--h-shadow-lg);
+    border-color: #B8D9CF;
+}
+.dga-feature-icon {
+    width: 60px; height: 60px;
+    background: var(--h-green-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    transition: all 0.25s var(--h-ease);
+    font-size: 1.4rem;
+    color: var(--h-green);
+}
+.dga-feature-card:hover .dga-feature-icon {
+    background: var(--h-green);
+    color: var(--h-white);
+    box-shadow: 0 8px 20px rgba(0,92,75,0.30);
+}
+.dga-feature-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--h-gray-900);
+    margin-bottom: 8px;
+}
+.dga-feature-card p {
+    font-size: 0.9rem;
+    color: var(--h-gray-500);
+    line-height: 1.7;
+}
+
+/* ── CTA BANNER ── */
+.dga-cta-banner {
+    background: linear-gradient(135deg, var(--h-green-dark) 0%, var(--h-green) 60%, #00735E 100%);
+    border-radius: var(--h-radius-lg);
+    padding: 56px 40px;
+    text-align: center;
+    color: var(--h-white);
+    position: relative;
+    overflow: hidden;
+}
+.dga-cta-banner::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(193,153,108,0.18) 0%, transparent 65%);
+    top: -80px; left: -60px; pointer-events: none;
+}
+.dga-cta-banner h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 800;
+    color: var(--h-white);
+    margin-bottom: 12px;
+}
+.dga-cta-banner p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 28px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dga-cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ── DGA SUCCESS COLOR (no blue) ── */
+.dga-success { color: var(--h-green); }
+
+/* ── SCROLL TO TOP ── */
+.dga-scroll-top {
+    position: fixed;
+    bottom: 100px;    /* above WhatsApp FAB */
+    left: 24px;
+    width: 44px; height: 44px;
+    background: var(--h-green);
+    color: var(--h-white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,92,75,0.35);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 900;
+    text-decoration: none !important;
+}
+.dga-scroll-top.visible { opacity: 1; transform: translateY(0); }
+.dga-scroll-top:hover { background: var(--h-green-dark); }
+.dga-scroll-top:focus-visible {
+    outline: 3px solid var(--h-gold);
+    outline-offset: 3px;
+}
+
+/* ── BADGES ── */
+.dga-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 14px;
+    border-radius: var(--h-radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+.dga-badge-new {
+    background: rgba(193,153,108,0.15);
+    color: var(--h-gold);
+    border: 1px solid rgba(193,153,108,0.30);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+    .dga-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .dga-hero-visual { display: none; }
+    .dga-hero-text p { margin-left: auto; margin-right: auto; }
+    .dga-hero-actions { justify-content: center; }
+    .dga-hero-stats { justify-content: center; }
+    .dga-section-header-row { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 640px) {
+    .dga-hero { min-height: auto; }
+    .dga-hero-content { padding: 40px 16px; }
+    .dga-hero-text h1 { font-size: 1.75rem; }
+    .dga-container { padding: 0 16px; }
+    .dga-section { padding: 40px 0; }
+    .dga-stats-grid { gap: 24px; }
+    .dga-courses-grid { grid-template-columns: 1fr; }
+    .dga-cta-banner { padding: 36px 20px; }
+}
