@@ -182,6 +182,10 @@ body {
         backdrop-filter: blur(2px);
         cursor: pointer;
     }
+    /* Raise header above overlay so the hamburger button stays clickable */
+    body.dga-drawer-open header.p-3 {
+        z-index: 2001 !important;
+    }
 
     /* Make sure drawer clears the bottom tab bar */
     header .navbar-collapse {

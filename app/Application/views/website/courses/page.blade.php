@@ -131,6 +131,8 @@
                                                             </a>
                                                         @endif
                                                     @else
+                                                        {{-- Direct course purchase disabled — subscriptions only --}}
+                                                        {{--
                                                         @if($course->OriginalPrice > 0)
                                                             @if(count($course->certificatesContainer) > 0)
                                                                 <a href="javascript:void(0)" onclick="loadModal('/courses/certificatesContainer/id/', {{$course->id}})" class="more_button button_primary w-50 text-center mb-10 p-3" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal" class="button button_primary button_large add_cart track" data-course-id="{{$course->id}}">
@@ -146,6 +148,10 @@
                                                                 {{ trans('courses.Get It For Free') }}
                                                             </a>
                                                         @endif
+                                                        --}}
+                                                        <a href="{{ url('/subscriptions') }}" class="more_button button_primary w-50 text-center mb-10 p-3">
+                                                            اشترك الآن
+                                                        </a>
                                                     @endif
                                                 @else
                                                     @if($course->type == Courses::TYPE_WEBINAR)
@@ -159,8 +165,14 @@
                                                             </a>
                                                         @endif
                                                     @else
+                                                        {{-- Direct course purchase disabled — subscriptions only --}}
+                                                        {{--
                                                         <a href="javascript:void(0)" data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal" class="more_button button_primary w-50 text-center mb-10 p-3">
                                                             <i class="fas fa-cart-plus"></i>
+                                                        </a>
+                                                        --}}
+                                                        <a href="{{ url('/subscriptions') }}" class="more_button button_primary w-50 text-center mb-10 p-3">
+                                                            اشترك الآن
                                                         </a>
                                 @endif
                                 @endif
@@ -208,8 +220,8 @@
                                             @endif
                                         @else
 
-
-
+                                            {{-- Direct course purchase disabled — subscriptions only --}}
+                                            {{--
                                             @if($course->OriginalPrice > 0)
                                                 @if(count($course->certificatesContainer) > 0)
                                                     <a href="javascript:void(0)"  onclick="loadModal('/courses/certificatesContainer/id/', {{$course->id}})" data-toggle="modal" data-target="#exampleModal" class="button button_primary button_large add_cart track" data-course-id="{{$course->id}}">
@@ -226,8 +238,10 @@
                                                     {{ trans('courses.Get It For Free') }}
                                                 </a>
                                             @endif
-
-
+                                            --}}
+                                            <a href="{{ url('/subscriptions') }}" class="button button_primary button_large">
+                                                اشترك الآن
+                                            </a>
 
                                         @endif
 
@@ -245,8 +259,14 @@
                                             @endif
 
                                         @else
+                                            {{-- Direct course purchase disabled — subscriptions only --}}
+                                            {{--
                                             <a href="javascript:void(0)" data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal" class="button button_primary button_large">
                                                 <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                            --}}
+                                            <a href="{{ url('/subscriptions') }}" class="button button_primary button_large">
+                                                اشترك الآن
                                             </a>
                                         @endif
 
@@ -267,6 +287,8 @@
 
                                 @endif
 
+                                    {{-- Direct course purchase / cart disabled — subscriptions only --}}
+                                    {{--
                                     @if($course->OriginalPrice > 0)
                                         <a href="/cart" class="button button_primary button_large go_to_cart" style="<?= (!$shoppingCart) ? 'display:none' : '' ?>">
                                             ابدأ التعلم الآن
@@ -277,6 +299,7 @@
                                             {{ trans('courses.Get It For Free') }}
                                         </a>
                                     @endif
+                                    --}}
 
 
 
@@ -1145,6 +1168,8 @@
                             </a>
                         @endif
                     @else
+                        {{-- Direct course purchase disabled — subscriptions only --}}
+                        {{--
                         @if($course->OriginalPrice > 0)
                             @if(count($course->certificatesContainer) > 0)
                                 <a href="javascript:void(0)" onclick="loadModal('/courses/certificatesContainer/id/', {{$course->id}})" class="more_button button_primary w-50 text-center mb-10 p-3" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal" class="button button_primary button_large add_cart track" data-course-id="{{$course->id}}">
@@ -1160,6 +1185,10 @@
                                 {{ trans('courses.Get It For Free') }}
                             </a>
                         @endif
+                        --}}
+                        <a href="{{ url('/subscriptions') }}" class="more_button button_primary w-50 text-center mb-10 p-3">
+                            اشترك الآن
+                        </a>
                     @endif
                 @else
                     @if($course->type == Courses::TYPE_WEBINAR)
@@ -1173,8 +1202,14 @@
                             </a>
                         @endif
                     @else
+                        {{-- Direct course purchase disabled — subscriptions only --}}
+                        {{--
                         <a href="javascript:void(0)" data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal" class="more_button button_primary w-50 text-center mb-10 p-3">
                             <i class="fas fa-cart-plus"></i> {{ $course->OriginalPrice }} {{getCurrency()}}
+                        </a>
+                        --}}
+                        <a href="{{ url('/subscriptions') }}" class="more_button button_primary w-50 text-center mb-10 p-3">
+                            اشترك الآن
                         </a>
                     @endif
                 @endif
