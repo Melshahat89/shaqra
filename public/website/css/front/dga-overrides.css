@@ -1075,12 +1075,6 @@ small,
 .course_detail_header {
     background: #e8e8e8 !important;
 }
-.course_detail_header h1,
-.course_detail_header h2,
-.course_detail_header h3 {
-    color: #fff !important;
-}
-
 /* go_to_cart / enrolled start button → gold (CTA) */
 .go_to_cart {
     background: #C1996C !important;
@@ -1149,43 +1143,35 @@ small,
     font-weight: 600;
 }
 
-/* Course title — match index .dga-page-title (pure white, weight 800) */
+/* Course title — original dark text on grey header */
 .course_detail_title h1,
 .course_detail_header h1 {
-    color: #fff !important;
+    color: #1a1a1a !important;
     font-weight: 800 !important;
 }
 
-/* Instructor / sub-info under the title — match index .dga-page-sub */
+/* Instructor / sub-info under the title — original muted dark */
 .course_detail_header .user_name,
 .course_detail_header .user_name a,
 .course_detail_header .course_detail_sub_info,
 .course_detail_header .course_detail_sub_info * {
-    color: rgba(255,255,255,0.82) !important;
+    color: rgba(0,0,0,0.72) !important;
 }
 
-/* Rating line + meta inside the dark header — soft white */
+/* Rating line + meta inside the header — dark */
 .course_detail_header .course_detail_rating,
 .course_detail_header .course_detail_rating * {
-    color: rgba(255,255,255,0.85) !important;
+    color: rgba(0,0,0,0.75) !important;
 }
 .course_detail_header .text_muted {
-    color: rgba(255,255,255,0.65) !important;
+    color: rgba(0,0,0,0.55) !important;
 }
 
-/* Price inside the dark header → gold (matches index hero gold accent) */
+/* Price inside the header → green (matches site primary) */
 .course_detail_header .price,
 .course_detail_header h3.price,
 .course_detail_header .course_detail_price {
-    color: #D9B589 !important;
-}
-
-/* Any link inside the dark header → gold + white on hover */
-.course_detail_header a {
-    color: #D9B589 !important;
-}
-.course_detail_header a:hover {
-    color: #fff !important;
+    color: #005C4B !important;
 }
 
 /* Course price text → green */
