@@ -26,6 +26,23 @@ window.addEventListener('DOMContentLoaded', function() {
 @endpush
 
 @section('content')
+<style>
+.dga-partners-note {
+    display: flex; align-items: center; gap: 16px;
+    background: #f1f5f2; border: 1px solid #dde5df;
+    border-right: 4px solid #C1996C; border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 28px;
+}
+.dga-partners-note-logo {
+    height: 46px; width: auto; object-fit: contain; flex-shrink: 0; border-radius: 6px;
+}
+.dga-partners-note p { margin: 0; font-size: 15px; line-height: 1.7; color: #2d3748; }
+.dga-partners-note a { color: #00261E; text-decoration: none; }
+.dga-partners-note a:hover { text-decoration: underline; }
+@media (max-width: 560px) {
+    .dga-partners-note { flex-direction: column; text-align: center; }
+}
+</style>
 <div class="dga-home" dir="rtl" lang="ar">
 
     <section class="dga-page-hero">
@@ -43,6 +60,18 @@ window.addEventListener('DOMContentLoaded', function() {
 
     <section class="dga-sec">
         <div class="dga-wrap">
+
+            {{-- The listed partnerships are delivered through iGTS, the platform's
+                 content-development partner — surfaced here to credit the source. --}}
+            <div class="dga-partners-note" role="note">
+                <img src="{{ asset('website') }}/images/igts-instructor-logo.jpeg" alt="iGTS" class="dga-partners-note-logo" loading="lazy">
+                <p>
+                    شراكات المحتوى والتدريب على هذه المنصة تُقدَّم بالتعاون مع
+                    <a href="https://www.igtsservice.com" target="_blank" rel="noopener"><strong>iGTS</strong></a>
+                    — شريك تطوير المحتوى.
+                </p>
+            </div>
+
             <div class="dga-partners-list">
                 @foreach($Partners as $key => $data)
                 <div class="dga-partner-row">

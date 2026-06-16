@@ -567,7 +567,7 @@
                     {{$subscription_yearly_after}}
                 </h2>
                 <h3 class="annualSubBtn text-[24px] lg:text-[32px] uppercase">{{getCurrency()}}/{{trans('website.Year')}}</h3>
-                <div class="annualSubBtn mt-[10px] flex items-center justify-center gap-4">
+                <div class="annualSubBtn mt-[10px] flex items-baseline justify-center gap-4">
                     <p class="text-[32px] lg:text-[48px] font-bold line-through text-white/45">
                         {{$subscription_yearly_before}}
                     </p>
@@ -1376,15 +1376,15 @@
                     {{trans('b2b.ANNUAL')}}
                 </p>
             </div>
-            <div class="modal-action flex flex-col w-full gap-4">
-                <img alt="" style="height: 150px" src="{{asset('website/subscriptions')}}/image/annual-icon.svg">
+            <div class="modal-action flex flex-col items-center text-center w-full gap-4">
+                <img alt="{{trans('b2b.ANNUAL')}}" style="height: 150px; width: auto; object-fit: contain; margin: 0 auto;" src="{{asset('website/subscriptions')}}/image/annual-icon.svg">
                 <div class="spce"></div>
-                <h3 class="fw-400 flex items-center">
-                    <span class="rate">{{$subscription_yearly_after}} </span>
+                <h3 class="fw-400 flex items-baseline justify-center gap-2">
+                    <span class="rate">{{$subscription_yearly_after}}</span>
                     <span class="meta fw-300">{{getCurrency()}}/{{trans('website.Year')}}</span></h3>
 
                 <div class="discount">
-                    <div class="save-percent">
+                    <div class="save-percent flex items-baseline justify-center gap-1">
                         <del>{{$subscription_yearly_before}}
                             <span>{{getCurrency()}}/{{trans('website.Year')}}</span>
                         </del>
@@ -1404,12 +1404,12 @@
                 </p>
             </div>
 
-            <div class="modal-action flex flex-col w-full gap-4">
-                <img alt="" style="height: 150px" src="{{asset('website/subscriptions')}}/image/monthly-icon.svg">
+            <div class="modal-action flex flex-col items-center text-center w-full gap-4">
+                <img alt="{{trans('b2b.MONTHLY')}}" style="height: 150px; width: auto; object-fit: contain; margin: 0 auto;" src="{{asset('website/subscriptions')}}/image/monthly-icon.svg">
                 <div class="spce"></div>
-                <h3 class="fw-400 flex items-center">
-                    <span class="rate">{{$subscription_monthly}} </span>
-                    <span class="meta fw-300"> {{getCurrency()}}/{{trans('website.Mo')}}</span></h3>
+                <h3 class="fw-400 flex items-baseline justify-center gap-2">
+                    <span class="rate">{{$subscription_monthly}}</span>
+                    <span class="meta fw-300">{{getCurrency()}}/{{trans('website.Mo')}}</span></h3>
 
             </div>
 

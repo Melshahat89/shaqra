@@ -183,13 +183,15 @@
             padding: 18px 24px 14px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        .dga-footer-logos a { display: inline-flex; align-items: center; opacity: 0.88; transition: opacity 0.2s; }
+        /* Keep every item on the same 40px visual height so the official logos
+           and the registration badges don't appear at mismatched sizes. */
+        .dga-footer-logos a { display: inline-flex; align-items: center; height: 40px; opacity: 0.88; transition: opacity 0.2s; }
         .dga-footer-logos a:hover { opacity: 1; }
-        .dga-footer-logos img { height: 44px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+        .dga-footer-logos img { height: 40px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
         .dga-footer-dga-badge {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex; align-items: center; gap: 8px; height: 40px;
             background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 8px; padding: 7px 14px;
+            border-radius: 8px; padding: 0 14px;
             color: rgba(255,255,255,0.85); font-size: 11.5px; text-decoration: none;
             transition: background 0.2s;
         }
@@ -218,7 +220,7 @@
         </a>
 
         {{-- SDAIA / هيئة البيانات والذكاء الاصطناعي --}}
-        <a href="https://sdaia.gov.sa" target="_blank" rel="noopener" aria-label="هيئة البيانات والذكاء الاصطناعي SDAIA" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.85);font-size:11px;text-decoration:none;">
+        <a href="https://sdaia.gov.sa" target="_blank" rel="noopener" aria-label="هيئة البيانات والذكاء الاصطناعي SDAIA" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;height:40px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.85);font-size:11px;text-decoration:none;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0 1 0 20A10 10 0 0 1 12 2"/><path d="M12 8a4 4 0 0 1 0 8"/><path d="M12 5a7 7 0 0 1 0 14"/></svg>
             SDAIA
         </a>
@@ -228,6 +230,8 @@
     <div class="dga-footer-bottom">
         <p class="dga-footer-copy">
             &copy; {{ date('Y') }} جميع الحقوق محفوظة — منصة الشهادات الاحترافية، جامعة شقراء
+            <span class="dga-footer-sep">·</span>
+            <a href="https://www.igtsservice.com" target="_blank" rel="noopener">تطوير المحتوى بواسطة iGTS</a>
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a>
             <span class="dga-footer-sep">·</span>
