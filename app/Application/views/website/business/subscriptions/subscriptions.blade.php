@@ -999,9 +999,9 @@
             {{ trans('website.Certified by') }}
         </p>
 
-        <div class="flex flex-row justify-center gap-4 mt-2">
-            <img src="{{ asset('website') }}/images/Scsi.webp" alt="Payments" class="w-[265px] h-full"/>
-            <img src="{{ asset('website') }}/images/shaqra.svg" alt="Payments" class="w-[145px] h-full"/>
+        <div class="flex flex-row items-center justify-center gap-6 mt-2">
+            <img src="{{ asset('website') }}/images/Scsi.webp" alt="{{ trans('website.Certified by') }}" class="h-[70px] w-auto object-contain"/>
+            <img src="{{ asset('website') }}/images/shaqra.svg" alt="{{ trans('website.Certified by') }}" class="h-[70px] w-auto object-contain"/>
         </div>
     </div>
 

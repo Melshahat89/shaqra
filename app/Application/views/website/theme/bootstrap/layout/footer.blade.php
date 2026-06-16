@@ -199,10 +199,8 @@
         .dga-footer-dga-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
         </style>
 
-        {{-- جامعة شقراء --}}
-        <a href="https://www.su.edu.sa" target="_blank" rel="noopener" aria-label="جامعة شقراء — الموقع الرسمي">
-            <img src="{{ asset('website') }}/images/shaqracs.svg" alt="جامعة شقراء">
-        </a>
+        {{-- The university logo already appears in the header brand; it is intentionally
+             NOT repeated here to avoid duplicating the same mark on every page. --}}
 
         {{-- رؤية 2030 --}}
         <a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener" aria-label="رؤية المملكة 2030">
