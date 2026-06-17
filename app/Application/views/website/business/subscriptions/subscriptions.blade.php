@@ -567,7 +567,7 @@
                     {{$subscription_yearly_after}}
                 </h2>
                 <h3 class="annualSubBtn text-[24px] lg:text-[32px] uppercase">{{getCurrency()}}/{{trans('website.Year')}}</h3>
-                <div class="annualSubBtn mt-[10px] flex items-baseline justify-center gap-4">
+                <div class="annualSubBtn mt-[10px] flex justify-center gap-4" style="align-items:baseline;">
                     <p class="text-[32px] lg:text-[48px] font-bold line-through text-white/45">
                         {{$subscription_yearly_before}}
                     </p>
@@ -1000,8 +1000,8 @@
         </p>
 
         <div class="flex flex-row items-center justify-center gap-6 mt-2">
-            <img src="{{ asset('website') }}/images/Scsi.webp" alt="{{ trans('website.Certified by') }}" class="h-[70px] w-auto object-contain"/>
-            <img src="{{ asset('website') }}/images/shaqra.svg" alt="{{ trans('website.Certified by') }}" class="h-[70px] w-auto object-contain"/>
+            <img src="{{ asset('website') }}/images/Scsi.webp" alt="{{ trans('website.Certified by') }}" style="height:64px;width:auto;max-width:200px;object-fit:contain;"/>
+            <img src="{{ asset('website') }}/images/shaqra.svg" alt="{{ trans('website.Certified by') }}" style="height:64px;width:auto;max-width:200px;object-fit:contain;"/>
         </div>
     </div>
 
@@ -1046,14 +1046,13 @@
         </p>
 
         <!-- Payment Methods -->
-        <div class="flex justify-center gap-4 md:py-0 py-[20px]" style="max-height: 100px;">
-            <div class="md:text-[20px] w-[300px] text-right">
+        <div class="flex justify-center gap-4 md:py-0 py-[20px]">
+            <div class="md:text-[20px] text-right">
                 <center>
-                    <p>
+                    <p style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;">
                         المحتوى معتمد من
-
-                        <img src="{{ asset('website/images') }}/FutureX.webp" alt="Instagram"
-                             class=" w-6 h-6"  style="height: 80%;width: 60%;" />
+                        <img src="{{ asset('website/images') }}/FutureX.webp" alt="FutureX"
+                             style="height:40px;width:auto;max-width:120px;object-fit:contain;" />
                     </p>
 
                 </center>
@@ -1379,12 +1378,12 @@
             <div class="modal-action flex flex-col items-center text-center w-full gap-4">
                 <img alt="{{trans('b2b.ANNUAL')}}" style="height: 150px; width: auto; object-fit: contain; margin: 0 auto;" src="{{asset('website/subscriptions')}}/image/annual-icon.svg">
                 <div class="spce"></div>
-                <h3 class="fw-400 flex items-baseline justify-center gap-2">
+                <h3 class="fw-400 flex justify-center" style="align-items:baseline;gap:6px;">
                     <span class="rate">{{$subscription_yearly_after}}</span>
                     <span class="meta fw-300">{{getCurrency()}}/{{trans('website.Year')}}</span></h3>
 
                 <div class="discount">
-                    <div class="save-percent flex items-baseline justify-center gap-1">
+                    <div class="save-percent flex justify-center" style="align-items:baseline;gap:4px;">
                         <del>{{$subscription_yearly_before}}
                             <span>{{getCurrency()}}/{{trans('website.Year')}}</span>
                         </del>
@@ -1407,7 +1406,7 @@
             <div class="modal-action flex flex-col items-center text-center w-full gap-4">
                 <img alt="{{trans('b2b.MONTHLY')}}" style="height: 150px; width: auto; object-fit: contain; margin: 0 auto;" src="{{asset('website/subscriptions')}}/image/monthly-icon.svg">
                 <div class="spce"></div>
-                <h3 class="fw-400 flex items-baseline justify-center gap-2">
+                <h3 class="fw-400 flex justify-center" style="align-items:baseline;gap:6px;">
                     <span class="rate">{{$subscription_monthly}}</span>
                     <span class="meta fw-300">{{getCurrency()}}/{{trans('website.Mo')}}</span></h3>
 
