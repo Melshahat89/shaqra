@@ -224,12 +224,34 @@
         </a>
     </div>
 
+    {{-- ══ Content developer credit (iGTS) — distinguished block ══ --}}
+    <div class="dga-footer-devby" dir="rtl">
+        <style>
+        .dga-footer-devby {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            flex-wrap: wrap; padding: 16px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .dga-footer-devby-label { font-size: 12px; color: rgba(255,255,255,0.60); }
+        .dga-footer-devby a {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 10px; padding: 8px 16px; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .dga-footer-devby a:hover { background: rgba(255,255,255,0.12); }
+        .dga-footer-devby img { height: 34px; width: auto; object-fit: contain; }
+        </style>
+        <span class="dga-footer-devby-label">تطوير وتشغيل المحتوى بواسطة</span>
+        <a href="https://www.igtsservice.com" target="_blank" rel="noopener" aria-label="iGTS — تطوير المحتوى">
+            <img src="{{ asset('website/business/new/images') }}/igts-logow.png" alt="iGTS">
+        </a>
+    </div>
+
     {{-- ══ Bottom bar: copyright + links ══ --}}
     <div class="dga-footer-bottom">
         <p class="dga-footer-copy">
             &copy; {{ date('Y') }} جميع الحقوق محفوظة — منصة الشهادات الاحترافية، جامعة شقراء
-            <span class="dga-footer-sep">·</span>
-            <a href="https://www.igtsservice.com" target="_blank" rel="noopener">تطوير المحتوى بواسطة iGTS</a>
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a>
             <span class="dga-footer-sep">·</span>
