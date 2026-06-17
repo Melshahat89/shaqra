@@ -390,6 +390,8 @@
                     </svg>
                 </div>
 
+                <img src="{{ asset('website/subscriptions') }}/image/monthly-icon.svg" alt="شهري" loading="lazy" style="height:72px;width:auto;object-fit:contain;margin-bottom:16px;">
+
                 <h3 class="dga-sub-title">شهري</h3>
 
                 <div class="dga-sub-price">
@@ -412,6 +414,8 @@
                         <polyline points="9 12 11 14 15 10"/>
                     </svg>
                 </div>
+
+                <img src="{{ asset('website/subscriptions') }}/image/annual-icon.svg" alt="سنوي" loading="lazy" style="height:72px;width:auto;object-fit:contain;margin-bottom:16px;">
 
                 <h3 class="dga-sub-title">سنوي</h3>
 
