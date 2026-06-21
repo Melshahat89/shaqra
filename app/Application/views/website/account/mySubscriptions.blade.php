@@ -57,7 +57,7 @@ use Carbon\Carbon;
                 </div>
                 
             @endforeach
-            <div class="global-pagenation flexBetween">
+            <div class="global-pagenation flexBetween dga-pagination">
 
                 @if($myCourses instanceof \Illuminate\Pagination\LengthAwarePaginator )
                     {{$myCourses->appends(request()->input())->links('pagination::meduo-pagination') }}

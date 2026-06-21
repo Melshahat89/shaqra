@@ -36,7 +36,7 @@
                     </div>
                 </div>
             @endforeach
-            <div class="global-pagenation flexBetween">
+            <div class="global-pagenation flexBetween dga-pagination">
 
                 @if($certificates instanceof \Illuminate\Pagination\LengthAwarePaginator )
                     {{$certificates->appends(request()->input())->links('pagination::meduo-pagination') }}
