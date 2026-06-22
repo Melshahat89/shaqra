@@ -54,7 +54,7 @@ use App\Application\Model\Transactions;
                     </div>
                 @endforeach
 
-                <div class="global-pagenation flexBetween">
+                <div class="global-pagenation flexBetween dga-pagination">
 
                     @if($myFavourites instanceof \Illuminate\Pagination\LengthAwarePaginator )
                         {{$myFavourites->appends(request()->input())->links('pagination::meduo-pagination') }}

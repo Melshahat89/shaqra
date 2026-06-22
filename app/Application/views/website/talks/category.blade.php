@@ -283,7 +283,7 @@
                                                     @include('website.talks.assets.talkCardList', ["data" => $value])
                                             @endforeach
                                         </div>
-                                        <div class="global-pagenation flexBetween">
+                                        <div class="global-pagenation flexBetween dga-pagination">
                                             {{--  {{ $items->links('pagination::meduo-pagination') }}  --}}
 
                                             @if($items instanceof \Illuminate\Pagination\LengthAwarePaginator )
