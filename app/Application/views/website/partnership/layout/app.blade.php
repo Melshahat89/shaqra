@@ -84,12 +84,7 @@
 
 <body role="document">
 
-<div class="loading flexCenter">
-    <div class="loader-logo">
-        <div class="loader">Loading...</div>
-        <img src="{{ asset('meduo') }}/images/logo.svg" alt="Meduo" >
-    </div>
-</div>
+{{-- full-page preloader removed per DGA review (Oct 2026) --}}
 
 @if (Request::path() == 'en' or Request::path() == 'ar')
     @include(layoutMeduoHeader('website'))

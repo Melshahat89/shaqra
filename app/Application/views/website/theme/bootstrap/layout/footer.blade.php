@@ -259,7 +259,7 @@
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/accessibility') }}">إمكانية الوصول</a>
             <span class="dga-footer-sep">·</span>
-            <a href="{{ url('page/sitemap') }}">خريطة الموقع</a>
+            <a href="{{ url('sitemap') }}">خريطة الموقع</a>
         </p>
         <div class="dga-footer-meta">
             <span class="dga-footer-updated">

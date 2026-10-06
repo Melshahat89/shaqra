@@ -12,8 +12,8 @@
     <div class="dga-page-hero-inner">
         <nav class="dga-breadcrumb" aria-label="مسار التنقل">
             <a href="{{ url('/') }}">الرئيسية</a>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-            <span>{{ trans('page.ourteam') }}</span>
+            <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            <span aria-current="page">{{ trans('page.ourteam') }}</span>
         </nav>
         <h1 class="dga-page-title">{{ trans('page.ourteam') }}</h1>
         <p class="dga-page-sub">تعرّف على الفريق الذي يقف خلف نجاح المنصة</p>

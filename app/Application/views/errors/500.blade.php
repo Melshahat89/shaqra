@@ -8,6 +8,7 @@
 
     <link href="{{ asset('website') }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('website') }}/css/front/dga-design-system.css" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=1.0" rel="stylesheet">
     @if(getDir() == 'rtl')
         <link href="{{ asset('website') }}/css/front/custom-rtl.css" rel="stylesheet">
     @else

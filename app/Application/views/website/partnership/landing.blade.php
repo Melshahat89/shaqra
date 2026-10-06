@@ -73,60 +73,7 @@
 
   <body class="partnership_body">
 
-  <div class="loading flexCenter">
-    <div class="loader-logo">
-        <div class="loader">Loading...</div>
-        <img src="{{ asset('meduo') }}/images/logo.svg" alt="Meduo" >
-    </div>
-</div>
-  <header>
-   <div class="container">
-    <nav class="navbar navbar-light">
-      <a href="#">
-      @if(getDir() == "rtl")
-        <img class="logo" src="{{ asset('partnership') }}/images/partnership/logo_partner-rtl.png"  alt="..." />
-      @else
-      <img class="logo" src="{{ asset('partnership') }}/images/partnership/logo_partner.png"  alt="..." />
-
-      @endif
-        <!-- <img class="m-logo" src="{{ asset('partnership') }}/images/partnership/m-logo.png"  alt="..." /> -->
-      </a>
-      <div class="form-inline mobile-center mobile-100">
-
-        @if (Auth::check())
-          @if((Auth::user()->group_id == 4) OR (Auth::user()->group_id == 5))
-            <a href="{{url('partnership/myCourses')}}" class="custom-btn mt-20 mr-15">{{trans('website.Dashboard')}}</a>
-          @endif
-        @else
-          <a href="#" class="custom-btn mt-20 mr-15" data-dismiss="modal" data-remote="/login" data-toggle="modal" data-target="#loginModal">{{ trans('website.login') }}</a>
-
-
-          <a href="{{ url('partnership/register-individual') }}" class="custom-btn mt-20">{{trans('website.register')}}</a>
-        @endif
-
-
-      </div>
-    </nav>
-   </div>
-  </header>
-
-  <section class="main_slider mt-150">
-    <div class="container">
-      <div class="owl-carousel">
-        <div>
-          <div class="row mt-40 mb-40 justify-content-start">
-            <div class="col-md-5 slider_content ">
-              <h1>{{ trans('partnership.partnership program') }}</h1>
-              <p>
-                {{ trans('partnership.description') }}
-              </p>  
-
-              <a href="/partnership/register-individual" class="joinusnow">
-                {{ trans('partnership.join') }}
-              </a>
-            </div>
-          </div>
-        </div>
+{{-- full-page preloader removed per DGA review (Oct 2026) --}}
 
       </div>
     </div>

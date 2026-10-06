@@ -24,6 +24,7 @@ Route::get('/home' , 'HomeController@professionalcertificateshome');
 
 Route::get('joinAsInstructor', [HomeController::class, 'joinAsInstructor']);
 Route::get('/faq', [HomeController::class, 'faq']);
+Route::get('/sitemap', [HomeController::class, 'sitemap']);
 Route::get('/ourteam', [HomeController::class, 'ourteam']);
 Route::get('instructors/view/{slug}' , [HomeController::class, 'instructor']);
 Route::get('instructors/courses/{slug}' , [HomeController::class, 'instructor']);

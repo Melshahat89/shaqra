@@ -71,6 +71,9 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=8.5" rel="stylesheet">
     <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=8.5" rel="stylesheet">
+    {{-- ══ DGA Platforms Code (كود المنصات) v1.0 — tokens + components, loaded last ══ --}}
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=1.0" rel="stylesheet">
+    <script src="{{ asset('website') }}/js/dga-platforms-code.js?v=1.0" defer></script>
 
     @stack('css')
     {{ Html::style('website/css/sweetalert.css') }}
@@ -151,18 +154,8 @@
 
         @endphp
 
-        @if(!$isWebView)
-
-            @if(! ( class_basename(Route::current()->controller) == 'PageController'))
-                <!-- <div class="se-pre-con"></div> -->
-                 <div class="loading flexCenter">
-                    <div class="loader-logo">
-                        <div class="loader">Loading...</div>
-                         <img src="{{ asset('website') }}/images/logonew2.webp" alt="{{ config('app.name', 'منصة الشهادات الاحترافية') }}">
-                    </div>
-                 </div>
-            @endif
-        @endif
+        {{-- DGA Loading component — page preloader (all pages) --}}
+        @include('website.theme.bootstrap.layout.dga-preloader')
 
 
 

@@ -1338,6 +1338,14 @@ class HomeController extends Controller
 
         return view('website.faq', $this->data);
     }
+    public function sitemap()
+    {
+        $this->data['title']      = 'خريطة الموقع';
+        $this->data['categories'] = Categories::where('status', 1)->where('show_menu', 1)->orderBy('sort', 'asc')->get();
+
+        return view('website.sitemap', $this->data);
+    }
+
     public function ourteam()
     {
         $this->data['title'] = trans('page.ourteam');
