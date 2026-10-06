@@ -74,6 +74,8 @@
     {{-- ══ DGA Platforms Code (كود المنصات) v1.0 — tokens + components, loaded last ══ --}}
     <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=1.0" rel="stylesheet">
     <script src="{{ asset('website') }}/js/dga-platforms-code.js?v=1.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-icons.js?v=1.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-datepicker.js?v=1.0" defer></script>
 
     @stack('css')
     {{ Html::style('website/css/sweetalert.css') }}

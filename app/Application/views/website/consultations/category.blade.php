@@ -19,7 +19,7 @@
     </div>
 </div>
     
-  <main class="main_content">
+  <div class="main_content">
         {{--<section class="sec sec_pad_top sec_pad_bottom d-none">
             <div class="wrapper">
 
@@ -45,7 +45,7 @@
     @include('website.consultations.assets.consultationsPerCategory', ['headTitle' => trans('consultations.consultations')]) 
 
 
-</main>
+</div>
 
 
 @endsection

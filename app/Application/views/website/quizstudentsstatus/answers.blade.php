@@ -14,7 +14,7 @@ use App\Application\Model\Courses;
 @endsection
 @section('content')
 
-<main class="main_content">
+<div class="main_content">
 
 	<section class="sec sec_pad_top sec_pad_bottom">
 		<div class="wrapper">
@@ -57,7 +57,7 @@ use App\Application\Model\Courses;
         </div>
 	</section>
 
-</main>
+</div>
 
 
 

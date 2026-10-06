@@ -10,7 +10,7 @@
 @endsection
 @section('content')
 
-<main class="main_content">
+<div class="main_content">
 
 
 @if(isset($instructor))
@@ -50,6 +50,6 @@
 @endif
 
 
-</main>
+</div>
 
 @endsection

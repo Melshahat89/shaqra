@@ -60,6 +60,15 @@ class PageController extends AbstractController
     public function getBySlug($slug)
     {
         $fields = $this->model->where('slug',$slug)->first();
+
+        if (!$fields) {
+            // DGA-required pages that have a built-in template when the CMS has no entry yet
+            if ($slug === 'accessibility') {
+                return view('website.page.accessibility');
+            }
+            abort(404);
+        }
+
         return $this->createOrEdit('website.page.show', $fields->id, ['fields' => $fields]);
     }
 

@@ -19,13 +19,13 @@
         </div>
     </section>
 
-    <main class="dga-sec">
+    <div class="dga-sec">
         <div class="dga-wrap dga-wrap--narrow">
             <article class="dga-prose">
                 {!! getDefaultValueKey(nl2br($item->body)) !!}
             </article>
         </div>
-    </main>
+    </div>
 
 </div>
 @endsection

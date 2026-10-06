@@ -96,7 +96,7 @@
     </div>
 
     {{-- ===== MAIN CONTENT ===== --}}
-    <main id="main-content">
+    <div class="dga-home-main">
 
         {{-- ===== CATEGORIES ===== --}}
         <section class="dga-section dga-section-alt" aria-labelledby="cats-heading">
@@ -269,7 +269,7 @@
         </div>
         @endif
 
-    </main>
+    </div>
 
 </div>
 

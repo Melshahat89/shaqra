@@ -34,7 +34,7 @@
         @include('website.categories.assets.tabs-container', ['active' => 'diplomas', 'tabsWidth' => $tabsWidth])
     </div>
 
-    <main class="main_content dga-sec">
+    <div class="main_content dga-sec">
         <div class="dga-wrap">
             @if($mostViewedPerCategory && !($key))
             <section class="sec sec_pad_bottom d-none">
@@ -58,7 +58,7 @@
                 'slug'      => $slug
             ])
         </div>
-    </main>
+    </div>
 
 </div>
 @endsection

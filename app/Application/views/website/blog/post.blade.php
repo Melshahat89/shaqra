@@ -75,7 +75,7 @@
         </div>
     </section>
 
-    <main class="main_content">
+    <div class="main_content">
         <div class="course_detail" id="course_detail">
             <div class="course_detail_nav_tabs bg_lightgray">
                 <section class="sec sec_pad_top_sm sec_pad_bottom_sm">
@@ -267,7 +267,7 @@
                 @endif--}}
             </div>
         </div>
-    </main>
+    </div>
 
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=612247d00596560012d381ab&product=inline-share-buttons' async='async'></script>
 

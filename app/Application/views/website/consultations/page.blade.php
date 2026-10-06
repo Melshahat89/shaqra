@@ -17,7 +17,7 @@
 </div>
 
 
-<main class="main_content">
+<div class="main_content">
     <div class="course_detail" id="course_detail">
         <section class="bb course_detail_header">
             <div class="video_wrapper">
@@ -184,7 +184,7 @@
             </div>
         </section>
     </div>
-</main>
+</div>
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=612247d00596560012d381ab&product=inline-share-buttons' async='async'></script>
 
 

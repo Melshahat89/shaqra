@@ -30,7 +30,7 @@
   @include('website.categories.assets.tabs-container', ['active' => 'events', 'tabsWidth' => $tabsWidth])
 
 
-    <main class="main_content">
+    <div class="main_content">
     <?php if (false && $mostViewedPerCategory && !($key)) { ?> 
         <section class="sec sec_pad_top sec_pad_bottom d-none">
             <div class="wrapper">
@@ -59,5 +59,5 @@
     @include('website.events.assets.eventsPerCategory', ['headTitle' => trans('website.events'), 'type' => $type, 'key' => $key, 'slug' => $slug]) 
 
 
-</main>
+</div>
 @endsection

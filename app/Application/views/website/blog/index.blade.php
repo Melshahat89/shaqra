@@ -30,11 +30,11 @@
         </div>
     </section>
 
-    <main class="dga-sec">
+    <div class="dga-sec">
         <div class="dga-wrap">
             @include('website.blog.postsPerCategory', ['headTitle' => trans('home.courses')])
         </div>
-    </main>
+    </div>
 
 </div>
 @endsection

@@ -437,7 +437,7 @@
     </div>
 </header>
 
-<main id="main-content">
+<div class="dga-home-main">
 
 <!-- Hero Section -->
 <section class="hero-section px-[30px] md:px-[90px] pt-[40px] md:pt-[80px]">
@@ -949,7 +949,7 @@
     </div>
 </section>
 
-</main>
+</div>
 
 <a href="{{ getSetting('whatsapp') ?: 'https://wa.me/966539680702' }}" aria-label="{{ trans('website.Contact') }} WhatsApp" style="    position: fixed;
     left: 0;

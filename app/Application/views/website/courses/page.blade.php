@@ -77,11 +77,23 @@
 
     <div class="bread-crumb">
         <div class="wrapper">
-            <a href="/{{getCourseTypeText($course)}}/category/<?= $course->categories->slug ?>"><?=  $course->categories->name_lang ?> </a> > <span><?= $course->title_lang ?></span>
+            <nav class="dga-breadcrumb" aria-label="مسار التنقل" style="margin:0;">
+                <ol>
+                    <li><a href="{{ url('/') }}">الرئيسية</a></li>
+                    <li>
+                        <svg class="dga-breadcrumb-sep" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                        <a href="/{{ getCourseTypeText($course) }}/category/{{ optional($course->categories)->slug }}">{{ optional($course->categories)->name_lang }}</a>
+                    </li>
+                    <li>
+                        <svg class="dga-breadcrumb-sep" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                        <span aria-current="page">{{ $course->title_lang }}</span>
+                    </li>
+                </ol>
+            </nav>
         </div>
     </div>
 
-    <main class="main_content">
+    <div class="main_content">
         <div class="course_detail" id="course_detail">
             <section class="bb course_detail_header">
                 <div class="video_wrapper">
@@ -763,10 +775,50 @@
                             @endif
 
 
+                            {{-- ══ DGA service page template — بطاقة تفاصيل الخدمة ══ --}}
+                            <div class="dga-card dga-service-details" id="service-details" dir="rtl" lang="ar">
+                                <div class="dga-card-body">
+                                    <h2>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="13" x2="14" y2="13"/></svg>
+                                        بطاقة تفاصيل الخدمة
+                                    </h2>
+                                    <dl>
+                                        <div><dt>اسم الخدمة</dt><dd>{{ $course->title_lang }}</dd></div>
+                                        <div><dt>التصنيف</dt><dd>{{ optional($course->categories)->name_lang ?? '—' }}</dd></div>
+                                        <div><dt>المدة</dt><dd>{{ $course->getHoursLectures() }}</dd></div>
+                                        <div><dt>عدد المحاضرات</dt><dd>{{ $course->courselectures ? $course->courselectures->count() : 0 }}</dd></div>
+                                        <div><dt>لغة المحتوى</dt><dd>{{ trans('courses.arabic') }}</dd></div>
+                                        <div><dt>الرسوم</dt><dd>{!! $course->PriceText !!}</dd></div>
+                                        <div><dt>الشهادة</dt><dd>{{ $course->has_certificate ? 'شهادة إتمام معتمدة' : 'بدون شهادة' }}</dd></div>
+                                        <div><dt>قناة تقديم الخدمة</dt><dd>إلكترونياً عبر المنصة</dd></div>
+                                        <div><dt>المستفيدون</dt><dd>الأفراد والجهات</dd></div>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <section class="dga-service-section" id="service-steps" aria-labelledby="service-steps-title" dir="rtl" lang="ar">
+                                <h2 id="service-steps-title">الخطوات</h2>
+                                <ol class="dga-steps dga-steps--v">
+                                    <li class="dga-step"><span><strong>إنشاء حساب أو تسجيل الدخول</strong>سجّل بياناتك الأساسية (الاسم، البريد الإلكتروني، رقم الجوال) وفعّل الحساب.</span></li>
+                                    <li class="dga-step"><span><strong>الاشتراك في المنصة</strong>اختر خطة الاشتراك الشهرية أو السنوية وأكمل الدفع الإلكتروني.</span></li>
+                                    <li class="dga-step"><span><strong>متابعة المحتوى التدريبي</strong>شاهد المحاضرات وأنجز الاختبارات حتى اكتمال نسبة الإنجاز.</span></li>
+                                    <li class="dga-step"><span><strong>الحصول على الشهادة</strong>تُصدر شهادة الإتمام إلكترونياً ويمكن التحقق منها عبر خدمة <a href="{{ url('verifycertificate') }}" class="dga-link">التحقق من الشهادة</a>.</span></li>
+                                </ol>
+                            </section>
+
+                            <section class="dga-service-section" id="service-docs" aria-labelledby="service-docs-title" dir="rtl" lang="ar">
+                                <h2 id="service-docs-title">المستندات المطلوبة</h2>
+                                <ul class="dga-list">
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> لا تتطلب الخدمة أي مستندات ورقية.</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> بريد إلكتروني فعّال ورقم جوال لتفعيل الحساب.</li>
+                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> الاسم الكامل كما في الهوية ليُطبع على الشهادة.</li>
+                                </ul>
+                            </section>
+
                             @if($course->description_lang)
                                 <section class="sec sec_pad_top_sm sec_pad_bottom_sm" id="nav_course_gools">
                                     <div class="title mbmd">
-                                        <h2 class="text_primary text_capitalize">{{trans('courses.course description content')}} {{$course->title_lang}}</h2>
+                                        <h2 class="text_primary text_capitalize">{{ config('app.locale') == 'ar' ? 'وصف الخدمة' : trans('courses.course description content') . ' ' . $course->title_lang }}</h2>
                                     </div>
                                     <div class="text mbmd pr-3 pl-3">{!! $course->description_lang !!}</div>
                                 </section>
@@ -807,14 +859,18 @@
                                 @endforeach
                             @endif
 
-                            @if($course->requirments_lang)
-                                <section class="sec sec_pad_top_sm sec_pad_bottom_sm" id="requirements_section">
-                                    <div class="title mbmd">
-                                        <h2 class="text_primary text_capitalize">{{trans('courses.Requirments')}}</h2>
-                                    </div>
-                                    {!! $course->requirments_lang !!}
-                                </section>
-                            @endif
+                            <section class="dga-service-section" id="requirements_section" aria-labelledby="service-req-title" dir="rtl" lang="ar">
+                                <h2 id="service-req-title">{{ config('app.locale') == 'ar' ? 'الشروط' : trans('courses.Requirments') }}</h2>
+                                @if($course->requirments_lang)
+                                    <div class="text">{!! $course->requirments_lang !!}</div>
+                                @else
+                                    <ul class="dga-list">
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> امتلاك حساب فعّال على المنصة واشتراك ساري.</li>
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> الالتزام بالشروط والأحكام وسياسة الخصوصية.</li>
+                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> إكمال جميع المحاضرات والاختبارات للحصول على الشهادة.</li>
+                                    </ul>
+                                @endif
+                            </section>
 
 
                             <section class="sec">
@@ -1239,7 +1295,7 @@
         </div>
         <!-- END MOBILE FIXED BUTTONS -->
         </div>
-    </main>
+    </div>
 
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=612247d00596560012d381ab&product=inline-share-buttons' async='async'></script>
 

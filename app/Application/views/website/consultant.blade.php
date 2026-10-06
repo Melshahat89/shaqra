@@ -10,7 +10,7 @@
 @endsection
 @section('content')
 
-<main class="main_content">
+<div class="main_content">
 
 
 @if(isset($consultant))
@@ -76,6 +76,6 @@
 @endif
 
 
-</main>
+</div>
 
 @endsection

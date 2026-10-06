@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 
-<main class="main_content">
+<div class="main_content">
     <?php
 
 use App\Application\Model\Certificates;
@@ -154,7 +154,7 @@ use App\Application\Model\Ordersposition;
     </section>
 
 
-</main>
+</div>
 
 @if(Auth::check() && count(getShoppingCart()) > 0)
 <div class="modal fade" id="directBuyModal" tabindex="-1" role="dialog" style="z-index: 99999;" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
