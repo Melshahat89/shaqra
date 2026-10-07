@@ -1356,3 +1356,32 @@ header .dga-header-actions .dga-action-link { font-size: 15px; }
 /* Mobile bottom-nav CTA: primary, not gold (su.edu.sa palette) */
 .dga-mobile-nav .dga-nav-cta { background: var(--dga-color-primary-600) !important; color: #fff !important; }
 .dga-mobile-nav .dga-nav-cta.active { background: var(--dga-color-primary-700) !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   30. HEADER / FOOTER / HERO — exact parity with su.edu.sa (measured)
+   ═══════════════════════════════════════════════════════════════════════ */
+/* Page canvas is pure white on the reference (ours was #F7F7F7) */
+body, #p_wrapper, .dga-home, .main_content { background-color: #FFFFFF !important; }
+/* Stamp + utility text are #161616 */
+.dga-stamp, .dga-stamp-text, .dga-utility { color: var(--dga-color-text-default); }
+/* Header: all nav items #161616 (active = underline only) */
+header .navbar-nav .nav-link, header .navbar-nav .nav-item.active > .nav-link, header .navbar-nav .nav-link.active, header .navbar-nav .nav-link[aria-current="page"] { color: var(--dga-color-text-default) !important; }
+header .navbar-nav .nav-link:hover { color: var(--dga-color-text-default) !important; background: var(--dga-color-gray-50); }
+/* Homepage hero: solid primary-800 like the reference (no photo / overlay / orbs) */
+.dga-hero { background: var(--dga-color-primary-800) !important; min-height: 0; padding: 64px 0 0; }
+.dga-hero::before, .dga-hero::after, .dga-hero-overlay { display: none !important; }
+.dga-hero-stats { background: var(--dga-color-primary-900); border-top: 1px solid rgba(255,255,255,.12); }
+/* Footer: flat #074D31, pure white text, no translucent boxes; column titles underlined in primary-700 */
+.dga-footer, .dga-footer *:not(a):not(.dga-btn):not(button) { color: #FFFFFF; }
+.dga-footer { color: #FFFFFF !important; }
+.dga-footer-col-title { position: relative; padding-bottom: var(--dga-space-md); border-bottom: 2px solid var(--dga-color-primary-700); display: inline-block; }
+.dga-footer-col-title::after { display: none !important; }
+.dga-footer-badge, .dga-footer-dga-badge, .dga-footer-trust-item, .dga-footer-logo-mark, .dga-footer-contact-icon, .dga-footer-devby a, .dga-footer-logos a[style] {
+    background: transparent !important; border-color: rgba(255,255,255,.35) !important; color: #fff !important;
+}
+.dga-footer-contact-icon svg, .dga-footer-logo-mark svg { color: #fff; stroke: #fff; }
+.dga-social-link { background: transparent !important; border: 1px solid rgba(255,255,255,.35) !important; color: #fff !important; }
+.dga-social-link:hover { background: rgba(255,255,255,.12) !important; }
+.dga-footer-divider, .dga-footer-logos, .dga-footer-devby { border-color: rgba(255,255,255,.15) !important; }
+.dga-footer-links a:hover, .dga-footer-copy a:hover { color: #fff !important; text-decoration: underline; }
+.dga-footer-updated, .dga-footer-copy, .dga-footer-desc, .dga-contact-label, .dga-contact-val { color: #fff !important; opacity: 1 !important; }
