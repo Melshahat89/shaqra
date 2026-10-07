@@ -1411,8 +1411,10 @@ h3.dga-ft-title--tools, .dga-ft-title--tools { margin-top: var(--dga-space-4xl) 
 .dga-ft-bottom-links a { text-decoration: underline; text-underline-offset: .2em; }
 .dga-ft-copy p { margin: 0 0 var(--dga-space-md); font-size: 0.875rem !important; line-height: 1.25rem !important; color: #fff !important; }
 .dga-ft-copy p:last-child { margin-bottom: 0; }
-.dga-ft-logos { display: flex; align-items: center; gap: var(--dga-space-3xl); }
-.dga-ft-logo { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); }
-.dga-ft-logo--brand { height: 56px; }
+/* Logos row — reference: 3.25rem tall, object-fit contain, 16px gap, white */
+.dga-ft-logos { display: flex; align-items: center; gap: 16px; margin-top: 40px; }
+.dga-ft-logos a { display: inline-flex; align-items: center; }
+.dga-ft-logo { height: 3.25rem; width: auto; max-width: 160px; object-fit: contain; display: block; filter: brightness(0) invert(1); opacity: .95; }
+.dga-ft-logos a:hover .dga-ft-logo { opacity: 1; }
 @media (max-width: 991.98px) { .dga-ft-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 575.98px) { .dga-ft-grid { grid-template-columns: 1fr; } .dga-ft-inner { padding: 0 var(--dga-space-xl); } .dga-ft-bottom { flex-direction: column; align-items: flex-start; } }

@@ -111,11 +111,14 @@
                 </div>
             </div>
             <div class="dga-ft-logos">
-                <a href="{{ url('/') }}" aria-label="{{ $isAr ? 'منصة الشهادات الاحترافية — الرئيسية' : 'Professional Certificates Platform — Home' }}">
-                    <img src="{{ asset('website') }}/images/shaqracs.svg" alt="{{ $isAr ? 'منصة الشهادات الاحترافية — جامعة شقراء' : 'Professional Certificates Platform — Shaqra University' }}" class="dga-ft-logo dga-ft-logo--brand">
+                <a href="https://www.su.edu.sa" target="_blank" rel="noopener" class="dga-no-ext" aria-label="{{ $isAr ? 'جامعة شقراء (رابط خارجي)' : 'Shaqra University (external link)' }}">
+                    <img src="{{ asset('website') }}/images/shaqra2.svg" alt="{{ $isAr ? 'جامعة شقراء' : 'Shaqra University' }}" class="dga-ft-logo">
                 </a>
                 <a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener" class="dga-no-ext" aria-label="{{ $isAr ? 'رؤية المملكة 2030 (رابط خارجي)' : 'Saudi Vision 2030 (external link)' }}">
                     <img src="{{ asset('website') }}/images/2030.svg" alt="{{ $isAr ? 'رؤية المملكة 2030' : 'Saudi Vision 2030' }}" class="dga-ft-logo">
+                </a>
+                <a href="{{ url('/') }}" aria-label="{{ $isAr ? 'منصة مهني — الرئيسية' : 'Mehani platform — Home' }}">
+                    <img src="{{ asset('website') }}/images/logonew2.webp" alt="{{ $isAr ? 'منصة مهني للشهادات الاحترافية' : 'Mehani Professional Certificates Platform' }}" class="dga-ft-logo">
                 </a>
             </div>
         </div>
