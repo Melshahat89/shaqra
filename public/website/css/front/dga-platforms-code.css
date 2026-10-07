@@ -1395,7 +1395,8 @@ header .navbar { min-height: 97px; }
 .dga-ft-inner { max-width: 1260px; margin: 0 auto; padding: 0 var(--dga-space-4xl); }
 .dga-ft-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--dga-space-3xl); }
 .dga-ft-title, h3.dga-ft-title { font-size: 1rem !important; line-height: 1.5rem !important; font-weight: 700 !important; color: #fff !important; margin: 0 0 var(--dga-space-xl) !important; padding-bottom: var(--dga-space-md); border-bottom: 1px solid rgba(255,255,255,.25); display: block; }
-.dga-ft-title--tools { margin-top: var(--dga-space-4xl) !important; }
+h3.dga-ft-title--tools, .dga-ft-title--tools { margin-top: var(--dga-space-4xl) !important; }
+.dga-ft-icons + .dga-ft-title { margin-top: var(--dga-space-4xl) !important; }
 .dga-ft-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--dga-space-md); }
 .dga-ft-links a, .dga-ft-bottom-links a, .dga-ft-copy a { color: #fff !important; font-size: 0.875rem !important; line-height: 1.25rem !important; font-weight: 400; text-decoration: none; }
 .dga-ft-links a:hover, .dga-ft-bottom-links a:hover, .dga-ft-copy a:hover { text-decoration: underline; text-underline-offset: .2em; }

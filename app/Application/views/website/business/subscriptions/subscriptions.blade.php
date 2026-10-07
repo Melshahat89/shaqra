@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('subscription-new/public') }}/style.css?v=15.6" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     {{-- Re-assert the Platforms Code system after the page's Tailwind sheet so header/footer/typography stay consistent --}}
-    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=3.0" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=3.1" rel="stylesheet">
     <style>
         /* Scope the Tailwind landing to the content area only */
         .subs-page { background: #fff; }
