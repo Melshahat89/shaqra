@@ -99,14 +99,14 @@
 
                     {{-- Speciality --}}
                     <div class="dga-filter-group">
-                        <label class="dga-filter-label" for="categories">
+                        <label class="dga-filter-label" for="filter-categories">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
                             </svg>
                             {{ trans('website.Speciality') }}
                         </label>
                         <div class="dga-filter-select-wrap">
-                            <select id="categories" name="categories" wire:model="speciality" class="dga-filter-select">
+                            <select id="filter-categories" name="categories" wire:model="speciality" class="dga-filter-select">
                                 <option value="">{{ trans('account.Select specialization') }}</option>
                                 @foreach(allCategories() as $category)
                                     <option value="{{ $category->slug }}">{{ $category->name_lang }}</option>

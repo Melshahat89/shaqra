@@ -41,11 +41,11 @@
         </form>
 
         <div class="dga-hero-actions">
-            <a href="{{ url('professional-certificates/category') }}" class="dga-btn dga-btn-gold">
+            <a href="{{ url('professional-certificates/category') }}" class="dga-btn dga-btn-primary dga-btn-lg">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                 استعرض الشهادات
             </a>
-            <a href="{{ url('/subscriptions') }}" class="dga-btn dga-btn-outline-white">
+            <a href="{{ url('/subscriptions') }}" class="dga-btn dga-btn-on-color dga-btn-lg">
                 خطط الاشتراك
             </a>
         </div>
@@ -510,7 +510,7 @@
             <h2>طوّر مسارك المهني مع شهادات معتمدة</h2>
             <p>احصل على وصول غير محدود لأكثر من ألف دورة تدريبية في مختلف المجالات</p>
             <div class="dga-cta-btns">
-                <a href="{{ url('/subscriptions') }}" class="dga-btn dga-btn-gold">
+                <a href="{{ url('/subscriptions') }}" class="dga-btn dga-btn-primary dga-btn-lg">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     اشترك الآن
                 </a>

@@ -30,14 +30,14 @@ window.addEventListener('DOMContentLoaded', function() {
 .dga-partners-note {
     display: flex; align-items: center; gap: 16px;
     background: #f1f5f2; border: 1px solid #dde5df;
-    border-right: 4px solid #C1996C; border-radius: 10px;
+    border-right: 4px solid #54C08A; border-radius: 10px;
     padding: 14px 18px; margin-bottom: 28px;
 }
 .dga-partners-note-logo {
     height: 46px; width: auto; object-fit: contain; flex-shrink: 0; border-radius: 6px;
 }
 .dga-partners-note p { margin: 0; font-size: 15px; line-height: 1.7; color: #2d3748; }
-.dga-partners-note a { color: #00261E; text-decoration: none; }
+.dga-partners-note a { color: #092A1E; text-decoration: none; }
 .dga-partners-note a:hover { text-decoration: underline; }
 @media (max-width: 560px) {
     .dga-partners-note { flex-direction: column; text-align: center; }

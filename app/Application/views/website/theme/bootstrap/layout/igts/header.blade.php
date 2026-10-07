@@ -94,6 +94,12 @@
                 </a>
                 --}}
 
+                @php $otherLocale = config('app.locale') == 'ar' ? 'en' : 'ar'; @endphp
+                <a href="{{ LaravelLocalization::getLocalizedURL($otherLocale, null, [], true) }}" class="dga-action-link dga-no-ext" hreflang="{{ $otherLocale }}" lang="{{ $otherLocale }}"
+                   aria-label="{{ config('app.locale') == 'ar' ? 'Switch to English' : 'التبديل إلى العربية' }}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
+                    {{ config('app.locale') == 'ar' ? 'English' : 'العربية' }}
+                </a>
                 @if(Auth::check())
                     <!-- بيانات المستخدم -->
                     <div class="desktop-account-info-padding d-flex align-items-center">
@@ -147,8 +153,11 @@
                     </div>
                 @else
                     <!-- أزرار تسجيل الدخول والتسجيل -->
-                    <button type="button" data-toggle="modal" data-target="#loginModal" class="dga-btn dga-btn-outline">{{trans('home.signin')}}</button>
-                    <button type="button" data-toggle="modal" data-target="#registerModal" class="dga-btn dga-btn-primary">{{trans('home.signup')}}</button>
+                    <button type="button" data-toggle="modal" data-target="#loginModal" class="dga-action-link dga-btn dga-btn-transparent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        {{trans('home.signin')}}
+                    </button>
+                    <button type="button" data-toggle="modal" data-target="#registerModal" class="dga-btn dga-btn-primary dga-btn-lg">{{trans('home.signup')}}</button>
                 @endif
 
                 <!-- اللوجو الثاني (Vision 2030) -->

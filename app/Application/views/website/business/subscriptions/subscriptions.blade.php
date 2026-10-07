@@ -1,442 +1,38 @@
-@php
-    use Illuminate\Support\Facades\Session as Session;
+@extends(layoutExtend('website'))
+@php $VERSION_NUMBER = 15.6; @endphp
 
-        $VERSION_NUMBER = 15.6;
-@endphp
-<html lang="{{ config('app.locale') }}" dir="{{ getDir() }}" data-theme="light">
-<head>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+@section('title'){{ trans('website.Subscriptions') }} | {{ trans('home.HomeTitle') }}@endsection
+@section('description'){{ trans('website.Subscriptions') }} — {{ trans('home.HomeDescription') }}@endsection
 
-
-    @if(Auth::check())
-        <script>
-            let event_id = "{{ Auth::user()->id }}";
-        </script>
-    @endif
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="@yield('keywords')">
-    <meta name="author" content="{{ config('app.name') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="facebook-domain-verification" content="z3li963csbvtfybzbb6kf3unwwj4v9" />
-    <title>{{ trans('website.Subscriptions') }} | {{ config('app.name') }}</title>
-    @if(View::hasSection('canonical'))
-        @yield('canonical')
-    @else
-        <link rel="canonical" href="{{ url()->current() }}">
-    @endif
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('website') }}/images/favicon-16x16.png">
-    <link rel="stylesheet" href="{{ asset('subscription-new/public') }}/style.css?v={{$VERSION_NUMBER}}" />
-    {{-- DGA / Shaqra identity overrides — retints components to brand palette + provides skip-link styles, no layout change --}}
-    <link rel="stylesheet" href="{{ asset('website') }}/css/front/dga-overrides.css?v=8.6" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet"/>
+@push('css')
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <link rel="stylesheet" href="{{ asset('subscription-new/public') }}/style.css?v=15.6" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    @stack('css')
-    {{ Html::style('website/css/sweetalert.css') }}
-    @livewireStyles
+    {{-- Re-assert the Platforms Code system after the page's Tailwind sheet so header/footer/typography stay consistent --}}
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=1.0" rel="stylesheet">
+    <style>
+        /* Scope the Tailwind landing to the content area only */
+        .subs-page { background: #fff; }
+        .subs-page .hero-section__title { color: var(--dga-color-text-default) !important; }
+        .subs-page .hero-section { background: var(--dga-color-primary-50) !important; padding-top: 40px !important; padding-bottom: 40px; }
+        .subs-page .btn.bg-green, .subs-page a.bg-green, .subs-page button.bg-green { background: var(--dga-color-primary-600) !important; color: #fff !important; }
+        .subs-page .btn.bg-green:hover { background: var(--dga-color-primary-700) !important; }
+        /* daisyUI dialogs must stay hidden until opened (Bootstrap .modal rules otherwise leak in) */
+        dialog.modal:not([open]) { display: none !important; }
+        /* The landing stylesheet decorates its own (removed) header with a 450px box — not for the shared header */
+        header.dga-nav-header::after, header.dga-nav-header::before, .rtl header::after { content: none !important; display: none !important; }
+        /* daisyUI's .modal rules leak onto the shared Bootstrap modals — keep Bootstrap behaviour */
+        .modal.fade:not(.show) { display: none !important; }
+        .modal.fade.show { display: block !important; opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .modal.fade .modal-dialog { pointer-events: auto; }
+        .subs-page .text-blue { color: var(--dga-color-text-default) !important; }
+        .subs-page .btn, .subs-page button.btn { border-radius: 4px; }
+        .subs-page img[src=""], .subs-page img:not([src]) { display: none; }
+    </style>
+@endpush
 
-</head>
-<body class="h-full {{ getDir() }} istok-web-regular !bg-green">
-
-{{-- DGA accessibility: skip to main content (hidden until focused) --}}
-<a href="#main-content" class="dga-skip-link">
-    @if(getDir() == 'rtl') تجاوز إلى المحتوى الرئيسي @else Skip to main content @endif
-</a>
-
-@php
-    $isWebView = false;
-    if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
-        $isWebView = true;
-    elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
-        $isWebView = true;
-    endif;
-@endphp
-
-
-        <!-- Header Section -->
-<header class="flex items-center justify-between px-[30px] md:px-[90px] py-[32px] !bg-transparent">
-    <a href="/" class="block relative z-[2]" aria-label="{{ config('app.name') }}">
-        <img src="{{ asset('website') }}/images/logonew2.webp" alt="{{ config('app.name') }}" class=" md:h-[63px] h-[50px]"/>
-    </a>
-
-    <div class="items-center hidden space-x-8 md:flex relative z-[2]">
-{{--        <ul class="menu menu-horizontal rounded-box">--}}
-{{--            <li>--}}
-{{--                <a href="{{url('/')}}" class="text-black transition ease-in-out hover:text-green">{{trans('home.home')}}</a>--}}
-{{--            </li>--}}
-{{--            <li>--}}
-{{--                <details>--}}
-{{--                    <summary class="gap-4 text-black transition ease-in-out hover:text-green">--}}
-{{--                        {{trans('home.specialities')}}--}}
-{{--                    </summary>--}}
-{{--                    <ul class="rounded-[10px] min-w-[300px] grid grid-cols-1">--}}
-{{--                        @foreach(menuCategories() as $cat)--}}
-{{--                            @if(!$cat->childs->isEmpty())--}}
-
-{{--                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">--}}
-{{--                                    --}}{{--                                    <a href="#"> {{$cat->name_lang}}</a>--}}
-{{--                                    <details>--}}
-{{--                                        <summary class="text-black transition ease-in-out hover:text-white">--}}
-{{--                                            {{$cat->name_lang}}--}}
-{{--                                        </summary>--}}
-
-{{--                                        <ul class="rounded-[10px] grid grid-cols-2">--}}
-{{--                                            @foreach($cat->childs as $child)--}}
-{{--                                                @if($child->show_menu)--}}
-{{--                                                    <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">--}}
-{{--                                                        <a href="/allcourses/category/{{$child->slug}}">{{$child->name_lang}}</a>--}}
-{{--                                                    </li>--}}
-{{--                                                @endif--}}
-{{--                                            @endforeach--}}
-{{--                                        </ul>--}}
-{{--                                    </details>--}}
-{{--                                </li>--}}
-{{--                            @else--}}
-{{--                                @if(!$cat->parent_id)--}}
-{{--                                    <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">--}}
-{{--                                        <a href="/allcourses/category/{{$cat->slug}}">{{$cat->name_lang}}</a>--}}
-{{--                                    </li>--}}
-{{--                                @endif--}}
-
-{{--                            @endif--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </details>--}}
-{{--            </li>--}}
-{{--        </ul>--}}
-
-        <form class="pl-2 pr-2 search-bar desktop-search" action="/allcourses/category" method="GET" role="search">
-            <label for="subscriptions-search-desktop" class="sr-only">{{trans('home.search placeholder')}}</label>
-            <input id="subscriptions-search-desktop" type="search" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" aria-label="{{trans('home.search placeholder')}}" class="outline-none text-darkgrey h-[45px] py-[16px] px-[32px] rounded-full bg-coolgrey border border-darkgrey"/>
-            <div class="autocom-box" style="position: absolute;width: 100%;background: #fff;border-radius: 5px;box-shadow: 0px 1px 5px rgba(0,0,0,0.1);margin-top: 8px; font-size: 15px; z-index: 3;"></div>
-        </form>
-
-    </div>
-
-
-
-
-    <div class="text-[16px] md:flex items-center space-x-4 hidden relative z-[2]">
-        <!-- This is for the user drop-down menu  -->
-
-        @if(Auth::check())
-            <!-- Reusable  -->
-            <ul class=" menu menu-horizontal rounded-box">
-                <li>
-                    <details>
-                        <summary class="text-black transition ease-in-out hover:text-green"  >
-                            {{ charlimit(Auth::user()->name, 20) }}
-                        </summary>
-
-                        <ul class="rounded-[10px] w-[300px] grid grid-cols-1">
-
-                            @if(Auth::user()->group_id == 1 || Auth::user()->group_id == 9 || Auth::user()->group_id == 10 || Auth::user()->group_id == 11 || Auth::user()->group_id == 12 || Auth::user()->group_id == 13 || Auth::user()->group_id == 14 || Auth::user()->group_id == 15 || Auth::user()->group_id == 16)
-                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                    <a href="{{url('lazyadmin')}}">{{trans('home.UserType1')}}</a>
-                                </li>
-                            @endif
-                            @if((Auth::user()->group_id == 6))
-                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                    <a href="{{url('business/home')}}">{{trans('businessdata.Dashboard')}}</a>
-                                </li>
-                            @endif
-
-                            @if(isValidBusiness(Auth::user()->businessdata_id))
-                                @php
-                                    $businessdata = \App\Application\Model\Businessdata::findOrfail(Auth::user()->businessdata_id);
-                                @endphp
-                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                    <a href="{{url('business/businessCourses')}}"><i class="fas fa-home"></i>
-                                        {{trans('courses.businessCourses')}} ({{$businessdata->name_lang}})</a>
-                                </li>
-                                @if((Auth::user()->group_id == App\Application\Model\User::TYPE_GROUP_ADMIN) AND Auth::user()->businessGroupAdmin)
-                                    <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                        <a href="{{url('business/mygroup')}}">
-                                            <i class="fas fa-home"></i>
-                                            {{trans('courses.my group')}} ({{$businessdata->name_lang}})
-                                        </a>
-                                    </li>
-                                @endif
-                            @endif
-                            @if(Auth::user()->is_affiliate OR Auth::user()->group_id == 3)
-                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                    <a href="{{url('/account/analysis')}}">
-                                        <i class="fas fa-graduation-cap"></i> {{trans('home.analysis')}}
-                                    </a>
-                                </li>
-                            @endif
-                            @if(Auth::user()->group_id == 17)
-                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                    <a href="{{url('account/consultantanalysis')}}">
-                                        <i class="fas fa-graduation-cap"></i> {{trans('home.analysis')}}
-                                    </a>
-                                </li>
-                            @endif
-                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{url('account/myCourses')}}">
-                                    <i class="fas fa-graduation-cap"></i> {{trans('home.my courses')}}
-                                </a>
-                            </li>
-                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{url('account/myProgress#weekly_goal')}}">
-                                    <i class="fas fa-graduation-cap"></i> {{trans('account.My Progress')}}
-                                </a>
-                            </li>
-                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{url('account/myProgress')}}">
-                                    <i class="fas fa-graduation-cap"></i> {{trans('account.my notes')}}
-                                </a>
-                            </li>
-                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{url('account/myFavourites')}}">
-                                    <i class="fas fa-heart"></i> {{trans('home.my favorites')}}
-                                </a>
-                            </li>
-
-                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{url('account/myCertificates')}}">
-                                    <i class="fas fa-certificate"></i> {{trans('home.my certificates')}}
-                                </a>
-                            </li>
-
-                            @isset(Auth::user()->subscription)
-                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                    <a href="{{url('account/mySubscriptions')}}">
-                                        <i class="fas fa-graduation-cap"></i> {{trans('courses.mySubscriptions')}}
-                                    </a>
-                                </li>
-                            @endisset
-
-
-                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{url('account/edit')}}">
-                                    <i class="fas fa-cog"></i> {{trans('home.account info')}}
-                                </a>
-                            </li>
-
-
-                            <li class="font-bold transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> {{trans('home.logout')}}</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        @else
-            <a href="javascript:void(0)" onclick="createAccountModal.showModal()" style="--tw-space-x-reverse: 0;    margin-right: calc(1rem* var(--tw-space-x-reverse));    margin-left: calc(1rem* calc(1 - var(--tw-space-x-reverse)));" class="text-black underline transition ease-in-out underline-offset-2 hover:text-green hover:no-underline">
-                {{trans('home.signup')}}
-            </a>
-            <a href="javascript:void(0)" onclick="signinModal.showModal()" class="h-[42px] px-4 py-2 text-white rounded-full bg-blue transition ease-in-out hover:bg-green">
-                {{trans('home.signin')}}
-            </a>
-        @endif
-
-
-        {{-- DGA bilingual requirement: language switcher (AR ↔ EN) --}}
-        <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-green flex items-center justify-center border rounded-full border-green text-green"
-           href="{{ LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar' : 'en') }}"
-           aria-label="{{ (config('app.locale') == 'en') ? 'التبديل إلى العربية' : 'Switch to English' }}">
-            {{trans('website.other lang')}}
-        </a>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="!flex hamburger md:!hidden">
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav class="flex flex-col items-center justify-center transition ease-in-out mobile-menu">
-{{--            <ul class="transition ease-in-out menu menu-vertical w-full px-[30px] gap-4">--}}
-{{--                <li class="text-white text-[25px] font-light">--}}
-{{--                    <a href="{{url('/')}}">{{trans('home.home')}}</a>--}}
-{{--                </li>--}}
-{{--                <li>--}}
-{{--                    <details>--}}
-{{--                        <summary class="transition ease-in-out text-white font-light text-[25px]">--}}
-{{--                            {{trans('home.specialities')}}--}}
-{{--                        </summary>--}}
-{{--                        <ul class="transition ease-in-out rounded-[10px] w-[300px] grid grid-cols-1">--}}
-{{--                            @foreach(menuCategories() as $cat)--}}
-{{--                                @if(!$cat->childs->isEmpty())--}}
-
-{{--                                    <li class="transition ease-in-out text-[18px] font-light text-white">--}}
-{{--                                        <details>--}}
-{{--                                            <summary class="text-white transition ease-in-out">--}}
-{{--                                                {{$cat->name_lang}}--}}
-{{--                                            </summary>--}}
-
-{{--                                            <ul class="rounded-[10px] grid grid-cols-2">--}}
-{{--                                                @foreach($cat->childs as $child)--}}
-{{--                                                    @if($child->show_menu)--}}
-{{--                                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">--}}
-{{--                                                            <a href="/allcourses/category/{{$child->slug}}">{{$child->name_lang}}</a>--}}
-{{--                                                        </li>--}}
-{{--                                                    @endif--}}
-{{--                                                @endforeach--}}
-{{--                                            </ul>--}}
-{{--                                        </details>--}}
-{{--                                    </li>--}}
-{{--                                @else--}}
-{{--                                    @if(!$cat->parent_id)--}}
-{{--                                        <li class="transition ease-in-out text-[18px] font-light text-white">--}}
-{{--                                            <a href="/allcourses/category/{{$cat->slug}}">{{$cat->name_lang}}</a>--}}
-{{--                                        </li>--}}
-{{--                                    @endif--}}
-
-{{--                                @endif--}}
-{{--                            @endforeach--}}
-{{--                        </ul>--}}
-{{--                    </details>--}}
-{{--                </li>--}}
-
-
-{{--            </ul>--}}
-
-            <div class="text-[16px] flex flex-col items-center w-full mt-6 px-[30px]">
-                <form class="pl-2 pr-2 search-bar desktop-search" action="/allcourses/category" method="GET" role="search">
-                    <label for="subscriptions-search-mobile" class="sr-only">{{trans('home.search placeholder')}}</label>
-                    <input id="subscriptions-search-mobile" type="search" placeholder="{{trans('home.search placeholder')}}" name='key' autocomplete="off" aria-label="{{trans('home.search placeholder')}}" class="outline-none w-full text-darkgrey h-[45px] py-[16px] px-[32px] rounded-full bg-coolgrey border border-darkgrey"/>
-                    <div class="autocom-box" style="position: absolute;width: 100%;background: #fff;border-radius: 5px;box-shadow: 0px 1px 5px rgba(0,0,0,0.1);margin-top: 8px; font-size: 15px; z-index: 3;"></div>
-                </form>
-                <div class="flex items-center justify-center w-full gap-4 py-[20px]">
-
-
-
-                    @if(Auth::check())
-                        <!-- Reusable  -->
-                        <ul class=" menu menu-horizontal rounded-box">
-                            <li>
-                                <details>
-                                    <summary class="text-black transition ease-in-out hover:text-green"  >
-                                        {{ charlimit(Auth::user()->name, 20) }}
-                                    </summary>
-
-                                    <ul class="rounded-[10px] w-[300px] grid grid-cols-1">
-
-                                        @if(Auth::user()->group_id == 1 || Auth::user()->group_id == 9 || Auth::user()->group_id == 10 || Auth::user()->group_id == 11 || Auth::user()->group_id == 12 || Auth::user()->group_id == 13 || Auth::user()->group_id == 14 || Auth::user()->group_id == 15 || Auth::user()->group_id == 16)
-                                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                <a href="{{url('lazyadmin')}}">{{trans('home.UserType1')}}</a>
-                                            </li>
-                                        @endif
-                                        @if((Auth::user()->group_id == 6))
-                                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                <a href="{{url('business/home')}}">{{trans('businessdata.Dashboard')}}</a>
-                                            </li>
-                                        @endif
-
-                                        @if(isValidBusiness(Auth::user()->businessdata_id))
-                                            @php
-                                                $businessdata = \App\Application\Model\Businessdata::findOrfail(Auth::user()->businessdata_id);
-                                            @endphp
-                                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                <a href="{{url('business/businessCourses')}}"><i class="fas fa-home"></i>
-                                                    {{trans('courses.businessCourses')}} ({{$businessdata->name_lang}})</a>
-                                            </li>
-                                            @if((Auth::user()->group_id == App\Application\Model\User::TYPE_GROUP_ADMIN) AND Auth::user()->businessGroupAdmin)
-                                                <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                    <a href="{{url('business/mygroup')}}">
-                                                        <i class="fas fa-home"></i>
-                                                        {{trans('courses.my group')}} ({{$businessdata->name_lang}})
-                                                    </a>
-                                                </li>
-                                            @endif
-                                        @endif
-                                        @if(Auth::user()->is_affiliate OR Auth::user()->group_id == 3)
-                                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                <a href="{{url('/account/analysis')}}">
-                                                    <i class="fas fa-graduation-cap"></i> {{trans('home.analysis')}}
-                                                </a>
-                                            </li>
-                                        @endif
-                                        @if(Auth::user()->group_id == 17)
-                                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                <a href="{{url('account/consultantanalysis')}}">
-                                                    <i class="fas fa-graduation-cap"></i> {{trans('home.analysis')}}
-                                                </a>
-                                            </li>
-                                        @endif
-                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{url('account/myCourses')}}">
-                                                <i class="fas fa-graduation-cap"></i> {{trans('home.my courses')}}
-                                            </a>
-                                        </li>
-                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{url('account/myProgress#weekly_goal')}}">
-                                                <i class="fas fa-graduation-cap"></i> {{trans('account.My Progress')}}
-                                            </a>
-                                        </li>
-                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{url('account/myProgress')}}">
-                                                <i class="fas fa-graduation-cap"></i> {{trans('account.my notes')}}
-                                            </a>
-                                        </li>
-                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{url('account/myFavourites')}}">
-                                                <i class="fas fa-heart"></i> {{trans('home.my favorites')}}
-                                            </a>
-                                        </li>
-
-                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{url('account/myCertificates')}}">
-                                                <i class="fas fa-certificate"></i> {{trans('home.my certificates')}}
-                                            </a>
-                                        </li>
-
-                                        @isset(Auth::user()->subscription)
-                                            <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                                <a href="{{url('account/mySubscriptions')}}">
-                                                    <i class="fas fa-graduation-cap"></i> {{trans('courses.mySubscriptions')}}
-                                                </a>
-                                            </li>
-                                        @endisset
-
-
-                                        <li class="transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{url('account/edit')}}">
-                                                <i class="fas fa-cog"></i> {{trans('home.account info')}}
-                                            </a>
-                                        </li>
-
-
-                                        <li class="font-bold transition ease-in-out rounded-md hover:bg-green hover:text-white">
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> {{trans('home.logout')}}</a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </details>
-                            </li>
-                        </ul>
-                    @else
-                        <a href="javascript:void(0)" onclick="createAccountModal.showModal()" class="text-white text-[14px] underline transition ease-in-out underline-offset-2 hover:text-green hover:no-underline">
-                            {{trans('home.signup')}}
-                        </a>
-                        <a href="javascript:void(0)" onclick="signinModal.showModal()" class="h-[42px] px-4 py-2 text-white rounded-full bg-green transition ease-in-out hover:bg-white hover:text-green">
-                            {{trans('home.signin')}}
-                        </a>
-                    @endif
-
-
-{{--                    <a class="font-[tajawal] font-bold hover:text-white pb-[10px] w-[45px] h-[45px] transition ease-in-out hover:bg-white flex items-center justify-center border rounded-full border-white text-white" href="{{LaravelLocalization::getLocalizedURL((config('app.locale') == 'en') ? 'ar':'en') }}">--}}
-{{--                        {{trans('website.other lang')}}--}}
-{{--                    </a>--}}
-
-
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
-
+@section('content')
+<div class="subs-page istok-web-regular" dir="{{ getDir() }}">
 <div class="dga-home-main">
 
 <!-- Hero Section -->
@@ -542,7 +138,7 @@
             <span style="color: #2d4a9fde ; direction: {{ getDir() }}" class="md:text-right">
 سجل دخول أو أنشئ حساب واحصل على خصم 60%
             </span>
-            <a onclick="signinModal.showModal()" class="text-white hover:text-black btn bg-green mb-[25px]">
+            <a onclick="openLoginModal()" class="text-white hover:text-black btn bg-green mb-[25px]">
                 {{ trans('website.login') }}
             </a>
 
@@ -557,7 +153,7 @@
     <div class="flex flex-col md:flex-row items-center justify-center md:w-[70%] w-full md:mt-0 mt-[50px]">
         <div class="annualSubBtn text-center cursor-pointer flex flex-col justify-between h-[500px] lg:h-[650px] min-w-[350px] lg:min-w-[560px] p-[32px] gradient-blue rounded-[20px]"
              id="annualSubBtn" data-annualFees="{{$subscription_yearly_after}}"
-             onclick="{{Auth::check() ?  ($subscription_yearly_after == 0 ? 'subscriptionEnrollFree('.\App\Application\Model\Subscriptionuser::SUBSCRIPTION_YEARLY.')' : 'subscriptionModal.showModal()') : 'signinModal.showModal()'}}">
+             onclick="{{Auth::check() ?  ($subscription_yearly_after == 0 ? 'subscriptionEnrollFree('.\App\Application\Model\Subscriptionuser::SUBSCRIPTION_YEARLY.')' : 'subscriptionModal.showModal()') : 'openLoginModal()'}}">
 
             <h4 class="text-white pb-[32px] text-[40px] font-bold border-b border-white uppercase annualSubBtn">
                 {{trans('b2b.ANNUAL')}}
@@ -586,7 +182,7 @@
         </div>
         <div id="monthlySubBtn" data-monthlyFees="{{$subscription_monthly}}"
              class="monthlySubBtn text-center cursor-pointer flex flex-col justify-between h-[420px] lg:h-[483px] min-w-[350px] lg:min-w-[560px] p-[32px] bg-white md:ltr:rounded-br-[20px] md:ltr:rounded-tr-[20px] md:ltr:rounded-bl-0 md:ltr:rounded-tl-0 md:rtl:rounded-bl-[20px] md:rtl:rounded-tl-[20px] md:rtl:rounded-br-0 md:rtl:rounded-tr-0 ltr:rounded-br-[20px] ltr:rounded-bl-[20px] ltr:rounded-tr-0 ltr:rounded-tl-0 rtl:rounded-br-[20px] rtl:rounded-bl-[20px] rtl:rounded-tr-0 rtl:rounded-tl-0"
-             onclick="{{Auth::check() ? ($subscription_monthly == 0 ? 'subscriptionEnrollFree('.\App\Application\Model\Subscriptionuser::SUBSCRIPTION_MONTHLY.')' : 'subscriptionModal.showModal()') : 'signinModal.showModal()'}}">
+             onclick="{{Auth::check() ? ($subscription_monthly == 0 ? 'subscriptionEnrollFree('.\App\Application\Model\Subscriptionuser::SUBSCRIPTION_MONTHLY.')' : 'subscriptionModal.showModal()') : 'openLoginModal()'}}">
 
 
             <h4 class="monthlySubBtn text-green pb-[32px] text-[40px] font-bold border-b border-green uppercase">
@@ -972,393 +568,11 @@
         <path  class="whatsapp_btn" fill="url(#logosWhatsappIcon0)" d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a123 123 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"/><path fill="url(#logosWhatsappIcon1)" d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416m40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513z"/><path fill="#fff" d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"/></svg>
 </a>
 
-<input type='hidden' id='user_id' value='{{(auth()->check())?Auth::user()->id:''}}'>
-<input type='hidden' id='path' value='{{ url('/') }}'>
 
 
 <!-- Footer Section -->
-<footer class="mt-[40px] text-center md:px-[90px] px-[30px]">
-    <!-- Footer Links -->
-    <div class="flex justify-center gap-4 mt-6 text-gray-800">
-        <a href="{{url('allcourses/category')}}" class="hover:underline text-[16px] md:text-[18px]">
-            {{trans('website.Specialities')}}
-        </a>
-        <a href="{{url('page/about')}}" class="hover:underline text-[16px] md:text-[18px]">
-            {{trans('website.About Us')}}
-        </a>
-        <a href="{{url('contact')}}" class="hover:underline text-[16px] md:text-[18px]">
-            {{trans('website.Contact')}}
-        </a>
-        <a href="{{url('faq')}}" class="hover:underline text-[16px] md:text-[18px]">
-            {{trans('faq.faq')}}
-        </a>
-    </div>
+</div>
 
-    <div class="flex flex-col items-center justify-center gap-4 mt-6 text-gray-800 w-full fw-400">
-        <p class="text-babydark mt-[14px] text-[18px]">
-            {{ trans('website.Certified by') }}
-        </p>
-
-        <div class="flex flex-row items-center justify-center gap-6 mt-2">
-            <img src="{{ asset('website') }}/images/Scsi.webp" alt="{{ trans('website.Certified by') }}" style="height:64px;width:auto;max-width:200px;object-fit:contain;"/>
-            <img src="{{ asset('website') }}/images/shaqra.svg" alt="{{ trans('website.Certified by') }}" style="height:64px;width:auto;max-width:200px;object-fit:contain;"/>
-        </div>
-    </div>
-
-
-    <!-- Social Media Icons -->
-    <div class="flex justify-center gap-6 my-[50px]">
-        <a href="{{ getSetting('facebook') }}" aria-label="Facebook" target="_blank" rel="noopener">
-            <img
-                    src="{{ asset('subscription-new/src') }}/images/facebook-brands-solid.svg"
-                    alt="Facebook"
-                    aria-hidden="true"
-                    class="w-6 h-6"/>
-        </a>
-        <a href="{{ getSetting('instagram') }}" aria-label="Instagram" target="_blank" rel="noopener">
-            <img
-                    src="{{ asset('subscription-new/src') }}/images/square-instagram-brands-solid.svg"
-                    alt="Instagram"
-                    aria-hidden="true"
-                    class="w-6 h-6"/>
-        </a>
-        <a href="{{ getSetting('youtube') }}" aria-label="YouTube" target="_blank" rel="noopener">
-            <img
-                    src="{{ asset('subscription-new/src') }}/images/square-youtube-brands-solid.svg"
-                    alt="YouTube"
-                    aria-hidden="true"
-                    class="w-6 h-6"/>
-        </a>
-        <a href="{{ getSetting('twitter') }}" aria-label="X (Twitter)" target="_blank" rel="noopener"
-        ><img
-                    src="{{ asset('subscription-new/src') }}/images/square-x-twitter-brands-solid.svg"
-                    alt="Twitter"
-                    aria-hidden="true"
-                    class="w-6 h-6"
-            /></a>
-    </div>
-
-    <div class="flex flex-col items-center md:pb-0 pb-[32px] justify-between border-t md:flex-row border-grey md:pt-0 pt-[32px]">
-        <!-- Copyright Notice -->
-        <p class="md:text-[16px] text-[12px] text-black">
-{{--            {{trans('website.COPYRIGHT © 2024 IGTS. ALL RIGHTS RESERVED.')}}--}}
-            <a href="https://www.igtsservice.com" target="_blank">Powered and Content Developed by iGTS</a>
-        </p>
-
-        <!-- Payment Methods -->
-        <div class="flex justify-center gap-4 md:py-0 py-[20px]">
-            <div class="md:text-[20px] text-right">
-                <center>
-                    <p style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;">
-                        المحتوى معتمد من
-                        <img src="{{ asset('website/images') }}/FutureX.webp" alt="FutureX"
-                             style="height:40px;width:auto;max-width:120px;object-fit:contain;" />
-                    </p>
-
-                </center>
-            </div>
-        </div>
-        <!-- Footer Bottom Links -->
-        <div class="flex justify-center gap-4 text-sm text-black">
-            <a href="{{url('page/termsOfUse')}}" class="hover:underline md:text-[16px] text-[12px]">
-                {{trans('website.Terms and Conditions')}}
-            </a>
-            <span>-</span>
-            <a href="{{url('page/privacyPolicy')}}" class="hover:underline md:text-[16px] text-[12px]">
-                {{trans('website.Privacy Policy')}}
-            </a>
-        </div>
-    </div>
-</footer>
-
-<dialog id="signinModal" class="modal">
-    <div class="modal-box">
-        <div class="border-decoration ltr:pl-[22px] rtl:pr-[22px] relative">
-            <h2 class="text-black text-[25px] font-bold">{{trans('website.Sign in')}}</h2>
-            {{--            <p class="text-babydark mt-[10px] text-[18px]">--}}
-            {{--                Try diffrent ways to signin--}}
-            {{--            </p>--}}
-        </div>
-
-        {{--        <div class="flex flex-row justify-center mt-[50px] gap-4">--}}
-        {{--            <a href=""{{url('social/redirect/google')}}" class="btn">--}}
-        {{--            <img--}}
-        {{--                    src="{{ asset('subscription-new/src') }}/images/google-brands-solid.svg"--}}
-        {{--                    alt="google-icon"--}}
-        {{--                    class="w-6 h-6 mr-[10px]"--}}
-        {{--            />--}}
-        {{--            with Google--}}
-        {{--            </a>--}}
-        {{--            <a href="{{url('social/redirect/facebook')}}" class="btn">--}}
-        {{--                <img--}}
-        {{--                        src="{{ asset('subscription-new/src') }}/images/facebook-brands-solid.svg"--}}
-        {{--                        alt="facebook-icon"--}}
-        {{--                        class="w-6 h-6 mr-[10px]"--}}
-        {{--                />--}}
-        {{--                with Facebook--}}
-        {{--            </a>--}}
-        {{--        </div>--}}
-
-        <div class="modal-action">
-
-            <div class="flex flex-col w-full gap-4">
-                <form class="flex flex-col w-full gap-4"  role="form" method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
-
-                    <div>
-                        @if ($errors->has('email'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('email')}}</div>
-                        @endif
-
-                        @if ($errors->has('password'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('password')}}</div>
-                        @endif
-                    </div>
-
-                    <label class="flex items-center gap-2 input input-bordered">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 16 16"
-                             fill="currentColor"
-                             class="w-4 h-4 opacity-70">
-                            <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/>
-                            <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/>
-                        </svg>
-                        <input id="email-login" type="email" name="email" value="{{ old('email') }}" class='grow' label='Username' placeholder='{{trans('account.email')}}'>
-
-                    </label>
-
-                    <label class="flex items-center gap-2 input input-bordered">
-                        <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 16 16"
-                                fill="currentColor"
-                                class="w-4 h-4 opacity-70"
-                        >
-                            <path
-                                    fill-rule="evenodd"
-                                    d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
-                                    clip-rule="evenodd"
-                            />
-                        </svg>
-                        <input id="password-login" type="password" autocomplete class="grow" name="password" value="{{ old('password') }}" label='Username' placeholder='{{trans('account.password')}}'>
-
-                    </label>
-                    <button class="text-white hover:text-black btn bg-green signin_btn">
-                        {{trans('website.Sign in')}}
-                    </button>
-
-
-                </form>
-
-                <form method="dialog" class="flex flex-col w-full gap-4">
-                    <button class="btn bg-green">{{trans('website.Cancel')}}</button>
-                    <div>
-                        <a href="{{url('register')}}" class="link">{{trans('home.signup')}}</a> -
-                        <a href="{{url('/password/reset')}}" class="link">{{trans('website.Forgot your')}}{{'  '.trans('website.password?')}} </a>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</dialog>
-
-<dialog id="createAccountModal" class="modal">
-    <div class="modal-box" style="max-width: 45rem;">
-        <div class="border-decoration ltr:pl-[22px] rtl:pr-[22px] relative">
-            <h2 class="text-black text-[25px] font-bold">{{trans('home.signup')}}</h2>
-            <p class="text-babydark mt-[10px] text-[18px]">
-                {{--                {{trans('website.Try diffrent ways to create your account')}}--}}
-            </p>
-        </div>
-
-        {{--        <div class="flex flex-row justify-center mt-[50px] gap-4">--}}
-        {{--            <a href="{{url('social/redirect/google')}}" class="btn">--}}
-        {{--                <img--}}
-        {{--                        src="{{ asset('subscription-new/src') }}/images/google-brands-solid.svg"--}}
-        {{--                        alt="google-icon"--}}
-        {{--                        class="w-6 h-6 mr-[10px]"--}}
-        {{--                />--}}
-        {{--                With Google--}}
-        {{--            </a>--}}
-        {{--            <a href="{{url('social/redirect/facebook')}}" class="btn">--}}
-        {{--                <img--}}
-        {{--                        src="{{ asset('subscription-new/src') }}/images/facebook-brands-solid.svg"--}}
-        {{--                        alt="facebook-icon"--}}
-        {{--                        class="w-6 h-6 mr-[10px]"--}}
-        {{--                />--}}
-        {{--                With Facebook--}}
-        {{--            </a>--}}
-        {{--        </div>--}}
-
-        <div class="modal-action">
-
-            @php
-                use App\Application\Model\Categories;
-
-                $userObject = Session::get('socialUserRegister');
-
-            @endphp
-
-            <div class="flex flex-col w-full gap-4">
-                <form  class="flex flex-col w-full gap-4" id="register_form" role="form" method="POST" action="{{ route('register') }}">
-                    {{ csrf_field() }}
-
-
-                    <div class="">
-                        @if ($errors->has('name'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('name')}}</div>
-                        @endif
-
-                        @if ($errors->has('email'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('email')}}</div>
-                        @endif
-
-                        @if ($errors->has('country_id'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('country_id')}}</div>
-                        @endif
-
-                        @if ($errors->has('mobile'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('mobile')}}</div>
-                        @endif
-
-                        @if ($errors->has('categories'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('categories')}}</div>
-                        @endif
-
-                        @if ($errors->has('password'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('password')}}</div>
-                        @endif
-
-                        @if ($errors->has('password_confirmation'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('password_confirmation')}}</div>
-                        @endif
-
-                        @if ($errors->has('g-recaptcha-response'))
-                            <div class="mb-2 alert alert-danger" role="alert">{{$errors->first('g-recaptcha-response')}}</div>
-                        @endif
-
-                    </div>
-
-                    <div class="flex flex-row gap-2">
-                        <label class="flex items-center gap-2 input input-bordered">
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 16 16"
-                                    fill="currentColor"
-                                    class="w-4 h-4 opacity-70"
-                            >
-                                <path
-                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z"
-                                />
-                            </svg>
-                            <input id="name" type="text" class="grow" name="name" value="{{ isset($userObject->name) ? $userObject->name : old('name') }}" label='Username' placeholder='{{trans('account.Full Name')}}' required>
-
-                        </label>
-
-                        <label class="flex items-center gap-2 input input-bordered">
-                            <svg         xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 16 16"
-                                         fill="currentColor"
-                                         class="w-4 h-4 opacity-70">
-                                <path
-                                        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-                                />
-                                <path
-                                        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
-                                />
-                            </svg>
-                            <input id="email-register" type="email" class="grow" {{ isset($userObject->email) ? 'readonly' : '' }} name="email" value="{{ isset($userObject->email) ? $userObject->email : old('email') }}"  label='Username' placeholder='{{trans('account.email')}}' required>
-
-                        </label>
-                    </div>
-
-                    <select class="w-full select select-bordered" id="country-register" name="country_id" required="required">
-                        <option value="">{{trans('account.Select Country')}}</option>
-                        @foreach(allCountries() as $key => $country)
-                            <option value="{{$key}}" {{ ((!$errors->has('mobile')) && ((isset($item->country) && $item->country == $key) || (old('country_id') && old('country_id') == $key))) ? 'selected' : '' }}> {{$country}} </option>
-                        @endforeach
-
-
-
-                    </select>
-
-                    <div  id="mobile-container" style="display: none;">
-                        <input class="grow" id="mobile" type="number"  name="mobile" value="{{ old('mobile') }}" label='Username' placeholder='{{trans('account.mobile')}}' required>
-                        <span id="mobile-code" class="p-2 m-2 border"></span>
-                    </div>
-
-                    <select class="w-full select select-bordered"  id="categories" name="categories" required="required">
-                        <option value="">{{trans('account.Select specialization')}}</option>
-                        @foreach(categoriesList() as $key => $category)
-                            <option value="{{$key}}" {{ ((isset($item->categories) && $item->categories == $key) || (old('categories') && old('categories') == $key)) ? 'selected' : '' }}> {{$category}} </option>
-                        @endforeach
-
-
-                    </select>
-
-                    <div class="flex flex-row gap-2">
-                        <label class="flex items-center gap-2 input input-bordered">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 16 16"
-                                 fill="currentColor"
-                                 class="w-4 h-4 opacity-70">
-                                <path fill-rule="evenodd"
-                                      d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                            <input id="password-register"  autocomplete="" type="password" class="w-[50%]" name="password" value="{{ isset($userObject->password) ? $userObject->password : old('password') }}" label='Username' placeholder='{{trans('account.password')}}' required>
-
-                        </label>
-                        <label class="flex items-center gap-2 input input-bordered">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 16 16"
-                                 fill="currentColor"
-                                 class="w-4 h-4 opacity-70">
-                                <path fill-rule="evenodd"
-                                      d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                            <input id="password_confirmation" autocomplete="" type="password" class="w-[50%]" name="password_confirmation" value="{{ isset($userObject->password) ? $userObject->password : old('password') }}" label='Username' placeholder='{{trans('account.password_confirmation')}}' required>
-
-                        </label>
-                    </div>
-
-                    <input type="hidden" name="facebook_identifier" id="facebook_identifier" value="{{ isset($userObject->facebook_identifier) ? $userObject->facebook_identifier : '' }}">
-                    <input type="hidden" name="provider" id="provider" value="{{ isset($userObject->provider) ? $userObject->provider : '' }}">
-                    <input type="hidden" name="token" id="token" value="{{ isset($userObject->token) ? $userObject->token : '' }}">
-                    <input type="hidden" name="image" id="image" value="{{ isset($userObject->image) ? $userObject->image : '' }}">
-
-
-                    <button class="text-white hover:text-black btn bg-green signup_btn">
-                        {{trans('home.signup')}}
-                    </button>
-
-                    {{--                <button class="btn">Cancel</button>--}}
-
-                </form>
-                <form method="dialog" class="flex flex-col w-full gap-4">
-                    <button class="btn bg-green">{{trans('website.Cancel')}}</button>
-
-                    <div>
-                        <p class="text-babydark text-[14px]">
-                            {{trans('account.By completing your registeration, you agree to IGTS')}}
-                            <a href="https://www.igtsservice.com" target="_blank" style="color: #ffffff">Powered and Content Developed by iGTS</a>
-                            <a class="text-green" href="{{url('/page/termsOfUse')}}">
-                                {{trans('account.Terms and Conditions')}}
-                            </a>
-                            &
-                            <a class="text-green" href="{{url('/page/privacyPolicy')}}">
-                                {{trans('account.Privacy Policy')}}
-                            </a>
-                        </p>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</dialog>
 @php
     $data['test'] = null;
 @endphp
@@ -1498,7 +712,14 @@
 
 
 {{ Html::script('website/js/sweetalert.min.js') }}
-@include('sweet::alert')
+@endsection
+
+@push('js')
+<script>
+    /* Subscriptions page used its own <dialog> login/register; the shared layout modals are used instead */
+    function openLoginModal()    { if (window.jQuery) jQuery('#loginModal').modal('show'); }
+    function openRegisterModal() { if (window.jQuery) jQuery('#registerModal').modal('show'); }
+</script>
 <script>
     (function (e, t, n) {
         var r = e.querySelectorAll("html")[0];
@@ -1508,13 +729,10 @@
 
 
 <!-- Script -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="{{ asset('subscription-new/src') }}/js/script.js"></script>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
 
 
 <script src="{{ asset('website/subscriptions') }}/js/custom.js?v={{$VERSION_NUMBER}}"></script>
@@ -1675,5 +893,4 @@
 
 {{--</script>--}}
 
-</body>
-</html>
+@endpush

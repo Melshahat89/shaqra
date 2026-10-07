@@ -21,27 +21,27 @@
    1. DESIGN TOKENS
    ─────────────────────────────────────────────────────────────────────── */
 :root {
-    /* Primary (entity brand on the Platforms Code scale) */
-    --dga-color-primary-25:  #F2F8F6;
-    --dga-color-primary-50:  #E6F1EE;
-    --dga-color-primary-100: #C7E2DB;
-    --dga-color-primary-200: #9CCCC0;
-    --dga-color-primary-300: #6DB3A2;
-    --dga-color-primary-400: #3D9A85;
-    --dga-color-primary-500: #1F7D69;
-    --dga-color-primary-600: #005C4B;
-    --dga-color-primary-700: #004D3E;
-    --dga-color-primary-800: #003D31;
-    --dga-color-primary-900: #002E25;
-    --dga-color-primary-950: #00261E;
+    /* Primary = official DGA green scale (same values as su.edu.sa) */
+    --dga-color-primary-25:  #F7FDF9;
+    --dga-color-primary-50:  #F3FCF6;
+    --dga-color-primary-100: #DFF6E7;
+    --dga-color-primary-200: #B8EACB;
+    --dga-color-primary-300: #88D8AD;
+    --dga-color-primary-400: #54C08A;
+    --dga-color-primary-500: #25935F;
+    --dga-color-primary-600: #1B8354;
+    --dga-color-primary-700: #166A45;
+    --dga-color-primary-800: #14573A;
+    --dga-color-primary-900: #104631;
+    --dga-color-primary-950: #092A1E;
 
     /* Secondary accent (entity gold) — decorative / badges only */
-    --dga-color-secondary-50:  #F8F1E8;
-    --dga-color-secondary-100: #EEDFCB;
-    --dga-color-secondary-300: #D9B589;
-    --dga-color-secondary-500: #C1996C;
-    --dga-color-secondary-700: #A07A4F;
-    --dga-color-on-secondary:  #003D31;
+    --dga-color-secondary-50:  #F3FCF6;
+    --dga-color-secondary-100: #DFF6E7;
+    --dga-color-secondary-300: #B8EACB;
+    --dga-color-secondary-500: #54C08A;
+    --dga-color-secondary-700: #166A45;
+    --dga-color-on-secondary:  #14573A;
 
     /* Neutral (Platforms Code) */
     --dga-color-gray-25:  #FCFCFD;
@@ -1150,3 +1150,209 @@ header .navbar > a.navbar-brand:first-child { display: inline-flex !important; a
 .dga-steps--v .dga-step strong { display: block; color: var(--dga-color-gray-900); font-weight: var(--dga-font-weight-medium); }
 /* Legacy course page headings → Platforms Code heading style */
 .course_detail h2.text_primary, .course_detail h3.text_primary { color: var(--dga-color-gray-900) !important; font-weight: var(--dga-font-weight-semibold); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   29. ALIGNMENT WITH THE DGA-APPROVED su.edu.sa THEME
+   Token values and component rules taken from the approved Shaqra University
+   site (official DGA theme). Declared last so they win over everything above.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+    /* Primary = official DGA green scale (as used on su.edu.sa) */
+    --dga-color-primary-25:  #F7FDF9;
+    --dga-color-primary-50:  #F3FCF6;
+    --dga-color-primary-100: #DFF6E7;
+    --dga-color-primary-200: #B8EACB;
+    --dga-color-primary-300: #88D8AD;
+    --dga-color-primary-400: #54C08A;
+    --dga-color-primary-500: #25935F;
+    --dga-color-primary-600: #1B8354;
+    --dga-color-primary-700: #166A45;
+    --dga-color-primary-800: #14573A;
+    --dga-color-primary-900: #104631;
+    --dga-color-primary-950: #092A1E;
+    --dga-color-success-900: #074D31;   /* footer-dark on su.edu.sa */
+    --dga-color-danger-600:  #D92D20;
+    --dga-color-danger-700:  #B42318;
+    --dga-color-text-default: #161616;
+    --dga-color-text-primary: #161616;
+    --dga-color-text-secondary: var(--dga-color-gray-700);
+    /* legacy aliases follow the new primary */
+    --dga-primary-light: var(--dga-color-primary-400);
+    --dga-primary-dark:  var(--dga-color-primary-800);
+    --dga-primary-mid:   var(--dga-color-primary-500);
+    --dga-section-gap: 4rem;
+}
+@media (max-width: 767.98px) { :root { --dga-section-gap: 40px; } }
+
+/* Typography — su.edu.sa: h1 60/72 600 (hero) · h2 24/32 700 · h3 18/28 700 · p 16/24 gray-700 */
+body, #p_wrapper { color: var(--dga-color-text-default); }
+h1 { font-size: 1.875rem; line-height: 2.375rem; font-weight: 700; color: var(--dga-color-text-default); }
+h2, .dga-sec-head h2, .dga-section-header h2, .dga-section-title { font-size: 1.5rem !important; line-height: 2rem !important; font-weight: 700 !important; color: var(--dga-color-text-default) !important; }
+h3 { font-size: 1.125rem; line-height: 1.75rem; font-weight: 700; color: var(--dga-color-gray-800); }
+h4 { font-size: 1.125rem; line-height: 1.75rem; font-weight: 700; color: var(--dga-color-text-default); }
+p { color: var(--dga-color-gray-700); }
+.dga-hero h1 { font-size: 3.75rem; line-height: 4.5rem; font-weight: 600; color: #fff; }
+@media (max-width: 991.98px) { .dga-hero h1 { font-size: 2.25rem; line-height: 2.75rem; } }
+.dga-hero-gold { color: var(--dga-color-primary-200); }
+.dga-hero-eyebrow { color: #fff; background: rgba(255,255,255,.14); }
+
+/* Buttons — su.edu.sa: regular weight, lg 40px / md 32px / sm 24px, radius 4 */
+.dga-btn, .button, .btn, .button_primary, .button_secondary, .btn-primary, .btn-secondary, .btn-success, .btn-danger, .btn-outline-primary, .btn-light, .btn-dark {
+    font-weight: var(--dga-font-weight-regular) !important; gap: var(--dga-space-xs);
+}
+.dga-btn-lg, .btn-lg, .button_large { min-height: 40px; padding: 0 var(--dga-space-xl); font-size: var(--dga-text-md); }
+.dga-btn-md { min-height: 32px; padding: 0 var(--dga-space-lg); font-size: var(--dga-text-sm); }
+.dga-btn-sm, .btn-sm, .button_small { min-height: 24px; padding: 0 var(--dga-space-md); font-size: var(--dga-text-xs); }
+.dga-btn-primary:active, .btn-primary:active, .button_primary:active { background: var(--dga-color-primary-900) !important; border-color: var(--dga-color-primary-900) !important; }
+/* secondary = neutral gray-100 (su.edu.sa), subtle = gray-50 */
+.dga-btn-secondary, .btn-secondary, .btn.btn-secondary, .button_primary2 {
+    background: var(--dga-color-gray-100) !important; border-color: var(--dga-color-gray-100) !important; color: var(--dga-color-text-default) !important;
+}
+.dga-btn-secondary:hover, .btn-secondary:hover, .button_primary2:hover { background: var(--dga-color-gray-200) !important; border-color: var(--dga-color-gray-200) !important; color: var(--dga-color-text-default) !important; }
+.dga-btn-secondary:active, .btn-secondary:active { background: var(--dga-color-gray-300) !important; }
+.dga-btn-subtle { background: var(--dga-color-gray-50) !important; border-color: var(--dga-color-gray-50) !important; color: var(--dga-color-text-default) !important; }
+.dga-btn-subtle:hover { background: var(--dga-color-gray-100) !important; }
+.dga-btn-transparent, .dga-btn-ghost, .btn-link { background: transparent !important; border-color: transparent !important; color: var(--dga-color-text-default) !important; }
+.dga-btn-transparent:hover, .dga-btn-ghost:hover, .btn-link:hover { background: rgba(0,0,0,.05) !important; color: var(--dga-color-text-default) !important; }
+.dga-btn-outline, .button_secondary, .btn-outline-primary { outline: 1px solid var(--dga-color-primary-600); outline-offset: -1px; border-color: transparent !important; }
+.dga-btn-outline:focus-visible, .button_secondary:focus-visible { outline: 2px solid var(--dga-color-text-default) !important; outline-offset: 2px !important; }
+.dga-btn-on-color-outline { outline: 1px solid rgba(255,255,255,.8); outline-offset: -1px; }
+.dga-btn-danger, .btn-danger { background: var(--dga-color-danger-600) !important; border-color: var(--dga-color-danger-600) !important; }
+.dga-btn-danger:hover, .btn-danger:hover { background: var(--dga-color-danger-700) !important; border-color: var(--dga-color-danger-700) !important; }
+.dga-btn-primary:focus-visible, .btn-primary:focus-visible, .button_primary:focus-visible, .dga-btn-danger:focus-visible { box-shadow: inset 0 0 0 1px #fff !important; outline: 2px solid var(--dga-color-text-default) !important; outline-offset: 0 !important; }
+/* gold CTAs → primary (su.edu.sa has no gold buttons) */
+.dga-btn-gold, .button.button_gold, .btn-warning { background: var(--dga-color-primary-600) !important; border-color: var(--dga-color-primary-600) !important; color: #fff !important; }
+.dga-btn-gold:hover, .button.button_gold:hover, .btn-warning:hover { background: var(--dga-color-primary-700) !important; border-color: var(--dga-color-primary-700) !important; }
+
+/* Links */
+a { color: var(--dga-color-primary-600); }
+.dga-text-link-primary { color: var(--dga-color-primary-600) !important; }
+
+/* Cards — su.edu.sa .dga-card: radius 16, padding 16, border gray-300, hover bg gray-50, title 18/28 700 gray-800 */
+.dga-card, .card, .dga-course-card, .dga-cat-card, .dga-why-card, .dga-feature-card, .dga-sub-card, .dga-about-stat-card, .coursecard, .course-card, .dga-filter-card, .dga-service-card {
+    border-radius: 16px !important; box-shadow: none !important;
+}
+.dga-card:hover, .dga-course-card:hover, .dga-cat-card:hover, .dga-why-card:hover, .dga-feature-card:hover, .coursecard:hover, .course-card:hover, .dga-service-card:hover {
+    background: var(--dga-color-gray-50) !important; border-color: var(--dga-color-gray-300) !important; box-shadow: none !important;
+}
+.dga-card-title, .card-title, .dga-course-card-title { font-size: 1.125rem !important; line-height: 1.75rem !important; font-weight: 700 !important; color: var(--dga-color-gray-800) !important; }
+.dga-card-body, .card-body, .dga-course-card-body { padding: var(--dga-space-xl); }
+.dga-service-card { padding: var(--dga-space-xl); gap: var(--dga-space-lg); }
+.dga-course-card-img img, .dga-card-img { border-radius: 12px !important; }
+
+/* Tags — 12/18 500, radius 4, gray-50 bg, gray-200 border; "natural" = primary-50/200 */
+.dga-tag, .badge, .dga-badge, .dga-course-card-badge, .dga-popular-tag, .dga-course-card-category, .dga-card-cat {
+    font-size: 0.75rem !important; line-height: 1.125rem !important; font-weight: 500 !important; min-height: 0; padding: 3px 8px;
+    background: var(--dga-color-gray-50); border-color: var(--dga-color-gray-200); color: var(--dga-color-gray-800);
+}
+.dga-tag-primary, .badge-primary, .dga-course-card-category, .dga-card-cat, .dga-tag-natural { background: var(--dga-color-primary-50) !important; border-color: var(--dga-color-primary-200) !important; color: var(--dga-color-gray-800) !important; }
+
+/* Breadcrumb — 14/20 gray-700 links, current gray-400, chevron #9DA4AE with 14px side padding */
+.dga-breadcrumb a, .breadcrumb a { color: var(--dga-color-gray-700) !important; font-size: 0.875rem; line-height: 1.25rem; }
+.dga-breadcrumb [aria-current="page"], .dga-breadcrumb > span:last-child, .breadcrumb-item.active { color: var(--dga-color-gray-400) !important; font-weight: 400; }
+.dga-breadcrumb svg, .dga-breadcrumb .dga-breadcrumb-sep { color: #9DA4AE !important; stroke-width: 1.5; margin: 0 6px; }
+.dga-page-hero .dga-breadcrumb a, .bg_gradient .dga-breadcrumb a { color: var(--dga-color-gray-700) !important; }
+.dga-page-hero .dga-breadcrumb [aria-current="page"], .dga-page-hero .dga-breadcrumb > span:last-child,
+.bg_gradient .dga-breadcrumb [aria-current="page"], .bg_gradient .dga-breadcrumb > span:last-child { color: var(--dga-color-gray-400) !important; }
+.dga-page-hero .dga-breadcrumb svg, .bg_gradient .dga-breadcrumb svg { color: #9DA4AE !important; }
+
+/* Inner-page hero — su.edu.sa .dga-hero: primary-50 background, 40px padding, h1 30/38 700 text-default, start-aligned */
+.dga-page-hero, .bg_gradient.sec { background: var(--dga-color-primary-50) !important; min-height: 0 !important; }
+.dga-page-hero::before, .dga-page-hero::after { display: none !important; }
+.dga-page-hero-inner { padding: 40px var(--dga-space-3xl) !important; text-align: start !important; }
+.dga-page-title, .bg_gradient .title h1, .bg_gradient h1.text_white { font-size: 1.875rem !important; line-height: 2.375rem !important; font-weight: 700 !important; color: var(--dga-color-text-default) !important; }
+.dga-page-sub, .bg_gradient .title p { color: var(--dga-color-gray-700) !important; margin: var(--dga-space-md) 0 0 !important; max-width: none !important; }
+.dga-hero-overlay { display: none; }
+.dga-page-hero .dga-breadcrumb, .bg_gradient .dga-breadcrumb { margin-bottom: var(--dga-space-xl) !important; }
+
+/* Digital stamp — su.edu.sa: gray-100 bar, 25px flag, 14/500 text, link "كيف تتحقق؟"; then utility bar (date · time · city | tools) */
+.dga-stamp { background: var(--dga-color-gray-100); border-bottom: 1px solid var(--dga-color-gray-300); }
+.dga-stamp-inner { padding: 15px var(--dga-space-3xl); }
+.dga-stamp-emblem { width: 25px; height: auto; }
+.dga-stamp-text strong { font-weight: 500; font-size: 0.875rem; line-height: 1.25rem; color: var(--dga-color-text-default); }
+.dga-stamp-toggle { color: var(--dga-color-primary-600); font-weight: 500; font-size: 0.875rem; text-decoration: none; }
+.dga-stamp-toggle:hover { color: var(--dga-color-primary-400); background: transparent; }
+.dga-stamp-details { background: var(--dga-color-gray-100); }
+.dga-utility { background: var(--dga-color-gray-100); border-bottom: 1px solid var(--dga-color-gray-300); padding: 5px 0; color: var(--dga-color-text-default); }
+.dga-utility-inner { max-width: 1400px; margin: 0 auto; padding: 0 var(--dga-space-3xl); display: flex; align-items: center; justify-content: space-between; gap: var(--dga-space-md); flex-wrap: wrap; }
+.dga-utility-meta { display: flex; align-items: center; gap: var(--dga-space-xl); flex-wrap: wrap; font-size: var(--dga-text-md); color: var(--dga-color-gray-700); }
+.dga-utility-meta span { display: inline-flex; align-items: center; gap: var(--dga-space-md); }
+.dga-utility-meta svg { width: 18px; height: 18px; color: var(--dga-color-gray-700); }
+.dga-utility-tools { display: flex; align-items: center; gap: var(--dga-space-md); }
+.dga-utility-tools .dga-a11y-btn, .dga-utility-tools .dga-btn { width: 32px; height: 32px; min-height: 32px; padding: 0; border: 0; background: transparent; color: var(--dga-color-text-default); display: inline-grid; place-content: center; border-radius: var(--dga-radius-sm); cursor: pointer; }
+.dga-utility-tools .dga-a11y-btn svg, .dga-utility-tools .dga-btn svg { width: 20px; height: 20px; }
+.dga-utility-tools .dga-a11y-btn:hover, .dga-utility-tools .dga-btn:hover { background: rgba(0,0,0,.06); }
+.dga-utility-tools .dga-a11y-btn[aria-pressed="true"] { background: var(--dga-color-primary-600); color: #fff; }
+@media (max-width: 767.98px) { .dga-utility-meta { font-size: var(--dga-text-sm); gap: var(--dga-space-lg); } .dga-utility-meta .dga-utility-city { display: none; } }
+
+/* Nav header — su.edu.sa: regular-weight items, icon + label actions */
+header .navbar-nav .nav-link { font-weight: 400; }
+header .dga-header-actions .dga-action-link { display: inline-flex; align-items: center; gap: var(--dga-space-xs); min-height: 40px; padding: 0 var(--dga-space-md); color: var(--dga-color-text-default); font-size: var(--dga-text-md); border-radius: var(--dga-radius-sm); }
+header .dga-header-actions .dga-action-link:hover { background: rgba(0,0,0,.05); color: var(--dga-color-text-default); }
+header .dga-header-actions .dga-action-link svg { width: 20px; height: 20px; }
+
+/* Cookie banner — su.edu.sa: white card, radius 12, 28/32 padding, title + text, policy link + قبول + رفض */
+.dga-cookie-banner { background: transparent !important; border: 0 !important; padding: 0 16px 16px !important; bottom: 0; }
+.dga-cookie-inner { background: #fff; border: 1px solid var(--dga-color-gray-300); border-radius: 12px; padding: 28px 32px; position: relative; display: flex; flex-direction: column; gap: var(--dga-space-xl); align-items: stretch; box-shadow: var(--dga-shadow-lg); }
+.dga-cookie-head { display: flex; gap: var(--dga-space-lg); align-items: flex-start; }
+.dga-cookie-head svg { width: 32px; height: 32px; flex-shrink: 0; color: var(--dga-color-text-default); }
+.dga-cookie-text { gap: var(--dga-space-md); }
+.dga-cookie-text h5 { font-size: var(--dga-text-md); font-weight: 700; margin: 0; color: var(--dga-color-text-default); }
+.dga-cookie-text p { margin: 0; font-size: var(--dga-text-sm); line-height: var(--dga-text-sm-lh); color: var(--dga-color-gray-700); }
+.dga-cookie-actions { display: flex; align-items: center; gap: var(--dga-space-xl); flex-wrap: wrap; }
+.dga-cookie-actions a { color: var(--dga-color-primary-600) !important; text-decoration: none; font-size: var(--dga-text-md); }
+.dga-cookie-close { position: absolute; top: 16px; inset-inline-start: 16px; width: 32px; height: 32px; border: 0; background: transparent; color: var(--dga-color-text-default); display: inline-grid; place-content: center; border-radius: var(--dga-radius-sm); cursor: pointer; }
+.dga-cookie-close:hover { background: rgba(0,0,0,.06); }
+.dga-cookie-close svg { width: 18px; height: 18px; }
+
+/* Feedback section (before footer) */
+.dga-feedback { padding: 0 0 var(--dga-section-gap); background: #fff; }
+.dga-feedback-card { display: flex; align-items: center; gap: var(--dga-space-3xl); padding: var(--dga-space-3xl) !important; flex-wrap: wrap; }
+.dga-feedback-card:hover { background: #fff !important; }
+.dga-feedback-text { flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: var(--dga-space-md); }
+.dga-feedback-title { font-size: 1.125rem !important; line-height: 1.75rem !important; font-weight: 700 !important; margin: 0 !important; color: var(--dga-color-gray-800) !important; }
+.dga-feedback-text p { margin: 0; font-size: var(--dga-text-md); }
+
+/* Footer — su.edu.sa .footer-dark: success-900 background, 60/24 padding, 14px links */
+.dga-footer { background: var(--dga-color-success-900) !important; color: #fff; }
+.dga-footer::before { display: none; }
+.dga-footer-accent { display: none; }
+.dga-footer-main { padding-top: 60px; }
+.dga-footer-links a, .dga-footer-contact a, .dga-footer-copy, .dga-footer-copy a, .dga-footer-updated, .dga-footer-badge, .dga-footer-desc { font-size: 0.875rem !important; line-height: 1.25rem !important; color: #fff !important; }
+.dga-footer-col-title { color: #fff; font-size: var(--dga-text-md); font-weight: 700; }
+.dga-footer-col-title::after { background: #fff !important; }
+.dga-footer-logo-mark { background: rgba(255,255,255,.12) !important; }
+.dga-footer-divider { border-color: rgba(255,255,255,.15); }
+.dga-footer-bottom { padding-bottom: 24px; }
+
+/* Back-to-top — su.edu.sa: 42px circle, primary-700, bottom 16 */
+.dga-scroll-top { width: 42px !important; height: 42px !important; border-radius: 50% !important; background: var(--dga-color-primary-700) !important; bottom: 16px !important; box-shadow: none !important; }
+
+/* Tabs — active bold with underline (su.edu.sa) */
+.dga-tab[aria-selected="true"], .dga-tab.active, .nav-tabs .nav-link.active, .nav-pills.custom-tab .nav-link.active, .modal_nav_tabs li.active span, .modal_nav_tabs li.active a { font-weight: 700; color: var(--dga-color-text-default) !important; }
+
+/* Form fields — su.edu.sa: 14px, 8/12 padding, focus = 1px black border + soft shadow */
+.dga-input, .form-control, input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], select, textarea { font-size: 0.875rem; padding: 8px 12px; }
+.dga-input:focus, .form-control:focus, input:focus, select:focus, textarea:focus { border-color: var(--dga-color-text-default) !important; box-shadow: 0 2px 10px rgba(0,0,0,.1) !important; }
+
+/* Sections */
+.dga-sec, .dga-section { padding: var(--dga-section-gap) 0; }
+.dga-stats-strip, .dga-statsbar { background: var(--dga-color-primary-50); }
+.dga-line, .dga-section-divider { display: none !important; }
+/* Typography parity with su.edu.sa (measured): hero p 20/30 · utility bar 16/24 #161616 · card text 16/24 · header actions 15px */
+.dga-hero-center > p, .dga-hero p.dga-hero-lead, .dga-hero-text > p { font-size: 1.25rem !important; line-height: 1.875rem !important; color: #fff; }
+.dga-utility-meta { color: var(--dga-color-text-default); font-size: var(--dga-text-md); line-height: var(--dga-text-md-lh); }
+.dga-utility-meta svg { color: var(--dga-color-text-default); }
+.dga-service-card p, .dga-card-text, .card-text, .dga-course-card-body p { font-size: var(--dga-text-md); line-height: var(--dga-text-md-lh); color: var(--dga-color-gray-700); }
+header .dga-header-actions .dga-action-link { font-size: 15px; }
+.dga-stamp-text strong, .dga-stamp-toggle { color: var(--dga-color-text-default); }
+.dga-stamp-toggle { color: var(--dga-color-primary-600); }
+/* Legacy teal/navy leftovers: WhatsApp floating buttons + card price blocks */
+.float-whatsapp, .whatsapp_btn, .float { background: #25D366 !important; color: #fff !important; }
+.course_card_price, .course_card_price *, .course_card_detail .price { color: var(--dga-color-text-default) !important; }
+.course_card_price .text_primary { color: var(--dga-color-primary-700) !important; }
+/* Legacy discount badge on listing cards → error tag (no legacy navy) */
+.badge-secondary, .badge.badge-secondary { background: var(--dga-color-error-50) !important; color: var(--dga-color-error-700) !important; border-color: var(--dga-color-error-300) !important; }
+/* Mobile bottom-nav CTA: primary, not gold (su.edu.sa palette) */
+.dga-mobile-nav .dga-nav-cta { background: var(--dga-color-primary-600) !important; color: #fff !important; }
+.dga-mobile-nav .dga-nav-cta.active { background: var(--dga-color-primary-700) !important; }

@@ -1,7 +1,7 @@
 /*
  * DGA Design System (كود المنصات) – Shaqra Implementation v3.0
  * Saudi Government Digital Agency — design.dga.gov.sa
- * Brand: Shaqra University — Primary #005C4B (green), Secondary #C1996C (gold)
+ * Brand: Shaqra University — Primary #1B8354 (green), Secondary #54C08A (gold)
  * Font: IBM Plex Sans Arabic
  */
 
@@ -10,19 +10,19 @@
    ===================================================== */
 :root {
     /* Brand Colors — Shaqra University official palette */
-    --dga-primary:        #005C4B;   /* official Shaqra green (logo .s0) */
-    --dga-primary-dark:   #003D31;   /* darker for hover / footer base */
-    --dga-primary-mid:    #00735E;   /* mid-tone for gradients */
-    --dga-primary-light:  #1FA37F;   /* DECORATIVE/large-text only — fails WCAG AA at normal size */
-    --dga-primary-50:     #E6F1EE;   /* tinted bg */
-    --dga-primary-100:    #B8D9CF;   /* tinted border / icon bg */
+    --dga-primary:        #1B8354;   /* official Shaqra green (logo .s0) */
+    --dga-primary-dark:   #104631;   /* darker for hover / footer base */
+    --dga-primary-mid:    #166A45;   /* mid-tone for gradients */
+    --dga-primary-light:  #54C08A;   /* DECORATIVE/large-text only — fails WCAG AA at normal size */
+    --dga-primary-50:     #F3FCF6;   /* tinted bg */
+    --dga-primary-100:    #B8EACB;   /* tinted border / icon bg */
 
-    --dga-secondary:      #C1996C;   /* official Shaqra gold/tan (logo .s1) */
-    --dga-secondary-dark: #A07A4F;   /* darker gold for hover */
-    --dga-secondary-light:#D9B589;   /* lighter accent */
-    --dga-secondary-50:   #F8F1E8;   /* tinted bg */
+    --dga-secondary:      #54C08A;   /* official Shaqra gold/tan (logo .s1) */
+    --dga-secondary-dark: #166A45;   /* darker gold for hover */
+    --dga-secondary-light:#B8EACB;   /* lighter accent */
+    --dga-secondary-50:   #F3FCF6;   /* tinted bg */
     /* Gold text on white fails WCAG AA (2.9:1). Use dark text on gold instead. */
-    --dga-gold-text:      #003D31;   /* dark green on gold = 4.5:1 PASS */
+    --dga-gold-text:      #104631;   /* dark green on gold = 4.5:1 PASS */
 
     /* Neutrals */
     --dga-gray-900: #111827;
@@ -66,8 +66,8 @@
     --dga-sh:    0 4px 16px rgba(0,0,0,0.10);
     --dga-sh-lg: 0 10px 30px rgba(0,0,0,0.12);
     --dga-sh-xl: 0 20px 50px rgba(0,0,0,0.14);
-    --dga-sh-green: 0 8px 24px rgba(0,92,75,0.30);
-    --dga-sh-gold:  0 8px 24px rgba(193,153,108,0.35);
+    --dga-sh-green: 0 8px 24px rgba(27,131,84,0.30);
+    --dga-sh-gold:  0 8px 24px rgba(84,192,138,0.35);
 
     /* Transitions */
     --dga-ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -190,7 +190,7 @@
 
 .dga-btn-gold {
     background: var(--dga-secondary);
-    /* Dark green text on gold: #003D31 on #C1996C = ~4.5:1 WCAG AA PASS */
+    /* Dark green text on gold: #104631 on #54C08A = ~4.5:1 WCAG AA PASS */
     color: var(--dga-gold-text);
     border-color: var(--dga-secondary);
     box-shadow: var(--dga-sh-gold);
@@ -200,7 +200,7 @@
     border-color: var(--dga-secondary-dark);
     color: var(--dga-gold-text);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(193,153,108,0.45);
+    box-shadow: 0 12px 30px rgba(84,192,138,0.45);
 }
 
 .dga-btn-outline-white {
@@ -263,7 +263,7 @@
     min-height: 620px;
     /* SVG pattern fallback; real deployments swap for a photo via inline style */
     background:
-        linear-gradient(160deg, rgba(10,50,25,0.82) 0%, rgba(20,80,45,0.70) 50%, rgba(10,40,20,0.85) 100%),
+        linear-gradient(160deg, rgba(16,70,49,0.82) 0%, rgba(20,87,58,0.70) 50%, rgba(9,42,30,0.85) 100%),
         repeating-linear-gradient(
             45deg,
             rgba(255,255,255,0.015) 0px,
@@ -271,7 +271,7 @@
             transparent 1px,
             transparent 60px
         ),
-        linear-gradient(135deg, #00261E 0%, #005C4B 50%, #00261E 100%);
+        linear-gradient(135deg, #092A1E 0%, #1B8354 50%, #092A1E 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -284,7 +284,7 @@
 .dga-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, rgba(8,40,20,0.78) 0%, rgba(15,65,35,0.60) 60%, rgba(8,35,18,0.80) 100%);
+    background: linear-gradient(160deg, rgba(9,42,30,0.78) 0%, rgba(22,106,69,0.60) 60%, rgba(16,70,49,0.80) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -295,7 +295,7 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(193,153,108,0.12) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(84,192,138,0.12) 0%, transparent 60%);
     top: -150px;
     left: -100px;
     pointer-events: none;
@@ -334,7 +334,7 @@
     letter-spacing: 0.05em;
     padding: 6px 16px;
     border-radius: var(--dga-r-full);
-    border: 1px solid rgba(193,153,108,0.30);
+    border: 1px solid rgba(84,192,138,0.30);
     margin-bottom: var(--dga-s5);
     backdrop-filter: blur(8px);
 }
@@ -809,7 +809,7 @@
 .dga-cta-orb1 {
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(193,153,108,0.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(84,192,138,0.18) 0%, transparent 65%);
     top: -120px;
     right: -80px;
 }
@@ -826,9 +826,9 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(193,153,108,0.18);
+    background: rgba(84,192,138,0.18);
     color: var(--dga-secondary-light);
-    border: 1px solid rgba(193,153,108,0.35);
+    border: 1px solid rgba(84,192,138,0.35);
     font-size: 0.8rem;
     font-weight: 600;
     padding: 5px 14px;
@@ -894,7 +894,7 @@
    13. DGA FOOTER
    ===================================================== */
 .dga-footer {
-    background: linear-gradient(180deg, #003D31 0%, #00261E 100%);
+    background: linear-gradient(180deg, #104631 0%, #092A1E 100%);
     color: rgba(255,255,255,0.80);
     font-family: var(--dga-font);
     direction: rtl;
@@ -1128,7 +1128,7 @@
 .dga-footer-contact-icon {
     width: 34px;
     height: 34px;
-    background: rgba(0,92,75,0.25);
+    background: rgba(27,131,84,0.25);
     border-radius: var(--dga-r);
     display: flex;
     align-items: center;
@@ -1724,7 +1724,7 @@
     position: relative;
     overflow: hidden;
     background:
-        linear-gradient(135deg, #003D31 0%, #005C4B 55%, #00735E 100%),
+        linear-gradient(135deg, #104631 0%, #1B8354 55%, #166A45 100%),
         repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 60px);
     min-height: 220px;
     display: flex;
@@ -1734,7 +1734,7 @@
     content: '';
     position: absolute;
     width: 450px; height: 450px;
-    background: radial-gradient(circle, rgba(193,153,108,0.12) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(84,192,138,0.12) 0%, transparent 60%);
     top: -150px; left: -80px;
     pointer-events: none;
 }
@@ -1932,7 +1932,7 @@
     border-color: var(--dga-primary);
     background: var(--dga-white);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0,92,75,0.10);
+    box-shadow: 0 0 0 3px rgba(27,131,84,0.10);
 }
 .dga-form-group textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
 .dga-form-err {
@@ -2402,9 +2402,9 @@
 
 /* ── P1-A: Global focus ring (WCAG 1.4.11 Non-text Contrast)
    Replaces the near-invisible rgba box-shadow with a solid outline.
-   #005C4B on white = 8:1 contrast — well above the 3:1 minimum.    ── */
+   #1B8354 on white = 8:1 contrast — well above the 3:1 minimum.    ── */
 *:focus-visible {
-    outline: 3px solid #005C4B !important;
+    outline: 3px solid #1B8354 !important;
     outline-offset: 3px !important;
     box-shadow: none !important;
 }
@@ -2415,8 +2415,8 @@
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: #005C4B !important;
-    outline: 3px solid #005C4B !important;
+    border-color: #1B8354 !important;
+    outline: 3px solid #1B8354 !important;
     outline-offset: 2px !important;
     box-shadow: none !important;
 }
@@ -2427,17 +2427,17 @@ select:focus {
 .btn-warning,
 .btn.btn-warning,
 .button.button_gold {
-    color: #003D31 !important;
+    color: #104631 !important;
 }
 .button_gold:hover,
 .btn-warning:hover {
-    color: #003D31 !important;
+    color: #104631 !important;
 }
 
-/* ── P1-C: #1FA37F restricted — never use as normal-weight body text
+/* ── P1-C: #54C08A restricted — never use as normal-weight body text
    Override any accidental body-text usage back to primary.              ── */
 a:hover {
-    color: #003D31; /* primary-dark — 14.5:1 on white, always passes */
+    color: #104631; /* primary-dark — 14.5:1 on white, always passes */
 }
 .dga-home a:hover {
     color: var(--dga-primary-dark);
@@ -2518,7 +2518,7 @@ a:hover {
     color: #6B4B28 !important;
 }
 .dga-filter-clear:hover {
-    color: #003D31 !important;
+    color: #104631 !important;
 }
 
 /* ── P3: Non-color state indicators for nav active links
@@ -2533,7 +2533,7 @@ header .nav-link.active,
 
 /* Selected filter pills — add a checkmark-style left border, not color only */
 .dga-filter-pill.is-checked span {
-    border-right: 4px solid #003D31 !important; /* RTL — visual indicator on right edge */
+    border-right: 4px solid #104631 !important; /* RTL — visual indicator on right edge */
 }
 
 /* Active filter star row — add bold weight as secondary indicator */
@@ -2551,6 +2551,6 @@ header .nav-link.active,
 
 /* ── Scroll-to-top focus ring ── */
 .dga-scroll-top:focus-visible {
-    outline: 3px solid #C1996C !important;
+    outline: 3px solid #54C08A !important;
     outline-offset: 3px !important;
 }

@@ -2,7 +2,7 @@
     
     <figure class="img rounded-circle">
         <a href="/instructors/view/{{$data->slug}}">
-            <img class="instructor_card_image" src="{{medium($data->image)}}" loading="lazy">
+            <img class="instructor_card_image" src="{{medium($data->image)}}" alt="{{ $data->Fullname_lang }}" loading="lazy">
         </a>
     </figure>
     

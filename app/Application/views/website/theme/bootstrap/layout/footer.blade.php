@@ -251,7 +251,7 @@
     {{-- ══ Bottom bar: copyright + links ══ --}}
     <div class="dga-footer-bottom">
         <p class="dga-footer-copy">
-            &copy; {{ date('Y') }} جميع الحقوق محفوظة — منصة الشهادات الاحترافية، جامعة شقراء
+            جميع الحقوق محفوظة &copy; جامعة شقراء {{ date('Y') }}
             <span class="dga-footer-sep">·</span>
             <a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a>
             <span class="dga-footer-sep">·</span>
@@ -264,7 +264,7 @@
         <div class="dga-footer-meta">
             <span class="dga-footer-updated">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                آخر تحديث: {{ date('Y/m/d') }}
+                تاريخ آخر تحديث : {{ date('Y/m/d') }}
             </span>
             <div class="dga-footer-badges">
                 <span class="dga-footer-badge">
@@ -281,47 +281,35 @@
 
 </footer>
 
-{{-- ══ Cookie Consent Banner (DGA requirement) ══ --}}
-<div id="dga-cookie-banner" class="dga-cookie-banner" role="alertdialog" aria-labelledby="dga-cookie-title" aria-describedby="dga-cookie-desc" dir="rtl" lang="ar" style="display:none;">
+{{-- ══ Cookie Consent Banner — su.edu.sa (DGA-approved) pattern ══ --}}
+<div id="dga-cookie-banner" class="dga-cookie-banner" role="dialog" aria-labelledby="dga-cookie-title" aria-describedby="dga-cookie-desc" dir="rtl" lang="ar" style="display:none;">
     <div class="dga-cookie-inner">
-        <div class="dga-cookie-text">
-            <strong id="dga-cookie-title">🍪 نستخدم ملفات تعريف الارتباط</strong>
-            <span id="dga-cookie-desc">نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل الاستخدام. بمتابعة تصفح الموقع فأنت توافق على
-                <a href="{{ url('page/privacyPolicy') }}" style="color:#D9B589;">سياسة الخصوصية</a>.</span>
+        <button type="button" class="dga-cookie-close" id="dga-cookie-close" aria-label="إغلاق">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="dga-cookie-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="9" cy="15" r="1"/></svg>
+            <div class="dga-cookie-text">
+                <h5 id="dga-cookie-title">ملفات تعريف الارتباط</h5>
+                <p id="dga-cookie-desc">يستخدم هذا الموقع ملفات تعريف الارتباط (Cookies) لجعل تجربة استخدامك للموقع أفضل. يُرجى قبول استخدامنا لملفات تعريف الارتباط أو الاطلاع على سياسة الخصوصية لمزيد من المعلومات.</p>
+            </div>
         </div>
         <div class="dga-cookie-actions">
-            <button id="dga-cookie-accept" class="dga-btn dga-btn-green" style="font-size:13px;padding:8px 18px;">قبول الكل</button>
-            <button id="dga-cookie-reject" class="dga-btn" style="font-size:13px;padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;">رفض الاختياري</button>
+            <a href="{{ url('page/privacyPolicy') }}">سياسة الخصوصية</a>
+            <button type="button" id="dga-cookie-accept" class="dga-btn dga-btn-primary dga-btn-lg" aria-label="قبول">قبول</button>
+            <button type="button" id="dga-cookie-reject" class="dga-btn dga-btn-danger dga-btn-lg" aria-label="رفض">رفض</button>
         </div>
     </div>
 </div>
-<style>
-.dga-cookie-banner {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
-    background: #00261E; color: #fff; border-top: 2px solid #C1996C;
-    padding: 14px 24px; font-size: 14px;
-}
-.dga-cookie-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px;
-}
-.dga-cookie-text { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 4px; }
-.dga-cookie-actions { display: flex; gap: 8px; flex-shrink: 0; }
-</style>
 <script>
 (function() {
-    if (!localStorage.getItem('dga_cookie_consent')) {
-        document.getElementById('dga-cookie-banner').style.display = 'block';
-    }
-    document.getElementById('dga-cookie-accept').addEventListener('click', function() {
-        localStorage.setItem('dga_cookie_consent', 'accepted');
-        document.getElementById('dga-cookie-banner').style.display = 'none';
-    });
-    document.getElementById('dga-cookie-reject').addEventListener('click', function() {
-        localStorage.setItem('dga_cookie_consent', 'rejected');
-        document.getElementById('dga-cookie-banner').style.display = 'none';
-    });
+    var banner = document.getElementById('dga-cookie-banner');
+    if (!banner) return;
+    if (!localStorage.getItem('dga_cookie_consent')) banner.style.display = 'block';
+    function close(v) { if (v) localStorage.setItem('dga_cookie_consent', v); banner.style.display = 'none'; }
+    document.getElementById('dga-cookie-accept').addEventListener('click', function() { close('accepted'); });
+    document.getElementById('dga-cookie-reject').addEventListener('click', function() { close('rejected'); });
+    document.getElementById('dga-cookie-close').addEventListener('click', function() { close(null); });
 })();
 </script>
 

@@ -43,7 +43,8 @@
                             <div class="form_row">
                         <div class="input_with_icon">
                             <i class="far fa-envelope d-none"></i>
-                            <input id="email" type="email" class="form-control input-item email-login-ico" name="email" value="{{ old('email') }}" class = 'form-control input-item user-login-ico' label = 'Username' placeholder = '{{trans('account.email')}}' required autofocus>
+                            <label for="email" class="sr-only">{{ trans("account.email") }}</label>
+                            <input id="email" type="email" aria-required="true" class="form-control input-item email-login-ico" name="email" value="{{ old('email') }}" label = 'Username' placeholder = '{{trans('account.email')}}' required autofocus>
                             
                         </div>
                     </div>

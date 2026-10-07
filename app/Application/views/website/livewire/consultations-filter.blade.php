@@ -14,7 +14,7 @@
                             <h6 class="mb-10"> {{ trans('website.Search') }} </h6>
                             <div class="rating-filter">
                                 <div class="form-check">
-                                    <input type="text" id="key" name="key" wire:model="key" placeholder="{{trans('website.Search Placeholder')}}">
+                                    <input type="text" id="key" aria-label="{{ trans('website.Search') }}" name="key" wire:model="key" placeholder="{{trans('website.Search Placeholder')}}">
                                 </div>
                                 </label>
                             </div>
@@ -36,7 +36,7 @@
                             <h6 class="mb-10"> {{ trans('website.Speciality') }}</h6>
                             <div class="rating-filter">
                                 <div class="form-check">
-                                    <select class="form-control input-item user-login-ico" id="categories" name="categories" wire:model="speciality">
+                                    <select class="form-control input-item user-login-ico" id="list-categories" name="categories" wire:model="speciality">
                                         <option value="">{{trans('account.Select specialization')}}</option>
                                         @foreach(allConsultationCategories() as $category)
                                             <option value="{{$category->slug}}"> {{$category->name_lang}} </option>

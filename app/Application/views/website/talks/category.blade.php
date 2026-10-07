@@ -1,16 +1,16 @@
 @extends(layoutExtend('website'))
 @section('title')
-    {{  ($homesettings->seo_title_lang) ? $homesettings->seo_title_lang : trans('home.HomeTitle') }}
+    {{  (optional($homesettings ?? null)->seo_title_lang) ? optional($homesettings ?? null)->seo_title_lang : trans('home.HomeTitle') }}
 @endsection
 @section('description')
-    {{ ($homesettings->seo_desc_lang) ? $homesettings->seo_desc_lang : trans('website.Footer IGTS') }}
+    {{ (optional($homesettings ?? null)->seo_desc_lang) ? optional($homesettings ?? null)->seo_desc_lang : trans('website.Footer IGTS') }}
 @endsection
 @section('keywords')
-    {{ ($homesettings->seo_keys) ? extractSeoKeys($homesettings->seo_keys) : '' }}
+    {{ (optional($homesettings ?? null)->seo_keys) ? extractSeoKeys(optional($homesettings ?? null)->seo_keys) : '' }}
 @endsection
 
 @push('js')
-<script src="{{ asset('old') }}/js/front/social.js"></script>
+<script src="{{ asset('website') }}/js/social.js"></script>
 @endpush
   @section('content')
 
@@ -133,8 +133,8 @@
                     <div class="rating-filter">
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio"  onclick="myFilter('rating=5')" <?= ($rating == 5) ?'checked':'' ?>  id="gridRadios1" value="option1" >
-                            <label class="form-check-label" for="gridRadios1">
+                            <input class="form-check-input" type="radio"  onclick="myFilter('rating=5')" <?= ($rating == 5) ?'checked':'' ?>  id="m-gridRadios1" value="option1" >
+                            <label class="form-check-label" for="m-gridRadios1">
                                 <div class="card-rating">
                                     <i class="star-rating checked"></i>
                                     <i class="star-rating checked"></i>
@@ -146,8 +146,8 @@
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input"  onclick="myFilter('rating=4')" <?= ($rating == 4) ?'checked':'' ?> type="radio"  id="gridRadios2" value="option2" >
-                            <label class="form-check-label" for="gridRadios2">
+                            <input class="form-check-input"  onclick="myFilter('rating=4')" <?= ($rating == 4) ?'checked':'' ?> type="radio"  id="m-gridRadios2" value="option2" >
+                            <label class="form-check-label" for="m-gridRadios2">
                                 <div class="card-rating">
                                     <i class="star-rating checked"></i>
                                     <i class="star-rating checked"></i>
@@ -159,8 +159,8 @@
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input"  onclick="myFilter('rating=3')" <?= ($rating == 3) ?'checked':'' ?> type="radio"  id="gridRadios3" value="option3">
-                            <label class="form-check-label" for="gridRadios3">
+                            <input class="form-check-input"  onclick="myFilter('rating=3')" <?= ($rating == 3) ?'checked':'' ?> type="radio"  id="m-gridRadios3" value="option3">
+                            <label class="form-check-label" for="m-gridRadios3">
                                 <div class="card-rating">
                                     <i class="star-rating checked"></i>
                                     <i class="star-rating checked"></i>
@@ -172,8 +172,8 @@
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input"  onclick="myFilter('rating=2')" <?= ($rating == 2) ?'checked':'' ?> type="radio"  id="gridRadios4" value="option4">
-                            <label class="form-check-label" for="gridRadios4">
+                            <input class="form-check-input"  onclick="myFilter('rating=2')" <?= ($rating == 2) ?'checked':'' ?> type="radio"  id="m-gridRadios4" value="option4">
+                            <label class="form-check-label" for="m-gridRadios4">
                                 <div class="card-rating">
                                     <i class="star-rating checked"></i>
                                     <i class="star-rating checked"></i>
@@ -305,7 +305,6 @@
     
     
 </section>
-<script src="{{ asset('meduo') }}/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
     function myFilter($link){
 

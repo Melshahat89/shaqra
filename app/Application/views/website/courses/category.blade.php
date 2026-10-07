@@ -11,7 +11,7 @@
 @endsection
 
 @push('js')
-<script src="{{ asset('old') }}/js/front/social.js"></script>
+<script src="{{ asset('website') }}/js/social.js"></script>
 @endpush
 
 @section('content')

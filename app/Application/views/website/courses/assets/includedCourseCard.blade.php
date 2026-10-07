@@ -22,11 +22,9 @@
                     <div class="course_card_price d-flex justify-content-between w-100 align-items-center"> {!! $data->PriceText !!}</div>
                     <div class="course_card_price d-flex justify-content-between w-100"> 
                         <div>
-                            <i class="fas fa-eye visits">
-                                <span>
+                            <i class="fas fa-eye visits" aria-hidden="true"></i> <span>
                                     +{{ ($data->visits >= 1000 && $data->visits < 1000000) ? (number_format($data->visits / 1000, 0) . 'K') : (($data->visits >= 1000000) ? (number_format($data->visits / 1000000, 0) . 'M'  ) : $data->visits) }}
                                 </span> 
-                            </i> 
                         </div>
                         <div class="jq_rating jq-stars d-none" data-options='{"initialRating":<?php  echo round($data->CourseRating, 1); ?>, "readOnly":true, "starSize":15}'><small class="text_muted pt-2">(<?php  echo '5'; ?>)</small></div>
                     </div>

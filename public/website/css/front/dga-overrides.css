@@ -5,7 +5,7 @@
  * (buttons, links, cards, footer-old, etc.) to the Shaqra palette
  * WITHOUT changing layouts. Safe to drop on any page.
  *
- * Brand: #005C4B (green)  ·  #C1996C (gold)
+ * Brand: #1B8354 (green)  ·  #54C08A (gold)
  */
 
 /* =====================================================
@@ -19,7 +19,7 @@
     z-index: 99999;
     display: block;
     padding: 12px 24px;
-    background: #00261E;
+    background: #092A1E;
     color: #fff !important;
     text-align: center;
     font-size: 14px;
@@ -29,7 +29,7 @@
 }
 .dga-skip-link:focus {
     top: 0;
-    outline: 3px solid #C1996C;
+    outline: 3px solid #54C08A;
     outline-offset: 2px;
 }
 
@@ -58,10 +58,10 @@ body,
 
 /* Site-wide link tint (only where the page didn't override it) */
 a {
-    color: #005C4B;
+    color: #1B8354;
 }
 a:hover {
-    color: #003D31;
+    color: #104631;
 }
 
 /* Retint anything still using the old navy / teal */
@@ -81,8 +81,8 @@ a:hover {
 .btn-primary,
 .btn.btn-primary,
 button.button_primary {
-    background: #005C4B !important;
-    border-color: #005C4B !important;
+    background: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .button_primary:hover,
@@ -90,20 +90,20 @@ button.button_primary {
 .btn-primary:hover,
 .btn.btn-primary:hover,
 button.button_primary:hover {
-    background: #003D31 !important;
-    border-color: #003D31 !important;
+    background: #104631 !important;
+    border-color: #104631 !important;
     color: #fff !important;
 }
 
 .btn-success,
 .btn.btn-success {
-    background: #005C4B !important;
-    border-color: #005C4B !important;
+    background: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .btn-success:hover {
-    background: #003D31 !important;
-    border-color: #003D31 !important;
+    background: #104631 !important;
+    border-color: #104631 !important;
 }
 
 /* Gold / secondary CTA
@@ -111,27 +111,27 @@ button.button_primary:hover {
 .button.button_gold,
 .btn-warning,
 .btn.btn-warning {
-    background: #C1996C !important;
-    border-color: #C1996C !important;
-    color: #003D31 !important; /* dark green — WCAG AA PASS */
+    background: #54C08A !important;
+    border-color: #54C08A !important;
+    color: #104631 !important; /* dark green — WCAG AA PASS */
 }
 .button.button_gold:hover,
 .btn-warning:hover {
-    background: #A07A4F !important;
-    border-color: #A07A4F !important;
-    color: #003D31 !important;
+    background: #166A45 !important;
+    border-color: #166A45 !important;
+    color: #104631 !important;
 }
 
 /* Outline / secondary */
 .button.button_secondary,
 .btn-outline-primary {
-    color: #005C4B !important;
-    border-color: #005C4B !important;
+    color: #1B8354 !important;
+    border-color: #1B8354 !important;
     background: transparent !important;
 }
 .button.button_secondary:hover,
 .btn-outline-primary:hover {
-    background: #005C4B !important;
+    background: #1B8354 !important;
     color: #fff !important;
 }
 
@@ -145,7 +145,7 @@ button.button_primary:hover {
 header a.active,
 .menu li a.active,
 .menu li a:hover {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* Old gradient top bars on the dashboard (#244092 → #18b289) */
@@ -153,7 +153,7 @@ header a.active,
 .dashboard-header,
 .user-banner,
 .gradient-bar {
-    background: linear-gradient(90deg, #003D31 0%, #005C4B 50%, #00735E 100%) !important;
+    background: linear-gradient(90deg, #104631 0%, #1B8354 50%, #166A45 100%) !important;
 }
 
 /* =====================================================
@@ -164,7 +164,7 @@ header a.active,
 .main-footer,
 .main-footer footer,
 .main-footer .copywrite {
-    background: linear-gradient(180deg, #003D31 0%, #00261E 100%) !important;
+    background: linear-gradient(180deg, #104631 0%, #092A1E 100%) !important;
     color: rgba(255,255,255,0.8) !important;
 }
 .main-footer h4,
@@ -175,7 +175,7 @@ header a.active,
     color: rgba(255,255,255,0.7) !important;
 }
 .main-footer a:hover {
-    color: #C1996C !important;
+    color: #54C08A !important;
 }
 .main-footer .copywrite {
     background: rgba(0,0,0,0.25) !important;
@@ -195,7 +195,7 @@ header a.active,
 .coursecard:hover,
 .course-card:hover {
     transform: translateY(-3px);
-    border-color: #B8D9CF !important;
+    border-color: #B8EACB !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.10) !important;
 }
 
@@ -203,17 +203,17 @@ header a.active,
 .course_card_detail .price,
 .coursecard .price,
 .card-price {
-    color: #005C4B !important;
+    color: #1B8354 !important;
     font-weight: 700 !important;
 }
 
 .badge-success,
 .badge.badge-success {
-    background: #005C4B !important;
+    background: #1B8354 !important;
 }
 .badge-warning,
 .badge.badge-warning {
-    background: #C1996C !important;
+    background: #54C08A !important;
     color: #fff !important;
 }
 
@@ -224,7 +224,7 @@ header a.active,
 .page-header,
 .inner-banner,
 .breadcrumb-area {
-    background: linear-gradient(135deg, #003D31 0%, #005C4B 50%, #00735E 100%) !important;
+    background: linear-gradient(135deg, #104631 0%, #1B8354 50%, #166A45 100%) !important;
     color: #fff !important;
 }
 .page-title h1,
@@ -240,14 +240,14 @@ header a.active,
 
 /* =====================================================
    7. FORMS — input focus ring (WCAG 1.4.11 — 3:1 minimum for non-text contrast)
-   #005C4B on white = 8:1 — solid outline replaces invisible opacity shadow.
+   #1B8354 on white = 8:1 — solid outline replaces invisible opacity shadow.
    ===================================================== */
 .form-control:focus,
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: #005C4B !important;
-    outline: 3px solid #005C4B !important;
+    border-color: #1B8354 !important;
+    outline: 3px solid #1B8354 !important;
     outline-offset: 2px !important;
     box-shadow: none !important;
 }
@@ -257,18 +257,18 @@ select:focus {
    ===================================================== */
 .page-item.active .page-link,
 .pagination .active a {
-    background-color: #005C4B !important;
-    border-color: #005C4B !important;
+    background-color: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .page-link {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 .nav-tabs .nav-link.active,
 .nav-pills .nav-link.active {
-    background-color: #005C4B !important;
-    border-color: #005C4B !important;
+    background-color: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 
@@ -276,18 +276,18 @@ select:focus {
    9. ALERTS / TOASTS / PROGRESS
    ===================================================== */
 .alert-success {
-    background: #E6F1EE !important;
-    color: #003D31 !important;
-    border-color: #B8D9CF !important;
+    background: #F3FCF6 !important;
+    color: #104631 !important;
+    border-color: #B8EACB !important;
 }
 .alert-warning {
-    background: #F8F1E8 !important;
-    color: #A07A4F !important;
-    border-color: #D9B589 !important;
+    background: #F3FCF6 !important;
+    color: #166A45 !important;
+    border-color: #B8EACB !important;
 }
 .progress-bar,
 .progress-bar-success {
-    background-color: #005C4B !important;
+    background-color: #1B8354 !important;
 }
 
 /* =====================================================
@@ -295,7 +295,7 @@ select:focus {
    ===================================================== */
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-    accent-color: #005C4B;
+    accent-color: #1B8354;
 }
 
 /* =====================================================
@@ -317,22 +317,22 @@ input[type="radio"]:checked {
     background: #F3F4F6;
 }
 ::-webkit-scrollbar-thumb {
-    background: #B8D9CF;
+    background: #B8EACB;
     border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #005C4B;
+    background: #1B8354;
 }
 
 /* =====================================================
    13. SELECTION
    ===================================================== */
 ::selection {
-    background: #005C4B;
+    background: #1B8354;
     color: #fff;
 }
 ::-moz-selection {
-    background: #005C4B;
+    background: #1B8354;
     color: #fff;
 }
 
@@ -366,7 +366,7 @@ input[type="radio"]:checked {
     align-items: center;
     justify-content: space-between;
     padding: 18px 20px;
-    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%);
+    background: linear-gradient(135deg, #104631 0%, #1B8354 100%);
     color: #fff;
     border-bottom: 1px solid #E5E7EB;
 }
@@ -379,7 +379,7 @@ input[type="radio"]:checked {
     align-items: center;
     gap: 8px;
 }
-.dga-filter-head svg { color: #D9B589; }
+.dga-filter-head svg { color: #B8EACB; }
 .dga-filter-toggle {
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.20);
@@ -410,7 +410,7 @@ input[type="radio"]:checked {
 .dga-filter-active-label {
     font-size: 0.78rem;
     font-weight: 700;
-    color: #A07A4F;
+    color: #166A45;
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -419,13 +419,13 @@ input[type="radio"]:checked {
     content: '';
     width: 8px;
     height: 8px;
-    background: #C1996C;
+    background: #54C08A;
     border-radius: 50%;
 }
 .dga-filter-clear {
     background: transparent;
     border: none;
-    color: #A07A4F;
+    color: #166A45;
     font-size: 0.78rem;
     font-weight: 600;
     cursor: pointer;
@@ -437,8 +437,8 @@ input[type="radio"]:checked {
     transition: background 0.2s;
 }
 .dga-filter-clear:hover {
-    background: rgba(193,153,108,0.15);
-    color: #005C4B;
+    background: rgba(84,192,138,0.15);
+    color: #1B8354;
 }
 
 /* Body */
@@ -464,7 +464,7 @@ input[type="radio"]:checked {
     color: #374151;
     margin-bottom: 10px;
 }
-.dga-filter-label svg { color: #005C4B; flex-shrink: 0; }
+.dga-filter-label svg { color: #1B8354; flex-shrink: 0; }
 
 /* Input wrap (with clear button) */
 .dga-filter-input-wrap {
@@ -483,9 +483,9 @@ input[type="radio"]:checked {
     direction: rtl;
 }
 .dga-filter-input:focus {
-    border-color: #005C4B;
+    border-color: #1B8354;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(0,92,75,0.12);
+    box-shadow: 0 0 0 3px rgba(27,131,84,0.12);
     outline: none;
 }
 .dga-filter-input::placeholder { color: #9CA3AF; }
@@ -533,9 +533,9 @@ input[type="radio"]:checked {
     direction: rtl;
 }
 .dga-filter-select:focus {
-    border-color: #005C4B;
+    border-color: #1B8354;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(0,92,75,0.12);
+    box-shadow: 0 0 0 3px rgba(27,131,84,0.12);
     outline: none;
 }
 .dga-filter-select-icon {
@@ -588,14 +588,14 @@ input[type="radio"]:checked {
     background: #F9FAFB;
 }
 .dga-filter-star-row.is-checked {
-    background: #E6F1EE;
+    background: #F3FCF6;
 }
 .dga-stars {
     display: inline-flex;
     align-items: center;
     gap: 1px;
 }
-.dga-star-on  { color: #C1996C; }
+.dga-star-on  { color: #54C08A; }
 .dga-star-off { color: #E5E7EB; }
 .dga-filter-star-text {
     font-size: 0.8rem;
@@ -603,7 +603,7 @@ input[type="radio"]:checked {
     font-weight: 500;
 }
 .dga-filter-star-row.is-checked .dga-filter-star-text {
-    color: #005C4B;
+    color: #1B8354;
     font-weight: 700;
 }
 
@@ -631,14 +631,14 @@ input[type="radio"]:checked {
     transition: all 0.2s;
 }
 .dga-filter-pill:hover span {
-    border-color: #B8D9CF;
+    border-color: #B8EACB;
     background: #fff;
 }
 .dga-filter-pill.is-checked span {
-    background: #005C4B;
-    border-color: #005C4B;
+    background: #1B8354;
+    border-color: #1B8354;
     color: #fff;
-    box-shadow: 0 4px 12px rgba(0,92,75,0.20);
+    box-shadow: 0 4px 12px rgba(27,131,84,0.20);
 }
 
 /* Reset button */
@@ -689,11 +689,11 @@ input[type="radio"]:checked {
 .dga-results-count strong {
     font-size: 1.2rem;
     font-weight: 800;
-    color: #005C4B;
+    color: #1B8354;
 }
 .dga-results-query {
-    background: #E6F1EE;
-    color: #005C4B;
+    background: #F3FCF6;
+    color: #1B8354;
     padding: 3px 10px;
     border-radius: 9999px;
     font-size: 0.78rem;
@@ -726,8 +726,8 @@ input[type="radio"]:checked {
     height: 96px;
     margin: 0 auto 20px;
     border-radius: 50%;
-    background: #E6F1EE;
-    color: #005C4B;
+    background: #F3FCF6;
+    color: #1B8354;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -760,7 +760,7 @@ input[type="radio"]:checked {
     width: 32px;
     height: 32px;
     border: 3px solid #E5E7EB;
-    border-top-color: #005C4B;
+    border-top-color: #1B8354;
     border-radius: 50%;
     animation: dgaSpin 0.7s linear infinite;
 }
@@ -781,7 +781,7 @@ input[type="radio"]:checked {
 }
 .dga-results-col .course_card_link:hover {
     transform: translateY(-3px);
-    border-color: #B8D9CF;
+    border-color: #B8EACB;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     text-decoration: none;
 }
@@ -815,12 +815,12 @@ input[type="radio"]:checked {
     padding: 0 10px;
 }
 .dga-pagination .page-item:hover .page-link {
-    border-color: #005C4B;
-    color: #005C4B;
+    border-color: #1B8354;
+    color: #1B8354;
 }
 .dga-pagination .page-item.active .page-link {
-    background: #005C4B;
-    border-color: #005C4B;
+    background: #1B8354;
+    border-color: #1B8354;
     color: #fff;
 }
 
@@ -858,7 +858,7 @@ input[type="radio"]:checked {
     display: inline-block;
     width: 4px;
     height: 13px;
-    background: #C1996C;
+    background: #54C08A;
     border-radius: 2px;
     margin-left: 8px;
     vertical-align: middle;
@@ -873,9 +873,9 @@ input[type="radio"]:checked {
 }
 .dga-listing .filters input[type="text"]:focus,
 .dga-listing .filters select.form-control:focus {
-    border-color: #005C4B;
+    border-color: #1B8354;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(0,92,75,0.12);
+    box-shadow: 0 0 0 3px rgba(27,131,84,0.12);
     outline: none;
 }
 
@@ -894,12 +894,12 @@ input[type="radio"]:checked {
 .dga-listing .coursecard:hover,
 .dga-listing .course_card_outter:hover {
     transform: translateY(-3px);
-    border-color: #B8D9CF;
+    border-color: #B8EACB;
     box-shadow: 0 10px 25px rgba(0,0,0,0.10);
 }
 .dga-listing .price,
 .dga-listing .card-price {
-    color: #005C4B;
+    color: #1B8354;
     font-weight: 700;
 }
 
@@ -920,19 +920,19 @@ input[type="radio"]:checked {
 }
 .dga-listing .page-item:hover .page-link,
 .global-pagenation .page-item:hover .page-link {
-    border-color: #005C4B;
-    color: #005C4B;
+    border-color: #1B8354;
+    color: #1B8354;
 }
 .dga-listing .page-item.active .page-link,
 .global-pagenation .page-item.active .page-link {
-    background: #005C4B;
-    border-color: #005C4B;
+    background: #1B8354;
+    border-color: #1B8354;
     color: #fff;
 }
 
 /* =====================================================
    GLOBAL: Eliminate old navy blue #244092 from all pages
-   Replace with Shaqra green #005C4B or gold #C1996C
+   Replace with Shaqra green #1B8354 or gold #54C08A
    ===================================================== */
 
 /* Backgrounds that were blue → green */
@@ -942,12 +942,12 @@ input[type="radio"]:checked {
 .modal-lec-title,
 .cntrl-btn.active,
 .active-date::before {
-    background: #005C4B !important;
+    background: #1B8354 !important;
     background-image: none !important;
-    border-color: #005C4B !important;
+    border-color: #1B8354 !important;
 }
 .bg_gradient {
-    background: linear-gradient(135deg, #003D31 0%, #005C4B 60%, #00735E 100%) !important;
+    background: linear-gradient(135deg, #104631 0%, #1B8354 60%, #166A45 100%) !important;
 }
 
 /* Text that was blue → green */
@@ -955,57 +955,57 @@ input[type="radio"]:checked {
 .about-instructor h1,
 .custom-rev h1,
 .add-to-cart:hover {
-    color: #005C4B !important;
-    border-color: #005C4B !important;
+    color: #1B8354 !important;
+    border-color: #1B8354 !important;
 }
 
 /* Borders that were blue → green */
 .avatar_border,
 [class*="border-primary"] {
-    border-color: #005C4B !important;
+    border-color: #1B8354 !important;
 }
 
 /* Breadcrumb bar was blue → green */
 .bread-crumb {
-    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%) !important;
+    background: linear-gradient(135deg, #104631 0%, #1B8354 100%) !important;
 }
 
 /* Tags (pill tags) were blue → gold */
 .tag {
-    background: #C1996C !important;
-    border-color: #C1996C !important;
+    background: #54C08A !important;
+    border-color: #54C08A !important;
 }
 
 /* Add-to-cart button was blue → green */
 .add-to-cart {
-    background: #005C4B !important;
-    border-color: #005C4B !important;
+    background: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .add-to-cart:hover {
     background: #fff !important;
-    color: #005C4B !important;
-    border-color: #005C4B !important;
+    color: #1B8354 !important;
+    border-color: #1B8354 !important;
 }
 
 /* Page title banners were blue → green */
 .general-gred,
 .page-title {
-    background: linear-gradient(135deg, #003D31 0%, #005C4B 100%) !important;
+    background: linear-gradient(135deg, #104631 0%, #1B8354 100%) !important;
 }
 
 /* Nav pills active → green */
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    background: #005C4B !important;
+    background: #1B8354 !important;
     color: #fff !important;
-    border-color: #005C4B !important;
+    border-color: #1B8354 !important;
 }
 
 /* custom-rev heading border → gold */
 .custom-rev h1 {
-    border-bottom-color: #C1996C !important;
-    color: #005C4B !important;
+    border-bottom-color: #54C08A !important;
+    color: #1B8354 !important;
 }
 
 /* Font size — all pages: enforce DGA 14px floor on small text */
@@ -1023,7 +1023,7 @@ small,
 
 /* text_primary was blue (#244092) → Shaqra green */
 .text_primary {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* button_primary / more_button → green */
@@ -1031,15 +1031,15 @@ small,
 .button.button_primary,
 .more_button.button_primary,
 .more_button {
-    background: #005C4B !important;
-    border-color: #005C4B !important;
+    background: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .button_primary:hover,
 .button.button_primary:hover,
 .more_button:hover {
-    background: #003D31 !important;
-    border-color: #003D31 !important;
+    background: #104631 !important;
+    border-color: #104631 !important;
     color: #fff !important;
 }
 
@@ -1047,27 +1047,27 @@ small,
 .button_primary2,
 .button.button_primary2 {
     background: transparent !important;
-    border: 2px solid #C1996C !important;
-    color: #C1996C !important;
+    border: 2px solid #54C08A !important;
+    color: #54C08A !important;
 }
 .button_primary2:hover,
 .button.button_primary2:hover,
 .button_primary2.active,
 .button.button_primary2.active {
-    background: #C1996C !important;
-    color: #003D31 !important;
+    background: #54C08A !important;
+    color: #104631 !important;
 }
 
 /* badge-primary → green */
 .badge-primary,
 .badge.badge-primary {
-    background: #005C4B !important;
+    background: #1B8354 !important;
     color: #fff !important;
 }
 
 /* views badge on course image */
 .views-badge {
-    background: rgba(0, 92, 75, 0.85) !important;
+    background: rgba(27, 131, 84, 0.85) !important;
     color: #fff !important;
 }
 
@@ -1077,30 +1077,30 @@ small,
 }
 /* go_to_cart / enrolled start button → gold (CTA) */
 .go_to_cart {
-    background: #C1996C !important;
-    border-color: #C1996C !important;
-    color: #003D31 !important;
+    background: #54C08A !important;
+    border-color: #54C08A !important;
+    color: #104631 !important;
 }
 .go_to_cart:hover {
-    background: #A07A4F !important;
-    border-color: #A07A4F !important;
-    color: #003D31 !important;
+    background: #166A45 !important;
+    border-color: #166A45 !important;
+    color: #104631 !important;
 }
 
 /* Course section headings (about igts, about instructor, tags etc) */
 .course_detail .text_primary {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* bt btn-primary inside course page (Bootstrap 5 terms modal button) */
 .btn-primary {
-    background: #005C4B !important;
-    border-color: #005C4B !important;
+    background: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .btn-primary:hover, .btn-primary:focus {
-    background: #003D31 !important;
-    border-color: #003D31 !important;
+    background: #104631 !important;
+    border-color: #104631 !important;
     color: #fff !important;
 }
 
@@ -1111,13 +1111,13 @@ small,
 
 /* cntrl-btn tabs (content sections) active state */
 .cntrl-btn.active {
-    background: #005C4B !important;
-    border-color: #005C4B !important;
+    background: #1B8354 !important;
+    border-color: #1B8354 !important;
     color: #fff !important;
 }
 .cntrl-btn {
-    color: #005C4B !important;
-    border-color: #005C4B !important;
+    color: #1B8354 !important;
+    border-color: #1B8354 !important;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -1132,7 +1132,7 @@ small,
     color: rgba(255,255,255,0.85) !important;
 }
 .bread-crumb a {
-    color: #D9B589 !important;          /* Shaqra gold — same as index breadcrumb link */
+    color: #B8EACB !important;          /* Shaqra gold — same as index breadcrumb link */
     text-decoration: none !important;
 }
 .bread-crumb a:hover {
@@ -1171,25 +1171,25 @@ small,
 .course_detail_header .price,
 .course_detail_header h3.price,
 .course_detail_header .course_detail_price {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* Course price text → green */
 .course_detail h3,
 .course_detail .price {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* about igts / about instructor section heading → gold */
 .course_detail h3.text_primary {
-    color: #C1996C !important;
+    color: #54C08A !important;
     font-weight: 700;
 }
 
 /* tags/spans badges → gold */
 .course_detail .badge-primary {
-    background: #C1996C !important;
-    color: #003D31 !important;
+    background: #54C08A !important;
+    color: #104631 !important;
     font-size: 0.875rem !important;
 }
 
@@ -1197,7 +1197,7 @@ small,
    Covers the section header bars (lecture list, resources) and the
    learning-benefits accordion button, plus any purple text/links. */
 .course_detail .course_list_header {
-    background-color: #005C4B !important;
+    background-color: #1B8354 !important;
     color: #fff !important;
 }
 .course_detail .course_list_header .title,
@@ -1205,18 +1205,18 @@ small,
     color: #fff !important;
 }
 .course_detail #learning-adv-section .card_header > button {
-    background-color: #005C4B !important;
+    background-color: #1B8354 !important;
     color: #fff !important;
 }
 /* Any inline/legacy purple text on the course detail → deep green */
 .course_detail [style*="#244092"],
 .course_detail [style*="#244092" i] {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* Course header info-boxes panel (duration / language / level …) → deep green */
 .course_detail .imagesBoxes {
-    background: #005C4B !important;
+    background: #1B8354 !important;
     color: #fff !important;
 }
 .course_detail .imagesBoxes .imageDesciption,
@@ -1232,10 +1232,10 @@ small,
 
 /* Default links inherit global `a { color:#244092 }` → identity green */
 a {
-    color: #005C4B;
+    color: #1B8354;
 }
 a:hover {
-    color: #003D31;
+    color: #104631;
 }
 
 /* Main navigation menu links (resting state) → dark identity green */
@@ -1243,19 +1243,19 @@ a:hover {
 .navbar-light .navbar-nav .nav-link,
 .dropdown-menu .dropdown-item,
 .menu li a {
-    color: #003D31 !important;
+    color: #104631 !important;
 }
 
 /* Purple text utility (.text_primary etc.) → identity green, site-wide */
 .text_primary,
 h1.text_primary, h2.text_primary, h3.text_primary,
 h4.text_primary, h5.text_primary, h6.text_primary {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* Section-header bars (lecture list, resources) wherever they appear */
 .course_list_header {
-    background-color: #005C4B !important;
+    background-color: #1B8354 !important;
     color: #fff !important;
 }
 .course_list_header .title,
@@ -1269,13 +1269,13 @@ h4.text_primary, h5.text_primary, h6.text_primary {
 .course_detail .text h1,
 .course_detail .text h2,
 .course_detail .text h3 {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* Purple backgrounds via legacy utility class → identity green */
 .bg_primary,
 .badge-primary {
-    background-color: #005C4B !important;
+    background-color: #1B8354 !important;
 }
 
 /* =====================================================
@@ -1291,29 +1291,29 @@ h4.text_primary, h5.text_primary, h6.text_primary {
 .hover\:bg-green:hover,
 .group:hover .group-hover\:bg-green,
 .bg-blue {
-    background-color: #005C4B !important;
+    background-color: #1B8354 !important;
 }
 
 /* Blue hover state → slightly darker Shaqra green for affordance */
 .hover\:bg-blue:hover {
-    background-color: #003D31 !important;
+    background-color: #104631 !important;
 }
 
 /* Text colors: teal-green + navy-blue → Shaqra green */
 .text-green,
 .hover\:text-green:hover,
 .text-blue {
-    color: #005C4B !important;
+    color: #1B8354 !important;
 }
 
 /* Borders using the brand green */
 .border-green {
-    border-color: #005C4B !important;
+    border-color: #1B8354 !important;
 }
 
 /* Annual-plan card gradient (was navy gradient) → Shaqra green → gold */
 .gradient-blue {
-    background: #005C4B !important;
-    background: linear-gradient(343deg, #00261E 0%, #005C4B 54%, #0A7A63 100%) !important;
+    background: #1B8354 !important;
+    background: linear-gradient(343deg, #092A1E 0%, #1B8354 54%, #0A7A63 100%) !important;
     filter: none !important;
 }

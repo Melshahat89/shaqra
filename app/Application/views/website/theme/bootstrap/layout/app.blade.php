@@ -177,6 +177,9 @@
         <input type='hidden' id='user_id' value='{{(auth()->check())?Auth::user()->id:''}}'>
         <input type='hidden' id='path' value='{{ url('/') }}'>
 
+        {{-- DGA feedback section (التعليقات والاقتراحات) — before footer on every page --}}
+        @include('website.theme.bootstrap.layout.dga-feedback')
+
         @include(layoutFooter('website'))
 
         {{-- ══ Mobile Bottom Navigation Bar (app feel) ══ --}}

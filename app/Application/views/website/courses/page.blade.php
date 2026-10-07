@@ -138,7 +138,7 @@
                                                                 {{ trans('courses.This Webinar Has Ended') }}
                                                             </a>
                                                         @else
-                                                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #C1996C; color: #003D31;">
+                                                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #54C08A; color: #104631;">
                                                                 {{ trans('courses.Watch This Webinar') }}
                                                             </a>
                                                         @endif
@@ -226,7 +226,7 @@
                                                     {{ trans('courses.This Webinar Has Ended') }}
                                                 </a>
                                             @else
-                                                <a href="/site/enrollWebinar/{{$course->id}}" class="button button_primary button_large add_cart" style="background-color: #C1996C; color: #003D31;">
+                                                <a href="/site/enrollWebinar/{{$course->id}}" class="button button_primary button_large add_cart" style="background-color: #54C08A; color: #104631;">
                                                     {{ trans('courses.Watch This Webinar') }}
                                                 </a>
                                             @endif
@@ -292,7 +292,7 @@
                                             {{ trans('courses.This Webinar Has Ended') }}
                                         </a>
                                     @else
-                                        <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="button button_primary button_large add_cart" style="background-color: #C1996C; color: #003D31;">
+                                        <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="button button_primary button_large add_cart" style="background-color: #54C08A; color: #104631;">
                                             {{ trans('courses.Watch This Webinar') }}
                                         </a>
                                     @endif
@@ -964,7 +964,7 @@
                                 <div class="accordion accordion_list">
                                     <div class="card">
                                         <div class="card_header">
-                                            <button data-toggle="collapse" data-target="#learning-adv" aria-expanded="true" aria-controls="coll_1" class="d-flex justify-content-between" style="background-color: #005C4B; color: white;">
+                                            <button data-toggle="collapse" data-target="#learning-adv" aria-expanded="true" aria-controls="coll_1" class="d-flex justify-content-between" style="background-color: #1B8354; color: white;">
                                                 <span class="card_header_title">{{trans('courses.learning benefits')}}</span>
                                                 <i class="fa mr-10 fa-plus" aria-hidden="true" style="place-self: center;"></i>
                                             </button>
@@ -1219,7 +1219,7 @@
                                 {{ trans('courses.This Webinar Has Ended') }}
                             </a>
                         @else
-                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #C1996C; color: #003D31;">
+                            <a href="/site/enrollWebinar/{{$course->id}}" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #54C08A; color: #104631;">
                                 {{ trans('courses.Watch This Webinar') }}
                             </a>
                         @endif
@@ -1277,7 +1277,7 @@
                         {{ trans('courses.This Webinar Has Ended') }}
                     </a>
                 @else
-                    <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #C1996C; color: #003D31;">
+                    <a href="{{($course->webinar_url) ? $course->webinar_url : 'javascript:void(0)'}}" target="_blank" class="more_button button_primary w-50 text-center mb-10 p-3" style="background-color: #54C08A; color: #104631;">
                         {{ trans('courses.Watch This Webinar') }}
                     </a>
                 @endif

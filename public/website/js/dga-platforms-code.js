@@ -144,3 +144,20 @@
         window.dgaZoom = function () {};
     });
 })();
+
+/* ── Accessibility patches for third-party widgets (Selectize) + missing alts ── */
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        function patch() {
+            document.querySelectorAll('.selectize-control input:not([aria-label])').forEach(function (inp) {
+                var ctrl = inp.closest('.selectize-control');
+                var sel = ctrl && ctrl.previousElementSibling && ctrl.previousElementSibling.tagName === 'SELECT' ? ctrl.previousElementSibling : null;
+                var label = sel && sel.labels && sel.labels[0] ? sel.labels[0].textContent.trim() : (inp.placeholder || (sel && sel.getAttribute('aria-label')) || '');
+                if (label) inp.setAttribute('aria-label', label);
+            });
+            document.querySelectorAll('img:not([alt])').forEach(function (img) { img.setAttribute('alt', ''); });
+        }
+        patch();
+        if (window.MutationObserver) new MutationObserver(patch).observe(document.body, { childList: true, subtree: true });
+    });
+})();

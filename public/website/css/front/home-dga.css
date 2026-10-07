@@ -1,19 +1,19 @@
 /*
  * Home Page — DGA Compliant Styles
  * Shaqra University / Mehany Platform
- * Palette: Green #005C4B · Gold #C1996C · No blue
+ * Palette: Green #1B8354 · Gold #54C08A · No blue
  * Font: IBM Plex Sans Arabic
  * All text ≥ 14px (DGA minimum)
  */
 
 /* ── TOKENS ── */
 :root {
-    --h-green:        #005C4B;
-    --h-green-dark:   #003D31;
-    --h-green-light:  #E6F1EE;
-    --h-gold:         #C1996C;
-    --h-gold-dark:    #A07A4F;
-    --h-gold-text:    #003D31;   /* dark text on gold — WCAG AA */
+    --h-green:        #1B8354;
+    --h-green-dark:   #104631;
+    --h-green-light:  #F3FCF6;
+    --h-gold:         #54C08A;
+    --h-gold-dark:    #166A45;
+    --h-gold-text:    #104631;   /* dark text on gold — WCAG AA */
     --h-white:        #ffffff;
     --h-gray-50:      #F9FAFB;
     --h-gray-100:     #F3F4F6;
@@ -94,21 +94,21 @@
     border-color: var(--h-green-dark);
     color: var(--h-white) !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,92,75,0.30);
+    box-shadow: 0 8px 20px rgba(27,131,84,0.30);
 }
 /* Gold CTA */
 .dga-btn-gold {
     background: var(--h-gold);
     color: var(--h-gold-text) !important;   /* dark — WCAG AA 4.5:1 */
     border-color: var(--h-gold);
-    box-shadow: 0 4px 16px rgba(193,153,108,0.35);
+    box-shadow: 0 4px 16px rgba(84,192,138,0.35);
 }
 .dga-btn-gold:hover {
     background: var(--h-gold-dark);
     border-color: var(--h-gold-dark);
     color: var(--h-gold-text) !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(193,153,108,0.45);
+    box-shadow: 0 8px 24px rgba(84,192,138,0.45);
 }
 /* Secondary = outlined green */
 .dga-btn-secondary {
@@ -171,7 +171,7 @@
     position: relative;
     min-height: 580px;
     background:
-        linear-gradient(135deg, rgba(0,38,30,0.70) 0%, rgba(0,61,49,0.58) 50%, rgba(0,38,30,0.72) 100%),
+        linear-gradient(135deg, rgba(9,42,30,0.70) 0%, rgba(16,70,49,0.58) 50%, rgba(9,42,30,0.72) 100%),
         url('/website/images/front/heroBanner.jpeg') center center / cover no-repeat;
     color: var(--h-white);
     display: flex;
@@ -183,7 +183,7 @@
     content: '';
     position: absolute;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(193,153,108,0.15) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(84,192,138,0.15) 0%, transparent 65%);
     top: -120px; left: -80px;
     pointer-events: none;
 }
@@ -393,7 +393,7 @@
 .dga-course-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--h-shadow-lg);
-    border-color: #B8D9CF;
+    border-color: #B8EACB;
 }
 .dga-course-card-img {
     position: relative;
@@ -501,7 +501,7 @@
 .dga-feature-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--h-shadow-lg);
-    border-color: #B8D9CF;
+    border-color: #B8EACB;
 }
 .dga-feature-icon {
     width: 60px; height: 60px;
@@ -516,7 +516,7 @@
 .dga-feature-card:hover .dga-feature-icon {
     background: var(--h-green);
     color: var(--h-white);
-    box-shadow: 0 8px 20px rgba(0,92,75,0.30);
+    box-shadow: 0 8px 20px rgba(27,131,84,0.30);
 }
 .dga-feature-card h3 {
     font-size: 1rem;
@@ -532,7 +532,7 @@
 
 /* ── CTA BANNER ── */
 .dga-cta-banner {
-    background: linear-gradient(135deg, var(--h-green-dark) 0%, var(--h-green) 60%, #00735E 100%);
+    background: linear-gradient(135deg, var(--h-green-dark) 0%, var(--h-green) 60%, #166A45 100%);
     border-radius: var(--h-radius-lg);
     padding: 56px 40px;
     text-align: center;
@@ -544,7 +544,7 @@
     content: '';
     position: absolute;
     width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(193,153,108,0.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(84,192,138,0.18) 0%, transparent 65%);
     top: -80px; left: -60px; pointer-events: none;
 }
 .dga-cta-banner h2 {
@@ -581,7 +581,7 @@
     color: var(--h-white);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,92,75,0.35);
+    box-shadow: 0 4px 16px rgba(27,131,84,0.35);
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s, transform 0.3s;
@@ -604,9 +604,9 @@
     font-weight: 600;
 }
 .dga-badge-new {
-    background: rgba(193,153,108,0.15);
+    background: rgba(84,192,138,0.15);
     color: var(--h-gold);
-    border: 1px solid rgba(193,153,108,0.30);
+    border: 1px solid rgba(84,192,138,0.30);
 }
 
 /* ── RESPONSIVE ── */
