@@ -69,13 +69,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=8.5" rel="stylesheet">
-    <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=8.5" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=9.0" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=9.0" rel="stylesheet">
     {{-- ══ DGA Platforms Code (كود المنصات) v1.0 — tokens + components, loaded last ══ --}}
-    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=1.0" rel="stylesheet">
-    <script src="{{ asset('website') }}/js/dga-platforms-code.js?v=1.0" defer></script>
-    <script src="{{ asset('website') }}/js/dga-icons.js?v=1.0" defer></script>
-    <script src="{{ asset('website') }}/js/dga-datepicker.js?v=1.0" defer></script>
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=3.0" rel="stylesheet">
+    <script src="{{ asset('website') }}/js/dga-platforms-code.js?v=3.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-icons.js?v=3.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-datepicker.js?v=3.0" defer></script>
 
     @stack('css')
     {{ Html::style('website/css/sweetalert.css') }}

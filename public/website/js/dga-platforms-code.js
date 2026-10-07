@@ -108,23 +108,22 @@
         }
         function applyContrast(mode, persist) {
             Object.keys(MODES).forEach(function (k) { document.body.classList.remove(MODES[k]); });
-            document.querySelectorAll('#dga-a11y-panel [data-contrast]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); b.classList.remove('active'); });
+            document.querySelectorAll('[data-contrast]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); b.classList.remove('active'); });
             if (mode && MODES[mode]) {
                 document.body.classList.add(MODES[mode]);
-                var active = document.querySelector('#dga-a11y-panel [data-contrast="' + mode + '"]');
-                if (active) { active.setAttribute('aria-pressed', 'true'); active.classList.add('active'); }
+                document.querySelectorAll('[data-contrast="' + mode + '"]').forEach(function (active) { active.setAttribute('aria-pressed', 'true'); active.classList.add('active'); });
                 if (persist) localStorage.setItem('dga_contrast', mode);
             } else if (persist) {
                 localStorage.removeItem('dga_contrast');
             }
         }
-        document.querySelectorAll('#dga-a11y-panel [data-font]').forEach(function (b) {
+        document.querySelectorAll('[data-font]').forEach(function (b) {
             b.addEventListener('click', function () {
                 size = Math.max(-2, Math.min(4, size + parseInt(b.getAttribute('data-font'), 10)));
                 applyFont();
             });
         });
-        document.querySelectorAll('#dga-a11y-panel [data-contrast]').forEach(function (b) {
+        document.querySelectorAll('[data-contrast]').forEach(function (b) {
             b.addEventListener('click', function () {
                 var m = b.getAttribute('data-contrast');
                 applyContrast(document.body.classList.contains(MODES[m]) ? null : m, true);

@@ -1385,3 +1385,33 @@ header .navbar-nav .nav-link:hover { color: var(--dga-color-text-default) !impor
 .dga-footer-divider, .dga-footer-logos, .dga-footer-devby { border-color: rgba(255,255,255,.15) !important; }
 .dga-footer-links a:hover, .dga-footer-copy a:hover { color: #fff !important; text-decoration: underline; }
 .dga-footer-updated, .dga-footer-copy, .dga-footer-desc, .dga-contact-label, .dga-contact-val { color: #fff !important; opacity: 1 !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   31. FOOTER (su.edu.sa structure) + header height + measured type colours
+   ═══════════════════════════════════════════════════════════════════════ */
+header .navbar { min-height: 97px; }
+.dga-utility-meta { color: var(--dga-color-gray-700); }
+.dga-ft { background: var(--dga-color-success-900) !important; color: #fff; padding: 60px 0 24px !important; font-family: var(--dga-font-family-text); }
+.dga-ft-inner { max-width: 1260px; margin: 0 auto; padding: 0 var(--dga-space-4xl); }
+.dga-ft-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--dga-space-3xl); }
+.dga-ft-title, h3.dga-ft-title { font-size: 1rem !important; line-height: 1.5rem !important; font-weight: 700 !important; color: #fff !important; margin: 0 0 var(--dga-space-xl) !important; padding-bottom: var(--dga-space-md); border-bottom: 1px solid rgba(255,255,255,.25); display: block; }
+.dga-ft-title--tools { margin-top: var(--dga-space-4xl) !important; }
+.dga-ft-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--dga-space-md); }
+.dga-ft-links a, .dga-ft-bottom-links a, .dga-ft-copy a { color: #fff !important; font-size: 0.875rem !important; line-height: 1.25rem !important; font-weight: 400; text-decoration: none; }
+.dga-ft-links a:hover, .dga-ft-bottom-links a:hover, .dga-ft-copy a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.dga-ft .dga-ext::after { opacity: 1; }
+.dga-ft-icons { display: flex; gap: var(--dga-space-md); flex-wrap: wrap; }
+.dga-ft-icon { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.6); border-radius: var(--dga-radius-sm); background: transparent; color: #fff !important; display: inline-grid; place-content: center; cursor: pointer; padding: 0; transition: background var(--dga-transition-fast); }
+.dga-ft-icon svg { width: 20px; height: 20px; }
+.dga-ft-icon:hover { background: rgba(255,255,255,.12); }
+.dga-ft-icon[aria-pressed="true"] { background: #fff; color: var(--dga-color-success-900) !important; }
+.dga-ft-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--dga-space-3xl); flex-wrap: wrap; margin-top: 48px; }
+.dga-ft-bottom-links { list-style: none; margin: 0 0 var(--dga-space-xl); padding: 0; display: flex; gap: var(--dga-space-xl); flex-wrap: wrap; }
+.dga-ft-bottom-links a { text-decoration: underline; text-underline-offset: .2em; }
+.dga-ft-copy p { margin: 0 0 var(--dga-space-md); font-size: 0.875rem !important; line-height: 1.25rem !important; color: #fff !important; }
+.dga-ft-copy p:last-child { margin-bottom: 0; }
+.dga-ft-logos { display: flex; align-items: center; gap: var(--dga-space-3xl); }
+.dga-ft-logo { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); }
+.dga-ft-logo--brand { height: 56px; }
+@media (max-width: 991.98px) { .dga-ft-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575.98px) { .dga-ft-grid { grid-template-columns: 1fr; } .dga-ft-inner { padding: 0 var(--dga-space-xl); } .dga-ft-bottom { flex-direction: column; align-items: flex-start; } }
