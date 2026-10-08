@@ -11,7 +11,7 @@
         <div class="dga-page-hero-inner">
             <nav class="dga-breadcrumb" aria-label="مسار التنقل">
                 <a href="{{ url('/') }}">الرئيسية</a>
-                <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                {!! dgaIcon('arrow-left-01', '', ['width' => 16, 'height' => 16]) !!}
                 <span aria-current="page">بيان إمكانية الوصول</span>
             </nav>
             <h1 class="dga-page-title">بيان إمكانية الوصول</h1>

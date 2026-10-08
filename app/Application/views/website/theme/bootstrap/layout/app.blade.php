@@ -72,10 +72,11 @@
     <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=9.0" rel="stylesheet">
     <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=9.0" rel="stylesheet">
     {{-- ══ DGA Platforms Code (كود المنصات) v1.0 — tokens + components, loaded last ══ --}}
-    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=3.2" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=4.0" rel="stylesheet">
     <script src="{{ asset('website') }}/js/dga-platforms-code.js?v=3.0" defer></script>
-    <script src="{{ asset('website') }}/js/dga-icons.js?v=3.0" defer></script>
-    <script src="{{ asset('website') }}/js/dga-datepicker.js?v=3.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-hgi-map.js?v=4.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-icons.js?v=4.0" defer></script>
+    <script src="{{ asset('website') }}/js/dga-datepicker.js?v=4.0" defer></script>
 
     @stack('css')
     {{ Html::style('website/css/sweetalert.css') }}
@@ -185,29 +186,29 @@
         {{-- ══ Mobile Bottom Navigation Bar (app feel) ══ --}}
         <nav class="dga-mobile-nav" aria-label="التنقل السريع" dir="rtl">
             <a href="{{ url('/') }}" class="{{ request()->is('/') || request()->is('ar') ? 'active' : '' }}" aria-label="الرئيسية">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                {!! dgaIcon('home-01', '') !!}
                 الرئيسية
             </a>
             <a href="{{ url('/allcourses/category') }}" class="{{ request()->is('allcourses*') ? 'active' : '' }}" aria-label="الدورات">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                {!! dgaIcon('book-02', '') !!}
                 الدورات
             </a>
             <a href="{{ url('/subscriptions') }}" class="dga-nav-cta {{ request()->is('subscriptions*') ? 'active' : '' }}" aria-label="اشترك الآن">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                {!! dgaIcon('star') !!}
                 اشترك
             </a>
             <a href="{{ url('/faq') }}" class="{{ request()->is('faq*') ? 'active' : '' }}" aria-label="الأسئلة الشائعة">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                {!! dgaIcon('help-circle', '') !!}
                 مساعدة
             </a>
             @if(Auth::check())
             <a href="{{ url('/account/myCourses') }}" class="{{ request()->is('account*') ? 'active' : '' }}" aria-label="حسابي">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                {!! dgaIcon('user', '') !!}
                 حسابي
             </a>
             @else
             <a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal" aria-label="تسجيل الدخول">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                {!! dgaIcon('login-03', '') !!}
                 دخول
             </a>
             @endif

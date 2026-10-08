@@ -14,7 +14,7 @@
         <div class="dga-page-hero-inner">
             <nav class="dga-breadcrumb" aria-label="مسار التنقل">
                 <a href="{{ url('/') }}">الرئيسية</a>
-                <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                {!! dgaIcon('arrow-left-01', '', ['height' => 16]) !!}
                 <span aria-current="page">{{ trans('page.Certificate Verification') }}</span>
             </nav>
             <h1 class="dga-page-title">{{ trans('page.Certificate Verification') }}</h1>
@@ -27,7 +27,7 @@
 
             <div class="dga-verify-card">
                 <div class="dga-verify-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    {!! dgaIcon('security-check', '', ['height' => 48]) !!}
                 </div>
                 <h2>أدخل رقم الشهادة</h2>
                 <p>تأكد من صحة وموثوقية أي شهادة صادرة من المنصة</p>
@@ -40,7 +40,7 @@
                                placeholder="* {{ trans('page.Certificate ID') }}" required autofocus>
                     </div>
                     <button type="submit" class="dga-btn dga-btn-green">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        {!! dgaIcon('search-01', '', ['width' => 14, 'height' => 14]) !!}
                         {{ trans('page.search') }}
                     </button>
                 </form>
@@ -49,7 +49,7 @@
             @if(isset($certificate))
             <div class="dga-verify-result">
                 <div class="dga-verify-success">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                    {!! dgaIcon('checkmark-circle-02', '', ['height' => 20]) !!}
                     شهادة صالحة وموثقة
                 </div>
                 <table class="dga-table" id="certificatesVerification">

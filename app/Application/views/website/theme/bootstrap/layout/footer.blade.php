@@ -53,27 +53,27 @@
                 <div class="dga-ft-icons">
                     @if(getSetting('linkedin'))
                     <a href="{{ getSetting('linkedin') }}" target="_blank" rel="noopener" class="dga-ft-icon dga-no-ext" aria-label="{{ $isAr ? 'لينكد إن (رابط خارجي)' : 'LinkedIn (external link)' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        {!! dgaIcon('linkedin-02', '') !!}
                     </a>
                     @endif
                     @if(getSetting('twitter'))
                     <a href="{{ getSetting('twitter') }}" target="_blank" rel="noopener" class="dga-ft-icon dga-no-ext" aria-label="{{ $isAr ? 'إكس (رابط خارجي)' : 'X (external link)' }}">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        {!! dgaIcon('new-twitter') !!}
                     </a>
                     @endif
                     @if(getSetting('youtube'))
                     <a href="{{ getSetting('youtube') }}" target="_blank" rel="noopener" class="dga-ft-icon dga-no-ext" aria-label="{{ $isAr ? 'يوتيوب (رابط خارجي)' : 'YouTube (external link)' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                        {!! dgaIcon('youtube', '') !!}
                     </a>
                     @endif
                     @if(getSetting('instagram'))
                     <a href="{{ getSetting('instagram') }}" target="_blank" rel="noopener" class="dga-ft-icon dga-no-ext" aria-label="{{ $isAr ? 'إنستغرام (رابط خارجي)' : 'Instagram (external link)' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        {!! dgaIcon('instagram', '') !!}
                     </a>
                     @endif
                     @if(getSetting('facebook'))
                     <a href="{{ getSetting('facebook') }}" target="_blank" rel="noopener" class="dga-ft-icon dga-no-ext" aria-label="{{ $isAr ? 'فيسبوك (رابط خارجي)' : 'Facebook (external link)' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        {!! dgaIcon('facebook-02', '') !!}
                     </a>
                     @endif
                 </div>
@@ -81,13 +81,13 @@
                 <h3 class="dga-ft-title dga-ft-title--tools">{{ $isAr ? 'أدوات الإتاحة والوصول' : 'Accessibility tools' }}</h3>
                 <div class="dga-ft-icons" role="group" aria-label="{{ $isAr ? 'أدوات إمكانية الوصول' : 'Accessibility tools' }}">
                     <button type="button" class="dga-ft-icon" data-contrast="high" aria-pressed="false" aria-label="{{ $isAr ? 'تباين عالٍ' : 'High contrast' }}" title="{{ $isAr ? 'تباين عالٍ' : 'High contrast' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        {!! dgaIcon('view', '') !!}
                     </button>
                     <button type="button" class="dga-ft-icon" data-font="1" aria-label="{{ $isAr ? 'تكبير' : 'Zoom in' }}" title="{{ $isAr ? 'تكبير' : 'Zoom in' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                        {!! dgaIcon('zoom-in-area', '') !!}
                     </button>
                     <button type="button" class="dga-ft-icon" data-font="-1" aria-label="{{ $isAr ? 'تصغير' : 'Zoom out' }}" title="{{ $isAr ? 'تصغير' : 'Zoom out' }}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                        {!! dgaIcon('zoom-out-area', '') !!}
                     </button>
                 </div>
             </div>
@@ -130,10 +130,10 @@
 <div id="dga-cookie-banner" class="dga-cookie-banner" role="dialog" aria-labelledby="dga-cookie-title" aria-describedby="dga-cookie-desc" dir="{{ getDir() }}" style="display:none;">
     <div class="dga-cookie-inner">
         <button type="button" class="dga-cookie-close" id="dga-cookie-close" aria-label="{{ $isAr ? 'إغلاق' : 'Close' }}">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            {!! dgaIcon('cancel-01', '') !!}
         </button>
         <div class="dga-cookie-head">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><circle cx="8.5" cy="8.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/><circle cx="9" cy="15" r="1"/></svg>
+            {!! dgaIcon('cookie', '') !!}
             <div class="dga-cookie-text">
                 <h5 id="dga-cookie-title">{{ $isAr ? 'ملفات تعريف الارتباط' : 'Cookies' }}</h5>
                 <p id="dga-cookie-desc">{{ $isAr ? 'يستخدم هذا الموقع ملفات تعريف الارتباط (Cookies) لجعل تجربة استخدامك للموقع أفضل. يُرجى قبول استخدامنا لملفات تعريف الارتباط أو الاطلاع على سياسة الخصوصية لمزيد من المعلومات.' : 'This website uses cookies to improve your experience. Please accept our use of cookies or read the privacy policy for more information.' }}</p>

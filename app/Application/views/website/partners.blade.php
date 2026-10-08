@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function() {
         <div class="dga-page-hero-inner">
             <nav class="dga-breadcrumb" aria-label="مسار التنقل">
                 <a href="{{ url('/') }}">الرئيسية</a>
-                <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                {!! dgaIcon('arrow-left-01', '', ['height' => 16]) !!}
                 <span aria-current="page">شركاؤنا</span>
             </nav>
             <h1 class="dga-page-title">شركاؤنا في النجاح</h1>
@@ -79,7 +79,7 @@ window.addEventListener('DOMContentLoaded', function() {
                         @if($data->logo)
                             <img src="{{ large($data->logo) }}" alt="{{ $data->title_lang }}" loading="lazy">
                         @else
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+                            {!! dgaIcon('building-03', '', ['height' => 60]) !!}
                         @endif
                     </div>
                     <div class="dga-partner-row-body">

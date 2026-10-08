@@ -81,11 +81,11 @@
                 <ol>
                     <li><a href="{{ url('/') }}">الرئيسية</a></li>
                     <li>
-                        <svg class="dga-breadcrumb-sep" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                        {!! dgaIcon('arrow-left-01', 'dga-breadcrumb-sep', ['width' => 16, 'height' => 16]) !!}
                         <a href="/{{ getCourseTypeText($course) }}/category/{{ optional($course->categories)->slug }}">{{ optional($course->categories)->name_lang }}</a>
                     </li>
                     <li>
-                        <svg class="dga-breadcrumb-sep" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                        {!! dgaIcon('arrow-left-01', 'dga-breadcrumb-sep', ['width' => 16, 'height' => 16]) !!}
                         <span aria-current="page">{{ $course->title_lang }}</span>
                     </li>
                 </ol>
@@ -331,21 +331,21 @@
                             <div>
                                 <div class="imagesBox">
                                     <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                        <img alt="time" src="{{asset('website')}}/images/duration.png" class="CoursePage-MuiAvatar-img">
+                                        {!! dgaIcon('clock-01', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                     </div>
                                     <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.duration') }} <br> {{$course->getHoursLectures()}} </p>
                                 </div>
                                 @if($course->CourseRating > 0)
                                     <div class="imagesBox">
                                         <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                            <img alt="time" src="{{asset('website')}}/images/rate.png" class="CoursePage-MuiAvatar-img">
+                                            {!! dgaIcon('star', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                         </div>
                                         <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.rate') }} <br>  ({{ round($course->CourseRating, 1) }}) </p>
                                     </div>
                                 @endif
                                 <div class="imagesBox">
                                     <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                        <img alt="time" src="{{asset('website')}}/images/lifetime.png" class="CoursePage-MuiAvatar-img">
+                                        {!! dgaIcon('reload', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                     </div>
                                     <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.access') }} <br> {{ trans('courses.lifetime') }} <br>  </p>
                                 </div>
@@ -354,13 +354,13 @@
                             <div>
                                 <div class="imagesBox">
                                     <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                        <img alt="time" src="{{asset('website')}}/images/language.png" class="CoursePage-MuiAvatar-img">
+                                        {!! dgaIcon('translate', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                     </div>
                                     <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.language') }} <br> {{ trans('courses.arabic') }} </p>
                                 </div>
                                 <div class="imagesBox">
                                     <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                        <img alt="time" src="{{asset('website')}}/images/resources.png" class="CoursePage-MuiAvatar-img">
+                                        {!! dgaIcon('file-02', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                     </div>
                                     <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.resources') }}  <br> ({{ $course->getTotalResourcesCount() }}) </p>
                                 </div>
@@ -369,7 +369,7 @@
 
                                         <div class="imagesBox">
                                             <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                                <img style="height: 30px" alt="time" src="{{asset('website')}}/images/levels.png" class="CoursePage-MuiAvatar-img">
+                                                {!! dgaIcon('chart-up', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                             </div>
                                             <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1">{{ trans('courses.skill_level') }}
                                                 <br>
@@ -389,7 +389,7 @@
                                     @else
                                         <div class="imagesBox">
                                             <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                                <img style="height: 30px" alt="time" src="{{asset('website')}}/images/levels.png" class="CoursePage-MuiAvatar-img">
+                                                {!! dgaIcon('chart-up', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                             </div>
                                             <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1">{{ trans('courses.skill_level') }}
                                                 <br>
@@ -401,7 +401,7 @@
                                 @if($course->file)
                                     <div class="imagesBox">
                                         <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                            <a href="/uploads/files/{{$course->file}}" download> <img alt="time" src="{{asset('website')}}/images/Download -01.png" class="CoursePage-MuiAvatar-img"></a>
+                                            <a href="/uploads/files/{{$course->file}}" download> {!! dgaIcon('download-04', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}</a>
                                         </div>
                                         <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1">{{ trans('courses.Download file') }}  <br> <i class="fa fa-download"></i> </p>
                                     </div>
@@ -441,21 +441,21 @@
                         <div>
                             <div class="imagesBox">
                                 <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                    <img alt="time" src="{{asset('website')}}/images/duration.png" class="CoursePage-MuiAvatar-img">
+                                    {!! dgaIcon('clock-01', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                 </div>
                                 <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.duration') }} <br> {{$course->getHoursLectures()}} </p>
                             </div>
                             @if($course->CourseRating > 0)
                                 <div class="imagesBox">
                                     <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                        <img alt="time" src="{{asset('website')}}/images/rate.png" class="CoursePage-MuiAvatar-img">
+                                        {!! dgaIcon('star', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                     </div>
                                     <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.rate') }} <br>  ({{ round($course->CourseRating, 1) }}) </p>
                                 </div>
                             @endif
                             <div class="imagesBox">
                                 <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                    <img alt="time" src="{{asset('website')}}/images/lifetime.png" class="CoursePage-MuiAvatar-img">
+                                    {!! dgaIcon('reload', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                 </div>
                                 <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.access') }} <br> {{ trans('courses.lifetime') }} <br>  </p>
                             </div>
@@ -464,13 +464,13 @@
                         <div>
                             <div class="imagesBox">
                                 <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                    <img alt="time" src="{{asset('website')}}/images/language.png" class="CoursePage-MuiAvatar-img">
+                                    {!! dgaIcon('translate', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                 </div>
                                 <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.language') }} <br> {{ trans('courses.arabic') }} </p>
                             </div>
                             <div class="imagesBox">
                                 <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                    <img alt="time" src="{{asset('website')}}/images/resources.png" class="CoursePage-MuiAvatar-img">
+                                    {!! dgaIcon('file-02', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                 </div>
                                 <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.resources') }}  <br> ({{ $course->getTotalResourcesCount() }}) </p>
                             </div>
@@ -479,7 +479,7 @@
 
                                     <div class="imagesBox">
                                         <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                            <img style="height: 30px" alt="time" src="{{asset('website')}}/images/levels.png" class="CoursePage-MuiAvatar-img">
+                                            {!! dgaIcon('chart-up', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                         </div>
                                         <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1">{{ trans('courses.skill_level') }}
                                             <br>
@@ -498,7 +498,7 @@
                                 @else
                                     <div class="imagesBox">
                                         <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                            <img style="height: 30px" alt="time" src="{{asset('website')}}/images/levels.png" class="CoursePage-MuiAvatar-img">
+                                            {!! dgaIcon('chart-up', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!}
                                         </div>
                                         <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1">{{ trans('courses.skill_level') }}
                                             <br>
@@ -510,7 +510,7 @@
                             @if($course->file)
                                 <div class="imagesBox">
                                     <div class="CoursePage-MuiAvatar-root CoursePage-MuiAvatar-square headerImages">
-                                        <a href="/uploads/files/{{$course->file}}" download> <img alt="time" src="{{asset('website')}}/images/Download -01.png" class="CoursePage-MuiAvatar-img"> </a>
+                                        <a href="/uploads/files/{{$course->file}}" download> {!! dgaIcon('download-04', 'CoursePage-MuiAvatar-img', ['width' => 28, 'height' => 28]) !!} </a>
                                     </div>
                                     <p class="CoursePage-MuiTypography-root imageDesciption CoursePage-MuiTypography-body1"> {{ trans('courses.Download file') }}  <br> <i class="fa fa-download"></i> </p>
                                 </div>
@@ -634,11 +634,11 @@
                                                         <div class="card-body">
                                                             <div class="d-flex flex-column gap-3">
                                                                 <div class="d-flex justify-content-between border-bottom pb-2">
-                                                                    <span class="fw-bold">📅  {{trans('professionalcertificates.startdate')}}:</span>
+                                                                    <span class="fw-bold">{!! dgaIcon('calendar-04', '', ['width' => 18, 'height' => 18]) !!} {{trans('professionalcertificates.startdate')}}:</span>
                                                                     <span>{{$course->professionalcertificates[0]['startdate']}}</span>
                                                                 </div>
                                                                 <div class="d-flex justify-content-between border-bottom pb-2">
-                                                                    <span class="fw-bold">⏰ {{trans('professionalcertificates.appointment')}}:</span>
+                                                                    <span class="fw-bold">{!! dgaIcon('clock-01', '', ['width' => 18, 'height' => 18]) !!} {{trans('professionalcertificates.appointment')}}:</span>
                                                                     <span>{{trans('professionalcertificates.Yes')}}</span>
                                                                 </div>
 
@@ -779,7 +779,7 @@
                             <div class="dga-card dga-service-details" id="service-details" dir="rtl" lang="ar">
                                 <div class="dga-card-body">
                                     <h2>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="13" x2="14" y2="13"/></svg>
+                                        {!! dgaIcon('task-01', '') !!}
                                         بطاقة تفاصيل الخدمة
                                     </h2>
                                     <dl>
@@ -809,9 +809,9 @@
                             <section class="dga-service-section" id="service-docs" aria-labelledby="service-docs-title" dir="rtl" lang="ar">
                                 <h2 id="service-docs-title">المستندات المطلوبة</h2>
                                 <ul class="dga-list">
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> لا تتطلب الخدمة أي مستندات ورقية.</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> بريد إلكتروني فعّال ورقم جوال لتفعيل الحساب.</li>
-                                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> الاسم الكامل كما في الهوية ليُطبع على الشهادة.</li>
+                                    <li>{!! dgaIcon('tick-02', '') !!} لا تتطلب الخدمة أي مستندات ورقية.</li>
+                                    <li>{!! dgaIcon('tick-02', '') !!} بريد إلكتروني فعّال ورقم جوال لتفعيل الحساب.</li>
+                                    <li>{!! dgaIcon('tick-02', '') !!} الاسم الكامل كما في الهوية ليُطبع على الشهادة.</li>
                                 </ul>
                             </section>
 
@@ -865,9 +865,9 @@
                                     <div class="text">{!! $course->requirments_lang !!}</div>
                                 @else
                                     <ul class="dga-list">
-                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> امتلاك حساب فعّال على المنصة واشتراك ساري.</li>
-                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> الالتزام بالشروط والأحكام وسياسة الخصوصية.</li>
-                                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> إكمال جميع المحاضرات والاختبارات للحصول على الشهادة.</li>
+                                        <li>{!! dgaIcon('tick-02', '') !!} امتلاك حساب فعّال على المنصة واشتراك ساري.</li>
+                                        <li>{!! dgaIcon('tick-02', '') !!} الالتزام بالشروط والأحكام وسياسة الخصوصية.</li>
+                                        <li>{!! dgaIcon('tick-02', '') !!} إكمال جميع المحاضرات والاختبارات للحصول على الشهادة.</li>
                                     </ul>
                                 @endif
                             </section>
@@ -1045,11 +1045,11 @@
                                                                 <div class="card-body">
                                                                     <div class="d-flex flex-column gap-3">
                                                                         <div class="d-flex justify-content-between border-bottom pb-2">
-                                                                            <span class="fw-bold">📅  {{trans('professionalcertificates.startdate')}}:</span>
+                                                                            <span class="fw-bold">{!! dgaIcon('calendar-04', '', ['width' => 18, 'height' => 18]) !!} {{trans('professionalcertificates.startdate')}}:</span>
                                                                             <span>{{$course->professionalcertificates[0]['startdate']}}</span>
                                                                         </div>
                                                                         <div class="d-flex justify-content-between border-bottom pb-2">
-                                                                            <span class="fw-bold">⏰ {{trans('professionalcertificates.appointment')}}:</span>
+                                                                            <span class="fw-bold">{!! dgaIcon('clock-01', '', ['width' => 18, 'height' => 18]) !!} {{trans('professionalcertificates.appointment')}}:</span>
                                                                             <span>{{trans('professionalcertificates.Yes')}}</span>
                                                                         </div>
 
@@ -1334,7 +1334,7 @@
                         {{--                                                                                    <div class="card-body">--}}
                         <h3 class="text-center fw-bold mb-4">الشروط والأحكام</h3>
 
-                        <h4 class="fw-bold">📌 التسجيل بالبرامج التدريبية</h4>
+                        <h4 class="fw-bold">{!! dgaIcon('task-01', '', ['width' => 18, 'height' => 18]) !!} التسجيل بالبرامج التدريبية</h4>
                         <ul>
                             <li>في حالة طلب المتدرب دعم هدف إذا توفرت الشروط لذلك، فلا يجوز لأي شخص الدفع عوضًا عنه، إذ يجب تسجيل بيانات المتدرب الطالب للدعم في الفاتورة.</li>
                             <li>يتم تقديم البرنامج التدريبي بنمط التدريب الافتراضي المتزامن (أونلاين).</li>
@@ -1342,7 +1342,7 @@
                             <li>يتم إعلام المتدرب برسالة على الواتس آب إذا حدث أي تغيير على الموعد.</li>
                         </ul>
 
-                        <h4 class="fw-bold">📅 الحضور والغياب</h4>
+                        <h4 class="fw-bold">{!! dgaIcon('calendar-04', '', ['width' => 18, 'height' => 18]) !!} الحضور والغياب</h4>
                         <ul>
                             <li>يعامل الحضور الإلكتروني معاملة الحضور في قاعات التدريب التقليدية ويطبق على الحضور الإلكتروني اللوائح المنظمة للحضور والحرمان.</li>
                             <li>يجب ألا تقل نسبة الحضور الإلكتروني في التعلم الإلكتروني عن 70% من مجموع ساعات الدورة التدريبية.</li>

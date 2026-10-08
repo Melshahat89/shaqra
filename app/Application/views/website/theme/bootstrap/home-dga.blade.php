@@ -18,7 +18,7 @@
         <div class="dga-hero-content">
             <div class="dga-hero-text">
                 <div class="dga-badge dga-badge-new mb-3" style="font-size:0.85rem;">
-                    ✦ {{ getSetting('siteTitle') ?: 'منصة التعليم الإلكتروني' }}
+                    {!! dgaIcon('star', '', ['width' => 18, 'height' => 18]) !!} {{ getSetting('siteTitle') ?: 'منصة التعليم الإلكتروني' }}
                 </div>
                 <h1>
                     ارتقِ بمهاراتك مع<br>

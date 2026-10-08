@@ -34,7 +34,7 @@
         var wrap = document.createElement('div'); wrap.className = 'dga-dp';
         input.parentNode.insertBefore(wrap, input); wrap.appendChild(input);
         var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'dga-dp-btn'; btn.setAttribute('aria-label', L.open); btn.setAttribute('aria-haspopup', 'dialog'); btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" class="hgi hgi-calendar-04" aria-hidden="true" focusable="false"><path d="M16 2V6M8 2V6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3 10H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>';
         wrap.appendChild(btn);
         if (input.disabled) btn.disabled = true;
         var pop = document.createElement('div'); pop.className = 'dga-dp-pop'; pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-modal', 'false'); pop.hidden = true;
@@ -48,7 +48,7 @@
             var y = view.getFullYear(), m = view.getMonth();
             var first = new Date(y, m, 1), startDow = first.getDay(), dim = new Date(y, m + 1, 0).getDate();
             var h = '<div class="dga-dp-head">' +
-                '<button type="button" class="dga-dp-nav" data-nav="-1" aria-label="' + L.prev + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="' + (isAr ? '9 18 15 12 9 6' : '15 18 9 12 15 6') + '"/></svg></button>' +
+                '<button type="button" class="dga-dp-nav" data-nav="-1" aria-label="' + L.prev + '">' + (isAr ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" class="hgi hgi-arrow-right-01" aria-hidden="true" focusable="false"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>' : '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" class="hgi hgi-arrow-left-01" aria-hidden="true" focusable="false"><path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>') + '</button>' +
                 '<div class="dga-dp-title" aria-live="polite">' + L.months[m] + ' ' + y + '</div>' +
                 '<button type="button" class="dga-dp-nav" data-nav="1" aria-label="' + L.next + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="' + (isAr ? '15 18 9 12 15 6' : '9 18 15 12 9 6') + '"/></svg></button></div>';
             h += '<table class="dga-dp-grid" role="grid"><thead><tr>';

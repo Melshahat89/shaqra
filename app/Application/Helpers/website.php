@@ -1135,3 +1135,44 @@ function formatPhone($phone) {
     }
     return $phone;
 }
+
+/**
+ * DGA Platforms Code icon (Hugeicons stroke-rounded — same library as the approved su.edu.sa theme).
+ * Renders an inline 24px SVG from app/Application/Helpers/dga-icons-map.php.
+ *
+ * @param string $name   Hugeicons name, e.g. 'search-01', 'arrow-left-01'
+ * @param string $class  extra classes
+ * @param array  $attrs  extra attributes (width, height, aria-label …)
+ */
+function dgaIcon(string $name, string $class = '', array $attrs = []): string
+{
+    static $map = null;
+    if ($map === null) {
+        $map = require __DIR__ . '/dga-icons-map.php';
+    }
+    if (!isset($map[$name])) {
+        return '';
+    }
+    // keep icons square; ignore bogus tiny sizes
+    if (isset($attrs['width']) && !isset($attrs['height'])) { $attrs['height'] = $attrs['width']; }
+    if (isset($attrs['height']) && !isset($attrs['width'])) { $attrs['width'] = $attrs['height']; }
+    if (isset($attrs['width']) && (int) $attrs['width'] < 8) { unset($attrs['width'], $attrs['height']); }
+    $a = array_merge([
+        'viewBox'   => '0 0 24 24',
+        'width'     => '24',
+        'height'    => '24',
+        'fill'      => 'none',
+        'focusable' => 'false',
+    ], $attrs);
+    if (!isset($a['aria-label'])) {
+        $a['aria-hidden'] = 'true';
+    } else {
+        $a['role'] = 'img';
+    }
+    $a['class'] = trim('hgi hgi-' . $name . ' ' . $class);
+    $attrStr = '';
+    foreach ($a as $k => $v) {
+        $attrStr .= ' ' . $k . '="' . htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8') . '"';
+    }
+    return '<svg' . $attrStr . '>' . $map[$name] . '</svg>';
+}

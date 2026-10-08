@@ -30,7 +30,7 @@
             <div class="dga-hero-text">
                 <div style="margin-bottom:var(--dga-space-4);">
                     <span class="dga-badge dga-badge-new" style="font-size:0.82rem;padding:6px 14px;">
-                        ✦ {{ getSetting('siteTitle') }}
+                        {!! dgaIcon('star', '', ['width' => 18, 'height' => 18]) !!} {{ getSetting('siteTitle') }}
                     </span>
                 </div>
 
@@ -132,40 +132,40 @@
             </div>
             <div class="dga-services-grid">
                 <a href="{{ url('/professional-certificates/category') }}" class="dga-service-card">
-                    <span class="dga-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+                    <span class="dga-service-icon" aria-hidden="true">{!! dgaIcon('certificate-01', '') !!}</span>
                     <h3>الشهادات الاحترافية</h3>
                     <p>برامج تدريبية معتمدة تمنحك شهادة احترافية من جامعة شقراء في تخصصك.</p>
-                    <span class="dga-service-cta">ابدأ الخدمة <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+                    <span class="dga-service-cta">ابدأ الخدمة {!! dgaIcon('arrow-left-02', '') !!}</span>
                 </a>
                 <a href="{{ url('/allcourses/category') }}" class="dga-service-card">
-                    <span class="dga-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+                    <span class="dga-service-icon" aria-hidden="true">{!! dgaIcon('book-02', '') !!}</span>
                     <h3>تصفح الدورات التدريبية</h3>
                     <p>أكثر من 1,000 دورة في مختلف المجالات، تعلّم في أي وقت ومن أي جهاز.</p>
-                    <span class="dga-service-cta">ابدأ الخدمة <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+                    <span class="dga-service-cta">ابدأ الخدمة {!! dgaIcon('arrow-left-02', '') !!}</span>
                 </a>
                 <a href="{{ url('/subscriptions') }}" class="dga-service-card">
-                    <span class="dga-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+                    <span class="dga-service-icon" aria-hidden="true">{!! dgaIcon('credit-card', '') !!}</span>
                     <h3>الاشتراك في المنصة</h3>
                     <p>اشتراك شهري أو سنوي يتيح لك الوصول غير المحدود لجميع الدورات.</p>
-                    <span class="dga-service-cta">ابدأ الخدمة <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+                    <span class="dga-service-cta">ابدأ الخدمة {!! dgaIcon('arrow-left-02', '') !!}</span>
                 </a>
                 <a href="{{ url('/verifycertificate') }}" class="dga-service-card">
-                    <span class="dga-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+                    <span class="dga-service-icon" aria-hidden="true">{!! dgaIcon('security-check', '') !!}</span>
                     <h3>التحقق من الشهادة</h3>
                     <p>تحقق من صحة أي شهادة صادرة عن المنصة عبر رقم الشهادة.</p>
-                    <span class="dga-service-cta">ابدأ الخدمة <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+                    <span class="dga-service-cta">ابدأ الخدمة {!! dgaIcon('arrow-left-02', '') !!}</span>
                 </a>
                 <a href="{{ url('/instructors/All') }}" class="dga-service-card">
-                    <span class="dga-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    <span class="dga-service-icon" aria-hidden="true">{!! dgaIcon('user-multiple', '') !!}</span>
                     <h3>المدربون والخبراء</h3>
                     <p>تعرّف على نخبة المدربين المعتمدين واستعرض برامجهم التدريبية.</p>
-                    <span class="dga-service-cta">ابدأ الخدمة <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+                    <span class="dga-service-cta">ابدأ الخدمة {!! dgaIcon('arrow-left-02', '') !!}</span>
                 </a>
                 <a href="{{ url('/contact') }}" class="dga-service-card">
-                    <span class="dga-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                    <span class="dga-service-icon" aria-hidden="true">{!! dgaIcon('comment-01', '') !!}</span>
                     <h3>الدعم والتواصل</h3>
                     <p>فريق الدعم متاح للإجابة على استفساراتك وتلقّي ملاحظاتك ومقترحاتك.</p>
-                    <span class="dga-service-cta">ابدأ الخدمة <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+                    <span class="dga-service-cta">ابدأ الخدمة {!! dgaIcon('arrow-left-02', '') !!}</span>
                 </a>
             </div>
         </div>

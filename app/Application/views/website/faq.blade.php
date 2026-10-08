@@ -11,7 +11,7 @@
         <div class="dga-page-hero-inner">
             <nav class="dga-breadcrumb" aria-label="مسار التنقل">
                 <a href="{{ url('/') }}">الرئيسية</a>
-                <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                {!! dgaIcon('arrow-left-01', '', ['height' => 16]) !!}
                 <span aria-current="page">الأسئلة الشائعة</span>
             </nav>
             <h1 class="dga-page-title">الأسئلة الشائعة</h1>
@@ -27,7 +27,7 @@
                 <details class="dga-faq-item">
                     <summary>
                         <span>{{ $item->question_lang }}</span>
-                        <svg class="dga-faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                        {!! dgaIcon('arrow-down-01', 'dga-faq-icon', ['height' => 16]) !!}
                     </summary>
                     <div class="dga-faq-body">
                         {!! $item->answer_lang !!}
@@ -43,7 +43,7 @@
                 <h3>لم تجد إجابتك؟</h3>
                 <p>فريقنا متاح للإجابة على جميع استفساراتك</p>
                 <a href="{{ url('contact') }}" class="dga-btn dga-btn-green">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    {!! dgaIcon('comment-01', '', ['width' => 14, 'height' => 14]) !!}
                     تواصل معنا
                 </a>
             </div>

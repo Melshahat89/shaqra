@@ -11,7 +11,7 @@
         <div class="dga-page-hero-inner">
             <nav class="dga-breadcrumb" aria-label="مسار التنقل">
                 <a href="{{ url('/') }}">الرئيسية</a>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                {!! dgaIcon('arrow-left-01', '', ['width' => 16, 'height' => 16]) !!}
                 <span aria-current="page">خريطة الموقع</span>
             </nav>
             <h1 class="dga-page-title">خريطة الموقع</h1>
@@ -36,7 +36,7 @@
 
                 <section class="dga-card dga-sitemap-group" aria-labelledby="sm-main">
                     <h2 id="sm-main">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        {!! dgaIcon('home-01', '') !!}
                         الصفحات الرئيسية
                     </h2>
                     <ul>
@@ -52,7 +52,7 @@
 
                 <section class="dga-card dga-sitemap-group" aria-labelledby="sm-cats">
                     <h2 id="sm-cats">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        {!! dgaIcon('layers-01', '') !!}
                         تصنيفات الدورات
                     </h2>
                     <ul>
@@ -77,7 +77,7 @@
 
                 <section class="dga-card dga-sitemap-group" aria-labelledby="sm-services">
                     <h2 id="sm-services">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        {!! dgaIcon('security-check', '') !!}
                         الخدمات
                     </h2>
                     <ul>
@@ -91,7 +91,7 @@
 
                 <section class="dga-card dga-sitemap-group" aria-labelledby="sm-account">
                     <h2 id="sm-account">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        {!! dgaIcon('user', '') !!}
                         حسابي
                     </h2>
                     <ul>
@@ -112,7 +112,7 @@
 
                 <section class="dga-card dga-sitemap-group" aria-labelledby="sm-policies">
                     <h2 id="sm-policies">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        {!! dgaIcon('file-02', '') !!}
                         الشروط والسياسات
                     </h2>
                     <ul>
@@ -126,7 +126,7 @@
 
                 <section class="dga-card dga-sitemap-group" aria-labelledby="sm-external">
                     <h2 id="sm-external">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        {!! dgaIcon('link-square-02', '') !!}
                         روابط رسمية
                     </h2>
                     <ul>

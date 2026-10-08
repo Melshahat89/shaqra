@@ -13,14 +13,14 @@
         <div class="dga-page-hero-inner">
             <nav class="dga-breadcrumb" aria-label="مسار التنقل">
                 <a href="{{ url('/') }}">الرئيسية</a>
-                <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                {!! dgaIcon('arrow-left-01', '', ['height' => 16]) !!}
                 <span aria-current="page">{{ trans('home.become an instructor') }}</span>
             </nav>
             <h1 class="dga-page-title">{{ trans('home.become an instructor') }}</h1>
             <p class="dga-page-sub">{{ trans('website.Medical training and rehabilitation') }}</p>
             <div style="margin-top:24px;">
                 <a href="#applynow" class="dga-btn dga-btn-gold">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                    {!! dgaIcon('user-multiple', '', ['width' => 16, 'height' => 16]) !!}
                     {{ trans('Join Us Now') }}
                 </a>
             </div>
@@ -52,12 +52,12 @@
             <div class="dga-why-grid" style="grid-template-columns: repeat(3, 1fr);">
                 @php
                     $benefits = [
-                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>', 't'=>'A great addition to your C.V', 'd'=>'HR managers are always looking for energetic employees who do different jobs to serve their communities'],
-                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', 't'=>'Self-confidence', 'd'=>'When you see the positive interaction of the trainees with your distinguished courses, this will increase your self-confidence and thus increase your functional and social skills.'],
-                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>', 't'=>'Experience', 'd'=>'By offering online courses, you prove your distinguished expertise in your field, and this is what human resource managers are looking for.'],
-                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>', 't'=>'Improve your performance', 'd'=>'When you see yourself in the educational videos in your online courses, your style as a professional trainer in communicating information improves automatically.'],
-                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>', 't'=>'Featured Tools', 'd'=>'IGTS provides the tools needed to create courses and we will help you at every step of the way to create professional courses.'],
-                        ['icon' => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>', 't'=>'Special Support', 'd'=>'We offer you special support as a coach to help you become a professional coach through the IGTS website, so we are always in touch to provide the best for the trainees'],
+                        ['icon' => dgaIcon('certificate-01', '', ['height' => 28]), 't'=>'A great addition to your C.V', 'd'=>'HR managers are always looking for energetic employees who do different jobs to serve their communities'],
+                        ['icon' => dgaIcon('star', '', ['height' => 28]), 't'=>'Self-confidence', 'd'=>'When you see the positive interaction of the trainees with your distinguished courses, this will increase your self-confidence and thus increase your functional and social skills.'],
+                        ['icon' => dgaIcon('user-multiple', '', ['height' => 28]), 't'=>'Experience', 'd'=>'By offering online courses, you prove your distinguished expertise in your field, and this is what human resource managers are looking for.'],
+                        ['icon' => dgaIcon('activity-01', '', ['height' => 28]), 't'=>'Improve your performance', 'd'=>'When you see yourself in the educational videos in your online courses, your style as a professional trainer in communicating information improves automatically.'],
+                        ['icon' => dgaIcon('laptop', '', ['height' => 28]), 't'=>'Featured Tools', 'd'=>'IGTS provides the tools needed to create courses and we will help you at every step of the way to create professional courses.'],
+                        ['icon' => dgaIcon('target-02', '', ['height' => 28]), 't'=>'Special Support', 'd'=>'We offer you special support as a coach to help you become a professional coach through the IGTS website, so we are always in touch to provide the best for the trainees'],
                     ];
                 @endphp
                 @foreach($benefits as $b)
