@@ -72,7 +72,7 @@
     <link href="{{ asset('website') }}/css/front/dga-design-system.css?v=9.0" rel="stylesheet">
     <link href="{{ asset('website') }}/css/front/dga-overrides.css?v=9.0" rel="stylesheet">
     {{-- ══ DGA Platforms Code (كود المنصات) v1.0 — tokens + components, loaded last ══ --}}
-    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=4.0" rel="stylesheet">
+    <link href="{{ asset('website') }}/css/front/dga-platforms-code.css?v=4.1" rel="stylesheet">
     <script src="{{ asset('website') }}/js/dga-platforms-code.js?v=3.0" defer></script>
     <script src="{{ asset('website') }}/js/dga-hgi-map.js?v=4.0" defer></script>
     <script src="{{ asset('website') }}/js/dga-icons.js?v=4.0" defer></script>

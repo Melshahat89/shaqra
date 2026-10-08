@@ -117,9 +117,6 @@
                 <a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener" class="dga-no-ext" aria-label="{{ $isAr ? 'رؤية المملكة 2030 (رابط خارجي)' : 'Saudi Vision 2030 (external link)' }}">
                     <img src="{{ asset('website') }}/images/2030.svg" alt="{{ $isAr ? 'رؤية المملكة 2030' : 'Saudi Vision 2030' }}" class="dga-ft-logo">
                 </a>
-                <a href="{{ url('/') }}" aria-label="{{ $isAr ? 'منصة مهني — الرئيسية' : 'Mehani platform — Home' }}">
-                    <img src="{{ asset('website') }}/images/logonew2.webp" alt="{{ $isAr ? 'منصة مهني للشهادات الاحترافية' : 'Mehani Professional Certificates Platform' }}" class="dga-ft-logo">
-                </a>
             </div>
         </div>
 
