@@ -41,6 +41,12 @@ return [
     'debug' => env('APP_DEBUG', false),
 
     /*
+    | Temporarily disable all payments and show a maintenance notice on the
+    | homepage. Set PAYMENTS_DISABLED=false in .env to re-enable.
+    */
+    'payments_disabled' => env('PAYMENTS_DISABLED', false),
+
+    /*
     |--------------------------------------------------------------------------
     | Application URL
     |--------------------------------------------------------------------------

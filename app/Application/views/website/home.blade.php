@@ -518,6 +518,8 @@
 
     </div>
 
+    @include('website.partials-maintenance-notice')
+
 </div>
 
 {{-- Scroll to top --}}

@@ -629,6 +629,8 @@
 </section>
 @endif
 
+@include('website.partials-maintenance-notice')
+
 </div>
 </div>
 
